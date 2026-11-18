@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "scope": "initial common implementation only",
+  "regression": {
+    "command": [
+      "/root/my-project/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "--tb=short",
+      "--junitxml=results/validation/regression.xml"
+    ],
+    "exit_code": 0,
+    "counts": {
+      "tests": 287,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "environment": {
+      "os": "Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41",
+      "cpu": "aarch64",
+      "machine": "aarch64",
+      "logical_cpu_count": 8,
+      "ram_bytes": 11761999872,
+      "python": "3.13.5",
+      "python_executable": "/root/my-project/.venv/bin/python",
+      "packages": {
+        "numpy": "2.5.5",
+        "networkx": "3.7",
+        "scipy": "1.18.1",
+        "pytest": "9.2.0",
+        "nbformat": "5.11.1",
+        "nbclient": "0.11.0",
+        "ipykernel": "7.4.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1"
+      }
+    },
+    "policy": "evaluation-v2",
+    "worker_architecture": "direct evaluation, one worker, total RSS",
+    "scope": "initial common-system smoke validation; no main experiments"
+  },
+  "exact_records": 4,
+  "notebook": {
+    "status": "passed",
+    "kernel": "protection-study",
+    "python": "/root/my-project/.venv/bin/python",
+    "notebook": "notebooks/submission.ipynb",
+    "executed_notebook": "results/validation/submission-executed.ipynb",
+    "code_cells": 5,
+    "errors": [],
+    "scope": "initial smoke only; members not implemented; no main experiments"
+  },
+  "evidence": [
+    "results/validation/regression.json",
+    "results/validation/exact.json",
+    "results/validation/runner.json",
+    "results/validation/common.json",
+    "results/validation/notebook.json",
+    "results/validation/submission-executed.ipynb"
+  ],
+  "quickstart_reproduction": "Real CLI pipeline on fresh temporary paths and clean-kernel notebook via pytest",
+  "external_gates": {
+    "T054": "Operational inputs and long-run approval not supplied",
+    "T055": "Main bank not prepared",
+    "T056": "Actual three submissions absent",
+    "T060": "Final research acceptance requires T054-T056"
+  }
+}

@@ -1,0 +1,64 @@
+
+==================================== ERRORS ====================================
+___________ ERROR collecting tests/contract/test_member_contract.py ____________
+ImportError while importing test module '/root/my-project/tests/contract/test_member_contract.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/contract/test_member_contract.py:6: in <module>
+    from protection.runner import run_submission
+E   ImportError: cannot import name 'run_submission' from 'protection.runner' (/root/my-project/protection/runner.py)
+___________ ERROR collecting tests/integration/test_worker_timing.py ___________
+ImportError while importing test module '/root/my-project/tests/integration/test_worker_timing.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/integration/test_worker_timing.py:5: in <module>
+    from protection.runner import run_submission
+E   ImportError: cannot import name 'run_submission' from 'protection.runner' (/root/my-project/protection/runner.py)
+___________ ERROR collecting tests/integration/test_worker_memory.py ___________
+ImportError while importing test module '/root/my-project/tests/integration/test_worker_memory.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/integration/test_worker_memory.py:1: in <module>
+    from test_worker_timing import run
+tests/integration/test_worker_timing.py:5: in <module>
+    from protection.runner import run_submission
+E   ImportError: cannot import name 'run_submission' from 'protection.runner' (/root/my-project/protection/runner.py)
+________ ERROR collecting tests/integration/test_submission_failures.py ________
+ImportError while importing test module '/root/my-project/tests/integration/test_submission_failures.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/integration/test_submission_failures.py:2: in <module>
+    from test_worker_timing import run
+tests/integration/test_worker_timing.py:5: in <module>
+    from protection.runner import run_submission
+E   ImportError: cannot import name 'run_submission' from 'protection.runner' (/root/my-project/protection/runner.py)
+_________ ERROR collecting tests/integration/test_repeat_isolation.py __________
+ImportError while importing test module '/root/my-project/tests/integration/test_repeat_isolation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/integration/test_repeat_isolation.py:2: in <module>
+    from protection.runner import grade_manifest
+E   ImportError: cannot import name 'grade_manifest' from 'protection.runner' (/root/my-project/protection/runner.py)
+=========================== short test summary info ============================
+ERROR tests/contract/test_member_contract.py
+ERROR tests/integration/test_worker_timing.py
+ERROR tests/integration/test_worker_memory.py
+ERROR tests/integration/test_submission_failures.py
+ERROR tests/integration/test_repeat_isolation.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!
+5 errors in 0.39s

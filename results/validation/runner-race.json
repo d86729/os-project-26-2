@@ -1,0 +1,1092 @@
+[
+  {
+    "run_id": "e14bde2e96da4a808d077bcbe2aaade7",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:30.944394+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.020501231,
+    "preparation_seconds": 2.178502999988268,
+    "final_scoring_seconds": 0.041247076995205134,
+    "shutdown_seconds": 0.012729616006254219,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21368832,
+    "evaluation_peak_rss_bytes": 66506752,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113802314740243,
+    "final_received_monotonic_ns": 113802335241474,
+    "deadline_monotonic_ns": 113803314740243,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 22.544923,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11629",
+      "evaluation_pid=11630",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "14c0ff0f4b634267a9c271011f5c7bd5",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:33.690996+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.023998462,
+    "preparation_seconds": 2.654823769000359,
+    "final_scoring_seconds": 0.030421307994402014,
+    "shutdown_seconds": 0.008668615002534352,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21377024,
+    "evaluation_peak_rss_bytes": 66629632,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113805061365782,
+    "final_received_monotonic_ns": 113805085364244,
+    "deadline_monotonic_ns": 113806061365782,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 20.224846,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11675",
+      "evaluation_pid=11676",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "1e0135c3363947c8af2c8fa93403ddb4",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:35.686362+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.040783692,
+    "preparation_seconds": 1.9214424620004138,
+    "final_scoring_seconds": 0.0564434620027896,
+    "shutdown_seconds": 0.016308306992868893,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21372928,
+    "evaluation_peak_rss_bytes": 66629632,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113807056707859,
+    "final_received_monotonic_ns": 113807097491551,
+    "deadline_monotonic_ns": 113808056707859,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 29.377154,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11719",
+      "evaluation_pid=11720",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "36d51a2ad1844933897919acadf8bc80",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:37.255084+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.022712077,
+    "preparation_seconds": 1.431246153995744,
+    "final_scoring_seconds": 0.03411269199568778,
+    "shutdown_seconds": 0.012333923004916869,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21372928,
+    "evaluation_peak_rss_bytes": 66576384,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113808625449705,
+    "final_received_monotonic_ns": 113808648161782,
+    "deadline_monotonic_ns": 113809625449705,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 25.254384,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11721",
+      "evaluation_pid=11722",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "47b234dd74d5464e8dcbd894c99556f9",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:38.647982+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.024244385,
+    "preparation_seconds": 1.3133026930008782,
+    "final_scoring_seconds": 0.030981845993665047,
+    "shutdown_seconds": 0.01145661500049755,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21364736,
+    "evaluation_peak_rss_bytes": 67256320,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113810018348167,
+    "final_received_monotonic_ns": 113810042592552,
+    "deadline_monotonic_ns": 113811018348167,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 19.788615,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11727",
+      "evaluation_pid=11728",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "8e50d4971d934d61901a2d49c738c025",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:41.844972+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.014608923,
+    "preparation_seconds": 3.118740000994876,
+    "final_scoring_seconds": 0.01442061499983538,
+    "shutdown_seconds": 0.005121231006341986,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21413888,
+    "evaluation_peak_rss_bytes": 66613248,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113813215340244,
+    "final_received_monotonic_ns": 113813229949167,
+    "deadline_monotonic_ns": 113814215340244,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 12.445154,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11729",
+      "evaluation_pid=11730",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "b9f7c24dd6684abda7091089f6902055",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:43.007517+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.008692924,
+    "preparation_seconds": 1.124935154002742,
+    "final_scoring_seconds": 0.01803176899557002,
+    "shutdown_seconds": 0.005799769001896493,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21381120,
+    "evaluation_peak_rss_bytes": 66588672,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113814377884859,
+    "final_received_monotonic_ns": 113814386577783,
+    "deadline_monotonic_ns": 113815377884859,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 16.515384,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11787",
+      "evaluation_pid=11788",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "98b26b7a8b134953b61a62b3b918bd95",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:44.083565+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.007721538,
+    "preparation_seconds": 1.040552538994234,
+    "final_scoring_seconds": 0.01378976900014095,
+    "shutdown_seconds": 0.005914077002671547,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21417984,
+    "evaluation_peak_rss_bytes": 66625536,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113815453934706,
+    "final_received_monotonic_ns": 113815461656244,
+    "deadline_monotonic_ns": 113816453934706,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 11.764923,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11791",
+      "evaluation_pid=11792",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "ea614876e8404e8c9d1c1f3224e78ead",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:45.399831+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.028747462,
+    "preparation_seconds": 1.2854433839966077,
+    "final_scoring_seconds": 0.03787992299476173,
+    "shutdown_seconds": 0.007007691994658671,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21405696,
+    "evaluation_peak_rss_bytes": 66564096,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113816770199244,
+    "final_received_monotonic_ns": 113816798946706,
+    "deadline_monotonic_ns": 113817770199244,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 24.111077,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11793",
+      "evaluation_pid=11794",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  },
+  {
+    "run_id": "19f3c125d1a54a05bea4f631120c6c18",
+    "condition": {
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "budget_percent": 40,
+      "budget": 4,
+      "method": "member_1",
+      "limit_seconds": 1,
+      "algorithm_memory_limit_bytes": 4000000000
+    },
+    "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+    "schema_version": 1,
+    "status": "completed",
+    "termination_reason": "final_received",
+    "started_at": "2026-11-17T23:15:46.535013+00:00",
+    "environment": [
+      [
+        "os",
+        "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+      ],
+      [
+        "cpu",
+        "\"aarch64\""
+      ],
+      [
+        "machine",
+        "\"aarch64\""
+      ],
+      [
+        "logical_cpu_count",
+        "8"
+      ],
+      [
+        "ram_bytes",
+        "11761999872"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/root/my-project/.venv/bin/python\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "submitted_protected_ids": [],
+    "submitted_evaluation": {
+      "protected_ids": [],
+      "cost": 0,
+      "connected_pairs": 0,
+      "connected_ratio": 0.0,
+      "delivered_mbps": -0.0,
+      "delivery_ratio": -0.0,
+      "delivery_units": 0,
+      "worst_attack": [
+        0.4,
+        0.0
+      ]
+    },
+    "recovered_protected_ids": null,
+    "recovered_evaluation": null,
+    "best_protected_ids": null,
+    "best_evaluation": null,
+    "upper_bound": null,
+    "optimality_proven": false,
+    "evaluated_combinations": 0,
+    "evaluation_calls": 1,
+    "cache_hits": 4,
+    "search_seconds": 0.007099154,
+    "preparation_seconds": 1.0494563079992076,
+    "final_scoring_seconds": 0.016605768993031234,
+    "shutdown_seconds": 0.005690461999620311,
+    "exact_peak_rss_bytes": null,
+    "algorithm_peak_rss_bytes": 21385216,
+    "evaluation_peak_rss_bytes": 66580480,
+    "algorithm_memory_limit_bytes": 4000000000,
+    "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole process",
+    "checkpoint_received_elapsed": null,
+    "error_type": null,
+    "error_message": null,
+    "solver_diagnostics": null,
+    "algorithm_seed": null,
+    "repeat_index": 0,
+    "repeat_count": 1,
+    "run_kind": "smoke",
+    "policy_version": "evaluation-v2",
+    "submission_sha256": "7abbc366e1d0381607b3c7bb3ed45bd04848d1af95d0a4d6d36887e2e735099a",
+    "t0_monotonic_ns": 113817905383860,
+    "final_received_monotonic_ns": 113817912483014,
+    "deadline_monotonic_ns": 113818905383860,
+    "memory_sample_interval_ms": 10,
+    "observed_max_sample_gap_ms": 11.221,
+    "resource_monitor_supported": true,
+    "events": [
+      "algorithm_pid=11803",
+      "evaluation_pid=11804",
+      "evaluation_initial_cache_size=0",
+      "search_termination=final_received"
+    ],
+    "launch_status": "started"
+  }
+]

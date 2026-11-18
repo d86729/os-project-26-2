@@ -1,0 +1,503 @@
+{
+  "scope": "T006/T012/T017/T018 numeric validation only; not main research",
+  "environment": {
+    "os": "Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41",
+    "cpu": "aarch64",
+    "machine": "aarch64",
+    "logical_cpu_count": 8,
+    "ram_bytes": 11761999872,
+    "python": "3.13.5",
+    "python_executable": "/root/my-project/.venv/bin/python",
+    "packages": {
+      "numpy": "2.5.5",
+      "networkx": "3.7",
+      "scipy": "1.18.1",
+      "pytest": "9.2.0",
+      "nbformat": "5.11.1",
+      "nbclient": "0.11.0",
+      "ipykernel": "7.4.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  },
+  "real_solver_cases": [
+    {
+      "n": 3,
+      "seed": 0,
+      "surviving": "empty",
+      "scenario_id": "53496e5a9c49e3016a988fcb50c44f0ffe8619973d24bddb56f57d4a3c40d51e",
+      "surviving_ids": [],
+      "result": {
+        "delivered_mbps": -0.0,
+        "delivery_ratio": -0.0,
+        "delivery_units": 0,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": -0.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 0,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 0,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.006992923008510843
+        }
+      }
+    },
+    {
+      "n": 3,
+      "seed": 0,
+      "surviving": "all",
+      "scenario_id": "53496e5a9c49e3016a988fcb50c44f0ffe8619973d24bddb56f57d4a3c40d51e",
+      "surviving_ids": [
+        0,
+        1,
+        2
+      ],
+      "result": {
+        "delivered_mbps": 34.0,
+        "delivery_ratio": 1.0,
+        "delivery_units": 1000000,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 34.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 34,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 34,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.005366846002289094
+        }
+      }
+    },
+    {
+      "n": 3,
+      "seed": 0,
+      "surviving": "even",
+      "scenario_id": "53496e5a9c49e3016a988fcb50c44f0ffe8619973d24bddb56f57d4a3c40d51e",
+      "surviving_ids": [
+        0,
+        2
+      ],
+      "result": {
+        "delivered_mbps": 34.0,
+        "delivery_ratio": 1.0,
+        "delivery_units": 1000000,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 34.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 34,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 34,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.0048913850041572005
+        }
+      }
+    },
+    {
+      "n": 3,
+      "seed": 0,
+      "surviving": "odd",
+      "scenario_id": "53496e5a9c49e3016a988fcb50c44f0ffe8619973d24bddb56f57d4a3c40d51e",
+      "surviving_ids": [
+        1
+      ],
+      "result": {
+        "delivered_mbps": 29.0,
+        "delivery_ratio": 0.8529411764705882,
+        "delivery_units": 852941,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 29.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 29,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 29,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.004325846006395295
+        }
+      }
+    },
+    {
+      "n": 6,
+      "seed": 0,
+      "surviving": "empty",
+      "scenario_id": "562d0916e75f7e72dddf944df51b9afe683ca6a0f7817e57900e01e6dabbc277",
+      "surviving_ids": [],
+      "result": {
+        "delivered_mbps": -0.0,
+        "delivery_ratio": -0.0,
+        "delivery_units": 0,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": -0.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 0,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 0,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.004497460991842672
+        }
+      }
+    },
+    {
+      "n": 6,
+      "seed": 0,
+      "surviving": "all",
+      "scenario_id": "562d0916e75f7e72dddf944df51b9afe683ca6a0f7817e57900e01e6dabbc277",
+      "surviving_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "result": {
+        "delivered_mbps": 66.0,
+        "delivery_ratio": 0.8354430379746836,
+        "delivery_units": 835443,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 66.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 66,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 66,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.010176230993238278
+        }
+      }
+    },
+    {
+      "n": 6,
+      "seed": 0,
+      "surviving": "even",
+      "scenario_id": "562d0916e75f7e72dddf944df51b9afe683ca6a0f7817e57900e01e6dabbc277",
+      "surviving_ids": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "result": {
+        "delivered_mbps": 25.0,
+        "delivery_ratio": 0.31645569620253167,
+        "delivery_units": 316456,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 25.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 25,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 25,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.007984000010765158
+        }
+      }
+    },
+    {
+      "n": 6,
+      "seed": 0,
+      "surviving": "odd",
+      "scenario_id": "562d0916e75f7e72dddf944df51b9afe683ca6a0f7817e57900e01e6dabbc277",
+      "surviving_ids": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "result": {
+        "delivered_mbps": 34.0,
+        "delivery_ratio": 0.43037974683544306,
+        "delivery_units": 430380,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 34.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 34,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 34,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.007002846003160812
+        }
+      }
+    },
+    {
+      "n": 8,
+      "seed": 0,
+      "surviving": "empty",
+      "scenario_id": "61134fb52bf5855f97971b9419e6f9d897aef8482f67725649edeb4354900523",
+      "surviving_ids": [],
+      "result": {
+        "delivered_mbps": -0.0,
+        "delivery_ratio": -0.0,
+        "delivery_units": 0,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": -0.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 0,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 0,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.004518384987022728
+        }
+      }
+    },
+    {
+      "n": 8,
+      "seed": 0,
+      "surviving": "all",
+      "scenario_id": "61134fb52bf5855f97971b9419e6f9d897aef8482f67725649edeb4354900523",
+      "surviving_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "result": {
+        "delivered_mbps": 89.0,
+        "delivery_ratio": 1.0,
+        "delivery_units": 1000000,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 89.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 89,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 89,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.014869537990307435
+        }
+      }
+    },
+    {
+      "n": 8,
+      "seed": 0,
+      "surviving": "even",
+      "scenario_id": "61134fb52bf5855f97971b9419e6f9d897aef8482f67725649edeb4354900523",
+      "surviving_ids": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "result": {
+        "delivered_mbps": 31.0,
+        "delivery_ratio": 0.34831460674157305,
+        "delivery_units": 348315,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 31.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 31,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 31,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.01043292299436871
+        }
+      }
+    },
+    {
+      "n": 8,
+      "seed": 0,
+      "surviving": "odd",
+      "scenario_id": "61134fb52bf5855f97971b9419e6f9d897aef8482f67725649edeb4354900523",
+      "surviving_ids": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "result": {
+        "delivered_mbps": 59.0,
+        "delivery_ratio": 0.6629213483146067,
+        "delivery_units": 662921,
+        "diagnostics": {
+          "success": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "attempts": 1,
+          "raw_delivered_mbps": 59.0,
+          "maximum_residual": 0.0,
+          "certified_lower": {
+            "numerator": 59,
+            "denominator": 1
+          },
+          "certified_upper": {
+            "numerator": 59,
+            "denominator": 1
+          },
+          "certificate_status": "certified",
+          "elapsed_seconds": 0.009610076987883076
+        }
+      }
+    }
+  ],
+  "test_runs": [
+    {
+      "command": [
+        "/root/my-project/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/unit/test_flow.py",
+        "tests/unit/test_policy.py",
+        "tests/unit/test_numeric_policy.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "log": "results/validation/numeric-focused.txt",
+      "stdout": ".............................                                            [100%]\n=============================== warnings summary ===============================\ntests/unit/test_flow.py::test_shared_direction_and_independent_reverse\ntests/unit/test_flow.py::test_split_paths_and_demand_caps\ntests/unit/test_flow.py::test_disconnected_network_is_real_zero\ntests/unit/test_numeric_policy.py::test_real_generated_certificates[3]\ntests/unit/test_numeric_policy.py::test_real_generated_certificates[6]\ntests/unit/test_numeric_policy.py::test_real_generated_certificates[8]\ntests/unit/test_numeric_policy.py::test_deadline_expiring_in_certificate_rejects_result\n  /root/my-project/protection/flow.py:191: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    result = linprog(lp.c, A_ub=lp.G, b_ub=lp.b,\n\ntests/unit/test_flow.py::test_nonfinite_and_residual_failure\n  /root/my-project/tests/unit/test_flow.py:53: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r=real(*a,**k); r.x[0]=float('nan'); return r\n\ntests/unit/test_flow.py::test_nonfinite_and_residual_failure\n  /root/my-project/tests/unit/test_flow.py:57: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r=real(*a,**k); r.x[0]=100.; return r\n\ntests/unit/test_numeric_policy.py::test_real_solver_sparse_options_and_exact_certificate\n  /root/my-project/tests/unit/test_numeric_policy.py:28: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*args, **kwargs)\n\ntests/unit/test_numeric_policy.py::test_real_fractional_midpoints_and_sign_equation\n  /root/my-project/tests/unit/test_numeric_policy.py:62: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    result = f.linprog(lp.c, A_ub=lp.G, b_ub=lp.b, bounds=[(0, 1)],\n\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[ineqlin]\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[eqlin]\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[lower]\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[upper]\n  /root/my-project/tests/unit/test_numeric_policy.py:74: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw)\n\ntests/unit/test_numeric_policy.py::test_retry_presolve_false_after_certificate_failure\n  /root/my-project/tests/unit/test_numeric_policy.py:90: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw)\n\ntests/unit/test_numeric_policy.py::test_feasible_but_ambiguous_interval_retried\n  /root/my-project/tests/unit/test_numeric_policy.py:106: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw); calls.append(kw['options']['presolve'])\n\ntests/unit/test_numeric_policy.py::test_residual_tolerance_does_not_replace_exact_feasibility[1e-08-certificate_failed]\ntests/unit/test_numeric_policy.py::test_residual_tolerance_does_not_replace_exact_feasibility[2e-07-residual_failed]\n  /root/my-project/tests/unit/test_numeric_policy.py:120: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw); r.x[0] += delta; r.fun -= delta\n\ntests/unit/test_numeric_policy.py::test_nonfinite_objective_or_dual[fun]\ntests/unit/test_numeric_policy.py::test_nonfinite_objective_or_dual[dual]\n  /root/my-project/tests/unit/test_numeric_policy.py:132: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw)\n\ntests/unit/test_numeric_policy.py::test_deadline_expiring_in_solver_rejects_result\n  /root/my-project/tests/unit/test_numeric_policy.py:147: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw); clock[0] = 2.; return r\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n29 passed, 22 warnings in 2.05s\n",
+      "stderr": "",
+      "exclusions": []
+    },
+    {
+      "command": [
+        "/root/my-project/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "log": "results/validation/numeric-regression.txt",
+      "stdout": "........................................................................ [ 46%]\n........................................................................ [ 92%]\n...........                                                              [100%]\n=============================== warnings summary ===============================\ntests/unit/test_evaluation.py::test_cache_equal_and_new_condition_empty\ntests/unit/test_flow.py::test_shared_direction_and_independent_reverse\ntests/unit/test_flow.py::test_split_paths_and_demand_caps\ntests/unit/test_flow.py::test_disconnected_network_is_real_zero\ntests/unit/test_numeric_policy.py::test_real_generated_certificates[3]\ntests/unit/test_numeric_policy.py::test_real_generated_certificates[6]\ntests/unit/test_numeric_policy.py::test_real_generated_certificates[8]\ntests/unit/test_numeric_policy.py::test_deadline_expiring_in_certificate_rejects_result\n  /root/my-project/protection/flow.py:191: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    result = linprog(lp.c, A_ub=lp.G, b_ub=lp.b,\n\ntests/unit/test_flow.py::test_nonfinite_and_residual_failure\n  /root/my-project/tests/unit/test_flow.py:53: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r=real(*a,**k); r.x[0]=float('nan'); return r\n\ntests/unit/test_flow.py::test_nonfinite_and_residual_failure\n  /root/my-project/tests/unit/test_flow.py:57: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r=real(*a,**k); r.x[0]=100.; return r\n\ntests/unit/test_numeric_policy.py::test_real_solver_sparse_options_and_exact_certificate\n  /root/my-project/tests/unit/test_numeric_policy.py:28: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*args, **kwargs)\n\ntests/unit/test_numeric_policy.py::test_real_fractional_midpoints_and_sign_equation\n  /root/my-project/tests/unit/test_numeric_policy.py:62: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    result = f.linprog(lp.c, A_ub=lp.G, b_ub=lp.b, bounds=[(0, 1)],\n\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[ineqlin]\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[eqlin]\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[lower]\ntests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[upper]\n  /root/my-project/tests/unit/test_numeric_policy.py:74: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw)\n\ntests/unit/test_numeric_policy.py::test_retry_presolve_false_after_certificate_failure\n  /root/my-project/tests/unit/test_numeric_policy.py:90: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw)\n\ntests/unit/test_numeric_policy.py::test_feasible_but_ambiguous_interval_retried\n  /root/my-project/tests/unit/test_numeric_policy.py:106: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw); calls.append(kw['options']['presolve'])\n\ntests/unit/test_numeric_policy.py::test_residual_tolerance_does_not_replace_exact_feasibility[1e-08-certificate_failed]\ntests/unit/test_numeric_policy.py::test_residual_tolerance_does_not_replace_exact_feasibility[2e-07-residual_failed]\n  /root/my-project/tests/unit/test_numeric_policy.py:120: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw); r.x[0] += delta; r.fun -= delta\n\ntests/unit/test_numeric_policy.py::test_nonfinite_objective_or_dual[fun]\ntests/unit/test_numeric_policy.py::test_nonfinite_objective_or_dual[dual]\n  /root/my-project/tests/unit/test_numeric_policy.py:132: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw)\n\ntests/unit/test_numeric_policy.py::test_deadline_expiring_in_solver_rejects_result\n  /root/my-project/tests/unit/test_numeric_policy.py:147: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.\n    r = real(*a, **kw); clock[0] = 2.; return r\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n155 passed, 23 warnings in 6.40s\n",
+      "stderr": "",
+      "exclusions": []
+    }
+  ],
+  "excluded_implementation": [
+    "Evaluator",
+    "cache",
+    "T019+"
+  ],
+  "limitations": [
+    "Small deterministic validation only; not general certification success-rate evidence",
+    "No hard process supervisor implemented here; cooperative checks and native solver time_limit",
+    "Explicit mocks in numeric tests only test rejection/retry; not performance evidence"
+  ],
+  "real_solver_case_count": 12,
+  "certificate_attempt_counts": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ]
+}

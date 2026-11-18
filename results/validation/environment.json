@@ -1,0 +1,35 @@
+{
+  "os": "Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41",
+  "cpu": "aarch64",
+  "machine": "aarch64",
+  "logical_cpu_count": 8,
+  "ram_bytes": 11761999872,
+  "python": "3.13.5",
+  "python_executable": "/root/my-project/.venv/bin/python",
+  "packages": {
+    "numpy": "2.5.5",
+    "networkx": "3.7",
+    "scipy": "1.18.1",
+    "pytest": "9.2.0",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "initialized_before_scientific_imports": true,
+  "highs_threads_option": 1,
+  "highs_set_option_status": "HighsStatus.kOk",
+  "highs_get_option_status": "HighsStatus.kOk",
+  "process_threads_before": 1,
+  "process_threads_after": 1,
+  "lp": {
+    "success": true,
+    "status": 0,
+    "objective": -10.0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+  }
+}

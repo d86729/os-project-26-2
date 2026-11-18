@@ -1,0 +1,13 @@
+..........................                                               [100%]
+=============================== warnings summary ===============================
+tests/unit/test_evaluation.py::test_cache_equal_and_new_condition_empty
+tests/unit/test_evaluation.py::test_real_delivery_breaks_connectivity_tie
+tests/unit/test_evaluation.py::test_cache_is_residual_keyed_not_protection_or_coordinate
+tests/unit/test_evaluation.py::test_deadline_at_entry_even_with_warm_cache[True]
+tests/unit/test_evaluation.py::test_partial_failure_never_returns_score_or_caches_failed_residual
+tests/integration/test_common_pipeline.py::test_common_pipeline
+  /root/my-project/protection/flow.py:191: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    result = linprog(lp.c, A_ub=lp.G, b_ub=lp.b,
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+26 passed, 6 warnings in 4.43s

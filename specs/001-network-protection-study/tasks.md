@@ -1,0 +1,256 @@
+# Tasks: 통신망 방호 연구 및 전략 중립적 일괄 채점
+
+**Input**: 동일 디렉터리의 spec.md, plan.md, research.md, data-model.md, quickstart.md 및 algorithms/member_1.py~member_3.py의 내장 계약.
+**Prerequisites**: U-001~003 사용자 확정. 프로젝트 헌법과 extension hooks는 현재 없다.
+**Status**: evaluation-v2·단일 worker 공통 구현 검증 완료. 부모 전체 회귀 287 passed(실패/스킵 0), 별도 runner 47 passed, n=6 두 방식·두 예산 일치 및 clean-kernel 노트북 재현을 확인했다. 근거는 results/validation/initial_acceptance.json 및 regression.json이다. T054~T056/T060은 운영 입력·장시간 승인·실제 팀원 제출을 기다리며 완료로 표시하지 않는다.
+**Tests**: spec.md FR-025 및 각 Story의 수락 조건에서 명시적으로 요구한다. 시험을 먼저 작성하고 예상 실패를 확인한 후 구현하며, 단순 import 실패만으로 동작 검증을 대체하지 않는다.
+**Organization**: 공통 기반 → US1 공통 평가 → US2 정확 탐색 → US3 제출 계약·한도 → US4 결과 통합 → 교차 검수. 구현 책임은 김대건 범위이며 팀원 세 전략의 본문은 제외한다.
+
+## Format: `[ID] [P?] [Story] Description`
+
+모든 작업은 미완료 체크박스로 시작한다. [P]는 같은 시험 작성 묶음에서 서로 다른 파일을 병렬 작성할 수 있다는 뜻이며, 선행 기반 작업을 생략해도 된다는 뜻이 아니다. 공식 실험과 자원·시간 측정 시험은 단일 장비에서 직렬 실행한다.
+
+## Path Conventions
+
+경로는 /root/my-project 기준이다. 공통 모듈은 protection/, 시험은 tests/, 인계의 단일 원본은 algorithms/member_1.py, member_2.py, member_3.py다. 아래 시험 파일명과 결과 파일명은 구현 작업의 목표 경로이며 현재 존재한다는 주장이 아니다. 별도 contracts/ 또는 팀원 인계 문서를 만들지 않는다.
+
+## Phase 1: Setup — 실행 환경과 프로젝트 기반
+
+**Purpose**: 실제 환경을 확인하고 원문 기술 제약을 재현 가능한 실행 환경으로 연결한다.
+
+- [X] T001 pyproject.toml과 protection/__init__.py에 Python >=3.11 패키지·CLI 진입점·pytest 설정을 준비하고, 기존 algorithms/member_1.py, algorithms/member_2.py, algorithms/member_3.py의 본문 미구현 상태를 보존한다. (FR-001, FR-018)
+- [X] T002 pyproject.toml의 NumPy·NetworkX·SciPy 및 pytest·nbformat·nbclient·ipykernel 의존성을 프로젝트 격리 환경에 실제 설치하고 requirements-lock.txt에 검증 환경의 실제 버전을 고정한다. 설치 실패는 대체 경로를 시험하거나 차단 원인으로 남긴다. (FR-001, FR-026)
+- [X] T003 protection/runner.py에 과학 라이브러리 import 이전 단일 스레드 초기화와 OS·CPU·RAM·Python·패키지 환경 수집을 구현하고 tests/integration/test_environment.py에서 OMP_NUM_THREADS·OPENBLAS_NUM_THREADS·MKL_NUM_THREADS=1 및 설치 버전의 HiGHS threads=1 전달·실제 동작을 검증한다. 경고를 숨기지 않고 results/validation/environment.json에 실제 결과를 남긴다. (FR-026)
+- [X] T004 tests/conftest.py에 손계산 가능한 불변 예제·시험 전용 제출 파일 fixture를 준비하고 configs/smoke.json에 n=6, size_groups={"6":"small"}, 생성 seed=0, 예산 20/40%, run_kind=smoke와 data-model.md preparation 필수 키를 명시한다. .gitignore에 격리 환경·캐시를 제외하되 연구 산출물을 무조건 숨기지 않는다. (FR-025)
+
+## Phase 2: Foundational — 데이터·정책·기록의 공통 기반
+
+**Purpose**: 모든 Story에서 공유하는 불변 자료형과 실패 경계를 제공한다.
+**Blocking**: T001~T004 이후 수행한다. T005~T009 완료 전 Story 구현을 시작하지 않는다.
+
+- [X] T005 protection/errors.py에 InvalidScenarioError·InvalidProtectionError·EvaluationError·DeadlineExceeded를 정의하고 tests/unit/test_errors.py에 정상 점수와 예외를 구분하는 시험을 작성·실행한다. NotImplementedError는 팀원 골격의 명시적 상태로 유지한다. (FR-010, FR-018, FR-039)
+- [X] T006 specs/001-network-protection-study/research.md와 data-model.md에 D-002~003의 후보 좌표·HALF_EVEN·유리수 인증 및 evaluation-v2의 제한된 HiGHS 잔차 fallback 정책을 추적하고 protection/models.py의 버전 있는 EvaluationPolicy로 표현한다. v1 bundle 거부와 v2 case_id를 검증한다. 기존 체크는 이전 구현 근거이며 정책 변경 회귀는 T018 및 T058에서 확인한다. 임의 clip/epsilon이나 가상 인증은 금지한다. (FR-007, FR-009, FR-010)
+- [X] T007 protection/models.py에 frozen dataclass·중첩 tuple인 Node·Edge·Demand·Scenario·AttackSettings·GenerationSettings를 구현하고 tests/unit/test_models.py에서 "0<=x,y<1", "u<v", "10<=capacity_mbps<=30, 1<=cost<=10", "source!=target", "5<=amount_mbps<=20", "n>=3", "수요 개수 n", 0 기반 연속 id·공격 전 연결·유한 실수·중복 금지·입력 불변성을 검증한다. 불리언을 정수 id로 허용하지 않는다. (FR-002~004, FR-017)
+- [X] T008 protection/models.py에 ScenarioBundle·OptimalReference·ExperimentCondition·Evaluation·UpperBound·RunRecord·ExperimentManifest를 정의한다. "schema_version:int (=1)", "budget_percent:int (20|40)", "0<=delivery_units<=1000000", "pending → running → completed | timeout | failed | not_implemented | memory_limit"를 적용한다. nullable 반환안·진단 후보·정확 탐색 incumbent·상한·각 단계 시간·전체 worker RSS(평가 포함)·오류 필드를 분리하고 tests/unit/test_record_models.py로 직렬화 계약을 검증한다. 같은 protection/models.py에서 data-model.md v1 manifest의 순수 파싱/필드 검증을 구현하고 tests/unit/test_manifest.py에 상대 경로·알 수 없는 키·빈/중복 case·시드 타입/개수 시험을 작성한다. T042/T049는 이 검증기를 재사용하며 T050은 본 실험 운영 관문의 추가 검수다. (FR-026, FR-027, FR-030~033, FR-039)
+- [X] T009 protection/models.py에 canonical JSON·SHA-256 식별자·원자적 JSON 저장/로딩·스키마 검증을 구현하고 tests/unit/test_serialization.py로 왕복·오염·해시 불일치를 시험한다. scenario_id에는 본질적 생성 데이터, case_id에는 예산·공격·평가 정책까지 포함하되 최적 참조는 제외한다. 참조 삭제 전후 case_id는 같고 예산 변경 시 달라야 한다. 중간 입력과 참조 포함 정식 배포 검증 모드를 분리한다. (FR-005, FR-032~035)
+
+**Checkpoint**: 공통 자료형·저장·예외가 시험 가능하다. 정책 채택의 수치적 타당성은 US1의 실제 LP 시험 전까지 완료로 선언하지 않는다.
+
+## Phase 3: User Story 1 — 동일 시나리오의 공통 평가 (P1, MVP)
+
+**Goal**: 미리 저장한 같은 문제에서 임의의 유효 방호안을 전략 중립적으로 평가한다.
+**Independent Test**: 손계산 예제의 예산·피해 간선·연결 쌍·전달량·최악 공격이 기대값과 일치하고, 같은 시드 재생성 및 저장본 로딩이 동일해야 한다. 팀원·정확 탐색이 없어도 실행 가능해야 한다.
+
+### Tests first
+
+- [X] T010 [P] [US1] tests/unit/test_generation.py에 같은 시드 재현·난수 호출 순서·초기 삼각형·현재 차수 갱신·거리 하한·서로 다른 연결 상대·속성 범위·방향 수요 중복 금지를 검증하는 시험을 작성한다. (FR-002~005)
+- [X] T011 [P] [US1] tests/unit/test_attacks.py에 선 중간 피격·교차점 비기지·영길이 선분·R+1e-9 경계·격자 끝점·9자리 중복 제거·방호선 및 기지 보존 시험을 작성한다. (FR-007, FR-008)
+- [X] T012 [P] [US1] tests/unit/test_flow.py에 손계산 가능한 동일 방향 병목 공유·반대 방향 독립 용량·분할 경로·수요 상한·완전 단절·LP 실패와 수치 경계 시험을 작성한다. 시험 기대값은 구현 solver 결과를 복사하지 않고 명시적으로 도출한다. (FR-009, FR-010, FR-025)
+- [X] T013 [P] [US1] tests/unit/test_evaluation.py에 빈 방호안·번호/불리언/중복/예산 오류·연결 쌍 우선·전달량/비용/번호/좌표 동점·실패 전파·캐시 유무 동일 결과를 검증하는 시험을 작성한다. (FR-006, FR-009~012, FR-025)
+
+### Implementation
+
+- [X] T014 [US1] protection/generation.py에 NumPy default_rng(seed)로 좌표 → 연결 → (u,v)순 선 id → 대역폭 → 비용 → 수요 쌍 → 요청량 순서의 생성을 구현한다. α=1, β=3, m0=2, min_distance=1e-9와 현재 차수를 사용하고 각 신규 기지를 기존 두 기지에 순차 연결한다. (FR-002~005)
+- [X] T015 [US1] protection/attacks.py에 기지·선 중점·0~1 간격 0.2 격자의 합집합, 정책별 9자리 반올림·정렬·중복 제거, 선분 거리와 R=0.15/tolerance=1e-9 피해 목록을 구현한다. PreparedAttacks에 정책·준비 시간을 기록한다. (FR-007, FR-008)
+- [X] T016 [US1] protection/evaluation.py에 방호안의 list[int]·오름차순·중복/번호/불리언·비용 검증과 정수 예산 total_cost*percent//100, 성분별 s*(s-1)//2 및 분모 n*(n-1)//2 계산을 구현한다. 빈 방호안은 유효 해이며 미구현 대체값이 아니다. (FR-006, FR-009)
+- [X] T017 [US1] protection/flow.py에 방향 arc별 공유 용량, 요청별 흐름 보존·0<=전달량<=수요, 분할 경로를 허용하는 sparse LP를 SciPy linprog(method='highs')로 구현한다. solver 상태·유한성·잔차·deadline을 검사하고 실패는 EvaluationError로 전파한다. (FR-010)
+- [X] T018 [US1] tests/unit/test_numeric_policy.py에서 D-003의 유리수 primal/dual 인증·6자리 HALF_EVEN과 evaluation-v2 fallback을 검증한다. 인증 실패 시 HiGHS success/status=0 및 primal·dual stationarity/부호/절대 gap의 유한 최대 잔차 <=1e-7만 허용하고 raw/total 반올림, certified_lower/upper=None, highs_residual_fallback 진단을 확인한다. 실패·비유한값·큰 잔차·deadline은 허용하지 않으며 재시도를 검증한다. research.md의 이전 v1 검증 기록과 새 회귀 근거를 구분한다. 기존 체크는 이번 정책 변경의 시험 통과를 뜻하지 않는다. (FR-007, FR-009, FR-010, FR-025)
+- [X] T019 [US1] protection/evaluation.py에 모든 공격의 첫 기준을 먼저 평가한 뒤 최소 후보에서만 LP를 실행하는 최악 공격 평가·6자리 정수 점수·비용/번호 및 좌표 동점 비교를 구현한다. 정상 점수는 완전한 평가에만 부여한다. (FR-009~012)
+- [X] T020 [US1] protection/evaluation.py에 scenario_id+잔존선 bitmask+정책 버전 캐시를 구현하고 실패·미완료 결과는 저장하지 않는다. tests/unit/test_evaluation.py로 캐시 적중 시에도 동일 점수·최악 좌표를 보존하고 실행 조건 간 빈 캐시를 보장한다. (FR-012, FR-036)
+- [X] T021 [US1] tests/integration/test_common_pipeline.py에서 생성 → 중간 JSON 저장/로딩 → 공격 준비 → 유효/무효 방호안 평가를 실제 실행하고 results/validation/common.json에 손계산 기대값 대조와 실행 환경을 기록한다. 이 중간 입력을 최적 참조 포함 정식 배포본으로 표시하지 않는다. (FR-025, SC-001, SC-002)
+
+**Checkpoint**: T010~T021 통과 시 US1 MVP 완료. 실제 결과가 없는 문서·stub은 완료 근거가 아니다.
+
+## Phase 4: User Story 2 — 정확해와 탐색 한계 (P1)
+
+**Goal**: 완전탐색 최적 참조와 시간 초과 incumbent/상한을 구분한다.
+**Independent Test**: 손으로 나열 가능한 모든 조합과 두 정확 탐색의 점수·비용·번호가 일치하며, 짧은 제한에서 미완료·안전 상한이 확인되어야 한다. 팀원 제출은 필요 없다.
+
+### Tests first
+
+- [X] T022 [P] [US2] tests/unit/test_exact.py에 작은 그래프 조합 오라클·두 예산·빈 해·동점 최소 비용/번호·상한용 예산 초과 가상 방호가 반환되지 않는 시험을 작성한다. (FR-013, FR-014, FR-025)
+- [X] T023 [P] [US2] tests/integration/test_exact_deadline.py에 짧은 제한·긴 평가 중 중단·완료 후보 없음·incumbent 보존·미탐색 전역 상한·평가 조합 수와 상한 호출 수 분리를 확인하는 시험을 작성한다. (FR-014, FR-015, SC-003, SC-006)
+
+### Implementation
+
+- [X] T024 [US2] protection/exact.py에 D-004의 정확 탐색 전용 spawn worker/감독자(자체 평가, incumbent IPC·deadline·강제 종료; T035 이후에 의존하지 않음)와 모든 선의 예산 내 조합을 조사하는 단순 완전탐색, 첫 incumbent·완료 조합 수·deadline·완료/미완료 상태와 실행 기록을 구현한다. 정확 탐색에는 팀원용 4GB 한도를 적용하지 않는다. (FR-013~015, FR-030)
+- [X] T025 [US2] protection/exact.py에 S∪U 전체 방호의 낙관적 상한을 이용한 가지치기를 구현한다. 점수가 엄격히 낮은 가지만 제거하고 동점 가지는 보존한다. LP 상한의 수치 안전성을 보증할 수 없으면 전달률 상한 1로 완화하며 예산 면제 상한 API는 팀원에게 노출하지 않는다. (FR-013)
+- [X] T026 [US2] protection/exact.py에 중단 당시 처리 중·미탐색 가지 전체를 덮는 상한과 incumbent을 저장한다. frontier를 증명하지 못하면 전 기지 연결 쌍·전달률 1의 안전 상한을 사용한다. 소형 방법별 600초·중대형 단순 완전탐색 조건별 10800초(3시간)와 준비/종료 시간을 분리하며 실제 작은 제한 시험에서 종료를 검증한다. (FR-014, FR-015, SC-006)
+- [X] T027 [US2] protection/models.py에 완료된 단순 완전탐색 결과만 OptimalReference로 결합하는 배포 검증을 구현하고 tests/integration/test_bundles.py에서 참조 방호안·비용·재채점·case_id·method=exhaustive·status=completed·optimality_proven=true와 참조 삭제 사본의 동일 입력 로딩을 검증한다. 미완료/가지치기 단독 결과는 정식 배포 참조로 오인하지 않는다. (FR-032~035, SC-009)
+- [X] T028 [US2] configs/smoke.json과 tests/integration/test_exact_pipeline.py로 실제 소형 두 예산의 단순/가지치기 완료 결과를 비교하고 결과와 근거를 results/validation/exact.json에 기록한다. 참조 결합은 실제 완전탐색 완료 시에만 수행한다. 더 짧은 시험 제한은 run_kind=smoke로 명시하고 본 실험으로 대체하지 않는다. (FR-014, FR-025, SC-003)
+- [X] T029 [US2] protection/operations.py·cli.py와 tests/unit/test_scale_manifest.py·test_operations.py에 명시적 manifest 기반 규모 확인 실행 경로를 구현한다. 크기별 한 그래프·두 예산 각각 10800초(3시간) 내 단순 완전탐색 완료 여부와 실패 시드를 보존하고 세 크기 확보 실패를 미완료로 표시한다. 장시간 실제 규모 탐색은 T054의 승인·운영 입력 전에는 시작하지 않는다. (FR-016, SC-007)
+
+**Checkpoint**: 소형에서 정확성·중단 동작을 검증할 수 있다. 중대형 규모 확보나 정식 문제은행 완성은 별도 운영 관문이다.
+
+## Phase 5: User Story 3 — 팀원 독립 계약과 자원 제한 (P1)
+
+**Goal**: 한 파일의 자유 전략을 나머지 팀원과 무관하게 동일 조건으로 실행·검사한다.
+**Independent Test**: 시험 전용 대역으로 정상 반환·미구현·잘못된 반환·시간/RSS 초과·평가 실패를 재현하고 팀원 본문은 그대로 미구현이어야 한다. 공식 비교 성능에는 대역을 포함하지 않는다.
+
+### Tests first
+
+- [X] T030 [P] [US3] tests/contract/test_member_contract.py에 세 골격의 solve(self,scenario,budget,context)·NotImplementedError·내장 계약과 독립 로딩, 최적 참조 미전달, 불변성 및 잘못된 반환 검사를 작성한다. 특정 알고리즘 절차를 검사하지 않는다. (FR-017~021, FR-024)
+- [X] T031 [P] [US3] tests/integration/test_worker_timing.py에 import·생성자 지연, 직접 Evaluator 호출 시간, 무한 루프 종료, 최종 결과 수신 deadline과 반환 후 공식 재채점 분리를 검증한다. 정상 반환안을 중간 최고로 바꾸지 않는다. 평가별 IPC/부분 평가 frame 장애 매트릭스는 제외하고 기본 결과 전달 경계만 검수한다. (FR-023, FR-038, SC-010)
+- [X] T032 [P] [US3] tests/integration/test_worker_memory.py에 낮춘 시험용 RSS 한도와 메모리 할당 대역으로 기본 RSS·Evaluator·LP·캐시 포함, 초기값/평가 메모리 미차감, 관측 초과 종료·측정 불가 보고를 검증한다. 실제 4GB 할당은 강요하지 않고 시험 한도임을 기록한다. (FR-030, FR-031)
+- [X] T033 [P] [US3] tests/integration/test_submission_failures.py에 보관 후보 이후 timeout/memory_limit, LP 실패, worker 종료/기본 결과 채널 EOF, 구문·로딩 오류·미제출·반환 없음, 다음 조건 진행 및 공식 nullable 점수를 검증한다. 별도 평가 프로세스 사망·평가 요청별 IPC fault 시험은 삭제한다. (FR-018, FR-023, FR-039)
+- [X] T034 [P] [US3] tests/integration/test_repeat_isolation.py에 같은 저장 문제의 무작위 5회/결정적 1회, 사전 고정 전략 시드 전달, 새 worker·빈 캐시·독립 한도·문제 재생성 없음·이전 결과 비공유를 시험하는 대역을 작성한다. (FR-022, FR-036, SC-011)
+
+### Implementation
+
+- [X] T035 [US3] protection/context.py에 limit_seconds·elapsed_seconds()·remaining_seconds()·동기 evaluate()와 읽기 전용 algorithm_seed:int|None·repeat_index:int·repeat_count:int를 구현한다. 관련 API 필드명은 data-model.md와 algorithms/member_1.py, algorithms/member_2.py, algorithms/member_3.py의 docstring에만 동기화하고 solve 시그니처·전략 중립성을 유지한다. 시드 사용 의무는 무작위 전략에만 적용한다. (FR-019, FR-021, FR-022)
+- [X] T036 [US3] protection/runner.py에 D-005의 부모+spawn worker 하나, 기본 안전 READY/START/결과 채널, monotonic_ns 시간 시작 → 제출 import·생성·입력 전달·solve → 부모 최종 수신 lifecycle을 구현한다. 제출 객체의 임의 unpickle은 금지하고 기본 크기/형식 검증을 유지한다. import·생성도 시간/전체 RSS 감독 범위이며 공식 재채점은 반환 후 수행한다. 평가별 JSON IPC는 구현하지 않는다. (FR-023, FR-031, FR-037)
+- [X] T037 [US3] protection/context.py와 protection/runner.py에서 worker 내 Evaluator 직접 동기 호출을 연결한다. LP·Evaluator·캐시는 worker에 두고 시간 및 전체 RSS에 포함한다. 조건·반복마다 새 Evaluator/빈 캐시를 사용하며 평가 요청/응답 직렬화 계층을 추가하지 않는다. 보관된 완료 후보의 기본 진단 전달은 공식 점수와 분리한다. (FR-012, FR-021, FR-030, FR-036)
+- [X] T038 [US3] protection/runner.py에 단조 시계 deadline 감독·평가 중 한도 전달·worker terminate→0.2초 join→kill→1초 join·잔류 시 batch 차단·IPC 정리·종료 지연 계측을 구현하고 T031/T033을 실제 실행한다. 마감 전에 수신한 정상 최종 반환만 채택하고 초과 후보는 진단 전용으로 남긴다. (FR-023, FR-039, SC-006)
+- [X] T039 [US3] protection/runner.py에서 부모가 worker 전체 RSS 4,000,000,000 bytes를 관측·초과 종료하고 간격/방식/오류를 기록한다. Evaluator·LP·캐시를 포함하며 초기값/평가 메모리를 차감하지 않는다. 분리 평가 RSS는 측정·추정하지 않고 남은 nullable 필드는 null로 둔다. T032로 검증하며 tracemalloc/주소 공간을 RSS로 대체하지 않는다. (FR-030, FR-031)
+- [X] T040 [US3] protection/runner.py에 단일 파일·클래스 선택 및 독립 등록·미구현 상태·반환 유효성 검사·입력 보호를 구현한다. 누락된 다른 팀원은 의존성이 아니고 추가 패키지를 자동 설치하지 않는다. 별도 추상 클래스/플러그인 프레임워크·전략 보조 알고리즘·서버를 추가하지 않는다. (FR-017~020, FR-024, FR-035, FR-037)
+- [X] T041 [US3] protection/runner.py에 실제 submitted 반환안·진단 recovered 후보·정확 탐색 best incumbent의 분리 기록, 최종 채점 실패의 failed 전이, timeout/memory_limit의 공식 점수·격차 비움 및 다음 조건 진행을 구현한다. 제출 자체 로딩 실패는 각 대상의 미실행을 표시하고 대체 해를 만들지 않는다. (FR-023, FR-027, FR-038, FR-039)
+- [X] T042 [US3] protection/runner.py에 저장 문제은행을 읽는 직렬 반복 실행을 구현한다. 무작위 사용 여부와 사전 고정한 다섯 전략 시드는 manifest로 받으며 결정적 전략은 1회만 실행한다. 조건·반복마다 새 worker·상태·평가 캐시·300초·4GB를 적용하고 문제 생성기를 호출하지 않는다. 참조는 알고리즘 입력에서 제외한다. (FR-022, FR-034~038)
+- [X] T043 [US3] algorithms/member_1.py, algorithms/member_2.py, algorithms/member_3.py의 docstring·주석을 실제 구현한 공개 자료형·예외·시드 API·시간/RSS/제출 검수와 대조하여 갱신하고 tests/contract/test_member_contract.py를 실행한다. 각 solve 본문은 NotImplementedError로 유지하며 별도 인계 문서를 만들지 않는다. (FR-018, FR-019, SC-004)
+- [X] T044 [US3] tests/contract/test_member_contract.py 및 tests/integration/test_worker_timing.py, test_worker_memory.py, test_submission_failures.py, test_repeat_isolation.py를 직렬 실행하고 results/validation/runner.json에 실제 상태·시간/RSS 검증 결과를 저장한다. 대역의 성능을 팀원 연구 결과로 기록하지 않는다. (SC-004~006, SC-010, SC-011)
+
+**Checkpoint**: 공통 실행기는 대역 및 미구현 파일로 검수 가능하다. 팀원 실구현 완료나 성능 개선을 뜻하지 않는다.
+
+## Phase 6: User Story 4 — 결과표·노트북·실험 운영 (P2)
+
+**Goal**: 사전 문제은행 준비와 제출 채점을 분리하고 실제 결과를 재현 가능한 표·노트북으로 통합한다.
+**Independent Test**: 소형 저장 문제은행과 미제출 팀원 상태로 공통 생성·정확 탐색·단일 파일 채점·결과표가 실행된다. 시험 대역으로 정상/실패 혼합과 반복 집계를 확인하고, 최종 전체 제출은 실제 세 팀원 코드가 있을 때만 별도 검수한다.
+
+### Tests first
+
+- [X] T045 [P] [US4] tests/unit/test_reporting.py에 nullable 실패 행 보존·정상 반환 점수·진단 후보 분리·증명된 참조의 첫 점수 차이 및 첫 차이가 0일 때만 둘째 차이·참조 없는 사본의 격차 비움·성공 지표별 중앙값/최솟값/최댓값·성공 0회의 빈 통계·성공 횟수·최고 실행 선택 금지 시험을 작성한다. (FR-022, FR-027, SC-009~011)
+- [X] T046 [P] [US4] tests/integration/test_cli_pipeline.py에 문제은행 사전 준비/채점 분리·잘못된 manifest·예산 덮어쓰기 거부·CLI v1 종료 코드 0/1/2·빈/잘못된 manifest·동일 case_id 대조·채점 중 생성기/정확 탐색 미호출·단일 제출 파일에 대한 전체 시나리오 처리 시험을 작성한다. (FR-028, FR-032~039)
+
+### Implementation
+
+- [X] T047 [US4] protection/reporting.py에 환경·RunRecord JSONL과 조건/방법/반복별 CSV를 구현한다. 실패/미구현/초과를 누락하지 않고 nullable 점수를 빈 값으로 쓰며 returned/recovered/incumbent를 혼동하지 않는다. 최적 참조가 증명되고 case_id가 일치하는 정상 반환만 사전식 격차를 보고한다. (FR-026, FR-027)
+- [X] T048 [US4] protection/reporting.py에 성공 실행의 연결률·전달량 비율 각각 중앙값/최솟값/최댓값, 실행 시간과 전체 성공 횟수 집계를 구현한다. 실패는 별도로 모두 남기고 성공 0회의 점수 통계는 비운다. 가중합·최고 실행 대표값·서로 다른 문제/예산 혼합을 금지하고 집계가 단일 방호안 점수가 아님을 표시한다. (FR-022)
+- [X] T049 [US4] protection/cli.py에 generate·정확 탐색·bundle 검증/배포·단일 파일 일괄 채점·report의 로컬 명령을 구현하고 pyproject.toml 진입점 및 specs/001-network-protection-study/quickstart.md의 목표 명령과 configs/smoke-grading.json을 실제 구현에 동기화한다. 명령/종료 코드는 data-model.md CLI v1로 고정하며 main과 smoke/scale_probe를 구분하고 미완료 참조 배포를 거부한다. 웹 서비스·업로드·로그인 기능은 만들지 않는다. (FR-028, FR-032~039)
+- [X] T050 [US4] protection/runner.py·models.py·operations.py에 main manifest의 빈/중복 시드·중복 조건·시드 수·허용 예산·배포 case_id·고정 전략 시드 목록·실명 누락 검증을 구현하고 tests/unit/test_manifest.py로 확인한다. configs/experiment.json은 본 실험 입력이 제공되기 전 임의 채움 없이 미준비 상태를 명시하며 main 실행을 거부한다. (FR-014, FR-016, FR-022, FR-026, FR-028)
+- [X] T051 [US4] notebooks/submission.ipynb에 사전 준비와 제출 채점 구역을 분리하고 코드 셀마다 담당자 표식을 둔다. 소형 smoke에서 공통 생성·정확 탐색·배포 검증·미제출 상태 표시·실제 결과표를 실행하며 채점 구역에서 최적해를 재계산하지 않는다. 팀원 결과·미확정 실명을 꾸며 넣지 않는다. (FR-028, SC-008)
+- [X] T052 [US4] tests/integration/test_notebook.py로 초기 notebooks/submission.ipynb를 실제 clean kernel에서 재실행하고 results/validation/notebook.json에 결과를 남긴다. 미구현 팀원은 명시적으로 제외하고 공통 기능·정확 탐색 결과만 재현하며 T045/T046의 실제 통과도 확인한다. (FR-028, SC-008)
+- [X] T053 [US4] notebooks/submission.ipynb의 연구 설명과 각 algorithms/member_1.py, algorithms/member_2.py, algorithms/member_3.py의 담당 설명란에 코드 책임·전략 버전·실제 근거를 연결한다. 공통 생성법은 Dong·Tian(2022), DOI 10.1155/2022/3108327 참고로 표시하고 전체 논문 방호 실험 재현·실제 통신망/포탄 대표성·최적 설정을 주장하지 않는다. 팀원 전략/논문 설명은 각 담당자가 채워야 하며 대신 발명하지 않는다. (FR-029)
+- [ ] T054 [US4] 사용자 운영 입력과 별도 장시간 실행 승인을 받은 뒤 configs/experiment.json에 소형 크기·생성 시드 목록·중대형 후보·장비·버전·실명·전략 시드 목록을 사전 고정하고 T029의 규모 확인을 직렬 수행하여 results/scale_probe.jsonl에 성공/실패를 모두 보존한다. 중대형은 크기 세 개, 각 한 그래프·두 예산 각각 단순 완전탐색의 10800초(3시간) 내 완료가 필요하며 확보 실패 시 관문을 미완료로 둔다. 다양한 크기의 고정 문제은행에 저장할 모든 실제 그래프별 완료 근거를 요구하고 이를 넘는 대형 도전군은 제외한다. 전체 그래프 공간의 최악 수행 시간 보장으로 주장하지 않는다. 현재 입력 없이 수행하지 않는다. (FR-014~016, SC-007)
+- [ ] T055 [US4] T054 관문 충족 후 configs/experiment.json의 사전 고정 입력으로 scenarios/main/에 예산별 완전탐색 최적 참조 포함 문제은행을 생성·검증하고 results/main/preparation.jsonl에 실제 완료/미완료 기록·환경·시간/RSS·조합 수를 저장한다. 미완료는 배포하지 않고 성적에 따라 문제를 선별하지 않는다. 장시간 본 실행은 별도 승인 범위에서만 수행한다. (FR-005, FR-014~016, FR-026, FR-032, FR-033)
+- [ ] T056 [US4] 실제 세 팀원 파일·실명·전략 설명이 모두 제출되고 T055가 완료된 뒤 notebooks/submission.ipynb의 최종 전체 흐름을 같은 장비·직렬·단일 스레드로 실제 실행하고 results/main/에 반복별 원본과 집계표를 보존한다. 미제출 시 해당 조건을 외부 의존성 차단으로 남기고 에이전트가 팀원 본문을 대신 작성하거나 최종 완료를 선언하지 않는다. (FR-017~020, FR-026~029, SC-008, SC-010, SC-011)
+
+**Checkpoint**: T052까지는 초기 공통 기능 검수. T054~T056은 운영 입력·장시간 승인·실제 팀원 제출 의존성이 있는 최종 연구 관문으로 별도 관리한다.
+
+## Phase 7: Polish & Cross-Cutting Concerns
+
+**Purpose**: 초기 구현 인계와 최종 연구 제출을 구분해 회귀 검수한다. 아래 초기 검수는 T054~T056 외부 의존성이 해결되기 전에도 수행할 수 있다.
+
+- [X] T057 specs/001-network-protection-study/spec.md, plan.md, data-model.md, research.md, quickstart.md와 algorithms/member_1.py, algorithms/member_2.py, algorithms/member_3.py를 실제 구현·시험 근거에 맞춰 동기화하고 checklists/requirements.md의 수치 정책/수락 기준 상태를 읽기 전용으로 검토한다. 체크리스트 파일/표시는 변경하지 않는다. 완료한 것만 표시하고 인계는 계속 클래스 파일 안에 둔다. (FR-001, FR-019)
+- [X] T058 tests/unit/, tests/contract/, tests/integration/의 전체 자동 검증을 환경 고정 후 직렬 수행하고 results/validation/regression.json에 실제 명령·결과를 저장한다. 설치·LP·종료·RSS 미지원은 명시하고 가짜 출력이나 스킵을 성공으로 간주하지 않는다. (FR-025, FR-026, SC-001~006, SC-009~011)
+- [X] T059 specs/001-network-protection-study/quickstart.md의 초기 인계 절차를 새 실행 상태에서 실제 재현하고 results/validation/initial_acceptance.json에 공통 기능·소형 정확 탐색·미구현 팀원 표시·노트북 재현의 근거를 묶는다. 본 실험 규모 확인과 세 실제 전략이 없어도 초기 공통 기능 완료만 별도로 판정한다. (SC-004, SC-008)
+- [ ] T060 T054~T056 외부 관문이 모두 충족된 경우에만 results/main/final_acceptance.json에 SC-001~011별 실제 근거 경로와 최종 제출 판정을 기록한다. 미충족 시 미완료 사유·남은 담당 책임을 명시하고 초기 검수 결과를 최종 연구 성과로 대체하지 않는다. (FR-028, FR-029, SC-007, SC-008)
+
+## Dependencies & Execution Order
+
+### Phase Dependencies
+
+1. Setup T001 → T002 → T003 → T004.
+2. Foundational T005 → T006 → T007 → T008 → T009. 수치 정책의 실증 확정은 T018에서 수행한다.
+3. US1: T010~T013 시험 작성은 기반 완료 후 병렬 가능. 모두 작성 후 T014 → T015 → T016 → T017 → T018 → T019 → T020 → T021.
+4. US2: US1 완료 후 T022/T023 → T024 → T025 → T026 → T027 → T028을 최우선 확인한다. T029의 규모 운영 연결은 후속이며 장시간 실행은 T054 승인 전 금지한다.
+5. US3: 정확 탐색 T022~T028 확인을 우선한 뒤 T030~T034 → T035 → T036 → T037 → T038 → T039 → T040 → T041 → T042 → T043 → T044. 문서/코딩 병행 시 공유 파일 소유권을 지키고 실제 계산·시간/RSS 검증은 직렬화한다. 이어 CLI·노트북을 통합 검증한다.
+6. US4: US2·US3 완료 후 T045/T046 병렬 시험 작성 → T047 → T048 → T049 → T050 → T051 → T052 → T053. T054는 T029와 사용자 입력·별도 장시간 승인에 의존한다. T055는 T054, T056은 T055와 실제 세 팀원 제출에 의존한다.
+7. 초기 교차 검수 T057 → T058 → T059는 T053 후 가능하다. 최종 T060은 T054~T059 모두 충족 후에만 가능하다. 문서의 나열 순서 때문에 외부 관문을 초기 검수의 선행 조건으로 오해하지 않는다.
+
+### Story Dependency Graph
+
+```text
+Setup → Foundational → US1 (MVP)
+                        ├→ US2 (정확 탐색·배포 참조)
+                        └→ US3 (제출 계약·자원 감독)
+                             US2 + US3 → US4 초기 통합 → 초기 교차 검수
+사용자 운영 입력·장시간 승인 → 규모 확인·본 문제은행 ─┐
+실제 세 팀원 구현·설명 제출 ─────────────────────────┴→ 최종 전체 실행 → 최종 판정
+```
+
+정확 탐색·공통 기능은 팀원 제출에 의존하지 않는다. 세 팀원 사이에도 선행 전략·보조 구현 의존성을 두지 않는다. Story의 독립 시험은 선행 공통 라이브러리가 있는 상태에서 그 기능을 별도로 검수한다는 의미이지 공통 평가 없이 정확 탐색을 수행한다는 뜻이 아니다.
+
+### Parallel Examples by Story
+
+- US1: T010 tests/unit/test_generation.py, T011 test_attacks.py, T012 test_flow.py, T013 test_evaluation.py의 시험 작성 병렬화. 실제 과학 계산 시험은 직렬 실행.
+- US2: T022 tests/unit/test_exact.py와 T023 tests/integration/test_exact_deadline.py의 시험 작성 병렬화. 동일 protection/exact.py 편집과 시간 계측 실행은 병렬화하지 않는다.
+- US3: T030~T034의 서로 다른 시험 파일 작성 병렬화. 프로세스/RSS/시간 시험 실행과 protection/runner.py 편집은 직렬화.
+- US4: T045 tests/unit/test_reporting.py와 T046 tests/integration/test_cli_pipeline.py의 시험 작성 병렬화. 본 실험·노트북 실행은 한 번에 하나씩 수행.
+
+## Requirements Coverage
+
+추적은 작업 누락 검사용이며 실제 구현/시험 통과를 뜻하지 않는다.
+
+| Requirement | Tasks |
+|---|---|
+| FR-001 | T001, T002, T057 |
+| FR-002 | T007, T010, T014 |
+| FR-003 | T007, T010, T014 |
+| FR-004 | T007, T010, T014 |
+| FR-005 | T009, T010, T014, T055 |
+| FR-006 | T013, T016 |
+| FR-007 | T006, T011, T015, T018 |
+| FR-008 | T011, T015 |
+| FR-009 | T006, T012, T013, T016, T018, T019 |
+| FR-010 | T005, T006, T012, T017, T018, T019 |
+| FR-011 | T013, T019 |
+| FR-012 | T013, T019, T020, T037 |
+| FR-013 | T022, T024, T025 |
+| FR-014 | T022, T023, T024, T026, T028, T050, T054, T055 |
+| FR-015 | T023, T024, T026, T054, T055 |
+| FR-016 | T029, T050, T054, T055 |
+| FR-017 | T007, T030, T040, T056 |
+| FR-018 | T001, T005, T030, T033, T040, T043, T056 |
+| FR-019 | T030, T035, T043, T057 |
+| FR-020 | T030, T040, T056 |
+| FR-021 | T030, T035, T037 |
+| FR-022 | T034, T035, T042, T045, T048, T050 |
+| FR-023 | T031, T033, T036, T038, T041 |
+| FR-024 | T030, T040 |
+| FR-025 | T004, T012, T013, T018, T021, T022, T028, T058 |
+| FR-026 | T002, T003, T008, T047, T050, T055, T056, T058 |
+| FR-027 | T008, T041, T045, T047 |
+| FR-028 | T046, T049, T050, T051, T052, T056, T060 |
+| FR-029 | T053, T056, T060 |
+| FR-030 | T008, T024, T032, T037, T039 |
+| FR-031 | T032, T036, T039 |
+| FR-032 | T008, T009, T027, T046, T049, T055 |
+| FR-033 | T008, T027, T046, T049, T055 |
+| FR-034 | T009, T027, T042, T046, T049 |
+| FR-035 | T009, T027, T040, T042, T046, T049 |
+| FR-036 | T020, T034, T037, T042, T046, T049 |
+| FR-037 | T036, T040, T042, T046, T049 |
+| FR-038 | T031, T041, T042, T046, T049 |
+| FR-039 | T005, T008, T033, T038, T041, T046, T049 |
+| SC-001 | T010, T014, T021, T058 |
+| SC-002 | T011, T012, T013, T018, T021, T058 |
+| SC-003 | T022, T023, T028, T058 |
+| SC-004 | T030, T043, T044, T059 |
+| SC-005 | T033, T041, T044, T047, T058 |
+| SC-006 | T023, T026, T031, T038, T044, T058 |
+| SC-007 | T029, T054, T055, T060 |
+| SC-008 | T051, T052, T056, T059, T060 |
+| SC-009 | T027, T045, T049, T055, T058 |
+| SC-010 | T031, T041, T042, T044, T046, T056 |
+| SC-011 | T032, T034, T039, T042, T044, T045, T048, T056 |
+
+## Implementation Strategy
+
+### MVP First
+
+T001~T021을 먼저 구현·실행한다. 최소 산출물은 실제 생성/저장 가능한 중간 시나리오와 손계산으로 검증한 공통 평가다. 이 시점에는 최적 참조 포함 정식 문제은행이나 팀원 비교 성능이 없음을 명시한다.
+
+### Incremental Delivery
+
+1. US1: 공통 평가와 수치 정책 확립.
+2. US2: 작은 정확 탐색 검증과 완료 참조 기반 배포.
+3. US3: 팀원 본문은 유지하면서 전략 중립적 실행·한도 감독 검수.
+4. US4 초기: 결과표·CLI·미제출 상태를 보여 주는 노트북 재현.
+5. T057~T059: 초기 공통 기능 인계 검수.
+6. 운영 입력·장시간 승인·팀원 실구현 확보 후 T054~T056 및 T060: 본 실험·최종 제출.
+
+## Notes
+
+- 모든 실행 결과·환경·패키지 버전은 실제 도구 출력으로 기록한다. 꾸며 낸 성능·버전·참조·팀원 알고리즘은 허용하지 않는다.
+- 모든 공식 실행은 문제은행 파일을 그대로 재사용하되, 시나리오별 사전 방호안·탐색 상태·평가 캐시 재사용은 금지한다. 이는 신뢰 약속이며 감시/보안 기능을 추가하지 않는다.
+- 본문 미구현 파일·실명·본 실험 시드 목록은 외부 의존성으로 표시한다. 완성도를 높이기 위해 대신 만들어 넣지 않는다.
+- 계획 산출물 작성은 구현 작업 또는 장시간 실험 수행을 뜻하지 않는다. 완료 체크는 실제 구현과 해당 검증 후에만 갱신한다.

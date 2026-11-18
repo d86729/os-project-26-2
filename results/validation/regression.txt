@@ -1,0 +1,62 @@
+........................................................................ [ 25%]
+........................................................................ [ 50%]
+........................................................................ [ 75%]
+.......................................................................  [100%]
+=============================== warnings summary ===============================
+tests/integration/test_bundles.py: 1 warning
+tests/integration/test_common_pipeline.py: 1 warning
+tests/integration/test_exact_pipeline.py: 1 warning
+tests/unit/test_evaluation.py: 5 warnings
+tests/unit/test_exact.py: 4 warnings
+tests/unit/test_flow.py: 3 warnings
+tests/unit/test_numeric_policy.py: 4 warnings
+  /root/my-project/protection/flow.py:191: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    result = linprog(lp.c, A_ub=lp.G, b_ub=lp.b,
+
+tests/unit/test_flow.py::test_nonfinite_and_residual_failure
+  /root/my-project/tests/unit/test_flow.py:53: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r=real(*a,**k); r.x[0]=float('nan'); return r
+
+tests/unit/test_flow.py::test_nonfinite_and_residual_failure
+  /root/my-project/tests/unit/test_flow.py:57: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r=real(*a,**k); r.x[0]=100.; return r
+
+tests/unit/test_numeric_policy.py::test_real_solver_sparse_options_and_exact_certificate
+  /root/my-project/tests/unit/test_numeric_policy.py:28: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r = real(*args, **kwargs)
+
+tests/unit/test_numeric_policy.py::test_real_fractional_midpoints_and_sign_equation
+  /root/my-project/tests/unit/test_numeric_policy.py:62: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    result = f.linprog(lp.c, A_ub=lp.G, b_ub=lp.b, bounds=[(0, 1)],
+
+tests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[ineqlin]
+tests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[eqlin]
+tests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[lower]
+tests/unit/test_numeric_policy.py::test_corrupt_marginal_rejected_exactly[upper]
+  /root/my-project/tests/unit/test_numeric_policy.py:74: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r = real(*a, **kw)
+
+tests/unit/test_numeric_policy.py::test_small_certificate_failure_falls_back_without_second_solve
+  /root/my-project/tests/unit/test_numeric_policy.py:95: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r = real(*a, **kw)
+
+tests/unit/test_numeric_policy.py::test_feasible_but_ambiguous_interval_retried
+  /root/my-project/tests/unit/test_numeric_policy.py:114: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r = real(*a, **kw); calls.append(kw['options']['presolve'])
+
+tests/unit/test_numeric_policy.py::test_residual_threshold_controls_fallback[1e-08-certificate_failed]
+tests/unit/test_numeric_policy.py::test_residual_threshold_controls_fallback[2e-07-residual_failed]
+  /root/my-project/tests/unit/test_numeric_policy.py:128: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r = real(*a, **kw); r.x[0] += delta; r.fun -= delta
+
+tests/unit/test_numeric_policy.py::test_nonfinite_objective_or_dual[fun]
+tests/unit/test_numeric_policy.py::test_nonfinite_objective_or_dual[dual]
+  /root/my-project/tests/unit/test_numeric_policy.py:145: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r = real(*a, **kw)
+
+tests/unit/test_numeric_policy.py::test_deadline_expiring_in_solver_rejects_result
+  /root/my-project/tests/unit/test_numeric_policy.py:160: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+    r = real(*a, **kw); clock[0] = 2.; return r
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+287 passed, 34 warnings in 192.72s (0:03:12)

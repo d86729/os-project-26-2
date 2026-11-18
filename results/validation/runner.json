@@ -1,0 +1,487 @@
+{
+  "kind": "US3 single-worker direct-evaluation smoke verification",
+  "command": [
+    "/root/my-project/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/contract/test_member_contract.py",
+    "tests/integration/test_worker_timing.py",
+    "tests/integration/test_worker_memory.py",
+    "tests/integration/test_submission_failures.py",
+    "tests/integration/test_repeat_isolation.py",
+    "tests/unit/test_context_transport.py",
+    "-q",
+    "--junitxml=results/validation/runner-focused.xml"
+  ],
+  "exit_code": 0,
+  "environment": {
+    "os": "Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41",
+    "cpu": "aarch64",
+    "machine": "aarch64",
+    "logical_cpu_count": 8,
+    "ram_bytes": 11761999872,
+    "python": "3.13.5",
+    "python_executable": "/root/my-project/.venv/bin/python",
+    "packages": {
+      "numpy": "2.5.5",
+      "networkx": "3.7",
+      "scipy": "1.18.1",
+      "pytest": "9.2.0",
+      "nbformat": "5.11.1",
+      "nbclient": "0.11.0",
+      "ipykernel": "7.4.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  },
+  "pytest_summary": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "47",
+    "time": "78.019",
+    "timestamp": "2026-11-18T00:01:13.079527+00:00",
+    "hostname": "localhost"
+  },
+  "test_records": [
+    {
+      "expected_status": "completed",
+      "matches": true,
+      "record": {
+        "run_id": "ff6f88357dcb4b0c8a746331399d0551",
+        "condition": {
+          "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+          "budget_percent": 40,
+          "budget": 4,
+          "method": "member_1",
+          "limit_seconds": 2,
+          "algorithm_memory_limit_bytes": 4000000000
+        },
+        "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+        "schema_version": 1,
+        "status": "completed",
+        "termination_reason": "final_received",
+        "started_at": "2026-11-18T00:02:32.578671+00:00",
+        "environment": [
+          [
+            "os",
+            "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+          ],
+          [
+            "cpu",
+            "\"aarch64\""
+          ],
+          [
+            "machine",
+            "\"aarch64\""
+          ],
+          [
+            "logical_cpu_count",
+            "8"
+          ],
+          [
+            "ram_bytes",
+            "11761999872"
+          ],
+          [
+            "python",
+            "\"3.13.5\""
+          ],
+          [
+            "python_executable",
+            "\"/root/my-project/.venv/bin/python\""
+          ],
+          [
+            "packages",
+            "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+          ],
+          [
+            "thread_environment",
+            "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+          ]
+        ],
+        "submitted_protected_ids": [],
+        "submitted_evaluation": {
+          "protected_ids": [],
+          "cost": 0,
+          "connected_pairs": 0,
+          "connected_ratio": 0.0,
+          "delivered_mbps": -0.0,
+          "delivery_ratio": -0.0,
+          "delivery_units": 0,
+          "worst_attack": [
+            0.4,
+            0.0
+          ]
+        },
+        "recovered_protected_ids": [
+          0
+        ],
+        "recovered_evaluation": {
+          "protected_ids": [
+            0
+          ],
+          "cost": 4,
+          "connected_pairs": 1,
+          "connected_ratio": 0.3333333333333333,
+          "delivered_mbps": 10.0,
+          "delivery_ratio": 0.3333333333333333,
+          "delivery_units": 333333,
+          "worst_attack": [
+            0.4,
+            0.0
+          ]
+        },
+        "best_protected_ids": null,
+        "best_evaluation": null,
+        "upper_bound": null,
+        "optimality_proven": false,
+        "evaluated_combinations": 0,
+        "evaluation_calls": 2,
+        "cache_hits": 14,
+        "search_seconds": 0.020863077,
+        "preparation_seconds": 1.1568991539970739,
+        "final_scoring_seconds": 0.010227999999187887,
+        "shutdown_seconds": 0.007957923007779755,
+        "exact_peak_rss_bytes": null,
+        "algorithm_peak_rss_bytes": 67772416,
+        "evaluation_peak_rss_bytes": null,
+        "algorithm_memory_limit_bytes": 4000000000,
+        "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole worker including LP/cache",
+        "checkpoint_received_elapsed": null,
+        "error_type": null,
+        "error_message": null,
+        "solver_diagnostics": null,
+        "algorithm_seed": null,
+        "repeat_index": 0,
+        "repeat_count": 1,
+        "run_kind": "smoke",
+        "policy_version": "evaluation-v2",
+        "submission_sha256": "620f5d9d5a5fb294268f0d825fd4c03ba3a4fb0cbcf006155908a5e1b19b393a",
+        "t0_monotonic_ns": 116623949022181,
+        "final_received_monotonic_ns": 116623969885258,
+        "deadline_monotonic_ns": 116625949022181,
+        "memory_sample_interval_ms": 10,
+        "observed_max_sample_gap_ms": 15.787462,
+        "resource_monitor_supported": true,
+        "events": [
+          "algorithm_pid=17821",
+          "evaluation_initial_cache_size=0",
+          "highs_residual_fallback_solves=0",
+          "search_termination=final_received",
+          "highs_residual_fallback_solves=0"
+        ],
+        "launch_status": "started"
+      }
+    },
+    {
+      "expected_status": "timeout",
+      "matches": true,
+      "record": {
+        "run_id": "914ea9752e5549ab8c864d5547a20c2d",
+        "condition": {
+          "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+          "budget_percent": 40,
+          "budget": 4,
+          "method": "member_1",
+          "limit_seconds": 0.4,
+          "algorithm_memory_limit_bytes": 4000000000
+        },
+        "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+        "schema_version": 1,
+        "status": "timeout",
+        "termination_reason": "deadline",
+        "started_at": "2026-11-18T00:02:33.553859+00:00",
+        "environment": [
+          [
+            "os",
+            "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+          ],
+          [
+            "cpu",
+            "\"aarch64\""
+          ],
+          [
+            "machine",
+            "\"aarch64\""
+          ],
+          [
+            "logical_cpu_count",
+            "8"
+          ],
+          [
+            "ram_bytes",
+            "11761999872"
+          ],
+          [
+            "python",
+            "\"3.13.5\""
+          ],
+          [
+            "python_executable",
+            "\"/root/my-project/.venv/bin/python\""
+          ],
+          [
+            "packages",
+            "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+          ],
+          [
+            "thread_environment",
+            "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+          ]
+        ],
+        "submitted_protected_ids": null,
+        "submitted_evaluation": null,
+        "recovered_protected_ids": null,
+        "recovered_evaluation": null,
+        "best_protected_ids": null,
+        "best_evaluation": null,
+        "upper_bound": null,
+        "optimality_proven": false,
+        "evaluated_combinations": 0,
+        "evaluation_calls": 0,
+        "cache_hits": 0,
+        "search_seconds": 0.400808,
+        "preparation_seconds": 0.9326905389898457,
+        "final_scoring_seconds": null,
+        "shutdown_seconds": 0.0057385379914194345,
+        "exact_peak_rss_bytes": null,
+        "algorithm_peak_rss_bytes": 67817472,
+        "evaluation_peak_rss_bytes": null,
+        "algorithm_memory_limit_bytes": 4000000000,
+        "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole worker including LP/cache",
+        "checkpoint_received_elapsed": null,
+        "error_type": null,
+        "error_message": null,
+        "solver_diagnostics": null,
+        "algorithm_seed": null,
+        "repeat_index": 0,
+        "repeat_count": 1,
+        "run_kind": "smoke",
+        "policy_version": "evaluation-v2",
+        "submission_sha256": "c3e476bfe4accb0d95aef58b01947664fa9f08ebfdb22f91dbfb29d7c091e3d0",
+        "t0_monotonic_ns": 116624924228027,
+        "final_received_monotonic_ns": null,
+        "deadline_monotonic_ns": 116625324228027,
+        "memory_sample_interval_ms": 10,
+        "observed_max_sample_gap_ms": 21.900385,
+        "resource_monitor_supported": true,
+        "events": [
+          "algorithm_pid=17822",
+          "evaluation_initial_cache_size=0",
+          "observed_deadline"
+        ],
+        "launch_status": "started"
+      }
+    },
+    {
+      "expected_status": "memory_limit",
+      "matches": true,
+      "record": {
+        "run_id": "d4a93cc294f74a11bceb0a57a98e953a",
+        "condition": {
+          "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+          "budget_percent": 40,
+          "budget": 4,
+          "method": "member_1",
+          "limit_seconds": 2,
+          "algorithm_memory_limit_bytes": 80000000
+        },
+        "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+        "schema_version": 1,
+        "status": "memory_limit",
+        "termination_reason": "memory_limit",
+        "started_at": "2026-11-18T00:02:34.939856+00:00",
+        "environment": [
+          [
+            "os",
+            "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+          ],
+          [
+            "cpu",
+            "\"aarch64\""
+          ],
+          [
+            "machine",
+            "\"aarch64\""
+          ],
+          [
+            "logical_cpu_count",
+            "8"
+          ],
+          [
+            "ram_bytes",
+            "11761999872"
+          ],
+          [
+            "python",
+            "\"3.13.5\""
+          ],
+          [
+            "python_executable",
+            "\"/root/my-project/.venv/bin/python\""
+          ],
+          [
+            "packages",
+            "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+          ],
+          [
+            "thread_environment",
+            "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+          ]
+        ],
+        "submitted_protected_ids": null,
+        "submitted_evaluation": null,
+        "recovered_protected_ids": null,
+        "recovered_evaluation": null,
+        "best_protected_ids": null,
+        "best_evaluation": null,
+        "upper_bound": null,
+        "optimality_proven": false,
+        "evaluated_combinations": 0,
+        "evaluation_calls": 0,
+        "cache_hits": 0,
+        "search_seconds": 0.023672923,
+        "preparation_seconds": 0.9780916930030799,
+        "final_scoring_seconds": null,
+        "shutdown_seconds": 0.007228847010992467,
+        "exact_peak_rss_bytes": null,
+        "algorithm_peak_rss_bytes": 108457984,
+        "evaluation_peak_rss_bytes": null,
+        "algorithm_memory_limit_bytes": 80000000,
+        "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole worker including LP/cache",
+        "checkpoint_received_elapsed": null,
+        "error_type": null,
+        "error_message": null,
+        "solver_diagnostics": null,
+        "algorithm_seed": null,
+        "repeat_index": 0,
+        "repeat_count": 1,
+        "run_kind": "smoke",
+        "policy_version": "evaluation-v2",
+        "submission_sha256": "35def001a8cd187a15f195e1be6cf098acaf1437ca04b67ed331b85add051452",
+        "t0_monotonic_ns": 116626310226489,
+        "final_received_monotonic_ns": null,
+        "deadline_monotonic_ns": 116628310226489,
+        "memory_sample_interval_ms": 10,
+        "observed_max_sample_gap_ms": 20.508616,
+        "resource_monitor_supported": true,
+        "events": [
+          "algorithm_pid=17823",
+          "evaluation_initial_cache_size=0",
+          "observed_memory_limit"
+        ],
+        "launch_status": "started"
+      }
+    },
+    {
+      "expected_status": "memory_limit",
+      "matches": true,
+      "record": {
+        "run_id": "a8013cb7abd84aae8de584e91dd1f962",
+        "condition": {
+          "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+          "budget_percent": 40,
+          "budget": 4,
+          "method": "member_1",
+          "limit_seconds": 2,
+          "algorithm_memory_limit_bytes": 80000000
+        },
+        "case_id": "492c1d3cc6bdd6a4ad038c831f87727d7c2d31acdbbe3992c49ee5e4cf62fdf7",
+        "schema_version": 1,
+        "status": "memory_limit",
+        "termination_reason": "memory_limit",
+        "started_at": null,
+        "environment": [
+          [
+            "os",
+            "\"Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41\""
+          ],
+          [
+            "cpu",
+            "\"aarch64\""
+          ],
+          [
+            "machine",
+            "\"aarch64\""
+          ],
+          [
+            "logical_cpu_count",
+            "8"
+          ],
+          [
+            "ram_bytes",
+            "11761999872"
+          ],
+          [
+            "python",
+            "\"3.13.5\""
+          ],
+          [
+            "python_executable",
+            "\"/root/my-project/.venv/bin/python\""
+          ],
+          [
+            "packages",
+            "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+          ],
+          [
+            "thread_environment",
+            "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+          ]
+        ],
+        "submitted_protected_ids": null,
+        "submitted_evaluation": null,
+        "recovered_protected_ids": null,
+        "recovered_evaluation": null,
+        "best_protected_ids": null,
+        "best_evaluation": null,
+        "upper_bound": null,
+        "optimality_proven": false,
+        "evaluated_combinations": 0,
+        "evaluation_calls": 0,
+        "cache_hits": 0,
+        "search_seconds": null,
+        "preparation_seconds": null,
+        "final_scoring_seconds": null,
+        "shutdown_seconds": 0.006166462000692263,
+        "exact_peak_rss_bytes": null,
+        "algorithm_peak_rss_bytes": 95625216,
+        "evaluation_peak_rss_bytes": null,
+        "algorithm_memory_limit_bytes": 80000000,
+        "memory_measurement_method": "Linux /proc VmRSS/VmHWM (KiB*1024); whole worker including LP/cache",
+        "checkpoint_received_elapsed": null,
+        "error_type": null,
+        "error_message": null,
+        "solver_diagnostics": null,
+        "algorithm_seed": null,
+        "repeat_index": 0,
+        "repeat_count": 1,
+        "run_kind": "smoke",
+        "policy_version": "evaluation-v2",
+        "submission_sha256": "150926419c20e9aef5ea5fad9522d0fe5aa789685967d1288127f4384ba4f144",
+        "t0_monotonic_ns": null,
+        "final_received_monotonic_ns": null,
+        "deadline_monotonic_ns": null,
+        "memory_sample_interval_ms": 10,
+        "observed_max_sample_gap_ms": 13.982154,
+        "resource_monitor_supported": true,
+        "events": [
+          "algorithm_pid=17825"
+        ],
+        "launch_status": "not_started"
+      }
+    }
+  ],
+  "all_passed": true,
+  "caveats": [
+    "Test-only short deadlines and low memory limits, not team performance.",
+    "Whole-worker RSS includes evaluator, LP and cache; no evaluation process.",
+    "Linux RSS sampling is observational, not a continuous hard limit.",
+    "Final score is outside algorithm deadline; no main/long experiment ran."
+  ]
+}

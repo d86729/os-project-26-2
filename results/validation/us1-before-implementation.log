@@ -1,0 +1,871 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFF.FF                                           [100%]
+=================================== FAILURES ===================================
+__________________ test_reproducibility_and_rng_sequence[3-0] __________________
+
+n = 3, seed = 0
+
+    @pytest.mark.parametrize('n,seed',[(3,0),(6,0),(8,17)])
+    def test_reproducibility_and_rng_sequence(n,seed):
+>       g=module(); s=g.generate_scenario(n,seed); assert s==g.generate_scenario(n,seed)
+          ^^^^^^^^
+
+tests/unit/test_generation.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+__________________ test_reproducibility_and_rng_sequence[6-0] __________________
+
+n = 6, seed = 0
+
+    @pytest.mark.parametrize('n,seed',[(3,0),(6,0),(8,17)])
+    def test_reproducibility_and_rng_sequence(n,seed):
+>       g=module(); s=g.generate_scenario(n,seed); assert s==g.generate_scenario(n,seed)
+          ^^^^^^^^
+
+tests/unit/test_generation.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_________________ test_reproducibility_and_rng_sequence[8-17] __________________
+
+n = 8, seed = 17
+
+    @pytest.mark.parametrize('n,seed',[(3,0),(6,0),(8,17)])
+    def test_reproducibility_and_rng_sequence(n,seed):
+>       g=module(); s=g.generate_scenario(n,seed); assert s==g.generate_scenario(n,seed)
+          ^^^^^^^^
+
+tests/unit/test_generation.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+___________________ test_current_degrees_and_distance_floor ____________________
+
+    def test_current_degrees_and_distance_floor():
+>       g=module(); xy=np.array([[0.,0.],[0.,0.],[.5,0.],[0.,0.]])
+          ^^^^^^^^
+
+tests/unit/test_generation.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_______________________ test_bad_generation_inputs[2-0] ________________________
+
+n = 2, seed = 0
+
+    @pytest.mark.parametrize('n,seed',[(2,0),(True,0),(6,True),(6,-1)])
+    def test_bad_generation_inputs(n,seed):
+>       with pytest.raises(InvalidScenarioError): module().generate_scenario(n,seed)
+                                                  ^^^^^^^^
+
+tests/unit/test_generation.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+______________________ test_bad_generation_inputs[True-0] ______________________
+
+n = True, seed = 0
+
+    @pytest.mark.parametrize('n,seed',[(2,0),(True,0),(6,True),(6,-1)])
+    def test_bad_generation_inputs(n,seed):
+>       with pytest.raises(InvalidScenarioError): module().generate_scenario(n,seed)
+                                                  ^^^^^^^^
+
+tests/unit/test_generation.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+______________________ test_bad_generation_inputs[6-True] ______________________
+
+n = 6, seed = True
+
+    @pytest.mark.parametrize('n,seed',[(2,0),(True,0),(6,True),(6,-1)])
+    def test_bad_generation_inputs(n,seed):
+>       with pytest.raises(InvalidScenarioError): module().generate_scenario(n,seed)
+                                                  ^^^^^^^^
+
+tests/unit/test_generation.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_______________________ test_bad_generation_inputs[6--1] _______________________
+
+n = 6, seed = -1
+
+    @pytest.mark.parametrize('n,seed',[(2,0),(True,0),(6,True),(6,-1)])
+    def test_bad_generation_inputs(n,seed):
+>       with pytest.raises(InvalidScenarioError): module().generate_scenario(n,seed)
+                                                  ^^^^^^^^
+
+tests/unit/test_generation.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_generation.py:8: in module
+    return importlib.import_module('protection.generation')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.generation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.generation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________ test_segment_interior_zero_length_and_boundary ________________
+
+    def test_segment_interior_zero_length_and_boundary():
+>       a=module()
+          ^^^^^^^^
+
+tests/unit/test_attacks.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_attacks.py:8: in module
+    def module(): return importlib.import_module('protection.attacks')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.attacks', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.attacks'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+__________________ test_grid_midpoint_rounding_and_protection __________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+
+    def test_grid_midpoint_rounding_and_protection(path_scenario):
+>       a=module(); p=a.prepare_attacks(path_scenario)
+          ^^^^^^^^
+
+tests/unit/test_attacks.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_attacks.py:8: in module
+    def module(): return importlib.import_module('protection.attacks')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.attacks', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.attacks'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_________________________ test_crossing_is_not_a_node __________________________
+
+    def test_crossing_is_not_a_node():
+        s=Scenario(tuple(Node(i,*p) for i,p in enumerate(((.1,.1),(.9,.9),(.1,.9),(.9,.1)))),
+                   (Edge(0,0,1,10,1),Edge(1,0,2,10,1),Edge(2,2,3,10,1)),
+                   tuple(Demand(i,*p,5) for i,p in enumerate(((0,1),(1,0),(2,3),(3,2)))),0)
+>       p=module().prepare_attacks(s)
+          ^^^^^^^^
+
+tests/unit/test_attacks.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_attacks.py:8: in module
+    def module(): return importlib.import_module('protection.attacks')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.attacks', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.attacks'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________ test_shared_direction_and_independent_reverse _________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+hand_example = HandExample(coordinates=((0.1, 0.1), (0.5, 0.1), (0.9, 0.1)), edges=((0, 1, 10, 4), (1, 2, 10, 6)), demands=((0, 2, 10), (0, 1, 10), (2, 0, 10)), expected_delivered=20, expected_units=666667, expected_connected_pairs=3)
+
+    def test_shared_direction_and_independent_reverse(path_scenario,hand_example):
+        # Forward demands 0->2 and 0->1 share 10. Reverse 2->0 has its own 10.
+>       r=module().maximum_delivery(path_scenario,(0,1))
+          ^^^^^^^^
+
+tests/unit/test_flow.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_flow.py:10: in module
+    def module(): return importlib.import_module('protection.flow')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.flow', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.flow'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_______________________ test_split_paths_and_demand_caps _______________________
+
+    def test_split_paths_and_demand_caps():
+        # Diamond: 0->3 splits across two capacity-10 paths to deliver 20;
+        # 1->0, 2->0, 3->1 each use independent reverse capacity and deliver 5.
+        s=Scenario(tuple(Node(i,*xy) for i,xy in enumerate(((.1,.5),(.5,.1),(.5,.9),(.9,.5)))),
+                   tuple(Edge(i,*uv,10,1) for i,uv in enumerate(((0,1),(0,2),(1,3),(2,3)))),
+                   tuple(Demand(i,*d) for i,d in enumerate(((0,3,20),(1,0,5),(2,0,5),(3,1,5)))),0)
+>       r=module().maximum_delivery(s,(0,1,2,3))
+          ^^^^^^^^
+
+tests/unit/test_flow.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_flow.py:10: in module
+    def module(): return importlib.import_module('protection.flow')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.flow', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.flow'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+____________________ test_disconnected_network_is_real_zero ____________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+
+    def test_disconnected_network_is_real_zero(path_scenario):
+>       r=module().maximum_delivery(path_scenario,())
+          ^^^^^^^^
+
+tests/unit/test_flow.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_flow.py:10: in module
+    def module(): return importlib.import_module('protection.flow')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.flow', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.flow'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_________________________ test_lp_failure_is_not_zero __________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x752505e060>
+
+    def test_lp_failure_is_not_zero(path_scenario,monkeypatch):
+>       f=module()
+          ^^^^^^^^
+
+tests/unit/test_flow.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_flow.py:10: in module
+    def module(): return importlib.import_module('protection.flow')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.flow', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.flow'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+____________________________ test_expired_deadline _____________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+
+    def test_expired_deadline(path_scenario):
+>       with pytest.raises(DeadlineExceeded): module().maximum_delivery(path_scenario,(0,1),deadline=time.monotonic()-1)
+                                              ^^^^^^^^
+
+tests/unit/test_flow.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_flow.py:10: in module
+    def module(): return importlib.import_module('protection.flow')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.flow', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.flow'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_____________________ test_nonfinite_and_residual_failure ______________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x752505dcd0>
+
+    def test_nonfinite_and_residual_failure(path_scenario,monkeypatch):
+>       f=module(); real=f.linprog
+          ^^^^^^^^
+
+tests/unit/test_flow.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_flow.py:10: in module
+    def module(): return importlib.import_module('protection.flow')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.flow', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.flow'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[bad0] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = (0,)
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[bad1] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = [True]
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[bad2] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = [0, 0]
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[bad3] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = [1, 0]
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[bad4] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = [-1]
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[bad5] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = [2]
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[bad6] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = [0.0]
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________________ test_invalid_protection[None] _________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+bad = None
+
+    @pytest.mark.parametrize('bad',[(0,),[True],[0,0],[1,0],[-1],[2],[0.0],None])
+    def test_invalid_protection(path_scenario,bad):
+>       with pytest.raises(InvalidProtectionError): module().validate_protection(path_scenario,10,bad)
+                                                    ^^^^^^^^
+
+tests/unit/test_evaluation.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+__________________________ test_budget_empty_and_cost __________________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+
+    def test_budget_empty_and_cost(path_scenario):
+>       e=module()
+          ^^^^^^^^
+
+tests/unit/test_evaluation.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________________ test_first_metric_before_lp_and_coordinate_tie ________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7524f05250>
+
+    def test_first_metric_before_lp_and_coordinate_tie(path_scenario,monkeypatch):
+>       a=importlib.import_module('protection.attacks'); e=module()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_evaluation.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.attacks', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.attacks'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+___________________ test_cache_equal_and_new_condition_empty ___________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+
+    def test_cache_equal_and_new_condition_empty(path_scenario):
+>       e=module(); on=e.Evaluator(path_scenario); off=e.Evaluator(path_scenario,use_cache=False)
+          ^^^^^^^^
+
+tests/unit/test_evaluation.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+____________________ test_failure_propagates_and_not_cached ____________________
+
+path_scenario = Scenario(nodes=(Node(id=0, x=0.1, y=0.1), Node(id=1, x=0.5, y=0.1), Node(id=2, x=0.9, y=0.1)), edges=(Edge(id=0, u=0, ...tor_limit=1000000000, max_solver_attempts=2, threads=1, certification='rational_primal_dual_interval'), environment=())
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x75250056a0>
+
+    def test_failure_propagates_and_not_cached(path_scenario,monkeypatch):
+>       e=module(); evaluator=e.Evaluator(path_scenario)
+          ^^^^^^^^
+
+tests/unit/test_evaluation.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_evaluation.py:9: in module
+    def module(): return importlib.import_module('protection.evaluation')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'protection.evaluation', import_ = <function _gcd_import at 0x75368084a0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'protection.evaluation'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/unit/test_generation.py::test_reproducibility_and_rng_sequence[3-0]
+FAILED tests/unit/test_generation.py::test_reproducibility_and_rng_sequence[6-0]
+FAILED tests/unit/test_generation.py::test_reproducibility_and_rng_sequence[8-17]
+FAILED tests/unit/test_generation.py::test_current_degrees_and_distance_floor
+FAILED tests/unit/test_generation.py::test_bad_generation_inputs[2-0] - Modul...
+FAILED tests/unit/test_generation.py::test_bad_generation_inputs[True-0] - Mo...
+FAILED tests/unit/test_generation.py::test_bad_generation_inputs[6-True] - Mo...
+FAILED tests/unit/test_generation.py::test_bad_generation_inputs[6--1] - Modu...
+FAILED tests/unit/test_attacks.py::test_segment_interior_zero_length_and_boundary
+FAILED tests/unit/test_attacks.py::test_grid_midpoint_rounding_and_protection
+FAILED tests/unit/test_attacks.py::test_crossing_is_not_a_node - ModuleNotFou...
+FAILED tests/unit/test_flow.py::test_shared_direction_and_independent_reverse
+FAILED tests/unit/test_flow.py::test_split_paths_and_demand_caps - ModuleNotF...
+FAILED tests/unit/test_flow.py::test_disconnected_network_is_real_zero - Modu...
+FAILED tests/unit/test_flow.py::test_lp_failure_is_not_zero - ModuleNotFoundE...
+FAILED tests/unit/test_flow.py::test_expired_deadline - ModuleNotFoundError: ...
+FAILED tests/unit/test_flow.py::test_nonfinite_and_residual_failure - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[bad0] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[bad1] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[bad2] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[bad3] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[bad4] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[bad5] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[bad6] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_invalid_protection[None] - ModuleN...
+FAILED tests/unit/test_evaluation.py::test_budget_empty_and_cost - ModuleNotF...
+FAILED tests/unit/test_evaluation.py::test_first_metric_before_lp_and_coordinate_tie
+FAILED tests/unit/test_evaluation.py::test_cache_equal_and_new_condition_empty
+FAILED tests/unit/test_evaluation.py::test_failure_propagates_and_not_cached
+29 failed, 1 passed in 4.18s

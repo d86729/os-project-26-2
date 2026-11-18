@@ -1,0 +1,93 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________ test_initial_notebook_clean_kernel ______________________
+
+fp = PosixPath('/root/my-project/notebooks/submission.ipynb'), as_version = 4
+capture_validation_error = None, kwargs = {}
+
+    def read(fp, as_version, capture_validation_error=None, **kwargs):
+        """Read a notebook from a file as a NotebookNode of the given version.
+    
+        The string can contain a notebook of any version.
+        The notebook will be returned `as_version`, converting, if necessary.
+    
+        Notebook format errors will be logged.
+    
+        Parameters
+        ----------
+        fp : file or str
+            A file-like object with a read method that returns unicode (use
+            ``io.open()`` in Python 2), or a path to a file.
+        as_version : int
+            The version of the notebook format to return.
+            The notebook will be converted, if necessary.
+            Pass nbformat.NO_CONVERT to prevent conversion.
+        capture_validation_error : dict, optional
+            If provided, a key of "ValidationError" with a
+            value of the ValidationError instance will be added
+            to the dictionary.
+    
+        Returns
+        -------
+        nb : NotebookNode
+            The notebook that was read.
+        """
+    
+        try:
+>           buf = fp.read()
+                  ^^^^^^^
+E           AttributeError: 'PosixPath' object has no attribute 'read'
+
+.venv/lib/python3.13/site-packages/nbformat/__init__.py:169: AttributeError
+
+During handling of the above exception, another exception occurred:
+
+    def test_initial_notebook_clean_kernel():
+>       notebook=nbformat.read(ROOT/'notebooks/submission.ipynb',as_version=4)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_notebook.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fp = PosixPath('/root/my-project/notebooks/submission.ipynb'), as_version = 4
+capture_validation_error = None, kwargs = {}
+
+    def read(fp, as_version, capture_validation_error=None, **kwargs):
+        """Read a notebook from a file as a NotebookNode of the given version.
+    
+        The string can contain a notebook of any version.
+        The notebook will be returned `as_version`, converting, if necessary.
+    
+        Notebook format errors will be logged.
+    
+        Parameters
+        ----------
+        fp : file or str
+            A file-like object with a read method that returns unicode (use
+            ``io.open()`` in Python 2), or a path to a file.
+        as_version : int
+            The version of the notebook format to return.
+            The notebook will be converted, if necessary.
+            Pass nbformat.NO_CONVERT to prevent conversion.
+        capture_validation_error : dict, optional
+            If provided, a key of "ValidationError" with a
+            value of the ValidationError instance will be added
+            to the dictionary.
+    
+        Returns
+        -------
+        nb : NotebookNode
+            The notebook that was read.
+        """
+    
+        try:
+            buf = fp.read()
+        except AttributeError:
+>           with open(fp, encoding="utf8") as f:  # noqa: PTH123
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: '/root/my-project/notebooks/submission.ipynb'
+
+.venv/lib/python3.13/site-packages/nbformat/__init__.py:171: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/integration/test_notebook.py::test_initial_notebook_clean_kernel
+1 failed in 1.43s

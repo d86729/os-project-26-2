@@ -1,0 +1,7 @@
+Package import: 0.1.0
+CLI entry reserved for T049
+requires-python >=3.11
+Member1Protector NotImplementedError preserved
+Member2Protector NotImplementedError preserved
+Member3Protector NotImplementedError preserved
+No broken requirements found.

@@ -1,0 +1,238 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+___________________ test_help_is_import_and_side_effect_free ___________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_help_is_import_and_side_e0')
+
+    def test_help_is_import_and_side_effect_free(tmp_path):
+        script = """import os,sys
+    before=dict(os.environ)
+    from protection.cli import main
+    try: main(['--help'])
+    except SystemExit as e: assert e.code==0
+    assert dict(os.environ)==before
+    assert not any(x in sys.modules for x in ('numpy','scipy','protection.generation','protection.exact','protection.runner'))
+    """
+        p=subprocess.run([sys.executable,'-c',script],cwd=tmp_path,text=True,capture_output=True)
+>       assert p.returncode==0,p.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 3, in <module>
+E             from protection.cli import main
+E         ModuleNotFoundError: No module named 'protection.cli'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/root/my-project/.venv/bin/python', '-c', "import os,sys\nbefore=dict(os.environ)\nfrom protec..., line 3, in <module>\n    from protection.cli import main\nModuleNotFoundError: No module named \'protection.cli\'\n').returncode
+
+tests/integration/test_cli_pipeline.py:39: AssertionError
+___________________________ test_bad_manifest[data0] ___________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data0_0')
+data = {}
+
+    @pytest.mark.parametrize('data',[{},[],{'kind':'grading'}, {'ready':False}])
+    def test_bad_manifest(tmp_path,data):
+        path=tmp_path/'bad.json';path.write_text(json.dumps(data))
+>       cli('grade','--manifest',path,expected=2)
+
+tests/integration/test_cli_pipeline.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expected = 2
+args = ('grade', '--manifest', PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data0_0/bad.json'))
+
+    def cli(*args, expected=0):
+        p = subprocess.run([sys.executable, '-m', 'protection.cli', *map(str,args)],
+                           cwd=ROOT, text=True, capture_output=True, timeout=180)
+>       assert p.returncode == expected, p.stdout + p.stderr
+E       AssertionError: /root/my-project/.venv/bin/python: No module named protection.cli
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/root/my-project/.venv/bin/python', '-m', 'protection.cli', 'grade', '--manifest', '/tmp/pytes...a0_0/bad.json'], returncode=1, stdout='', stderr='/root/my-project/.venv/bin/python: No module named protection.cli\n').returncode
+
+tests/integration/test_cli_pipeline.py:15: AssertionError
+___________________________ test_bad_manifest[data1] ___________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data1_0')
+data = []
+
+    @pytest.mark.parametrize('data',[{},[],{'kind':'grading'}, {'ready':False}])
+    def test_bad_manifest(tmp_path,data):
+        path=tmp_path/'bad.json';path.write_text(json.dumps(data))
+>       cli('grade','--manifest',path,expected=2)
+
+tests/integration/test_cli_pipeline.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expected = 2
+args = ('grade', '--manifest', PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data1_0/bad.json'))
+
+    def cli(*args, expected=0):
+        p = subprocess.run([sys.executable, '-m', 'protection.cli', *map(str,args)],
+                           cwd=ROOT, text=True, capture_output=True, timeout=180)
+>       assert p.returncode == expected, p.stdout + p.stderr
+E       AssertionError: /root/my-project/.venv/bin/python: No module named protection.cli
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/root/my-project/.venv/bin/python', '-m', 'protection.cli', 'grade', '--manifest', '/tmp/pytes...a1_0/bad.json'], returncode=1, stdout='', stderr='/root/my-project/.venv/bin/python: No module named protection.cli\n').returncode
+
+tests/integration/test_cli_pipeline.py:15: AssertionError
+___________________________ test_bad_manifest[data2] ___________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data2_0')
+data = {'kind': 'grading'}
+
+    @pytest.mark.parametrize('data',[{},[],{'kind':'grading'}, {'ready':False}])
+    def test_bad_manifest(tmp_path,data):
+        path=tmp_path/'bad.json';path.write_text(json.dumps(data))
+>       cli('grade','--manifest',path,expected=2)
+
+tests/integration/test_cli_pipeline.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expected = 2
+args = ('grade', '--manifest', PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data2_0/bad.json'))
+
+    def cli(*args, expected=0):
+        p = subprocess.run([sys.executable, '-m', 'protection.cli', *map(str,args)],
+                           cwd=ROOT, text=True, capture_output=True, timeout=180)
+>       assert p.returncode == expected, p.stdout + p.stderr
+E       AssertionError: /root/my-project/.venv/bin/python: No module named protection.cli
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/root/my-project/.venv/bin/python', '-m', 'protection.cli', 'grade', '--manifest', '/tmp/pytes...a2_0/bad.json'], returncode=1, stdout='', stderr='/root/my-project/.venv/bin/python: No module named protection.cli\n').returncode
+
+tests/integration/test_cli_pipeline.py:15: AssertionError
+___________________________ test_bad_manifest[data3] ___________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data3_0')
+data = {'ready': False}
+
+    @pytest.mark.parametrize('data',[{},[],{'kind':'grading'}, {'ready':False}])
+    def test_bad_manifest(tmp_path,data):
+        path=tmp_path/'bad.json';path.write_text(json.dumps(data))
+>       cli('grade','--manifest',path,expected=2)
+
+tests/integration/test_cli_pipeline.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expected = 2
+args = ('grade', '--manifest', PosixPath('/tmp/pytest-of-root/pytest-22/test_bad_manifest_data3_0/bad.json'))
+
+    def cli(*args, expected=0):
+        p = subprocess.run([sys.executable, '-m', 'protection.cli', *map(str,args)],
+                           cwd=ROOT, text=True, capture_output=True, timeout=180)
+>       assert p.returncode == expected, p.stdout + p.stderr
+E       AssertionError: /root/my-project/.venv/bin/python: No module named protection.cli
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/root/my-project/.venv/bin/python', '-m', 'protection.cli', 'grade', '--manifest', '/tmp/pytes...a3_0/bad.json'], returncode=1, stdout='', stderr='/root/my-project/.venv/bin/python: No module named protection.cli\n').returncode
+
+tests/integration/test_cli_pipeline.py:15: AssertionError
+_________________________ test_main_is_not_authorized __________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_main_is_not_authorized0')
+
+    def test_main_is_not_authorized(tmp_path):
+>       cli('generate','--manifest',ROOT/'configs/experiment.json',expected=2)
+
+tests/integration/test_cli_pipeline.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expected = 2
+args = ('generate', '--manifest', PosixPath('/root/my-project/configs/experiment.json'))
+
+    def cli(*args, expected=0):
+        p = subprocess.run([sys.executable, '-m', 'protection.cli', *map(str,args)],
+                           cwd=ROOT, text=True, capture_output=True, timeout=180)
+>       assert p.returncode == expected, p.stdout + p.stderr
+E       AssertionError: /root/my-project/.venv/bin/python: No module named protection.cli
+E         
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/root/my-project/.venv/bin/python', '-m', 'protection.cli', 'generate', '--manifest', '/root/m...periment.json'], returncode=1, stdout='', stderr='/root/my-project/.venv/bin/python: No module named protection.cli\n').returncode
+
+tests/integration/test_cli_pipeline.py:15: AssertionError
+______________________________ test_cli_pipeline _______________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_cli_pipeline0')
+
+    def test_cli_pipeline(tmp_path):
+        prep=json.loads((ROOT/'configs/smoke.json').read_text());prep['output_dir']=str(tmp_path/'bank')
+        manifest=tmp_path/'prepare.json';manifest.write_text(json.dumps(prep))
+>       cli('generate','--manifest',manifest)
+
+tests/integration/test_cli_pipeline.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expected = 0
+args = ('generate', '--manifest', PosixPath('/tmp/pytest-of-root/pytest-22/test_cli_pipeline0/prepare.json'))
+
+    def cli(*args, expected=0):
+        p = subprocess.run([sys.executable, '-m', 'protection.cli', *map(str,args)],
+                           cwd=ROOT, text=True, capture_output=True, timeout=180)
+>       assert p.returncode == expected, p.stdout + p.stderr
+E       AssertionError: /root/my-project/.venv/bin/python: No module named protection.cli
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/root/my-project/.venv/bin/python', '-m', 'protection.cli', 'generate', '--manifest', '/tmp/py.../prepare.json'], returncode=1, stdout='', stderr='/root/my-project/.venv/bin/python: No module named protection.cli\n').returncode
+
+tests/integration/test_cli_pipeline.py:15: AssertionError
+____________________ test_grade_imports_no_preparation_code ____________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-22/test_grade_imports_no_preparat0')
+
+    def test_grade_imports_no_preparation_code(tmp_path):
+        # Reference-free saved input exercises grading without reference re-score imports.
+        from protection.models import ScenarioBundle,save_bundle
+        from protection.generation import generate_scenario
+        s=generate_scenario(6,0); b=ScenarioBundle(s,20,sum(e.cost for e in s.edges)*20//100)
+        save_bundle(b,tmp_path/'case.json')
+        gm=tmp_path/'grade.json';gm.write_text(json.dumps(grading([dict(path=str(tmp_path/'case.json'),case_id=b.case_id)],tmp_path/'out')))
+        script="""import sys
+    class Block:
+     def find_spec(self,fullname,*args):
+      if fullname in ('protection.generation','protection.exact'): raise AssertionError('preparation imported during grading')
+    sys.meta_path.insert(0,Block())
+    from protection.cli import main
+    raise SystemExit(main(['grade','--manifest',sys.argv[1]]))
+    """
+        p=subprocess.run([sys.executable,'-c',script,str(gm)],text=True,capture_output=True,timeout=60)
+        assert p.returncode==1,p.stderr
+>       assert json.loads((tmp_path/'out/runs.jsonl').read_text())['status']=='not_implemented'
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_cli_pipeline.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.13/pathlib/_local.py:548: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/pathlib/_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-root/pytest-22/test_grade_imports_no_preparat0/out/runs.jsonl')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-22/test_grade_imports_no_preparat0/out/runs.jsonl'
+
+/usr/lib/python3.13/pathlib/_local.py:539: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/integration/test_cli_pipeline.py::test_help_is_import_and_side_effect_free
+FAILED tests/integration/test_cli_pipeline.py::test_bad_manifest[data0] - Ass...
+FAILED tests/integration/test_cli_pipeline.py::test_bad_manifest[data1] - Ass...
+FAILED tests/integration/test_cli_pipeline.py::test_bad_manifest[data2] - Ass...
+FAILED tests/integration/test_cli_pipeline.py::test_bad_manifest[data3] - Ass...
+FAILED tests/integration/test_cli_pipeline.py::test_main_is_not_authorized - ...
+FAILED tests/integration/test_cli_pipeline.py::test_cli_pipeline - AssertionE...
+FAILED tests/integration/test_cli_pipeline.py::test_grade_imports_no_preparation_code
+8 failed in 1.44s

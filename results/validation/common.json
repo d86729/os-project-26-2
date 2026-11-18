@@ -1,0 +1,328 @@
+{
+  "environment": {
+    "cpu": "aarch64",
+    "logical_cpu_count": 8,
+    "machine": "aarch64",
+    "os": "Linux-6.17.0-PRoot-Distro-aarch64-with-glibc2.41",
+    "packages": {
+      "ipykernel": "7.4.0",
+      "nbclient": "0.11.0",
+      "nbformat": "5.11.1",
+      "networkx": "3.7",
+      "numpy": "2.5.5",
+      "pytest": "9.2.0",
+      "scipy": "1.18.1"
+    },
+    "python": "3.13.5",
+    "python_executable": "/root/my-project/.venv/bin/python",
+    "ram_bytes": 11761999872,
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "formal_distribution": false,
+  "generated": {
+    "artifact_kind": "scenario_input",
+    "candidate_count": 51,
+    "conditions": [
+      {
+        "budget": 11,
+        "budget_percent": 20,
+        "cache_hits": 3,
+        "cache_size": 1,
+        "evaluations": [
+          {
+            "connected_pairs": 3,
+            "connected_ratio": 0.2,
+            "cost": 0,
+            "delivered_mbps": 16.0,
+            "delivery_ratio": 0.20253164556962025,
+            "delivery_units": 202532,
+            "protected_ids": [],
+            "worst_attack": [
+              0.709953007,
+              0.821126069
+            ]
+          },
+          {
+            "connected_pairs": 3,
+            "connected_ratio": 0.2,
+            "cost": 7,
+            "delivered_mbps": 16.0,
+            "delivery_ratio": 0.20253164556962025,
+            "delivery_units": 202532,
+            "protected_ids": [
+              0
+            ],
+            "worst_attack": [
+              0.709953007,
+              0.821126069
+            ]
+          }
+        ],
+        "invalid_rejections": 6
+      },
+      {
+        "budget": 22,
+        "budget_percent": 40,
+        "cache_hits": 3,
+        "cache_size": 1,
+        "evaluations": [
+          {
+            "connected_pairs": 3,
+            "connected_ratio": 0.2,
+            "cost": 0,
+            "delivered_mbps": 16.0,
+            "delivery_ratio": 0.20253164556962025,
+            "delivery_units": 202532,
+            "protected_ids": [],
+            "worst_attack": [
+              0.709953007,
+              0.821126069
+            ]
+          },
+          {
+            "connected_pairs": 3,
+            "connected_ratio": 0.2,
+            "cost": 7,
+            "delivered_mbps": 16.0,
+            "delivery_ratio": 0.20253164556962025,
+            "delivery_units": 202532,
+            "protected_ids": [
+              0
+            ],
+            "worst_attack": [
+              0.709953007,
+              0.821126069
+            ]
+          }
+        ],
+        "invalid_rejections": 6
+      }
+    ],
+    "intermediate_path": "results/validation/common-n6-seed0-input.json",
+    "intermediate_roundtrip_equal": true,
+    "n": 6,
+    "reproducible": true,
+    "scenario_id": "562d0916e75f7e72dddf944df51b9afe683ca6a0f7817e57900e01e6dabbc277",
+    "seed": 0
+  },
+  "hand_oracle": {
+    "comparisons": [
+      {
+        "actual": {
+          "connected_pairs": 0,
+          "connected_ratio": 0.0,
+          "cost": 0,
+          "delivered_mbps": -0.0,
+          "delivery_ratio": -0.0,
+          "delivery_units": 0,
+          "protected_ids": [],
+          "worst_attack": [
+            0.4,
+            0.0
+          ]
+        },
+        "budget": 2,
+        "expected": {
+          "connected_pairs": 0,
+          "cost": 0,
+          "delivered_mbps": 0.0,
+          "delivery_units": 0,
+          "worst_attack": [
+            0.4,
+            0.0
+          ]
+        },
+        "matched": true
+      },
+      {
+        "actual": {
+          "connected_pairs": 1,
+          "connected_ratio": 0.3333333333333333,
+          "cost": 4,
+          "delivered_mbps": 10.0,
+          "delivery_ratio": 0.3333333333333333,
+          "delivery_units": 333333,
+          "protected_ids": [
+            0
+          ],
+          "worst_attack": [
+            0.4,
+            0.0
+          ]
+        },
+        "budget": 4,
+        "expected": {
+          "connected_pairs": 1,
+          "cost": 4,
+          "delivered_mbps": 10.0,
+          "delivery_units": 333333,
+          "worst_attack": [
+            0.4,
+            0.0
+          ]
+        },
+        "matched": true
+      },
+      {
+        "actual": {
+          "connected_pairs": 3,
+          "connected_ratio": 1.0,
+          "cost": 10,
+          "delivered_mbps": 20.0,
+          "delivery_ratio": 0.6666666666666666,
+          "delivery_units": 666667,
+          "protected_ids": [
+            0,
+            1
+          ],
+          "worst_attack": [
+            0.0,
+            0.0
+          ]
+        },
+        "budget": 10,
+        "expected": {
+          "connected_pairs": 3,
+          "cost": 10,
+          "delivered_mbps": 20.0,
+          "delivery_units": 666667,
+          "worst_attack": [
+            0.0,
+            0.0
+          ]
+        },
+        "matched": true
+      }
+    ],
+    "derivation": "Path capacities 10 per direction; demands 0->2,0->1,2->0 each 10. Empty: 0. Edge0 protected: 10. Both protected: forward shared 10 + reverse 10 = 20. Earliest damaging center (.4,0), full protection tie (0,0).",
+    "scenario": {
+      "attack_settings": {
+        "candidate_sources": [
+          "nodes",
+          "midpoints",
+          "grid"
+        ],
+        "coordinate_digits": 9,
+        "count": 1,
+        "distance_tolerance": 1e-09,
+        "grid_denominator": 5,
+        "radius": 0.15,
+        "version": "attack-v1"
+      },
+      "demands": [
+        {
+          "amount_mbps": 10,
+          "id": 0,
+          "source": 0,
+          "target": 2
+        },
+        {
+          "amount_mbps": 10,
+          "id": 1,
+          "source": 0,
+          "target": 1
+        },
+        {
+          "amount_mbps": 10,
+          "id": 2,
+          "source": 2,
+          "target": 0
+        }
+      ],
+      "edges": [
+        {
+          "capacity_mbps": 10,
+          "cost": 4,
+          "id": 0,
+          "u": 0,
+          "v": 1
+        },
+        {
+          "capacity_mbps": 10,
+          "cost": 6,
+          "id": 1,
+          "u": 1,
+          "v": 2
+        }
+      ],
+      "environment": [],
+      "evaluation_policy": {
+        "certificate_denominator_limit": 1000000000,
+        "certification": "rational_primal_dual_interval",
+        "decimal_precision": 50,
+        "delivery_digits": 6,
+        "dual_tolerance": 1e-09,
+        "ipm_tolerance": 1e-10,
+        "max_solver_attempts": 2,
+        "primal_tolerance": 1e-09,
+        "residual_relative_tolerance": 1e-07,
+        "rounding": "ROUND_HALF_EVEN",
+        "threads": 1,
+        "version": "evaluation-v1"
+      },
+      "generation": {
+        "alpha": 1,
+        "beta": 3,
+        "m0": 2,
+        "min_distance": 1e-09,
+        "rho": 1,
+        "version": "generation-v1"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.1,
+          "y": 0.1
+        },
+        {
+          "id": 1,
+          "x": 0.5,
+          "y": 0.1
+        },
+        {
+          "id": 2,
+          "x": 0.9,
+          "y": 0.1
+        }
+      ],
+      "scenario_id": "2a3d4d2d4eab28bcdd21b3d09289ee2ff12aae68a7ab45c2bde09e510289608d",
+      "schema_version": 1,
+      "seed": 0
+    }
+  },
+  "optimal_reference": null,
+  "run_kind": "smoke",
+  "scope": "T013/T019/T020/T021 common evaluation only",
+  "verification_runs": [
+    {
+      "name": "focused",
+      "command": "COMMON_VALIDATION_REPORT=results/validation/common.json .venv/bin/python -m pytest tests/unit/test_evaluation.py tests/integration/test_common_pipeline.py -q --junitxml=results/validation/common-focused.xml",
+      "exit_code": 0,
+      "tests": 26,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.179,
+      "junit": "results/validation/common-focused.xml",
+      "log": "results/validation/common-focused.txt"
+    },
+    {
+      "name": "regression",
+      "command": ".venv/bin/python -m pytest -q --junitxml=results/validation/common-regression.xml",
+      "exit_code": 0,
+      "tests": 174,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 18.41,
+      "junit": "results/validation/common-regression.xml",
+      "log": "results/validation/common-regression.txt"
+    }
+  ],
+  "regression_scope": "Full repository test discovery after T017/T018 marked complete; includes concurrently landed parent exact tests, not an implementation claim for T022+.",
+  "warnings": "SciPy OptimizeWarning for threads=1 forwarded verbatim to HiGHS; retained in logs, not suppressed."
+}
