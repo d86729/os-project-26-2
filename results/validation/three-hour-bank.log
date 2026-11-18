@@ -31,3 +31,11 @@ END n=12 budget=20 status=completed search=40.17663853999693 wall=43.770 eligibl
 START n=12 seed=0 budget=40
 /root/my-project/protection/flow.py:191: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
   result = linprog(lp.c, A_ub=lp.G, b_ub=lp.b,
+END n=12 budget=40 status=completed search=504.68657226100913 wall=507.127 eligible=True
+START n=14 seed=0 budget=20
+/root/my-project/protection/flow.py:191: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+  result = linprog(lp.c, A_ub=lp.G, b_ub=lp.b,
+END n=14 budget=20 status=completed search=102.64153316000011 wall=104.369 eligible=True
+START n=14 seed=0 budget=40
+/root/my-project/protection/flow.py:191: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+  result = linprog(lp.c, A_ub=lp.G, b_ub=lp.b,
