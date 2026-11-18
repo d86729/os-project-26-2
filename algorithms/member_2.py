@@ -10,6 +10,57 @@ if TYPE_CHECKING:
 class Member2Protector:
     """팀원 2 소유. 담당자 실명·실제 전략명·전략 버전은 제출 전에 기입한다.
 
+    처음 읽는 팀원을 위한 요약:
+        해야 할 일은 solve 안에서 '어떤 간선을 방호할지' 정하고 번호 목록을
+        return 하는 것이다. 파일 읽기, 공격 계산, 공식 채점, 상태 기록은 공통 코드가 한다.
+        print([1])은 반환이 아니다. return [1]처럼 Python list를 반환한다.
+        scenario는 dict가 아닌 객체이므로 scenario.edges[1].cost처럼 접근한다.
+
+    작은 입출력 예시 (설명용 가상 입력이며 실험 결과가 아님):
+        scenario.nodes: 기지 번호 0, 1, 2
+        scenario.edges: 아래 세 Edge 객체의 tuple
+            id=0: 기지 0--1, capacity_mbps=10, cost=3
+            id=1: 기지 0--2, capacity_mbps=10, cost=4
+            id=2: 기지 1--2, capacity_mbps=10, cost=5
+        scenario.demands: 기지 0 -> 2로 5 Mbps 요청
+        budget=4 (비율 40이 아니라 이미 계산된 비용 상한 4)
+        context.limit_seconds=300, context.algorithm_seed=None
+        유효 출력: [1] -> 1번 간선만 방호, 비용 4. []나 [0]도 유효하다.
+        잘못된 출력: [0, 1]은 비용 7로 예산 초과, [1, 1]은 중복,
+            [99]는 없는 번호, (1,)은 tuple, {'answer': [1]}은 dict라서 거부된다.
+        방호하지 않은 선이 모두 삭제되는 것은 아니다. 공격 피해는 공통 평가기가 계산한다.
+        이 예시는 입력 일부를 풀어 쓴 것으로 Scenario 생성 코드나 최적해가 아니다.
+
+    가장 간단한 API 사용 예시 (아래는 설명이며 실제 solve 구현이 아님):
+        def solve(self, scenario, budget, context):
+            candidate = []  # API 확인용: 아무 선도 방호하지 않는 유효 후보
+            result = context.evaluate(candidate)
+            assert result.cost == 0
+            return candidate  # result 객체가 아니라 간선 번호 목록을 반환
+
+        위 예시는 좋은 전략이 아니며 제출 알고리즘을 대신하지 않는다.
+        실제 구현에서는 본인이 탐색한 후보를 반환한다. evaluate는 선택 사항이며
+        호출 시간도 300초에 포함된다. context.remaining_seconds()로 남은 시간을
+        확인하고 결과 전달 여유를 두어 반환한다. 남은 시간 확인만으로 다음 평가의
+        완료가 보장되지는 않는다. 미구현 상태를 위의 빈 해로 바꾸어 제출하지 않는다.
+
+    실행 결과 예시 (실측 로그가 아닌 RunRecord 일부 필드의 설명용 예):
+        아래 상태는 solve가 반환하는 것이 아니라 공통 실행기가 기록한다.
+        성공: return [1]이 기한 내 수신되고 최종 채점도 성공한 경우
+            {'status': 'completed', 'submitted_protected_ids': [1]}
+            submitted_evaluation에는 실제 Evaluation이 들어간다. 점수는 여기서 꾸며 넣지 않는다.
+        시간초과: 반환 전에 제한시간을 넘긴 경우
+            {'status': 'timeout', 'submitted_evaluation': None}
+        메모리 초과: 전체 워커 RSS가 4,000,000,000 bytes를 넘긴 경우
+            {'status': 'memory_limit', 'submitted_evaluation': None}
+        런타임 오류: solve에서 raise RuntimeError('example failure')가 전파된 경우
+            {'status': 'failed', 'error_type': 'RuntimeError',
+             'error_message': 'example failure', 'submitted_evaluation': None}
+        위 목록은 전체 저장 JSON이 아니다. Python None은 JSON에서 null이 된다.
+        실패는 0점이 아니라 공식 점수 없음이다. 시간/메모리 초과는 정상 성공으로
+        바뀌지 않는다. 강제 종료 시 워커 안의 중간 후보도 복구되지 않을 수 있다.
+        현재 파일 그대로 실행하면 not_implemented이며, 위 성공 예시와 다르다.
+
     책임 경계:
         공통 실행기는 이 클래스를 무인자로 생성한 뒤 solve를 호출한다.
         이 파일의 알고리즘·시험·전략 설명은 팀원 책임이다. 제출물은 이 파일 하나다.
