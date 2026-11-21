@@ -1,4 +1,4 @@
-"""Local CLI v1. Parsing/help never imports scientific or submission modules."""
+"""시나리오 생성, 참조 계산, 제출 채점과 보고서를 연결하는 로컬 CLI다."""
 from __future__ import annotations
 import argparse
 import json
@@ -20,6 +20,8 @@ def parser():
     q.add_argument('--input',required=True);q.add_argument('--exact-record',required=True);q.add_argument('--output',required=True)
     q=commands.add_parser('validate')
     q.add_argument('--bundle',required=True);q.add_argument('--require-reference',action='store_true')
+    q=commands.add_parser('input')
+    q.add_argument('--bundle',required=True)
     q=commands.add_parser('report')
     q.add_argument('--records',required=True);q.add_argument('--bank-manifest',required=True);q.add_argument('--output-dir',required=True)
     return p
@@ -89,9 +91,12 @@ def execute(args):
     elif args.command=='validate':
         b=load_bundle(args.bundle,require_reference=args.require_reference)
         print(canonical_json({'valid':True,'case_id':b.case_id,'has_reference':b.optimal_reference is not None}))
+    elif args.command=='input':
+        from protection.program import scenario_input
+        sys.stdout.buffer.write(scenario_input(load_bundle(args.bundle)))
     elif args.command=='grade':
         manifest=load_manifest(args.manifest,'grading')
-        load_bank(manifest)  # Validate all inputs before any submission import/execution.
+        load_bank(manifest)  # 제출 프로그램을 실행하기 전에 모든 사례 파일을 검증한다.
         from protection.runner import grade_manifest
         output=Path(manifest.to_dict()['output_dir'])
         require(not any((output/name).exists() for name in ('runs.jsonl','batch.json','environment.json')),

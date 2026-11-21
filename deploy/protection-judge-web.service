@@ -1,0 +1,17 @@
+[Unit]
+Description=Protection coding test web application
+Requires=protection-judge-worker.service
+After=protection-judge-worker.service
+
+[Service]
+Type=simple
+User=user
+WorkingDirectory=/home/user/os-project-26-2
+Environment=PROTECTION_STATE_DIR=/home/user/.local/state/protection-judge
+ExecStart=/home/user/os-project-26-2/.venv/bin/gunicorn --bind 127.0.0.1:18080 --workers 1 --threads 4 'protection.web:create_app()'
+Restart=on-failure
+UMask=0077
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

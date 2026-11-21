@@ -324,41 +324,31 @@ def run_submission(bundle, file, class_name, *, method_id='member_1', limit_seco
 
 
 def grade_manifest(manifest):
-    """Grade saved cases/repeats serially; ordinary failures do not stop a batch."""
+    """저장된 사례와 반복 시드로 웹과 같은 채점기를 로컬에서 실행한다."""
+    from protection.program import grade_program, grading_lock
+
     if not isinstance(manifest, ExperimentManifest):
         path = Path(manifest)
         manifest = ExperimentManifest.parse(strict_json_loads(path.read_text()), path)
-    d = manifest.to_dict()
-    require(d['kind'] == 'grading', 'grading manifest required')
-    bundles = []
-    for entry in d['bank']:
-        bundle = load_bundle(entry['path'], require_reference=d['run_kind']=='main')
+    data = manifest.to_dict()
+    require(data['kind'] == 'grading', 'grading manifest required')
+    submission = data['submission']
+    require('class_name' not in submission,
+            'legacy manifest: remove submission.class_name and set the memory limit to 6000000000')
+    source = Path(submission['file']).read_bytes()
+    # 사례와 케이스 ID를 모두 검사한 뒤에만 제출 프로그램을 실행한다.
+    bank = []
+    for entry in data['bank']:
+        bundle = load_bundle(entry['path'], require_reference=data['run_kind'] == 'main')
         require(bundle.case_id == entry['case_id'], 'bank case_id mismatch')
-        bundles.append(bundle)
-    s = d['submission']
-    seeds = s['algorithm_seeds'] if s['uses_randomness'] else [None]
-    records = []
-    blocked = None
-    for bundle in bundles:
-        for index, seed in enumerate(seeds):
-            kwargs = dict(method_id=s['method_id'], limit_seconds=d['limits']['algorithm_seconds'],
-                memory_limit_bytes=d['limits']['algorithm_memory_bytes'], algorithm_seed=seed,
-                repeat_index=index, repeat_count=len(seeds), run_kind=d['run_kind'],
-                sample_interval_ms=d['resource_policy']['sample_interval_ms'])
-            if blocked:
-                condition = ExperimentCondition(bundle.scenario.scenario_id, bundle.budget_percent,
-                    bundle.budget, s['method_id'], kwargs['limit_seconds'], kwargs['memory_limit_bytes'])
-                r = RunRecord(uuid.uuid4().hex, condition, case_id=bundle.case_id,
-                    status='failed', termination_reason=blocked, algorithm_seed=seed,
-                    repeat_index=index, repeat_count=len(seeds), run_kind=d['run_kind'])
-            else:
-                r = run_submission(bundle, s['file'], s['class_name'], **kwargs)
-                if r.termination_reason in ('resource_monitor_unavailable', 'environment_blocked'):
-                    blocked = 'environment_blocked'
-                elif r.termination_reason == 'submission_load_error':
-                    blocked = 'submission_load_error'
-            records.append(r)
-    return records
+        bank.append(bundle)
+    seeds = submission['algorithm_seeds'] if submission['uses_randomness'] else [None]
+    with grading_lock():
+        return [grade_program(bundle, source, seed=seed, repeat_index=index,
+                              repeat_count=len(seeds), method=submission['method_id'],
+                              run_kind=data['run_kind'])
+                for bundle in bank for index, seed in enumerate(seeds)]
+
 
 
 if __name__ == '__main__':

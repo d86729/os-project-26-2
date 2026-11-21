@@ -31,9 +31,6 @@ def validate_operational_data(d):
     medium = []
     for n in d['sizes']:
         group = d['size_groups'][str(n)]
-        if d['run_kind'] == 'scale_probe' or group == 'medium_large':
-            require(len(d['seeds_by_size'][str(n)]) == 1,
-                    'scale/medium-large requires one generation seed per size')
         if group == 'medium_large':
             medium.append(n)
     if d['run_kind'] == 'main' and medium:
@@ -90,12 +87,13 @@ def run_scale_probe(manifest):
     output = Path(d['output_dir'])
     names = ('scale_probe.jsonl', 'scale_probe-summary.json', 'scale_probe-environment.json')
     require(not any((output/name).exists() for name in names), 'scale output already exists')
+    # 모든 입력의 크기와 시드를 먼저 확인한다. 검증이 끝나야 첫 탐색을 시작한다.
     scenarios = []
     for n in d['sizes']:
-        seed = d['seeds_by_size'][str(n)][0]
-        s = load_scenario(output/'inputs'/f'n{n}-seed{seed}.json')
-        require(len(s.nodes) == n and s.seed == seed, 'saved scale input does not match manifest')
-        scenarios.append(s)
+        for seed in d['seeds_by_size'][str(n)]:
+            s = load_scenario(output/'inputs'/f'n{n}-seed{seed}.json')
+            require(len(s.nodes) == n and s.seed == seed, 'saved scale input does not match manifest')
+            scenarios.append(s)
     atomic_json(output/'scale_probe-environment.json', collect_environment())
     records = []
     blocked = None

@@ -1,4 +1,4 @@
-"""D-001 generation-v1: one RNG, explicit calls and ordered edge/demand IDs."""
+"""generation-v1의 고정 난수 소비 순서로 합성 통신망과 수요를 만든다."""
 from __future__ import annotations
 import numpy as np
 from protection.models import (Node, Edge, Demand, Scenario, GenerationSettings,
@@ -23,6 +23,7 @@ def generate_scenario(n: int, seed: int) -> Scenario:
     coordinates = rng.random((n, 2))
     edges = {(0, 1), (0, 2), (1, 2)}
     degrees = [2, 2, 2] + [0] * (n - 3)
+    # 삼각형으로 시작해 각 신규 노드를 서로 다른 기존 노드 두 곳에 연결한다.
     for new_id in range(3, n):
         candidates = list(range(new_id))
         for _ in range(2):
@@ -33,6 +34,7 @@ def generate_scenario(n: int, seed: int) -> Scenario:
             degrees[new_id] += 1
             candidates.remove(selected)
     ordered = sorted(edges)
+    # 정렬한 간선에 용량과 비용을 부여한 후 수요를 추첨한다. 이 순서가 재현성의 일부다.
     capacities = rng.integers(10, 31, size=len(ordered))
     costs = rng.integers(1, 11, size=len(ordered))
     pairs = [(source, target) for source in range(n) for target in range(n) if source != target]

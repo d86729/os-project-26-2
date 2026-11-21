@@ -16,12 +16,12 @@ def manifest(tmp_path, sizes=(3,4,5)):
 
 
 @pytest.mark.parametrize('kind', ['scale_probe','main'])
-def test_one_graph_per_medium_size(tmp_path,kind):
+def test_multiple_predeclared_graphs_per_medium_size(tmp_path,kind):
     d = manifest(tmp_path); d['run_kind'] = kind
     if kind == 'main': d['size_groups'] = {str(n):'medium_large' for n in d['sizes']}
     d['seeds_by_size']['3'] = [0,1]
-    with pytest.raises(ValueError, match='one generation seed'):
-        ExperimentManifest.parse(d,tmp_path/'manifest.json')
+    m = ExperimentManifest.parse(d,tmp_path/'manifest.json')
+    assert m.to_dict()['seeds_by_size']['3'] == [0, 1]
 
 
 def test_main_medium_requires_three_sizes(tmp_path):

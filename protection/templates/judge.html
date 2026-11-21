@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>통신망 방호 코딩 테스트</title>
+  <style>
+    :root{font:16px/1.6 system-ui,sans-serif;color:#15263a;background:#f2f6fa}
+    *{box-sizing:border-box}body{margin:0}header{background:#10253d;color:#fff}
+    nav,main{max-width:70rem;margin:auto;padding:1rem 1.5rem}nav{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    nav a{color:inherit}main{padding-top:2rem;padding-bottom:3rem}h1,h2,h3{line-height:1.25}
+    section,details{padding:1.25rem;margin:1rem 0;background:#fff;border:1px solid #cbd6e2;border-radius:.65rem}
+    form{margin:0}label{display:block;margin:.65rem 0}input,textarea,button{font:inherit}
+    input:not([type=radio],[type=checkbox]),textarea{padding:.45rem .65rem;border:1px solid #8c9caf;border-radius:.35rem;max-width:100%}
+    textarea{display:block;width:100%;font-family:monospace}button{cursor:pointer;padding:.45rem .85rem;border:1px solid #164e75;border-radius:.35rem;background:#164e75;color:white}
+    a{color:#164e75}summary{cursor:pointer;font-weight:700}.table{overflow-x:auto}
+    .bank-list,.case-options{max-height:22rem;overflow:auto}
+    table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:.5rem;border-bottom:1px solid #dce4ec;white-space:nowrap}
+    .comparison th[scope=colgroup]{text-align:center;background:#eff4f8}
+    .scenario-info{display:block;font-size:.875rem}
+    .result-detail{margin:0;padding:0;border:0}
+    .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+    .login{max-width:26rem;margin:2rem auto}.muted{color:#4b6075}.error{color:#9e2727}
+    code,pre{background:#eff4f8;border-radius:.25rem;padding:.15rem .35rem}pre{padding:.75rem;overflow:auto}
+    .example-input{max-height:24rem}
+    :focus-visible{outline:3px solid #247cb4;outline-offset:3px}
+  </style>
+</head>
+<body>
+<header><nav><a href="{{ url_for('index') }}">통신망 방호 코딩 테스트</a>
+{% if g.owner %}
+<form method="post" action="{{ url_for('logout') }}">
+  <input type="hidden" name="csrf" value="{{ csrf }}">
+  <button type="submit">{{ g.owner }} 로그아웃</button>
+</form>
+{% endif %}
+</nav></header>
+<main>
+{% if view == 'login' %}
+<section class="login">
+  <h1>팀원 로그인</h1>
+  {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+  <form method="post">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <label>계정 <input name="account" autocomplete="username" required></label>
+    <label>비밀번호 <input name="password" type="password" autocomplete="current-password" required></label>
+    <button type="submit">로그인</button>
+  </form>
+</section>
+{% elif view == 'index' %}
+  <h1>예산 안에서 통신망 방호하기</h1>
+  <p>비용 합계가 예산 이하인 간선을 골라 방호합니다. 공격 후보 한 곳이 선택되면 피해 목록의 비방호 간선이 끊깁니다. 그중 연결 쌍이 가장 적고, 동점이면 전체 수요 대비 전달 가능량이 가장 낮은 공격이 방호안의 점수를 결정합니다. 점수는 연결 쌍 수를 먼저, 전달량 비율을 다음으로 비교합니다.</p>
+  <details open>
+    <summary>표준 입력과 출력 규칙</summary>
+    <h3>표준 입력</h3>
+    <p>실행할 때마다 표준 입력으로 시나리오 하나가 주어집니다. 같은 줄의 값은 공백으로 구분되며, 아래에 나오는 이름 대신 실제 숫자가 들어옵니다.</p>
+    <ol>
+      <li><strong>첫째 줄</strong> <code>N M D A</code>. <code>N</code>은 노드 수, <code>M</code>은 간선 수, <code>D</code>는 방향별 통신 수요의 수, <code>A</code>는 공격 후보 위치의 수입니다. 이후 각 구역에서 읽어야 할 줄 수입니다.</li>
+      <li><strong>둘째 줄</strong> <code>B Q S R</code>. <code>B</code>는 방호 비용 합계의 상한, <code>Q</code>는 전체 간선 비용 대비 예산 비율(%), <code>S</code>는 시나리오를 만든 난수 시드, <code>R</code>은 이번 실행의 전략용 난수 시드입니다. 결정적 실행에서는 <code>R</code>이 <code>-1</code>입니다. 방호안의 비용은 입력에 주어진 <code>B</code>와 비교합니다.</li>
+      <li><strong>그다음 <code>N</code>줄</strong> <code>node_id x y</code>. 한 줄에 노드 하나가 주어집니다. <code>node_id</code>는 노드 번호이고 <code>x</code>와 <code>y</code>는 해당 노드의 좌표입니다.</li>
+      <li><strong>그다음 <code>M</code>줄</strong> <code>edge_id u v capacity_mbps cost</code>. <code>edge_id</code>는 간선 번호, <code>u</code>와 <code>v</code>는 두 끝점의 노드 번호, <code>capacity_mbps</code>는 방향당 전송 용량(Mbps), <code>cost</code>는 이 간선 하나를 방호하는 비용입니다. <code>u → v</code>와 <code>v → u</code>는 각각 해당 용량까지 동시에 사용할 수 있습니다.</li>
+      <li><strong>그다음 <code>D</code>줄</strong> <code>demand_id source target amount_mbps</code>. <code>demand_id</code>는 수요 번호, <code>source</code>는 보내는 노드 번호, <code>target</code>은 받는 노드 번호, <code>amount_mbps</code>는 요청량(Mbps)입니다.</li>
+      <li><strong>마지막 <code>A</code>줄</strong> <code>attack_id x y K edge_id_1 … edge_id_K</code>. <code>attack_id</code>는 공격 후보 번호, <code>x</code>와 <code>y</code>는 공격 중심 좌표입니다. <code>K</code>는 이 공격에 맞는 간선 수이며, 바로 뒤의 <code>K</code>개 값은 그 간선들의 번호입니다. 방호한 간선은 목록에 있더라도 유지됩니다. <code>K</code>가 <code>0</code>이면 <code>0</code> 뒤에 간선 번호가 없습니다.</li>
+    </ol>
+    <p>노드·간선·수요·공격 후보는 각각 0부터 번호를 매깁니다. 좌표 <code>x</code>, <code>y</code>는 실수이고 나머지 입력은 정수입니다.</p>
+    <h3>표준 출력</h3>
+    <p>첫 값 <code>K</code>는 프로그램이 방호하기로 고른 간선 수입니다. 그 뒤에 고른 간선의 <code>edge_id</code>를 공백으로 구분해 정확히 <code>K</code>개 출력합니다. 간선 번호는 중복 없이 오름차순으로 적고, 선택한 간선의 <code>cost</code> 합계가 <code>B</code> 이하여야 합니다. 아무 간선도 고르지 않으면 <code>0</code>만 출력합니다. 디버그 메시지는 stderr에 출력합니다.</p>
+    {% if example %}
+    <h3>완전한 입출력 예시</h3>
+    <p><code>{{ example.name }}</code>의 실제 입력입니다. 첫 줄의 <code>{{ example.header }}</code>에 따라 노드 {{ example.counts[0] }}줄, 간선 {{ example.counts[1] }}줄, 수요 {{ example.counts[2] }}줄, 공격 후보 {{ example.counts[3] }}줄을 읽습니다. 둘째 줄의 첫 값은 방호 예산 {{ example.budget }}입니다.</p>
+    <p><a href="{{ url_for('download_case', name=example.name, kind='input') }}">예시 입력 파일 다운로드</a></p>
+    <h4>입력</h4>
+    <pre class="example-input" tabindex="0" aria-label="전체 예시 입력">{{ example.stdin }}</pre>
+    <h4>출력</h4>
+    <pre>{{ example.stdout }}</pre>
+    <p>첫 값은 선택한 간선 개수입니다. 이어지는 값은 간선 번호입니다. 두 간선의 비용은 {{ example.costs | join(' + ') }} = {{ example.costs | sum }}으로, 예산 {{ example.budget }} 이내입니다.</p>
+    {% endif %}
+    <p>한 번에 한 제출을 채점합니다. 제한은 사례별로 적용되며, CPU 1개 분량을 배정합니다. 무작위 전략은 고정 시드 0~4로 각각 새로 실행합니다.</p>
+  </details>
+  <section>
+    <h2>문제은행</h2>
+    <p>{{ files | length }}개 시나리오를 선택할 수 있습니다.</p>
+    <div class="table bank-list" tabindex="0"><table><thead><tr><th scope="col">시나리오</th><th scope="col">표준 입력</th><th scope="col">완전탐색 참조 포함 JSON</th></tr></thead>
+    <tbody>{% for name in files %}<tr><td>{{ name }}</td>
+      <td><a href="{{ url_for('download_case', name=name, kind='input') }}">입력 다운로드</a></td>
+      <td><a href="{{ url_for('download_case', name=name, kind='reference') }}">참조 다운로드</a></td>
+    </tr>{% endfor %}</tbody></table></div>
+  </section>
+  <section>
+    <h2>Python 제출</h2>
+    <form method="post" action="{{ url_for('submit') }}" enctype="multipart/form-data">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <label>소스 코드 <textarea name="source" rows="10" maxlength="131072" spellcheck="false" placeholder="import sys"></textarea></label>
+      <label>또는 Python 파일 <input type="file" name="file" accept=".py,text/x-python"></label>
+      <div class="grid">
+        <label>시간 한도 (초) <input name="seconds" type="number" min="1" max="{{ max_seconds }}" value="{{ max_seconds }}" required></label>
+        <label>메모리 한도 (MB) <input name="memory" type="number" min="{{ min_memory }}" max="{{ max_memory }}" value="{{ max_memory }}" required></label>
+      </div>
+      <fieldset><legend>시나리오 선택</legend>
+        <label><input type="radio" name="selection" value="manual" checked> 직접 선택</label>
+        <div class="grid case-options">{% for name in files %}<label><input type="checkbox" name="case" value="{{ name }}"> {{ name }}</label>{% endfor %}</div>
+        <label><input type="radio" name="selection" value="random"> 무작위 선택</label>
+        <label>무작위 개수 <input name="count" type="number" min="1" max="{{ files | length }}" value="1"></label>
+      </fieldset>
+      <label><input type="checkbox" name="random_strategy" value="yes"> 무작위 전략으로 5회 반복</label>
+      <button type="submit">채점 제출</button>
+    </form>
+  </section>
+  <section><h2>최근 제출</h2>
+    {% if jobs %}<ul>{% for job in jobs %}<li><a href="{{ url_for('job_detail', job_id=job.id) }}">제출 {{ job.id }}</a>
+      · {{ labels[job.state] }} · {{ job.seconds }}초 · {{ job.memory_mb }}MB</li>{% endfor %}</ul>
+    {% else %}<p class="muted">아직 제출이 없습니다.</p>{% endif %}
+  </section>
+{% else %}
+  <h1>제출 {{ job.id }}</h1>
+  <p><strong>{{ labels[job.state] }}</strong> · 시나리오당 {{ job.seconds }}초 · {{ job.memory_mb }}MB · vCPU 1</p>
+  <p>선택한 시나리오 {{ selected_cases | join(', ') }}</p>
+  {% if job.state in ('queued', 'running') %}
+    <p><a href="{{ url_for('job_detail', job_id=job.id) }}">상태 새로고침</a></p>
+    <form method="post" action="{{ url_for('cancel', job_id=job.id) }}">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <button type="submit">채점 취소</button>
+    </form>
+  {% endif %}
+  {% if rows %}
+  <section><h2>채점 결과</h2>
+    <p><a href="{{ url_for('download_csv', job_id=job.id) }}">채점 결과 CSV 다운로드</a></p>
+    <p class="muted">격차는 최적해에서 제출안을 뺀 값입니다. 전달률 격차가 음수이면 제출안의 전달률이 더 높습니다. 공식 순위는 연결 쌍 수를 우선합니다.</p>
+    <div class="table"><table class="comparison">
+    <colgroup span="5"></colgroup><colgroup span="3"></colgroup><colgroup span="3"></colgroup><colgroup span="1"></colgroup>
+    <thead>
+      <tr>
+        <th scope="col" rowspan="2">시나리오</th><th scope="col" rowspan="2">전략 시드</th>
+        <th scope="col" rowspan="2">상태</th><th scope="col" rowspan="2">실행 초</th>
+        <th scope="col" rowspan="2">최대 MB</th>
+        <th scope="colgroup" colspan="3">1순위 · 연결 쌍</th>
+        <th scope="colgroup" colspan="3">2순위 · 전달률</th>
+        <th scope="col" rowspan="2">방호안</th>
+      </tr>
+      <tr>
+        <th scope="col">제출안</th><th scope="col">최적해</th><th scope="col">격차</th>
+        <th scope="col">제출안</th><th scope="col">최적해</th><th scope="col">격차</th>
+      </tr>
+    </thead>
+    <tbody>{% for row in rows %}<tr>
+      <th scope="row">{{ row.scenario }}{% if row.nodes is defined %}
+        <span class="muted scenario-info">노드 {{ row.nodes }}개 · 예산 {{ row.budget_percent }}% · 생성 시드 {{ row.scenario_seed }}</span>
+      {% endif %}</th>
+      <td>{{ row.algorithm_seed if row.algorithm_seed is not none else '—' }}</td>
+      <td>{{ row.status_label }}</td>
+      <td>{{ '%.3f' | format(row.search_seconds) if row.search_seconds is not none else '—' }}</td>
+      <td>{{ row.worker_peak_mb if row.worker_peak_mb is not none else '—' }}</td>
+      <td>{{ row.submitted_pairs ~ '/' ~ row.total_pairs if row.submitted_pairs is defined else '—' }}</td>
+      <td>{{ row.reference_pairs ~ '/' ~ row.total_pairs if row.reference_pairs is defined else '—' }}</td>
+      <td>{{ row.delta_pairs ~ '쌍' if row.delta_pairs is defined else '—' }}</td>
+      <td>{{ '%.2f%%' | format(row.delivery_ratio * 100) if row.delivery_ratio is not none else '—' }}</td>
+      <td>{{ '%.2f%%' | format(row.reference_delivery * 100) if row.reference_delivery is defined else '—' }}</td>
+      <td>{{ '%+.2f%%p' | format(row.delta_delivery_pp) if row.delta_delivery_pp is defined else '—' }}</td>
+      <td>{% if row.used_cost is defined %}
+        <details class="result-detail"><summary>비용 {{ row.used_cost }}/{{ row.budget }}</summary>
+          <div>선택 간선 {{ row.chosen_edges or '없음' }}</div>
+        </details>
+      {% else %}—{% endif %}</td>
+    </tr>{% endfor %}</tbody></table></div>
+  </section>
+  {% endif %}
+  <p><a href="{{ url_for('index') }}">문제와 제출 화면</a></p>
+{% endif %}
+</main>
+</body>
+</html>

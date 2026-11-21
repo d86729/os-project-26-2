@@ -1,9 +1,4 @@
-"""Sparse delivery with D-003 certificates and audited residual-based fallback.
-
-Callers initialize the single-thread environment before scientific imports
-(protection.runner.initialize_single_thread). No cache or attack selection lives
-here. A successful floating solve alone is never a delivery score.
-"""
+"""방향별 용량과 수요를 희소 선형계획으로 풀고 전달 점수를 인증한다."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -29,10 +24,10 @@ class DeliveryResult:
 
 @dataclass(frozen=True)
 class LinearProgram:
-    """Integer coefficients: min c*x, G*x<=b, A*x=0, 0<=x<=upper.
+    """정수 계수로 min c*x를 푼다. G는 용량 제약, A는 흐름 보존 행렬이다.
 
-    The first demand_count variables are delivered amounts; c is -1 there
-    and zero elsewhere. Redundant finite arc bounds are required by D-003.
+    처음 demand_count개 변수는 수요별 실제 전달량이다. 목적함수의 해당 계수를
+    -1로 두어 합계를 최대화한다. 쌍대 인증을 위해 변수별 상한도 명시한다.
     """
     c: np.ndarray
     G: csr_matrix
@@ -53,6 +48,7 @@ def _remaining(deadline):
 
 
 def _build_lp(scenario, surviving_ids, deadline):
+    # 동일 간선의 양방향 용량을 각각 제약하고, 같은 방향의 모든 수요 흐름을 합산한다.
     n, h = len(scenario.nodes), len(scenario.demands)
     arcs = [(u, v, e.capacity_mbps) for i in surviving_ids
             for e in (scenario.edges[i],) for u, v in ((e.u, e.v), (e.v, e.u))]
@@ -124,11 +120,10 @@ def _exact_matvec(matrix, vector, deadline):
 
 
 def _certify(lp, result, policy, deadline):
-    """Reconstruct, then check feasibility exactly; never repair a certificate.
+    """수치 해를 유리수로 복원하고 원문제와 쌍대의 제약을 정확히 검사한다.
 
-    SciPy's min-LP marginals obey y<=0, z free, p>=0, q<=0 and
-    c=G.T*y+A.T*z+p+q. D=b*y+upper*q is a minimization lower bound;
-    therefore U=-D bounds max delivery, while L=sum(primal t) is feasible.
+    실행 가능한 원문제 해의 전달량 합은 하한이다. 쌍대 목적값의 부호를
+    바꾸면 전달량의 상한이 된다. 두 값 사이에 실제 최적 전달량이 있다.
     """
     def rational_vector(values):
         converted = []
@@ -158,7 +153,8 @@ def _certify(lp, result, policy, deadline):
     return lower, upper
 
 
-def maximum_delivery(scenario: Scenario, surviving_ids: tuple[int, ...], *, deadline=None) -> DeliveryResult:
+def maximum_delivery(scenario: Scenario, surviving_ids: tuple[int, ...], *,
+                     deadline=None, require_certificate=False) -> DeliveryResult:
     """Return certified delivery on the surviving edge IDs, or an explicit error.
 
     deadline is an absolute time.monotonic() timestamp, or None (no solver
@@ -208,10 +204,9 @@ def maximum_delivery(scenario: Scenario, surviving_ids: tuple[int, ...], *, dead
                 detail.update(certified_lower=lower, certified_upper=upper)
                 units = certify_interval(lower, upper, lp.total)
             except EvaluationError as exc:
-                if exc.reason not in ('certificate_failed', 'numeric_ambiguity'):
+                if require_certificate or exc.reason not in ('certificate_failed', 'numeric_ambiguity'):
                     raise
-                # Only small numerical failures qualify, not arbitrary bad duals
-                # or a feasible but substantially suboptimal primal solution.
+                # 일반 제출의 근사 경로도 쌍대 조건과 목적값 잔차가 작을 때만 허용한다.
                 x, y, z, p, q = _vectors(lp, result)
                 stationarity = lp.G.T @ y + lp.A.T @ z + p + q - lp.c
                 dual_objective = float(lp.b @ y + lp.upper @ q)

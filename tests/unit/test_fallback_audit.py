@@ -1,6 +1,21 @@
 """Audit counters describe real LP solves, not cache reads or exact certificates."""
 from protection.models import SolverDiagnostics
 from fractions import Fraction
+import pytest
+from protection.errors import EvaluationError
+
+
+def test_reference_rejects_residual_fallback(path_scenario, monkeypatch):
+    from protection import flow
+
+    def reject(*args):
+        raise EvaluationError('test: no rational certificate', reason='certificate_failed')
+
+    monkeypatch.setattr(flow, '_certify', reject)
+    assert flow.maximum_delivery(path_scenario, (0, 1)).diagnostics.certificate_status == 'highs_residual_fallback'
+    with pytest.raises(EvaluationError) as error:
+        flow.maximum_delivery(path_scenario, (0, 1), require_certificate=True)
+    assert len(error.value.diagnostics['attempts']) == 2
 
 
 def test_fallback_count_survives_later_exact_solve_and_cache_hit(path_scenario, monkeypatch):

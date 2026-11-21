@@ -28,6 +28,7 @@ def _row(record, bank):
     for field in ('connected_pairs','connected_ratio','delivered_mbps','delivery_ratio','delivery_units','cost'):
         row[field] = None if ev is None else getattr(ev,field)
     row['gap_connected_pairs'] = row['gap_delivery_units'] = None
+    # 중단된 기록은 진단용 후보가 있어도 공식 점수와 최적해 격차를 비워 둔다.
     if ev is not None and record.case_id in bank:
         bundle = bank[record.case_id]
         if (bundle.case_id != record.case_id or bundle.scenario.scenario_id != record.condition.scenario_id
@@ -38,6 +39,7 @@ def _row(record, bank):
         if bundle.optimal_reference is not None:
             reference = bundle.optimal_reference.evaluation
             first = reference.connected_pairs - ev.connected_pairs
+            # 로컬 공식 보고의 두 번째 격차는 연결 쌍 수가 같은 행에서 정의한다.
             second = reference.delivery_units - ev.delivery_units if first == 0 else None
             if first < 0 or (first == 0 and second < 0):
                 raise EvaluationError('score better than reference', reason='reference_mismatch')

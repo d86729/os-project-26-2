@@ -87,7 +87,7 @@ class Evaluator:
     break attack ties, not traversal order. A new instance starts cold.
     """
 
-    def __init__(self, scenario, prepared=None, *, use_cache=True):
+    def __init__(self, scenario, prepared=None, *, use_cache=True, require_certificate=False):
         self.scenario = scenario
         self.prepared = prepare_attacks(scenario) if prepared is None else prepared
         if (self.prepared.scenario_id != scenario.scenario_id
@@ -98,11 +98,19 @@ class Evaluator:
             if any(i >= len(scenario.edges) for i in candidate.damaged_edge_ids):
                 raise EvaluationError('prepared attack contains unknown edge')
         self.use_cache = use_cache
+        self.require_certificate = require_certificate
         self._cache = {}
         self.cache_hits = 0
         self.evaluation_calls = 0
         self.last_diagnostics = ()
         self.fallback_solves = 0
+        if require_certificate:
+            self._all_edges = (1 << len(scenario.edges)) - 1
+            self._attack_masks = {}
+            self._connections = {}
+            for candidate in self.prepared.candidates:
+                mask = sum(1 << edge_id for edge_id in candidate.damaged_edge_ids)
+                self._attack_masks.setdefault(mask, candidate)
 
     @property
     def cache_size(self):
@@ -113,29 +121,52 @@ class Evaluator:
         if deadline is not None and time.monotonic() >= deadline:
             raise DeadlineExceeded('evaluation deadline expired')
 
+    def _certified_attack_outcomes(self, edge_ids):
+        # 생존 간선이 같으면 점수도 같다. 좌표순 동점 규칙에 따라 첫 공격 위치만 보존한다.
+        protected = sum(1 << edge_id for edge_id in edge_ids)
+        vulnerable = self._all_edges ^ protected
+        survivors = {}
+        for damaged, candidate in self._attack_masks.items():
+            mask = self._all_edges ^ (damaged & vulnerable)
+            survivors.setdefault(mask, candidate)
+        for mask, candidate in survivors.items():
+            if mask not in self._connections:
+                remaining = tuple(edge.id for edge in self.scenario.edges if mask & (1 << edge.id))
+                self._connections[mask] = connected_pairs(self.scenario, remaining), remaining
+            pairs, remaining = self._connections[mask]
+            yield pairs, candidate, remaining
+
     def evaluate(self, edge_ids, budget, *, deadline=None):
         self._check_deadline(deadline)
         cost = validate_protection(self.scenario, budget, edge_ids)
         self.evaluation_calls += 1
-        candidates = []
-        for candidate in self.prepared.candidates:
-            self._check_deadline(deadline)
-            remaining = surviving_ids(self.scenario, candidate, edge_ids)
-            candidates.append((connected_pairs(self.scenario, remaining), candidate, remaining))
+        if self.require_certificate:
+            candidates = list(self._certified_attack_outcomes(edge_ids))
+        else:
+            candidates = []
+            for candidate in self.prepared.candidates:
+                self._check_deadline(deadline)
+                remaining = surviving_ids(self.scenario, candidate, edge_ids)
+                candidates.append((connected_pairs(self.scenario, remaining), candidate, remaining))
         minimum = min(pairs for pairs, _, _ in candidates)
         best = None
         diagnostics = []
         for pairs, candidate, remaining in candidates:
+            # 연결 쌍이 최소인 공격끼리만 전달량으로 최악의 공격을 가린다.
             if pairs != minimum:
                 continue
             self._check_deadline(deadline)
+            # 같은 생존 간선 집합은 공격 위치가 달라도 동일한 흐름 문제다.
             key = (self.scenario.scenario_id, sum(1 << i for i in remaining),
                    self.scenario.evaluation_policy.version)
             if self.use_cache and key in self._cache:
                 delivery = self._cache[key]
                 self.cache_hits += 1
             else:
-                delivery = maximum_delivery(self.scenario, remaining, deadline=deadline)
+                if self.require_certificate:
+                    delivery = maximum_delivery(self.scenario, remaining, deadline=deadline, require_certificate=True)
+                else:
+                    delivery = maximum_delivery(self.scenario, remaining, deadline=deadline)
                 self._check_deadline(deadline)
                 if (delivery.diagnostics is not None and
                         delivery.diagnostics.certificate_status == 'highs_residual_fallback'):

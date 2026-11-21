@@ -1,4 +1,7 @@
-"""팀원 1 전용 전략 파일. 인계 설명은 이 파일에 내장하며 전략은 자유롭게 선택한다."""
+"""팀원 1 전용 전략 파일. 기존 클래스 API는 연구 검증용 기록이다.
+
+현재 제출 계약은 specs/002-coding-test/quickstart.md를 참고한다.
+채점기는 Python 프로그램을 실행해 stdin을 전달하고 stdout을 읽는다."""
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
@@ -189,3 +192,7 @@ class Member1Protector:
         """
         # TODO(팀원 1): 자유롭게 선택한 전략을 이 본문에 직접 구현·검증한다.
         raise NotImplementedError("Member1Protector: 팀원 1의 구현이 필요합니다.")
+
+
+if __name__ == "__main__":
+    raise SystemExit(75)

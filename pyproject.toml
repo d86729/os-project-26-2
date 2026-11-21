@@ -11,12 +11,16 @@ dependencies = ["numpy", "networkx", "scipy"]
 
 [project.optional-dependencies]
 test = ["pytest", "nbformat", "nbclient", "ipykernel"]
+web = ["Flask>=3.1,<4", "gunicorn>=23,<28"]
 
 [project.scripts]
 protection = "protection.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["protection*"]
+
+[tool.setuptools.package-data]
+protection = ["templates/*.html"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

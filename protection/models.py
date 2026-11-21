@@ -400,6 +400,8 @@ class RunRecord:
     evaluation_peak_rss_bytes: int | None = None
     algorithm_memory_limit_bytes: int | None = None
     memory_measurement_method: str | None = None
+    algorithm_peak_memory_bytes: int | None = None
+    algorithm_vcpu_limit: int | None = None
     checkpoint_received_elapsed: float | None = None
     error_type: str | None = None
     error_message: str | None = None
@@ -429,6 +431,8 @@ class RunRecord:
             validate_hash(self.case_id)
         if self.submission_sha256 is not None:
             validate_hash(self.submission_sha256)
+        if self.algorithm_vcpu_limit is not None:
+            integer(self.algorithm_vcpu_limit, 'vCPU limit', 1)
         require(self.upper_bound is None or type(self.upper_bound) is UpperBound, 'invalid upper_bound')
         require(self.solver_diagnostics is None or type(self.solver_diagnostics) is SolverDiagnostics, 'invalid solver diagnostics')
         require(type(self.condition) is ExperimentCondition, 'condition required')
@@ -522,7 +526,10 @@ def from_data(cls, data):
         return Fraction(data['numerator'], data['denominator'])
     if is_dataclass(cls):
         names = {f.name for f in fields(cls)}
-        optional = {'optimal_reference'} if cls is ScenarioBundle else set()
+        optional = {
+            ScenarioBundle: {'optimal_reference'},
+            RunRecord: {'algorithm_peak_memory_bytes', 'algorithm_vcpu_limit'},
+        }.get(cls, set())
         keys(data, names - optional, optional)
         hints = get_type_hints(cls)
         return cls(**{k: from_data(hints[k], v) for k, v in data.items()})
@@ -606,18 +613,21 @@ class ExperimentManifest:
                 case_ids.add(entry['case_id'])
                 entry['path'] = path(entry['path'])
             s = d['submission']
-            keys(s, {'method_id', 'file', 'class_name', 'uses_randomness', 'algorithm_seeds', 'owner', 'strategy_name', 'strategy_version'})
-            for k in ('method_id', 'class_name', 'owner', 'strategy_name', 'strategy_version'):
+            keys(s, {'method_id', 'file', 'uses_randomness', 'algorithm_seeds', 'owner', 'strategy_name', 'strategy_version'}, {'class_name'})
+            for k in ('method_id', 'owner', 'strategy_name', 'strategy_version'):
                 require(type(s[k]) is str and bool(s[k].strip()), f'invalid {k}')
             require(s['method_id'] in ('member_1', 'member_2', 'member_3'), 'unknown member method')
-            require(s['class_name'].isidentifier(), 'invalid class name')
+            if 'class_name' in s:
+                require(type(s['class_name']) is str and s['class_name'].isidentifier(), 'invalid legacy class name')
             require(type(s['uses_randomness']) is bool, 'randomness must be bool')
             seeds(s['algorithm_seeds'], 5 if s['uses_randomness'] else 0)
             s['file'] = path(s['file'])
             keys(d['limits'], {'algorithm_seconds', 'algorithm_memory_bytes'})
             finite(d['limits']['algorithm_seconds'], 'algorithm seconds', 1)
             integer(d['limits']['algorithm_memory_bytes'], 'memory bytes', 1)
-            require(d['limits']['algorithm_seconds'] == 300 and d['limits']['algorithm_memory_bytes'] == 4000000000, 'fixed member limits required')
+            expected_memory = 4_000_000_000 if 'class_name' in s else 6_000_000_000
+            require(d['limits']['algorithm_seconds'] == 300 and d['limits']['algorithm_memory_bytes'] == expected_memory,
+                    'fixed member limits required')
             keys(d['resource_policy'], {'sample_interval_ms'})
             integer(d['resource_policy']['sample_interval_ms'], 'sample interval', 10, 10)
         from protection.operations import validate_operational_data
@@ -641,11 +651,13 @@ def hash_data(value):
 
 
 def scenario_hash(scenario):
+    # 실행 장비 정보보다 재생성 가능한 입력을 식별자로 사용한다.
     return hash_data({name: getattr(scenario, name) for name in
                       ('schema_version', 'generation', 'seed', 'nodes', 'edges', 'demands')})
 
 
 def case_hash(bundle):
+    # 동일 지도라도 예산이나 평가 정책이 다르면 다른 채점 사례다.
     return hash_data({'schema_version': bundle.schema_version, 'scenario_id': bundle.scenario.scenario_id,
                       'attack_settings': bundle.scenario.attack_settings,
                       'evaluation_policy': bundle.scenario.evaluation_policy,
@@ -757,13 +769,23 @@ def validate_bundle_reference(bundle):
     require(bool(reference.environment), 'reference environment missing')
     require(reference.limit_seconds > 0 and reference.search_seconds < reference.limit_seconds,
             'reference did not complete before deadline')
-    actual = Evaluator(bundle.scenario).evaluate(list(reference.protected_ids), bundle.budget)
+    actual = Evaluator(bundle.scenario, require_certificate=True).evaluate(list(reference.protected_ids), bundle.budget)
     require(actual == reference.evaluation, 'reference re-scoring mismatch')
     return bundle
 
 
+def feasible_protection_count(scenario, budget):
+    """빈 집합을 포함해 예산 이내의 방호 집합 개수를 독립적으로 센다."""
+    counts = [1] + [0] * budget
+    for edge in scenario.edges:
+        # 비용을 역순으로 순회해야 현재 간선을 같은 집합에 두 번 넣지 않는다.
+        for cost in range(budget, edge.cost - 1, -1):
+            counts[cost] += counts[cost - edge.cost]
+    return sum(counts)
+
+
 def bundle_from_record(scenario, record):
-    """Accept only a matching, completed, proved exhaustive RunRecord."""
+    """같은 사례에서 전 조합을 인증한 완료 기록만 배포용 참조로 변환한다."""
     require(type(record) is RunRecord, 'RunRecord required')
     condition = record.condition
     require(condition.method == 'exhaustive' and record.status == 'completed'
@@ -772,12 +794,16 @@ def bundle_from_record(scenario, record):
     require(record.policy_version == scenario.evaluation_policy.version, 'policy mismatch')
     require(record.best_evaluation is not None and record.search_seconds is not None,
             'missing exact evaluation/timing')
-    require(record.evaluated_combinations > 0, 'no completed combinations')
+    reference_case = ScenarioBundle(scenario, condition.budget_percent, condition.budget)
+    require(record.evaluated_combinations == feasible_protection_count(scenario, condition.budget),
+            'exhaustive evaluation count does not match all feasible protection sets')
+    require([event for event in record.events if event.startswith('highs_residual_fallback_solves=')]
+            == ['highs_residual_fallback_solves=0'], 'reference requires all delivery scores to be certified')
     reference = OptimalReference(record.best_protected_ids, record.best_evaluation.cost,
         record.best_evaluation, record.run_id, record.environment,
         condition.limit_seconds, record.search_seconds)
     bundle = ScenarioBundle(scenario, condition.budget_percent, condition.budget,
                             optimal_reference=reference)
-    require(record.case_id == bundle.case_id, 'case_id mismatch')
+    require(record.case_id == reference_case.case_id, 'case_id mismatch')
     return validate_bundle_reference(bundle)
 

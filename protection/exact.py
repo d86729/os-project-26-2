@@ -1,8 +1,4 @@
-"""Exact DFS in a separately supervised process; no team memory limit.
-
-Certificates mean exhaustive completion under the fixed evaluation policy.
-A universal upper bound covers ALL unfinished branches on interruption.
-"""
+"""별도 프로세스에서 방호 집합을 탐색하고, 종료 여부와 최적성 근거를 기록한다."""
 from __future__ import annotations
 import json
 import math
@@ -13,7 +9,7 @@ import time
 import uuid
 from datetime import datetime, timezone
 from protection.models import (Evaluation, ExperimentCondition, RunRecord,
-    ScenarioBundle, UpperBound, canonical_json, from_data, to_data)
+    ScenarioBundle, UpperBound, canonical_json, feasible_protection_count, from_data, to_data)
 
 
 def _send(conn, payload):
@@ -30,15 +26,16 @@ def _peak(pid):
 
 
 def _worker(conn, scenario, budget, method):
-    # Parent sets environment before spawn so even __main__ imports are bounded.
+    # 부모가 spawn 전에 스레드 환경 변수를 설정하므로 작업자의 과학 계산도 단일 스레드로 시작한다.
     from protection.evaluation import Evaluator, connected_pairs
     from protection.attacks import surviving_ids
     from protection.errors import DeadlineExceeded
-    evaluator = Evaluator(scenario)
+    evaluator = Evaluator(scenario, require_certificate=method == 'exhaustive')
     _send(conn, {'type':'READY'})
     deadline = json.loads(conn.recv_bytes())['deadline']
     best = None
     count = bounds = 0
+    next_progress = 0.
 
     def check():
         if time.monotonic() >= deadline:
@@ -51,16 +48,22 @@ def _worker(conn, scenario, budget, method):
                      'cache_hits':evaluator.cache_hits, 'error':error})
 
     def score(ids):
-        nonlocal best, count
+        nonlocal best, count, next_progress
         check()
         value = evaluator.evaluate(ids, budget, deadline=deadline)
         check()
         count += 1
+        # 키의 순서는 연결 쌍, 전달 점수, 비용, 간선 번호다. 마지막 두 값은 동점 해를 고른다.
         if best is None or value.defender_key < best.defender_key:
             best = value
-        progress()
+        now = time.monotonic()
+        # 매 조합마다 IPC를 하면 탐색이 느려진다. 중간 보고만 제한하고 종료 보고에는 최종 건수를 담는다.
+        if now >= next_progress:
+            progress()
+            next_progress = now + .05
 
     try:
+        # 빈 집합도 유효한 방호안이다. DFS에서 만나는 빈 집합은 이미 채점했으므로 건너뛴다.
         score([])
         stack = [(0, (), 0)]
         edges = scenario.edges
@@ -74,6 +77,7 @@ def _worker(conn, scenario, budget, method):
                     score(list(selected))
                 continue
             if method == 'branch_bound':
+                # 남은 간선을 비용과 무관하게 모두 방호했을 때의 연결 쌍 수는 이 분기의 상한이다.
                 virtual = selected + tuple(range(index, len(edges)))
                 c = len(scenario.nodes) * (len(scenario.nodes)-1) // 2
                 for attack in evaluator.prepared.candidates:
@@ -82,13 +86,13 @@ def _worker(conn, scenario, budget, method):
                 bounds += 1
                 if (c, 1000000) < best.score:
                     continue
-            # Push exclude first, then include so traversal is include-first.
+            # 스택에는 제외 분기를 먼저 넣으므로 실제 방문 순서는 포함 분기가 먼저다.
             stack.append((index+1, selected, cost))
             if cost + edges[index].cost <= budget:
                 stack.append((index+1, selected+(index,), cost+edges[index].cost))
         check()
         progress('DONE')
-        conn.recv_bytes()  # Preserve final RSS observation until ACK.
+        conn.recv_bytes()  # 부모가 마지막 RSS를 읽고 ACK를 보낼 때까지 대기한다.
     except DeadlineExceeded:
         progress('TIMEOUT')
         conn.recv_bytes()  # Stay observable until supervisor terminates/acknowledges.
@@ -100,7 +104,7 @@ def _worker(conn, scenario, budget, method):
 
 
 def execution_limit(scenario, budget_percent, method, limit_seconds, run_kind, manifest):
-    """Resolve fixed research limits without running any experiment."""
+    """실행 종류와 manifest를 검증해 연구 명세의 시간 한도를 반환한다."""
     from protection.models import ExperimentManifest, strict_json_loads
     if run_kind not in ('smoke', 'main', 'scale_probe'):
         raise ValueError('unknown run_kind')
@@ -128,10 +132,9 @@ def execution_limit(scenario, budget_percent, method, limit_seconds, run_kind, m
 
 def search(scenario, budget_percent, *, method='exhaustive', limit_seconds=None,
            run_kind='smoke', manifest=None):
-    """Run a bounded exact search. Main execution must be authorized by caller.
+    """준비와 탐색 시간을 따로 측정하고, 기한 안에 받은 결과만 기록한다.
 
-    Preparation is separately measured. No result received at/after deadline
-    becomes an incumbent. Failure/timeout never carries optimality_proven.
+    실패나 시간 초과에는 현재까지 받은 최선의 해와 모든 미탐색 분기에 유효한 상한을 남긴다.
     """
     from protection.evaluation import budget_for
     from protection.runner import THREAD_VARIABLES, collect_environment
@@ -148,6 +151,8 @@ def search(scenario, budget_percent, *, method='exhaustive', limit_seconds=None,
                                for key,value in collect_environment().items()))
     run_id = uuid.uuid4().hex
     case_id = ScenarioBundle(scenario,budget_percent,budget).case_id
+    # 탐색 트리와 별개인 배낭 DP 결과로 완전탐색의 평가 건수를 검사한다.
+    expected_count = feasible_protection_count(scenario, budget) if method == 'exhaustive' else None
     prepare_start = time.monotonic()
     ctx = mp.get_context('spawn')
     parent, child = ctx.Pipe()
@@ -160,7 +165,7 @@ def search(scenario, budget_percent, *, method='exhaustive', limit_seconds=None,
     start = end = None
     preparation = 0.
     try:
-        # Bounded startup is an environment guard, not the search allowance.
+        # 준비 시간은 탐색 한도와 별개다. 시작 신호를 받지 못한 작업자는 60초 후 종료한다.
         ready_deadline = prepare_start + 60
         while not parent.poll(.01):
             if not process.is_alive() or time.monotonic() >= ready_deadline:
@@ -202,7 +207,11 @@ def search(scenario, budget_percent, *, method='exhaustive', limit_seconds=None,
             end = received
             if message['type'] == 'DONE':
                 peak = max(peak, _peak(process.pid))
-                state = 'completed'
+                if best is None or (expected_count is not None and count != expected_count):
+                    state = 'failed'
+                    error = 'exact worker did not report complete evaluation coverage'
+                else:
+                    state = 'completed'
                 _send(parent, {'type':'ACK'})
             elif message['type'] == 'TIMEOUT':
                 state = 'timeout'

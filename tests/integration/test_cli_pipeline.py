@@ -20,9 +20,9 @@ def grading(bank, output):
     return dict(schema_version=1,kind='grading',run_kind='smoke',ready=True,
         owners={'common':'김대건'}, bank=bank,
         submission=dict(method_id='member_1',file=str(ROOT/'algorithms/member_1.py'),
-            class_name='Member1Protector',uses_randomness=False,algorithm_seeds=[],
+            uses_randomness=False,algorithm_seeds=[],
             owner='팀원 1 (실명 미제출)',strategy_name='미구현',strategy_version='not-submitted'),
-        limits=dict(algorithm_seconds=300,algorithm_memory_bytes=4000000000),
+        limits=dict(algorithm_seconds=300,algorithm_memory_bytes=6000000000),
         resource_policy=dict(sample_interval_ms=10),output_dir=str(output))
 
 
@@ -102,9 +102,9 @@ raise SystemExit(main(['grade','--manifest',sys.argv[1]]))
     assert json.loads((tmp_path/'out/runs.jsonl').read_text())['status']=='not_implemented'
     # Test-only successful submission: never attributed to a team strategy.
     fixture=tmp_path/'test_only.py'
-    fixture.write_text('class TestOnly:\n def solve(self,s,b,c): return []\n')
+    fixture.write_text('import sys\nassert len(sys.stdin.readlines()) > 2\nprint(0)\n')
     d=json.loads(gm.read_text());d['submission']['file']=str(fixture)
-    d['submission']['class_name']='TestOnly';d['output_dir']=str(tmp_path/'success')
+    d['output_dir']=str(tmp_path/'success')
     gm.write_text(json.dumps(d))
     cli('grade','--manifest',gm)
     assert json.loads((tmp_path/'success/runs.jsonl').read_text())['status']=='completed'

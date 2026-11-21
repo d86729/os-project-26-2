@@ -30,7 +30,7 @@ def test_real_small_bank_has_two_verified_references(tmp_path):
         build_bank(manifest(tmp_path))
 
 
-def test_timeout_stops_expansion_and_never_publishes_half_graph(tmp_path, monkeypatch):
+def test_timeout_keeps_both_records_and_continues_without_publishing(tmp_path, monkeypatch):
     from protection import exact
     calls = []
     def timeout(s, p, **kwargs):
@@ -40,9 +40,8 @@ def test_timeout_stops_expansion_and_never_publishes_half_graph(tmp_path, monkey
             status='timeout', run_kind='scale_probe', termination_reason='timeout')
     monkeypatch.setattr(exact, 'search', timeout)
     bank = build_bank(manifest(tmp_path, (6, 8)))
-    assert calls == [(6, 20)]
-    assert bank['bank'] == [] and bank['excluded_sizes'] == [6]
-    assert bank['not_started_sizes'] == [8]
+    assert calls == [(6, 20), (6, 40), (8, 20), (8, 40)]
+    assert bank['bank'] == [] and bank['excluded_graphs'] == ['n6-seed0', 'n8-seed0']
     assert (tmp_path/'bank/records/n6-seed0-p20.json').exists()
     assert (tmp_path/'bank/inputs/n8-seed0.json').exists()
 

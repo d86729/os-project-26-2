@@ -1,4 +1,4 @@
-"""Fixed attack-v1 geometry; rounded representatives are the actual centers."""
+"""attack-v1의 후보 좌표를 고정하고 후보별 피해 간선을 미리 계산한다."""
 from __future__ import annotations
 from dataclasses import dataclass
 import math
@@ -57,6 +57,7 @@ def is_hit(point, start, end, settings=AttackSettings()):
 
 
 def prepare_attacks(scenario):
+    # 노드·간선 중점·격자점의 좌표를 반올림해 중복을 제거하고 번호를 붙인다.
     started = time.monotonic()
     points = [(n.x, n.y) for n in scenario.nodes]
     for e in scenario.edges:

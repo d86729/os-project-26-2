@@ -1,0 +1,21 @@
+[Unit]
+Description=Protection coding test grading worker
+After=network.target
+
+[Service]
+Type=notify
+User=user
+WorkingDirectory=/home/user/os-project-26-2
+Environment=PATH=/usr/bin:/bin
+Environment=PROTECTION_STATE_DIR=/home/user/.local/state/protection-judge
+ExecStart=/home/user/os-project-26-2/.venv/bin/python -m protection.web worker
+Restart=on-failure
+RestartSec=2
+Delegate=yes
+DelegateSubgroup=supervisor
+OOMPolicy=continue
+UMask=0077
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

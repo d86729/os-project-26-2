@@ -19,6 +19,11 @@ def test_completed_exhaustive_bundle_and_reference_removal(path_scenario, tmp_pa
         models.bundle_from_record(path_scenario, bad)
     with pytest.raises(InvalidScenarioError):
         models.bundle_from_record(path_scenario, replace(record, optimality_proven=False))
+    with pytest.raises(InvalidScenarioError, match='evaluation count'):
+        models.bundle_from_record(path_scenario, replace(record, evaluated_combinations=1))
+    with pytest.raises(InvalidScenarioError, match='certified'):
+        models.bundle_from_record(path_scenario,
+                                  replace(record, events=('highs_residual_fallback_solves=1',)))
     bnb = search(path_scenario, 40, method='branch_bound', limit_seconds=20)
     with pytest.raises(InvalidScenarioError):
         models.bundle_from_record(path_scenario, bnb)

@@ -1,111 +1,141 @@
-"""Build an audited fixed bank, stopping expansion at the first unproved graph.
-
-The manifest fixes candidate sizes/seeds before any search. Only graphs with
-both exhaustive budget references enter bank.json. This certifies measured
-saved inputs, not every possible graph of the same size. Run serially via
-python -m protection.problem_bank --manifest PATH.
-"""
-from pathlib import Path
+"""고정된 시드의 두 예산을 인증하고, 검증을 마친 쌍을 문제은행에 공개한다."""
 import argparse
-import time
+import fcntl
+from pathlib import Path
 
-from protection.models import (ExperimentManifest, atomic_json, strict_json_loads,
-                               save_scenario, save_bundle, load_bundle,
-                               bundle_from_record)
+from protection.models import (
+    ExperimentManifest, RunRecord, atomic_json, bundle_from_record, from_data,
+    load_bundle, load_scenario, save_bundle, save_scenario, strict_json_loads,
+)
 
 
-def build_bank(manifest):
-    from protection.generation import generate_scenario
+def read_json(path):
+    return strict_json_loads(path.read_text(encoding='utf-8'))
+
+
+def build_bank(manifest, *, resume=False):
+    """한 번에 한 생성기만 기록을 쓰도록 하고, 동일한 manifest로 재개를 허용한다."""
+    manifest = ExperimentManifest.parse(manifest.to_dict(), manifest.source_path)
+    data = manifest.to_dict()
+    if data['run_kind'] != 'scale_probe' or data['kind'] != 'preparation':
+        raise ValueError('scale_probe preparation manifest required')
+    if data['sizes'] != sorted(data['sizes']):
+        raise ValueError('candidate sizes must be ascending')
+    output = Path(data['output_dir'])
+    output.mkdir(parents=True, exist_ok=resume)
+    with (output / '.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return _build_locked(manifest, data, output)
+
+
+def _build_locked(manifest, data, output):
     from protection.exact import search
+    from protection.generation import generate_scenario
+    from protection.program import grading_lock
     from protection.runner import collect_environment
 
-    manifest = ExperimentManifest.parse(manifest.to_dict(), manifest.source_path)
-    d = manifest.to_dict()
-    if d['run_kind'] != 'scale_probe' or d['kind'] != 'preparation':
-        raise ValueError('scale_probe preparation manifest required')
-    if d['sizes'] != sorted(d['sizes']):
-        raise ValueError('candidate sizes must be ascending')
-    output = Path(d['output_dir'])
-    output.mkdir(parents=True, exist_ok=False)
-    atomic_json(output/'manifest.json', d)
-    atomic_json(output/'environment.json', collect_environment())
-    # Freeze every candidate before looking at scores or durations.
+    frozen = output / 'manifest.json'
+    if frozen.exists():
+        if read_json(frozen) != data:
+            raise ValueError('manifest differs from the frozen bank manifest')
+    else:
+        atomic_json(frozen, data)
+    if not (output / 'environment.json').exists():
+        atomic_json(output / 'environment.json', collect_environment())
+
+    # 점수나 실행 시간을 보기 전에 모든 입력을 저장해 표본 선택 기준을 고정한다.
     scenarios = []
-    for n in d['sizes']:
-        s = generate_scenario(n, d['seeds_by_size'][str(n)][0])
-        save_scenario(s, output/'inputs'/f'n{n}-seed{s.seed}.json')
-        scenarios.append(s)
-    state = {'status': 'running', 'time_limit_per_budget_seconds': 10800,
-             'candidate_sizes': d['sizes'], 'accepted_sizes': [], 'cases': [],
-             'active': None, 'stop_reason': None,
-             'scope': 'saved inputs only; not a bound on all graphs of a size'}
-    bank = {'schema_version': 1, 'status': 'building', 'bank': [],
-            'accepted_sizes': [], 'excluded_sizes': [], 'not_started_sizes': []}
+    for n in data['sizes']:
+        for seed in data['seeds_by_size'][str(n)]:
+            name = f'n{n}-seed{seed}'
+            input_path = output / 'inputs' / f'{name}.json'
+            if not input_path.exists():
+                save_scenario(generate_scenario(n, seed), input_path)
+            scenario = load_scenario(input_path)
+            if len(scenario.nodes) != n or scenario.seed != seed:
+                raise ValueError(f'{name}: stored scenario differs from manifest')
+            scenarios.append((name, scenario))
+
+    limit = data['limits']['large_exact_seconds']
+    state = {'status': 'running', 'time_limit_per_budget_seconds': limit, 'active': None,
+             'target_graphs': len(scenarios), 'cases': []}
+    index = output / 'bank.json'
+    bank = read_json(index) if index.exists() else {
+        'schema_version': 1, 'status': 'building', 'bank': [], 'accepted_graphs': [],
+        'excluded_graphs': [], 'accepted_sizes': [], 'excluded_sizes': [], 'not_started_sizes': [],
+    }
+    bank['status'] = 'building'
 
     def persist():
-        atomic_json(output/'progress.json', state, overwrite=True)
-        atomic_json(output/'bank.json', bank, overwrite=True)
+        # 웹은 공개 목록만 읽는다. 두 파일은 각각 임시 파일을 거쳐 원자적으로 교체한다.
+        atomic_json(output / 'progress.json', state, overwrite=True)
+        atomic_json(index, bank, overwrite=True)
 
     persist()
     try:
-        for s in scenarios:
-            n = len(s.nodes)
-            rows = []
-            for percent in d['budget_percents']:
-                state['active'] = {'n': n, 'seed': s.seed, 'budget_percent': percent}
+        for name, scenario in scenarios:
+            references = []
+            for percent in data['budget_percents']:
+                case = f'{name}-p{percent}'
+                path = output / 'records' / f'{case}.json'
+                state['active'] = case
                 persist()
-                print(f'START n={n} seed={s.seed} budget={percent}', flush=True)
-                start = time.monotonic()
-                r = search(s, percent, method='exhaustive', run_kind='scale_probe',
-                           manifest=manifest)
-                elapsed = time.monotonic()-start
-                atomic_json(output/'records'/f'n{n}-seed{s.seed}-p{percent}.json', r)
-                accepted = (r.status == 'completed' and r.optimality_proven
-                            and r.condition.method == 'exhaustive'
-                            and r.search_seconds is not None
-                            and r.search_seconds < 10800
-                            and elapsed < 10800)
-                state['cases'].append({'n': n, 'seed': s.seed, 'edges': len(s.edges),
-                    'budget_percent': percent, 'status': r.status,
-                    'search_seconds': r.search_seconds, 'wall_seconds': elapsed,
-                    'evaluated_combinations': r.evaluated_combinations,
-                    'eligible': accepted})
+                if path.exists():
+                    # 재개 시 종료 기록이 있는 조건은 계산 없이 검증부터 다시 한다.
+                    record = from_data(RunRecord, read_json(path))
+                else:
+                    print(f'START {case}', flush=True)
+                    # 공개 채점과 완전탐색이 동시에 CPU를 쓰지 않도록 조건마다 잠금을 공유한다.
+                    with grading_lock():
+                        record = search(scenario, percent, method='exhaustive', run_kind='scale_probe',
+                                        manifest=manifest)
+                    atomic_json(path, record)
+                if (record.condition.scenario_id != scenario.scenario_id
+                        or record.condition.budget_percent != percent
+                        or record.run_kind != 'scale_probe'
+                        or record.condition.limit_seconds != limit):
+                    raise ValueError(f'{case}: stored run does not match the manifest')
+
+                elapsed = sum(value or 0 for value in (
+                    record.search_seconds, record.preparation_seconds, record.shutdown_seconds))
+                eligible = (record.status == 'completed' and record.optimality_proven
+                            and elapsed < limit)
+                if eligible:
+                    references.append((case, bundle_from_record(scenario, record)))
+                state['cases'].append(dict(case=case, status=record.status, elapsed_seconds=elapsed,
+                                           eligible=eligible, error=record.error_message,
+                                           evaluated_combinations=record.evaluated_combinations))
+                print(f'END {case} status={record.status} seconds={elapsed:.3f} eligible={eligible}', flush=True)
                 persist()
-                print(f'END n={n} budget={percent} status={r.status} '
-                      f'search={r.search_seconds} wall={elapsed:.3f} eligible={accepted}', flush=True)
-                if not accepted:
-                    bank['excluded_sizes'].append(n)
-                    bank['not_started_sizes'] = [v for v in d['sizes'] if v > n]
-                    state['stop_reason'] = f'n={n}, budget={percent}: incomplete or over limit'
-                    break
-                rows.append(r)
-            if len(rows) != len(d['budget_percents']):
-                break
-            # Publish only after BOTH budgets pass; independent re-scoring and readback.
-            entries = []
-            for r in rows:
-                bundle = bundle_from_record(s, r)
-                path = output/'bundles'/f'n{n}-seed{s.seed}-p{r.condition.budget_percent}.json'
-                save_bundle(bundle, path)
-                checked = load_bundle(path, require_reference=True)
-                if checked != bundle:
-                    raise ValueError('bundle readback mismatch')
-                entries.append({'path': str(path.resolve()), 'case_id': checked.case_id})
-            bank['bank'].extend(entries)
-            bank['accepted_sizes'].append(n)
-            state['accepted_sizes'].append(n)
+
+            n = len(scenario.nodes)
+            if len(references) == len(data['budget_percents']):
+                # 두 번의 재채점과 파일 읽기 검증이 끝난 후에만 두 항목을 인덱스에 함께 넣는다.
+                entries = []
+                for case, bundle in references:
+                    relative = Path('bundles') / f'{case}.json'
+                    path = output / relative
+                    if not path.exists():
+                        save_bundle(bundle, path)
+                    if load_bundle(path, require_reference=True) != bundle:
+                        raise ValueError(f'{case}: bundle readback mismatch')
+                    entries.append({'path': str(path), 'case_id': bundle.case_id})
+                if name not in bank['accepted_graphs']:
+                    bank['bank'].extend(entries)
+                    bank['accepted_graphs'].append(name)
+                    bank['accepted_sizes'] = sorted(set(bank['accepted_sizes']) | {n})
+            elif name not in bank['excluded_graphs']:
+                bank['excluded_graphs'].append(name)
+                bank['excluded_sizes'] = sorted(set(bank['excluded_sizes']) | {n})
             persist()
         bank['status'] = 'ready' if bank['bank'] else 'empty'
-        state['status'] = 'finished'
-        state['active'] = None
-        if state['stop_reason'] is None:
-            state['stop_reason'] = 'all predefined candidates completed; no maximum-size claim'
+        state.update(status='finished', active=None)
         persist()
-        print('FINISHED accepted sizes='+str(bank['accepted_sizes']), flush=True)
+        print(f"FINISHED accepted graphs={len(bank['accepted_graphs'])}", flush=True)
         return bank
-    except BaseException as exc:
-        state['status'] = 'interrupted' if isinstance(exc, KeyboardInterrupt) else 'failed'
-        state['stop_reason'] = f'{type(exc).__name__}: {exc}'
+    except BaseException as error:
+        state.update(status='interrupted' if isinstance(error, KeyboardInterrupt) else 'failed',
+                     error=f'{type(error).__name__}: {error}')
         bank['status'] = 'partial'
         persist()
         raise
@@ -114,12 +144,13 @@ def build_bank(manifest):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', required=True)
+    parser.add_argument('--resume', action='store_true')
     args = parser.parse_args()
     from protection.runner import initialize_single_thread
     initialize_single_thread()
     path = Path(args.manifest)
-    manifest = ExperimentManifest.parse(strict_json_loads(path.read_text()), path)
-    build_bank(manifest)
+    manifest = ExperimentManifest.parse(read_json(path), path)
+    build_bank(manifest, resume=args.resume)
 
 
 if __name__ == '__main__':

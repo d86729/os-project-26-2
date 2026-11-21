@@ -1,10 +1,10 @@
 {
-  "ai": "hermes",
+  "ai": "codex",
   "ai_skills": true,
   "allow_symlinks": false,
   "feature_numbering": "sequential",
   "here": false,
-  "integration": "hermes",
-  "script": "py",
-  "speckit_version": "1.4.2.dev0"
+  "integration": "codex",
+  "script": "sh",
+  "speckit_version": "1.4.3"
 }
