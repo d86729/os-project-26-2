@@ -1,23 +1,18 @@
-# Quickstart — 초기 smoke 구현과 본 실험 관문
+# 실행 안내 — 연구 검증과 본 실험
 
-## 범위와 실제 근거
+현행 제출 형식과 운영 서버 안내는 [코딩 테스트 실행 안내](../002-coding-test/quickstart.md)에 있다. 이 문서는 공통 평가·시나리오 준비·연구 보고를 다룬다.
 
-공통 생성·평가·정확 탐색·참조 검증·CLI·결과표 및 초기 노트북이 구현되어 있다. `main`/`scale_probe`는 명시적인 준비 완료 manifest가 필요하다. `exact --manifest PATH`는 해당 manifest의 고정 한도를 사용하며 smoke 외 시간 덮어쓰기를 거부한다. `scale-probe --manifest PATH`는 저장 입력을 직렬 처리하고 성공/실패 원본을 보존한다. 이 운영 연결은 시험으로 검증했지만 실제 장시간 본 실험은 실행하지 않았다. `configs/experiment.json`은 `ready=false`, 크기·시드는 빈 값이므로 현재 템플릿의 실행은 종료 코드 2로 거부된다. 사용자 운영 입력이나 장시간 승인을 대신 만들어 넣지 않았다.
+## 저장 문제은행
 
-실제 검수: `results/validation/cli-notebook-tests.txt`, `results/validation/notebook.json`, 실행된 노트북 `results/validation/submission-executed.ipynb`. 재실행마다 실제 smoke 산출물은 `results/notebook-smoke/run-*/`에 남는다. 이는 최종 연구 제출이나 중대형 규모 확보 근거가 아니다.
+`scenarios/problem-bank/`에 노드 수 6·8·10·12·14인 그래프 72개와 예산별 공개 사례 144개가 있다. 웹과 채점 워커는 `bank.json`의 상대 경로 목록을 공유한다. `inputs/`, `bundles/`, `records/`에 저장 입력, 배포 번들, 원본 탐색 기록이 있다. 사례별 실행 장비와 버전은 각 실행 기록의 `environment`에서 확인한다.
 
-세 팀원 파일의 solve는 `NotImplementedError`를 유지한다. 인계·전략 설명의 단일 원본은 `algorithms/member_1.py`~`member_3.py`이다. 미확정 실명·전략·논문 설명은 각 담당자가 작성한다. 공통 생성법은 Dong·Tian (2022), DOI 10.1155/2022/3108327 참고이며 전체 논문 실험 재현·현실 대표성·최적 설정을 주장하지 않는다.
+`history/initial-probe/`에는 초기 탐색의 manifest, 진행 및 환경 기록, 미공개 입력 3개, 이후 별도 장비에서 다시 계산한 `n14-seed0-p20`의 초기 기록을 보존한다. `history/expansion-manifest.json`은 후속 탐색에서 사전에 고정한 표본 목록이다.
 
-## 최신 정책과 재검증 순서
-
-- evaluation-v2는 유리수 인증 실패 시 HiGHS success/status=0, primal 및 dual stationarity·부호·절대 gap의 유한 최대 잔차 <=1e-7인 경우만 fallback을 허용한다. raw/총 요청량의 6자리 HALF_EVEN을 사용하고 certified_lower/upper=None, certificate_status=highs_residual_fallback으로 구분한다. 유리수 증명이라고 보고하지 않는다.
-- evaluation-v1 bundle은 의도적으로 거부한다. 기존 파일의 버전/해시만 바꾸지 말고 v2 입력·정확 탐색·참조·bundle·grading manifest의 실제 case_id를 새 출력 경로에서 다시 준비한다. 아래 기존 검수 기록은 이 정책 변경 후 회귀 통과를 뜻하지 않는다.
-- 정확 탐색 T022~T028을 우선 확인한 뒤 runner → CLI → 노트북을 통합 검증한다. runner는 worker 하나에서 Evaluator를 직접 호출하고 부모가 300초와 Evaluator·LP·캐시 포함 전체 RSS 4GB를 감독한다. 평가별 JSON IPC는 없으며 기본 안전 제어/결과 채널과 반환 후 공식 재채점은 유지한다.
-- 아래 명령은 재현 안내이며 이 문서 수정 과정에서는 실행하지 않았다. 장시간/main 실행은 별도 승인 없이는 시작하지 않는다.
+완전탐색 참조는 유리수 인증, 가능한 조합 전체와 평가 건수의 일치, 예산별 최적안 재채점을 요구한다. 일반 공통 평가에서만 검증 기준에 맞는 제한된 HiGHS 잔차 fallback을 사용할 수 있다. evaluation-v1 번들은 평가 정책이 다르므로 새 스키마로 사용하려면 해당 입력의 정확 탐색·참조·case_id를 다시 준비한다.
 
 ## 환경
 
-프로젝트 루트 `/root/my-project`에서 실행한다. 기존 `.venv`가 없다면 생성 후 설치한다.
+프로젝트 루트에서 실행한다. 기존 `.venv`가 없다면 생성 후 설치한다.
 
 ```sh
 python3 -m venv .venv
@@ -42,39 +37,40 @@ for budget in 20 40; do
 done
 ```
 
-smoke의 120초는 본 실험 한도가 아니다. 완료된 `exhaustive` 기록만 bundle로 결합할 수 있다. timeout은 기록을 보존하지만 배포할 수 없다. `--method branch_bound`도 지원하며 완료 비교는 `tests/integration/test_exact_pipeline.py`에서 별도 검수한다. 생성 단계는 최적 참조가 없는 **중간 입력**만 만든다.
+smoke의 120초는 본 실험 한도가 아니다. 전체 조합과 전달 점수가 인증된 완료 `exhaustive` 기록을 번들로 결합한다. timeout은 기록을 보존하지만 배포할 수 없다. `--method branch_bound`도 지원하며 완료 비교는 `tests/integration/test_exact_pipeline.py`에서 별도 검수한다. 생성 단계는 최적 참조가 없는 **중간 입력**만 만든다.
 
-## 단일 제출 파일 전체 채점과 보고서
+## 로컬 채점 및 연구 보고
 
-`configs/smoke-grading.json`에는 n6/seed0/두 예산의 실제 계산된 case_id가 고정되어 있다. 파일은 위 준비 단계에서 생성해야 한다. 다른 입력 사용 시 각 저장 bundle의 실제 case_id와 경로를 함께 변경한다. 예산은 bundle에 고정되어 있으며 grade에 예산 덮어쓰기 옵션은 없다.
-
-```sh
-.venv/bin/python -m protection.cli grade --manifest configs/smoke-grading.json
-# 현재 member_1은 미구현이므로 위 명령의 기대 종료 코드는 1이다.
-.venv/bin/python -m protection.cli report --records results/smoke/member_1/runs.jsonl --bank-manifest configs/smoke-grading.json --output-dir results/smoke/member_1/report
-```
-
-실제 runner의 `grade_manifest()`를 사용한다. 생성기/정확 탐색을 채점 중 호출하지 않는다. 각 대상의 `not_implemented`를 보존하며 공식 점수와 격차는 null/CSV 빈 셀이다. 단일 제출 파일만 로딩하며 다른 팀원 제출은 선행 조건이 아니다. 무작위 전략은 별도 사전 고정 시드 5개, 결정적은 빈 목록과 1회 실행이다. 최고 실행만 대표로 선택하지 않는다.
-
-출력: `runs.jsonl`, `batch.json`, `environment.json`; report는 `runs.csv`, `summary.csv`, `report.json`을 생성한다. report는 동일 출력 경로의 보고서를 갱신할 수 있으므로 원본 기록은 별도 보관한다.
-
-종료 코드: **0** 성공, **1** 기록된 실행 실패/미구현/timeout 포함, **2** CLI·manifest·입력 오류. 실패 행을 포함한 보고서 생성 자체는 0이다.
-
-## 초기 clean-kernel 재현
+`configs/smoke-grading.json`은 공개 은행에서 n6/seed0의 두 예산을 골라 채점한다. 다른 사례를 쓰려면 각 `bank` 항목의 번들 경로와 실제 `case_id`를 함께 지정한다. 출력 디렉터리를 새로 지정한 후 [위임 서비스 실행 절차](../002-coding-test/quickstart.md#로컬-채점)로 `grade`를 실행한다. 이 파일은 `ready=false`인 로컬 재현용 템플릿이다. `submission.file`을 실제 소스 경로로 지정하고 `ready=true`로 바꿔 사용한다. 웹 제출 소스는 서버의 SQLite에 저장된다.
 
 ```sh
-.venv/bin/python -m pytest tests/unit/test_reporting.py tests/integration/test_cli_pipeline.py tests/integration/test_notebook.py -q
+.venv/bin/protection report --records results/smoke/member_1/runs.jsonl \
+  --bank-manifest configs/smoke-grading.json --output-dir results/smoke/member_1/report
 ```
 
-노트북은 clean kernel에서 생성/저장 → 두 예산 정확 참조 → 배포 검증 → 실제 member_1 미구현 → 원본 결과표 순으로 실행한다. 채점 구역은 정확해를 재계산하지 않는다. 모든 코드 셀 담당자는 김대건이다. 미제출 팀원은 성능 비교에서 제외하며 빈 방호안이나 다른 방법 점수로 대체하지 않는다.
+채점은 `runs.jsonl`, `batch.json`, `environment.json`을 남긴다. 보고는 `runs.csv`, `summary.csv`, `report.json`을 생성한다. 실패 행은 공식 점수와 격차를 비운다. 성공한 실행은 지표별 중앙값과 범위 및 성공 횟수를 집계한다. 종료 코드는 성공 0, 기록된 실패·미구현·초과나 미완료가 있는 채점/탐색 1, CLI·manifest·입력 오류 2다.
 
-## 외부 관문 — 실행하지 않은 것
+## 소형 노트북
 
-- T029/T049/T050 운영 코드는 구현·검증했다. 실제 규모 확인 및 본 실험 실행은 아래 관문과 구분한다.
-- T054: 사용자 소형 크기·생성 시드·장비·버전·실명·전략 시드, 별도 장시간 승인, 중대형 서로 다른 세 크기의 실측 규모 확인. 다양한 크기의 고정 문제은행에는 저장할 모든 실제 그래프가 두 예산 각각 단순 완전탐색 10800초(3시간) 내 완료된 경우만 채택하며 이를 넘는 대형 도전군은 제외한다. 이는 저장 문제별 실측 완료 기준이며 전체 그래프 공간의 최악 수행 시간 보장이 아니다. 소형 정확 탐색 600초·팀원 전략 300초는 유지한다. 문서의 시간정책 갱신은 새 실행이나 검증 완료를 뜻하지 않는다.
-- T055: 승인된 조건의 본 문제은행과 실제 완료 완전탐색 참조.
-- T056/T060: 실제 세 팀원 구현·연구 설명 제출 후 최종 전체 실행과 최종 판정.
+`notebooks/submission.ipynb`는 소형 저장 입력과 두 예산의 인증 참조를 준비하고, 실제 팀원 제출과 구분된 시험 프로그램으로 표준 입출력 채점 및 보고를 실행한다. 초기 노트북의 검증 이력은 `results/validation/notebook.json`과 `submission-executed.ipynb`에 있다. 현행 노트북의 재검증은 위임 서비스 안에서 실행한다.
 
-초기 테스트 통과는 위 외부 관문 완료를 뜻하지 않는다. 부모 통합 검수는 전체 287 passed, 실패/스킵 0이며 clean-kernel 노트북과 실제 CLI smoke를 포함한다. 실행기 별도 재검증은 47 passed이며 정상/timeout/알고리즘 및 평가 메모리 초과를 실제 확인했다. SciPy의 threads 옵션 전달 경고는 숨기지 않는다.
+```sh
+systemd-run --user -p Delegate=yes -p DelegateSubgroup=supervisor \
+  --working-directory="$PWD" "$PWD/.venv/bin/python" -m pytest tests/integration/test_notebook.py -q
+```
 
-검증 근거: `results/validation/regression.json`, `exact.json`, `runner.json`, `notebook.json`, `initial_acceptance.json`. 재현 명령은 프로젝트 루트에서 `.venv/bin/python results/validation/run_regression.py`다. 이 명령은 본 실험을 수행하지 않는다.
+## 본 실험 관문
+
+`configs/experiment.json`은 `ready=false`이며 크기·시드가 비어 있다. T054~T056/T060은 [연구 작업 목록](tasks.md)에 둔다. 규모 확인은 승인된 입력으로 직렬 실행하며 실패 기록과 실행 환경을 보존한다. 본 실험에서는 최종 장비·시드·사례를 확정하고 실제 세 팀원 제출로 비교한다. 공개 은행 144개는 별도 사전 준비 데이터다.
+
+## 2026-11-22 연구 보조 실험 재현
+
+`results/agent-study/2026-11-22/study.ipynb`는 저장된 웹 결과와 정확 탐색 기록을 통합한다. 저장소 venv의 protection-study 커널로 처음부터 실행한다. 통계만 다시 계산하려면 다음을 실행한다.
+
+```sh
+.venv/bin/python results/agent-study/2026-11-22/analyze_study.py
+```
+
+`protocol.json`과 `source-freeze.json`을 먼저 확인한다. 개발20사례와 소스 고정 후 확인32사례를 분리했고, 각 그래프의 두 예산을 묶어 분석한다. `verified_rows.csv` 312행은 원시 웹 CSV의 선택 간선을 공통 평가기로 다시 채점한 결과다. `verify_results.py`는 명시적으로 재채점 검증하며 웹 제출을 생성하지 않는다. agent-1~4/에는 개별 프로그램·원시 결과·문헌·재현 노트북이 있다. `web_experiment.py`는 사용자가 명시적으로 실행할 때 새 실제 제출을 만들므로 저장 결과 재현에는 필요 없다. 알고리즘 프로그램은 웹에 소스로 제출하며 서비스 런타임의 등록 디렉터리는 아니다.
+
+이 자료는 AI 연구 보조 산출물이다. 사람의 개인 과제 기여 확인과 전체 본 실험 완료를 대신하지 않는다.

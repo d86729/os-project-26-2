@@ -15,7 +15,6 @@ import time
 import uuid
 
 from protection.attacks import prepare_attacks
-from protection.context import validate_ids
 from protection.models import ExperimentCondition, RunRecord
 from protection.runner import collect_environment
 
@@ -58,7 +57,7 @@ def scenario_input(bundle, seed=None):
         (len(scenario.nodes), len(scenario.edges), len(scenario.demands), len(attacks)),
         (bundle.budget, bundle.budget_percent, scenario.seed, -1 if seed is None else seed),
     ]
-    rows.extend((node.id, node.x, node.y) for node in scenario.nodes)
+    rows.extend((node.x, node.y) for node in scenario.nodes)
     rows.extend((e.id, e.u, e.v, e.capacity_mbps, e.cost) for e in scenario.edges)
     rows.extend((d.id, d.source, d.target, d.amount_mbps) for d in scenario.demands)
     rows.extend((a.id, a.x, a.y, len(a.damaged_edge_ids), *a.damaged_edge_ids) for a in attacks)
@@ -67,6 +66,8 @@ def scenario_input(bundle, seed=None):
 
 def protected_ids(output, bundle):
     """출력 형식, 간선 번호의 유효성, 오름차순, 방호 비용을 채점 전에 확인한다."""
+    from protection.evaluation import validate_protection
+
     tokens = output.decode('ascii').split()
     if not tokens or len(tokens) > len(bundle.scenario.edges) + 1:
         raise ValueError('출력은 선택 개수와 간선 ID 목록이어야 합니다.')
@@ -75,7 +76,7 @@ def protected_ids(output, bundle):
     count, *ids = map(int, tokens)
     if len(ids) != count:
         raise ValueError('선택 개수와 간선 ID 개수가 다릅니다.')
-    validate_ids(bundle.scenario, bundle.budget, ids)
+    validate_protection(bundle.scenario, bundle.budget, ids)
     return tuple(sorted(ids))
 
 

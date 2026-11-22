@@ -8,26 +8,25 @@ if [[ $EUID != 0 ]] || [[ ! -x /usr/bin/bwrap ]]; then
 fi
 
 install -m 0644 deploy/protection-judge-{worker,web}.service /etc/systemd/system/
-systemctl daemon-reload
-systemctl start protection-judge-worker.service
 
-# 새 서비스의 로그인 화면이 열리지 않으면 기존 서버를 다시 가동한다.
-rollback() {
-    systemctl stop protection-judge-web.service protection-judge-worker.service || true
-    systemctl start algorithm-flask.service
-}
-trap rollback ERR
-systemctl stop algorithm-flask.service
-systemctl start protection-judge-web.service
+# 삭제된 테스트 앱의 로컬 서비스를 한 번만 정리한다.
+legacy_unit=/etc/systemd/system/algorithm-flask.service
+if [[ -f $legacy_unit ]]; then
+    systemctl disable --now algorithm-flask.service
+    rm -- "$legacy_unit"
+fi
+
+systemctl daemon-reload
+systemctl restart protection-judge-web.service
 
 for attempt in {1..15}; do
-    if curl -fsS --max-time 2 http://127.0.0.1:18080/login | grep '팀원 로그인' >/dev/null; then
-        systemctl enable protection-judge-worker.service protection-judge-web.service
-        systemctl disable algorithm-flask.service
-        trap - ERR
+    if login_page=$(curl -fsS --max-time 2 http://127.0.0.1:18080/login) &&
+        [[ $login_page == *'팀원 로그인'* ]]; then
+        systemctl enable --now protection-judge-worker.service protection-judge-web.service
         exit 0
     fi
     sleep 1
 done
-rollback
+
+echo '채점 앱의 로그인 화면을 http://127.0.0.1:18080/login 에서 확인하지 못했습니다.' >&2
 exit 1

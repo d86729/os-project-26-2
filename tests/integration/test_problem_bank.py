@@ -18,16 +18,28 @@ def manifest(tmp_path, sizes=(6,)):
     return ExperimentManifest.parse(d, tmp_path/'manifest.json')
 
 
-def test_real_small_bank_has_two_verified_references(tmp_path):
+def test_real_small_bank_has_two_verified_references(tmp_path, monkeypatch):
     bank = build_bank(manifest(tmp_path))
     assert bank['status'] == 'ready' and bank['accepted_sizes'] == [6]
     assert len(bank['bank']) == 2
     for entry in bank['bank']:
-        b = load_bundle(entry['path'], require_reference=True)
+        path = Path(entry['path'])
+        assert path.parent == Path('bundles')
+        b = load_bundle(tmp_path / 'bank' / path, require_reference=True)
         assert b.case_id == entry['case_id']
         assert b.optimal_reference.limit_seconds == 10800
     with pytest.raises(FileExistsError):
         build_bank(manifest(tmp_path))
+
+    moved = tmp_path / 'moved'
+    moved.mkdir()
+    (tmp_path / 'bank').rename(moved / 'bank')
+
+    def unexpected_search(*args, **kwargs):
+        pytest.fail('published cases should resume from stored records')
+
+    monkeypatch.setattr('protection.exact.search', unexpected_search)
+    assert build_bank(manifest(moved), resume=True) == bank
 
 
 def test_timeout_keeps_both_records_and_continues_without_publishing(tmp_path, monkeypatch):

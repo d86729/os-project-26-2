@@ -1,0 +1,58 @@
+{
+  "base_url": "https://algorithm.586729.xyz",
+  "account": "member3",
+  "protocol": {
+    "agent": 3,
+    "provenance": "AI research assistance; human contribution not asserted",
+    "cases": [
+      "n6-seed0-p20",
+      "n6-seed0-p40",
+      "n6-seed1-p20",
+      "n6-seed1-p40",
+      "n8-seed0-p20",
+      "n8-seed0-p40",
+      "n8-seed1-p20",
+      "n8-seed1-p40",
+      "n10-seed0-p20",
+      "n10-seed0-p40",
+      "n10-seed1-p20",
+      "n10-seed1-p40",
+      "n12-seed0-p20",
+      "n12-seed0-p40",
+      "n12-seed1-p20",
+      "n12-seed1-p40",
+      "n14-seed0-p20",
+      "n14-seed0-p40",
+      "n14-seed1-p20",
+      "n14-seed1-p40"
+    ],
+    "seconds_limit": 10,
+    "memory_limit_mb": 512,
+    "deterministic": true,
+    "variants": [
+      "greedy",
+      "local_search"
+    ],
+    "improvement_rounds": 3,
+    "surrogate": "sorted connectivity profile over distinct attack damage masks; then surviving capacity sum; then lower cost and lexicographic IDs",
+    "neighborhood": "one addition or one removal plus one addition",
+    "result_selection": "all 20 predefined cases; preserve failures"
+  },
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+  "created_utc": "2026-11-22T11:10:41Z",
+  "jobs": [
+    {
+      "variant": "greedy",
+      "job_id": 3,
+      "url": "https://algorithm.586729.xyz/jobs/3",
+      "source_sha256": "b55bfd051b8857d1c3b28c8cba2e228e92b3af9e45030150df242bc1c4383f8a"
+    },
+    {
+      "variant": "local_search",
+      "job_id": 6,
+      "url": "https://algorithm.586729.xyz/jobs/6",
+      "source_sha256": "87f09ef22e2795ba7a109654fd20720a256731e019faf1c6702307d54bf38f3a"
+    }
+  ]
+}

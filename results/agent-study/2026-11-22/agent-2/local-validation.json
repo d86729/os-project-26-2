@@ -1,0 +1,566 @@
+[
+  {
+    "case": "n6-seed0-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "78eb9b8b736323208f4b8c29e2244b3f3f10d09422c87c912ca17716b6564a5b",
+    "selected": [
+      1,
+      6
+    ],
+    "local_seconds": 0.04772940999828279
+  },
+  {
+    "case": "n6-seed0-p20",
+    "source": "submission.py",
+    "stdin_sha256": "78eb9b8b736323208f4b8c29e2244b3f3f10d09422c87c912ca17716b6564a5b",
+    "selected": [
+      1,
+      7
+    ],
+    "local_seconds": 0.0508360110106878
+  },
+  {
+    "case": "n6-seed0-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "1545e2834d64432b7205d03c3329cea50b7f841bd3d821015310ef39ac280213",
+    "selected": [
+      1,
+      3,
+      6,
+      7
+    ],
+    "local_seconds": 0.04243320898967795
+  },
+  {
+    "case": "n6-seed0-p40",
+    "source": "submission.py",
+    "stdin_sha256": "1545e2834d64432b7205d03c3329cea50b7f841bd3d821015310ef39ac280213",
+    "selected": [
+      1,
+      3,
+      6,
+      7
+    ],
+    "local_seconds": 0.046214609988965094
+  },
+  {
+    "case": "n6-seed1-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "dc36f0685b9af46aa4cf8d23d99efba3a076292cd0e5c4267957c7874c2fcfd0",
+    "selected": [
+      3,
+      5
+    ],
+    "local_seconds": 0.03745920801884495
+  },
+  {
+    "case": "n6-seed1-p20",
+    "source": "submission.py",
+    "stdin_sha256": "dc36f0685b9af46aa4cf8d23d99efba3a076292cd0e5c4267957c7874c2fcfd0",
+    "selected": [
+      3,
+      5
+    ],
+    "local_seconds": 0.043109508987981826
+  },
+  {
+    "case": "n6-seed1-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "040bc06b3bce6eee72b804f94c98e5d89e51c183ef1b792c302a037f8e0f1c42",
+    "selected": [
+      1,
+      3,
+      5,
+      8
+    ],
+    "local_seconds": 0.04239490898908116
+  },
+  {
+    "case": "n6-seed1-p40",
+    "source": "submission.py",
+    "stdin_sha256": "040bc06b3bce6eee72b804f94c98e5d89e51c183ef1b792c302a037f8e0f1c42",
+    "selected": [
+      1,
+      3,
+      5,
+      8
+    ],
+    "local_seconds": 0.049842809996334836
+  },
+  {
+    "case": "n8-seed0-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "90dfed3a861fdd77c859241a4f6e30edeb168b2e050ac6e2323d1cf010bccfe7",
+    "selected": [
+      0,
+      5,
+      9,
+      11
+    ],
+    "local_seconds": 0.048398409999208525
+  },
+  {
+    "case": "n8-seed0-p20",
+    "source": "submission.py",
+    "stdin_sha256": "90dfed3a861fdd77c859241a4f6e30edeb168b2e050ac6e2323d1cf010bccfe7",
+    "selected": [
+      0,
+      5,
+      9,
+      11
+    ],
+    "local_seconds": 0.06230281401076354
+  },
+  {
+    "case": "n8-seed0-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "ccbb18399938101b1ff52a9a6313aed0b2bae5b5fd40897f59884794d0c77cf7",
+    "selected": [
+      4,
+      5,
+      6,
+      8,
+      9,
+      11
+    ],
+    "local_seconds": 0.06323921398143284
+  },
+  {
+    "case": "n8-seed0-p40",
+    "source": "submission.py",
+    "stdin_sha256": "ccbb18399938101b1ff52a9a6313aed0b2bae5b5fd40897f59884794d0c77cf7",
+    "selected": [
+      4,
+      5,
+      6,
+      8,
+      9,
+      11
+    ],
+    "local_seconds": 0.08419361698906869
+  },
+  {
+    "case": "n8-seed1-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "1decebd81cd75a76c227d86d84721f0512165bf46417c9046ff6ebeac926abcb",
+    "selected": [
+      3,
+      7,
+      12
+    ],
+    "local_seconds": 0.04922821099171415
+  },
+  {
+    "case": "n8-seed1-p20",
+    "source": "submission.py",
+    "stdin_sha256": "1decebd81cd75a76c227d86d84721f0512165bf46417c9046ff6ebeac926abcb",
+    "selected": [
+      3,
+      7,
+      12
+    ],
+    "local_seconds": 0.06337751302635297
+  },
+  {
+    "case": "n8-seed1-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "cab668a70b0f4655d14704ec6e28471cc263ea758aa2a043ae6e4667c7aa70c1",
+    "selected": [
+      0,
+      3,
+      7,
+      10,
+      12
+    ],
+    "local_seconds": 0.07252441500895657
+  },
+  {
+    "case": "n8-seed1-p40",
+    "source": "submission.py",
+    "stdin_sha256": "cab668a70b0f4655d14704ec6e28471cc263ea758aa2a043ae6e4667c7aa70c1",
+    "selected": [
+      0,
+      3,
+      7,
+      10,
+      12
+    ],
+    "local_seconds": 0.08938051800942048
+  },
+  {
+    "case": "n10-seed0-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "46e11203d3d7b0ea7a8579d87d2e560b87cb2b70d29a363e13b7b070d5de077f",
+    "selected": [
+      1,
+      4,
+      5,
+      11,
+      12
+    ],
+    "local_seconds": 0.07504611599142663
+  },
+  {
+    "case": "n10-seed0-p20",
+    "source": "submission.py",
+    "stdin_sha256": "46e11203d3d7b0ea7a8579d87d2e560b87cb2b70d29a363e13b7b070d5de077f",
+    "selected": [
+      1,
+      4,
+      5,
+      11,
+      12
+    ],
+    "local_seconds": 0.11562862299615517
+  },
+  {
+    "case": "n10-seed0-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "741a6dc8a17a06addb7ca085e2f9527219b02c8d6cde379985504d85e8ca8760",
+    "selected": [
+      0,
+      1,
+      4,
+      5,
+      11,
+      12,
+      13,
+      15
+    ],
+    "local_seconds": 0.10374942098860629
+  },
+  {
+    "case": "n10-seed0-p40",
+    "source": "submission.py",
+    "stdin_sha256": "741a6dc8a17a06addb7ca085e2f9527219b02c8d6cde379985504d85e8ca8760",
+    "selected": [
+      0,
+      1,
+      4,
+      5,
+      11,
+      12,
+      13,
+      15
+    ],
+    "local_seconds": 0.15913003199966624
+  },
+  {
+    "case": "n10-seed1-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "44ab19a6391229b443d98124780bab0bc4552d6d45df99f1ea85ddc0b61c0338",
+    "selected": [
+      2,
+      3,
+      8,
+      13,
+      15
+    ],
+    "local_seconds": 0.06662281398894265
+  },
+  {
+    "case": "n10-seed1-p20",
+    "source": "submission.py",
+    "stdin_sha256": "44ab19a6391229b443d98124780bab0bc4552d6d45df99f1ea85ddc0b61c0338",
+    "selected": [
+      2,
+      8,
+      11,
+      14,
+      15
+    ],
+    "local_seconds": 0.09026591799920425
+  },
+  {
+    "case": "n10-seed1-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "68b67dd6736692829dc44cc35d4a4508f15925fc14ee4b8980e46cd2c4a5f4e8",
+    "selected": [
+      0,
+      2,
+      8,
+      13,
+      14,
+      15
+    ],
+    "local_seconds": 0.09601352000026964
+  },
+  {
+    "case": "n10-seed1-p40",
+    "source": "submission.py",
+    "stdin_sha256": "68b67dd6736692829dc44cc35d4a4508f15925fc14ee4b8980e46cd2c4a5f4e8",
+    "selected": [
+      0,
+      2,
+      8,
+      13,
+      14,
+      15
+    ],
+    "local_seconds": 0.12603762501385063
+  },
+  {
+    "case": "n12-seed0-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "2d1215777c6cefb724e29d0e6a520e75e5ac78d967fb58c388eb464985a9ad6e",
+    "selected": [
+      1,
+      6,
+      11,
+      12,
+      14,
+      16,
+      20
+    ],
+    "local_seconds": 0.14325562998419628
+  },
+  {
+    "case": "n12-seed0-p20",
+    "source": "submission.py",
+    "stdin_sha256": "2d1215777c6cefb724e29d0e6a520e75e5ac78d967fb58c388eb464985a9ad6e",
+    "selected": [
+      1,
+      6,
+      11,
+      12,
+      14,
+      16,
+      20
+    ],
+    "local_seconds": 0.20022554000024684
+  },
+  {
+    "case": "n12-seed0-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "344d1ee236e108d73c5a61325e1135bcdc1d43f585f4d223c8a2d36f70737c04",
+    "selected": [
+      1,
+      5,
+      6,
+      8,
+      11,
+      12,
+      14,
+      16,
+      20
+    ],
+    "local_seconds": 0.16790253401268274
+  },
+  {
+    "case": "n12-seed0-p40",
+    "source": "submission.py",
+    "stdin_sha256": "344d1ee236e108d73c5a61325e1135bcdc1d43f585f4d223c8a2d36f70737c04",
+    "selected": [
+      1,
+      5,
+      6,
+      8,
+      11,
+      12,
+      14,
+      16,
+      20
+    ],
+    "local_seconds": 0.254477651003981
+  },
+  {
+    "case": "n12-seed1-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "6dda2085c16f4c5e0fed0fec7d54582ecf3c0bb623a964de11047dd9e08ea647",
+    "selected": [
+      6,
+      7,
+      11,
+      17,
+      18
+    ],
+    "local_seconds": 0.08577731798868626
+  },
+  {
+    "case": "n12-seed1-p20",
+    "source": "submission.py",
+    "stdin_sha256": "6dda2085c16f4c5e0fed0fec7d54582ecf3c0bb623a964de11047dd9e08ea647",
+    "selected": [
+      6,
+      7,
+      11,
+      17,
+      18
+    ],
+    "local_seconds": 0.14345282898284495
+  },
+  {
+    "case": "n12-seed1-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "070d55db1f95eea017e0f1514f285882b12903ee531e8af8d7df012178b8944a",
+    "selected": [
+      0,
+      7,
+      11,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "local_seconds": 0.15340433100936934
+  },
+  {
+    "case": "n12-seed1-p40",
+    "source": "submission.py",
+    "stdin_sha256": "070d55db1f95eea017e0f1514f285882b12903ee531e8af8d7df012178b8944a",
+    "selected": [
+      0,
+      7,
+      11,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "local_seconds": 0.2319461470178794
+  },
+  {
+    "case": "n14-seed0-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "05e517829adc6479e1946171f0015cbbdd13c9c45e55bb08c5f804bc6a59a542",
+    "selected": [
+      0,
+      4,
+      6,
+      11,
+      12,
+      15,
+      21,
+      23
+    ],
+    "local_seconds": 0.17531143498490565
+  },
+  {
+    "case": "n14-seed0-p20",
+    "source": "submission.py",
+    "stdin_sha256": "05e517829adc6479e1946171f0015cbbdd13c9c45e55bb08c5f804bc6a59a542",
+    "selected": [
+      0,
+      4,
+      6,
+      11,
+      12,
+      15,
+      21,
+      23
+    ],
+    "local_seconds": 0.2806530570087489
+  },
+  {
+    "case": "n14-seed0-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "fd7823fa2420d2b86c94dd98d4e70965462e18c0df206653b5ca57db4cb8ab31",
+    "selected": [
+      0,
+      4,
+      6,
+      7,
+      9,
+      11,
+      12,
+      15,
+      21,
+      23,
+      24
+    ],
+    "local_seconds": 0.26591165401623584
+  },
+  {
+    "case": "n14-seed0-p40",
+    "source": "submission.py",
+    "stdin_sha256": "fd7823fa2420d2b86c94dd98d4e70965462e18c0df206653b5ca57db4cb8ab31",
+    "selected": [
+      0,
+      4,
+      6,
+      7,
+      9,
+      11,
+      12,
+      15,
+      21,
+      23,
+      24
+    ],
+    "local_seconds": 0.40379318202030845
+  },
+  {
+    "case": "n14-seed1-p20",
+    "source": "ablation_single.py",
+    "stdin_sha256": "96fa86470a182e982958b57a2c1f59dcb86c07751a4bfff2f8680b84d68ce8dd",
+    "selected": [
+      1,
+      6,
+      7,
+      8,
+      16,
+      17,
+      18,
+      19,
+      22
+    ],
+    "local_seconds": 0.20813284200266935
+  },
+  {
+    "case": "n14-seed1-p20",
+    "source": "submission.py",
+    "stdin_sha256": "96fa86470a182e982958b57a2c1f59dcb86c07751a4bfff2f8680b84d68ce8dd",
+    "selected": [
+      1,
+      6,
+      7,
+      8,
+      16,
+      17,
+      18,
+      19,
+      22
+    ],
+    "local_seconds": 0.3123410640109796
+  },
+  {
+    "case": "n14-seed1-p40",
+    "source": "ablation_single.py",
+    "stdin_sha256": "573f6b7525cef621b897c7068f73f90bb94760fd7ee912f992ca34e0ee79cef2",
+    "selected": [
+      1,
+      4,
+      6,
+      7,
+      8,
+      16,
+      17,
+      18,
+      19,
+      22,
+      24
+    ],
+    "local_seconds": 0.27267040699371137
+  },
+  {
+    "case": "n14-seed1-p40",
+    "source": "submission.py",
+    "stdin_sha256": "573f6b7525cef621b897c7068f73f90bb94760fd7ee912f992ca34e0ee79cef2",
+    "selected": [
+      1,
+      4,
+      6,
+      7,
+      8,
+      16,
+      17,
+      18,
+      19,
+      22,
+      24
+    ],
+    "local_seconds": 0.40145265799947083
+  }
+]

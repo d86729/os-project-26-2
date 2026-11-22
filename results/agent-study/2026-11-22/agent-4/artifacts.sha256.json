@@ -1,0 +1,14 @@
+{
+  "analyze.py": "0cb4cdcd523b991bcaeb4704d173ad381886d11d9504db43bcb9fff2cec8e2f6",
+  "build_notebook.py": "73c4cdfb80ff0047ead32ff548b74e322480ed7490c8a527f96aad034787e201",
+  "comparison.csv": "26087ac5b56c90c9e5c19b02a9978e284fe4bd7c3212d81e2d8c92ab2ec026cf",
+  "docs-verification.json": "f540eff7400190c77269121f66f4ae19815e57b9bf46f69dd918756be3f676d2",
+  "notebook-validation.json": "082aeb9089382f909e31cc3ea8e5973f442b0cbad0938a346ad3c49b0ecb4d40",
+  "protocol.json": "9d9ca031962c8d52ed5dc5b95553d9577c8a685b1d9c9f2b8158faba68c79e67",
+  "records.json": "008f21f17a1ea595bb32eb90404af0c0cc414703a93b5b703aee51d5efee3aad",
+  "references.json": "6c9c1e46d93d39ca4ba0d57338e30db4e9d329da5bd13ccf07ebd5de70405662",
+  "reproduce.ipynb": "26ddbd251860750b475eb057dee0a2104ad5ce794bb09311f541c64e11faa8e1",
+  "results.csv": "da303ae237e0618fbaedd77804bb9ad0e454fe0fa7a058d075300843e9b6c04d",
+  "run_experiment.py": "89754e3950df8f5dd4362a2bd268f0b86961e24d8d11625d86ed158f51674123",
+  "summary.json": "f0b978f3afb95e0e4012bf30d7e78804593e1b887a0b856697120e61a59acdc1"
+}

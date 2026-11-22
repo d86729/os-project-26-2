@@ -1,0 +1,7 @@
+{
+  "networkx_centrality_comparisons": 20,
+  "valid_standalone_executions": 40,
+  "clean_notebook_code_cells_passed": 4,
+  "reproduced_web_outputs": 40,
+  "notebook_development_note": "Initial summary equality check exposed tuple/list JSON representation mismatch; analysis helper changed to emit lists, then clean execution passed. Submitted algorithm sources unchanged."
+}

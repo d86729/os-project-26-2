@@ -16,5 +16,5 @@ Simplex   iterations: 1
 Objective value     : -1.0000000000e+01
 P-D objective error :  0.0000000000e+00
 HiGHS run time      :          0.00
-/root/my-project/protection/runner.py:73: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+/home/user/os-project-26-2/protection/runner.py:61: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
   result = linprog([-1, -1], A_ub=[[1, 1]], b_ub=[10], bounds=[(0, 20)] * 2,

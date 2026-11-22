@@ -1,0 +1,351 @@
+{
+  "scope": "development/pilot: 10 graphs, 20 paired budget cases; not independent 20 graphs",
+  "summary": {
+    "greedy": {
+      "total": 20,
+      "completed": 20,
+      "failures": [],
+      "optimal_score_count": 1,
+      "median_seconds": 0.07873602000472602,
+      "max_seconds": 0.11825383099494502,
+      "max_peak_mb": 6.11
+    },
+    "local_search": {
+      "total": 20,
+      "completed": 20,
+      "failures": [],
+      "optimal_score_count": 5,
+      "median_seconds": 0.0833056244882755,
+      "max_seconds": 0.11198613297892734,
+      "max_peak_mb": 6.1
+    }
+  },
+  "paired_counts": {
+    "improved": 5,
+    "tied": 14,
+    "worsened": 1,
+    "incomplete": 0
+  },
+  "comparisons": [
+    {
+      "scenario": "n6-seed0-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        10,
+        253165
+      ],
+      "local_search_score": [
+        10,
+        253165
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n6-seed0-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        15,
+        658228
+      ],
+      "local_search_score": [
+        15,
+        658228
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n6-seed1-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        10,
+        178571
+      ],
+      "local_search_score": [
+        10,
+        178571
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n6-seed1-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        15,
+        440476
+      ],
+      "local_search_score": [
+        15,
+        440476
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n8-seed0-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        15,
+        123596
+      ],
+      "local_search_score": [
+        16,
+        483146
+      ],
+      "outcome": "improved",
+      "connected_pairs_change": 1,
+      "delivery_units_change_when_connected_tied": null
+    },
+    {
+      "scenario": "n8-seed0-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        21,
+        303371
+      ],
+      "local_search_score": [
+        21,
+        303371
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n8-seed1-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        21,
+        565657
+      ],
+      "local_search_score": [
+        21,
+        565657
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n8-seed1-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        28,
+        595960
+      ],
+      "local_search_score": [
+        28,
+        484848
+      ],
+      "outcome": "worsened",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": -111112
+    },
+    {
+      "scenario": "n10-seed0-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        36,
+        685714
+      ],
+      "local_search_score": [
+        36,
+        685714
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n10-seed0-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        45,
+        735714
+      ],
+      "local_search_score": [
+        45,
+        735714
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n10-seed1-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        36,
+        457143
+      ],
+      "local_search_score": [
+        36,
+        471429
+      ],
+      "outcome": "improved",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 14286
+    },
+    {
+      "scenario": "n10-seed1-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        45,
+        564286
+      ],
+      "local_search_score": [
+        45,
+        564286
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n12-seed0-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        55,
+        670807
+      ],
+      "local_search_score": [
+        55,
+        670807
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n12-seed0-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        66,
+        857143
+      ],
+      "local_search_score": [
+        66,
+        857143
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n12-seed1-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        45,
+        818713
+      ],
+      "local_search_score": [
+        45,
+        818713
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n12-seed1-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        66,
+        742690
+      ],
+      "local_search_score": [
+        66,
+        859649
+      ],
+      "outcome": "improved",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 116959
+    },
+    {
+      "scenario": "n14-seed0-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        78,
+        582474
+      ],
+      "local_search_score": [
+        78,
+        773196
+      ],
+      "outcome": "improved",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 190722
+    },
+    {
+      "scenario": "n14-seed0-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        78,
+        788660
+      ],
+      "local_search_score": [
+        91,
+        747423
+      ],
+      "outcome": "improved",
+      "connected_pairs_change": 13,
+      "delivery_units_change_when_connected_tied": null
+    },
+    {
+      "scenario": "n14-seed1-p20",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        78,
+        546584
+      ],
+      "local_search_score": [
+        78,
+        546584
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    },
+    {
+      "scenario": "n14-seed1-p40",
+      "greedy_status": "completed",
+      "local_search_status": "completed",
+      "greedy_score": [
+        91,
+        546584
+      ],
+      "local_search_score": [
+        91,
+        546584
+      ],
+      "outcome": "tied",
+      "connected_pairs_change": 0,
+      "delivery_units_change_when_connected_tied": 0
+    }
+  ]
+}

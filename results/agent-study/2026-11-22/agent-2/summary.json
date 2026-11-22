@@ -1,0 +1,244 @@
+{
+  "sample": "development_only",
+  "graphs": 10,
+  "cases": 20,
+  "methods": {
+    "single": {
+      "completed": 20,
+      "failed": 0,
+      "optimal_score_matches": 2,
+      "optimal_connectivity_matches": 16,
+      "median_seconds": 0.13809455899172463,
+      "max_seconds": 0.31166407599812374,
+      "max_worker_mb": 6.35
+    },
+    "bundle": {
+      "completed": 20,
+      "failed": 0,
+      "optimal_score_matches": 3,
+      "optimal_connectivity_matches": 17,
+      "median_seconds": 0.16704179548833054,
+      "max_seconds": 0.46533583200653084,
+      "max_worker_mb": 6.1
+    }
+  },
+  "case_comparison": {
+    "wins": 1,
+    "ties": 19,
+    "losses": 0
+  },
+  "graph_blocks": [
+    {
+      "graph": "n10-seed0",
+      "budget_results": [
+        {
+          "case": "n10-seed0-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.04183349400409497
+        },
+        {
+          "case": "n10-seed0-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.05712269200012088
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.049478093002107926
+    },
+    {
+      "graph": "n10-seed1",
+      "budget_results": [
+        {
+          "case": "n10-seed1-p20",
+          "bundle_vs_single": 1,
+          "connected_ratio_difference": 0.15555555555555556,
+          "delivery_ratio_difference": 0.09285714285714286,
+          "seconds_difference": 0.033394792990293354
+        },
+        {
+          "case": "n10-seed1-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.06248699396383017
+        }
+      ],
+      "mean_connected_ratio_difference": 0.07777777777777778,
+      "mean_seconds_difference": 0.04794089347706176
+    },
+    {
+      "graph": "n12-seed0",
+      "budget_results": [
+        {
+          "case": "n12-seed0-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.05999885901110247
+        },
+        {
+          "case": "n12-seed0-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.13584538298891857
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.09792212100001052
+    },
+    {
+      "graph": "n12-seed1",
+      "budget_results": [
+        {
+          "case": "n12-seed1-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.042315789993153885
+        },
+        {
+          "case": "n12-seed1-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.054260887001873925
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.048288338497513905
+    },
+    {
+      "graph": "n14-seed0",
+      "budget_results": [
+        {
+          "case": "n14-seed0-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.10470663898740895
+        },
+        {
+          "case": "n14-seed0-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.1581450570083689
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.13142584799788892
+    },
+    {
+      "graph": "n14-seed1",
+      "budget_results": [
+        {
+          "case": "n14-seed1-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.11229414198896848
+        },
+        {
+          "case": "n14-seed1-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.1473838550155051
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.1298389985022368
+    },
+    {
+      "graph": "n6-seed0",
+      "budget_results": [
+        {
+          "case": "n6-seed0-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.022712495032465085
+        },
+        {
+          "case": "n6-seed0-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": -0.02659962500911206
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": -0.0019435649883234873
+    },
+    {
+      "graph": "n6-seed1",
+      "budget_results": [
+        {
+          "case": "n6-seed1-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.006372487987391651
+        },
+        {
+          "case": "n6-seed1-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.008040287968469784
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.007206387977930717
+    },
+    {
+      "graph": "n8-seed0",
+      "budget_results": [
+        {
+          "case": "n8-seed0-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.027663692977512255
+        },
+        {
+          "case": "n8-seed0-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": -0.0043332219938747585
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.011665235491818748
+    },
+    {
+      "graph": "n8-seed1",
+      "budget_results": [
+        {
+          "case": "n8-seed1-p20",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": -0.03291932900901884
+        },
+        {
+          "case": "n8-seed1-p40",
+          "bundle_vs_single": 0,
+          "connected_ratio_difference": 0.0,
+          "delivery_ratio_difference": 0.0,
+          "seconds_difference": 0.05109039798844606
+        }
+      ],
+      "mean_connected_ratio_difference": 0.0,
+      "mean_seconds_difference": 0.00908553448971361
+    }
+  ],
+  "descriptive_graph_mean_connected_ratio_difference": 0.0077777777777777776,
+  "inference": "No significance test: 10 development graphs, two correlated budgets per graph; held-out confirmation is coordinated separately."
+}

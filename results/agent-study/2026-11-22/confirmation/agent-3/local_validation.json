@@ -1,0 +1,904 @@
+[
+  {
+    "variant": "greedy",
+    "case": "n6-seed2-p20",
+    "chosen_edges": [
+      0,
+      7
+    ],
+    "cost": 12,
+    "budget": 13,
+    "seconds": 0.03406571599771269
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed2-p40",
+    "chosen_edges": [
+      0,
+      6,
+      7,
+      8
+    ],
+    "cost": 27,
+    "budget": 27,
+    "seconds": 0.033085614995798096
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed3-p20",
+    "chosen_edges": [
+      3,
+      5
+    ],
+    "cost": 8,
+    "budget": 8,
+    "seconds": 0.032130214996868744
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed3-p40",
+    "chosen_edges": [
+      0,
+      3,
+      5,
+      8
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03273501500370912
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed4-p20",
+    "chosen_edges": [
+      7
+    ],
+    "cost": 9,
+    "budget": 9,
+    "seconds": 0.03291031499975361
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed4-p40",
+    "chosen_edges": [
+      0,
+      1,
+      7
+    ],
+    "cost": 17,
+    "budget": 18,
+    "seconds": 0.032808815012685955
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed5-p20",
+    "chosen_edges": [
+      2,
+      7,
+      8
+    ],
+    "cost": 8,
+    "budget": 8,
+    "seconds": 0.03258901499793865
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed5-p40",
+    "chosen_edges": [
+      1,
+      2,
+      4,
+      5,
+      7
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03289181599393487
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed2-p20",
+    "chosen_edges": [
+      6,
+      8,
+      11
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03328331501688808
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed2-p40",
+    "chosen_edges": [
+      4,
+      6,
+      8,
+      11,
+      12
+    ],
+    "cost": 32,
+    "budget": 33,
+    "seconds": 0.03282871498959139
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed3-p20",
+    "chosen_edges": [
+      3,
+      7,
+      8
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03289431499433704
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed3-p40",
+    "chosen_edges": [
+      3,
+      4,
+      5,
+      8,
+      12
+    ],
+    "cost": 31,
+    "budget": 32,
+    "seconds": 0.034271915996214375
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed4-p20",
+    "chosen_edges": [
+      3,
+      4,
+      8,
+      9
+    ],
+    "cost": 14,
+    "budget": 14,
+    "seconds": 0.033002915006363764
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed4-p40",
+    "chosen_edges": [
+      1,
+      3,
+      4,
+      7,
+      9,
+      10,
+      12
+    ],
+    "cost": 28,
+    "budget": 28,
+    "seconds": 0.03413171600550413
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed5-p20",
+    "chosen_edges": [
+      0,
+      10,
+      12
+    ],
+    "cost": 12,
+    "budget": 12,
+    "seconds": 0.032497815001988783
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed5-p40",
+    "chosen_edges": [
+      0,
+      8,
+      9,
+      10,
+      12
+    ],
+    "cost": 23,
+    "budget": 24,
+    "seconds": 0.03337581499363296
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed2-p20",
+    "chosen_edges": [
+      7,
+      9,
+      10,
+      11,
+      14
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03481061599450186
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed2-p40",
+    "chosen_edges": [
+      0,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "cost": 32,
+    "budget": 32,
+    "seconds": 0.03444341599242762
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed3-p20",
+    "chosen_edges": [
+      3,
+      10,
+      14,
+      16
+    ],
+    "cost": 21,
+    "budget": 22,
+    "seconds": 0.03395741598797031
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed3-p40",
+    "chosen_edges": [
+      0,
+      3,
+      9,
+      10,
+      14,
+      15,
+      16
+    ],
+    "cost": 42,
+    "budget": 44,
+    "seconds": 0.0354388160048984
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed4-p20",
+    "chosen_edges": [
+      1,
+      7,
+      13
+    ],
+    "cost": 18,
+    "budget": 19,
+    "seconds": 0.03364901599707082
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed4-p40",
+    "chosen_edges": [
+      1,
+      7,
+      10,
+      12,
+      13
+    ],
+    "cost": 37,
+    "budget": 38,
+    "seconds": 0.03405291499802843
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed5-p20",
+    "chosen_edges": [
+      8,
+      9,
+      16
+    ],
+    "cost": 17,
+    "budget": 17,
+    "seconds": 0.033664315997157246
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed5-p40",
+    "chosen_edges": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      9,
+      10,
+      12,
+      16
+    ],
+    "cost": 34,
+    "budget": 34,
+    "seconds": 0.033845214988105
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed2-p20",
+    "chosen_edges": [
+      1,
+      14,
+      15,
+      19
+    ],
+    "cost": 24,
+    "budget": 25,
+    "seconds": 0.03566331701586023
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed2-p40",
+    "chosen_edges": [
+      1,
+      7,
+      8,
+      12,
+      14,
+      15,
+      17,
+      18,
+      19
+    ],
+    "cost": 50,
+    "budget": 50,
+    "seconds": 0.04069771902868524
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed3-p20",
+    "chosen_edges": [
+      4,
+      5,
+      10,
+      11,
+      16,
+      17
+    ],
+    "cost": 20,
+    "budget": 21,
+    "seconds": 0.03774591698311269
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed3-p40",
+    "chosen_edges": [
+      4,
+      5,
+      8,
+      10,
+      11,
+      12,
+      13,
+      16,
+      17
+    ],
+    "cost": 43,
+    "budget": 43,
+    "seconds": 0.040039818006334826
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed4-p20",
+    "chosen_edges": [
+      1,
+      3,
+      6,
+      11,
+      13,
+      15,
+      16,
+      17
+    ],
+    "cost": 24,
+    "budget": 24,
+    "seconds": 0.036632916977396235
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed4-p40",
+    "chosen_edges": [
+      1,
+      6,
+      8,
+      10,
+      11,
+      15,
+      16,
+      17,
+      19,
+      20
+    ],
+    "cost": 49,
+    "budget": 49,
+    "seconds": 0.038887117989361286
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed5-p20",
+    "chosen_edges": [
+      2,
+      5,
+      10,
+      19
+    ],
+    "cost": 26,
+    "budget": 26,
+    "seconds": 0.0354075159993954
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed5-p40",
+    "chosen_edges": [
+      2,
+      5,
+      7,
+      9,
+      10,
+      15,
+      18,
+      19
+    ],
+    "cost": 51,
+    "budget": 52,
+    "seconds": 0.037222516984911636
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed2-p20",
+    "chosen_edges": [
+      0,
+      7
+    ],
+    "cost": 12,
+    "budget": 13,
+    "seconds": 0.03258141499827616
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed2-p40",
+    "chosen_edges": [
+      0,
+      6,
+      7,
+      8
+    ],
+    "cost": 27,
+    "budget": 27,
+    "seconds": 0.03300471499096602
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed3-p20",
+    "chosen_edges": [
+      3,
+      5
+    ],
+    "cost": 8,
+    "budget": 8,
+    "seconds": 0.033103615016443655
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed3-p40",
+    "chosen_edges": [
+      0,
+      3,
+      5,
+      8
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03299061500001699
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed4-p20",
+    "chosen_edges": [
+      7
+    ],
+    "cost": 9,
+    "budget": 9,
+    "seconds": 0.03387221597949974
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed4-p40",
+    "chosen_edges": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "cost": 14,
+    "budget": 18,
+    "seconds": 0.03521931599243544
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed5-p20",
+    "chosen_edges": [
+      2,
+      7,
+      8
+    ],
+    "cost": 8,
+    "budget": 8,
+    "seconds": 0.034774315980030224
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed5-p40",
+    "chosen_edges": [
+      1,
+      2,
+      4,
+      5,
+      7
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03542231599567458
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed2-p20",
+    "chosen_edges": [
+      6,
+      8,
+      11
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03439581600832753
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed2-p40",
+    "chosen_edges": [
+      4,
+      6,
+      8,
+      11,
+      12
+    ],
+    "cost": 32,
+    "budget": 33,
+    "seconds": 0.03459741600090638
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed3-p20",
+    "chosen_edges": [
+      3,
+      7,
+      8
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.032980714982841164
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed3-p40",
+    "chosen_edges": [
+      3,
+      4,
+      8,
+      10,
+      12
+    ],
+    "cost": 32,
+    "budget": 32,
+    "seconds": 0.039269417989999056
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed4-p20",
+    "chosen_edges": [
+      3,
+      4,
+      8,
+      9
+    ],
+    "cost": 14,
+    "budget": 14,
+    "seconds": 0.035226015985244885
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed4-p40",
+    "chosen_edges": [
+      1,
+      3,
+      4,
+      7,
+      9,
+      10,
+      12
+    ],
+    "cost": 28,
+    "budget": 28,
+    "seconds": 0.033515615010401234
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed5-p20",
+    "chosen_edges": [
+      0,
+      10,
+      12
+    ],
+    "cost": 12,
+    "budget": 12,
+    "seconds": 0.03353081599925645
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed5-p40",
+    "chosen_edges": [
+      0,
+      8,
+      9,
+      10,
+      12
+    ],
+    "cost": 23,
+    "budget": 24,
+    "seconds": 0.03505301600671373
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed2-p20",
+    "chosen_edges": [
+      7,
+      9,
+      10,
+      11,
+      14
+    ],
+    "cost": 16,
+    "budget": 16,
+    "seconds": 0.03486671598511748
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed2-p40",
+    "chosen_edges": [
+      0,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "cost": 32,
+    "budget": 32,
+    "seconds": 0.036985416983952746
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed3-p20",
+    "chosen_edges": [
+      3,
+      10,
+      14,
+      16
+    ],
+    "cost": 21,
+    "budget": 22,
+    "seconds": 0.034491416008677334
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed3-p40",
+    "chosen_edges": [
+      0,
+      3,
+      9,
+      10,
+      14,
+      15,
+      16
+    ],
+    "cost": 42,
+    "budget": 44,
+    "seconds": 0.03713261699886061
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed4-p20",
+    "chosen_edges": [
+      1,
+      7,
+      13
+    ],
+    "cost": 18,
+    "budget": 19,
+    "seconds": 0.03420851600822061
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed4-p40",
+    "chosen_edges": [
+      1,
+      7,
+      10,
+      12,
+      13
+    ],
+    "cost": 37,
+    "budget": 38,
+    "seconds": 0.0352085159975104
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed5-p20",
+    "chosen_edges": [
+      8,
+      9,
+      16
+    ],
+    "cost": 17,
+    "budget": 17,
+    "seconds": 0.03399041498778388
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed5-p40",
+    "chosen_edges": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      9,
+      10,
+      12,
+      13,
+      16
+    ],
+    "cost": 32,
+    "budget": 34,
+    "seconds": 0.03805641797953285
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed2-p20",
+    "chosen_edges": [
+      1,
+      15,
+      16,
+      19
+    ],
+    "cost": 24,
+    "budget": 25,
+    "seconds": 0.03910291797365062
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed2-p40",
+    "chosen_edges": [
+      1,
+      7,
+      8,
+      12,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "cost": 50,
+    "budget": 50,
+    "seconds": 0.04195901899947785
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed3-p20",
+    "chosen_edges": [
+      4,
+      5,
+      10,
+      11,
+      16,
+      17
+    ],
+    "cost": 20,
+    "budget": 21,
+    "seconds": 0.038111118017695844
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed3-p40",
+    "chosen_edges": [
+      4,
+      5,
+      7,
+      8,
+      10,
+      13,
+      14,
+      16,
+      17
+    ],
+    "cost": 42,
+    "budget": 43,
+    "seconds": 0.04323891899548471
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed4-p20",
+    "chosen_edges": [
+      3,
+      6,
+      10,
+      11,
+      13,
+      15,
+      16,
+      17
+    ],
+    "cost": 24,
+    "budget": 24,
+    "seconds": 0.03812891501002014
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed4-p40",
+    "chosen_edges": [
+      1,
+      3,
+      6,
+      8,
+      9,
+      10,
+      11,
+      13,
+      15,
+      16,
+      17,
+      20
+    ],
+    "cost": 46,
+    "budget": 49,
+    "seconds": 0.04208761698100716
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed5-p20",
+    "chosen_edges": [
+      2,
+      5,
+      10,
+      13,
+      18,
+      20
+    ],
+    "cost": 26,
+    "budget": 26,
+    "seconds": 0.038820515997940674
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed5-p40",
+    "chosen_edges": [
+      2,
+      5,
+      7,
+      9,
+      10,
+      15,
+      18,
+      19
+    ],
+    "cost": 51,
+    "budget": 52,
+    "seconds": 0.039273816015338525
+  }
+]

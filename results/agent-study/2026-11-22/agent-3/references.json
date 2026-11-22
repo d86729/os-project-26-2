@@ -1,0 +1,29 @@
+[
+  {
+    "authors": "R. J. M. Vaessens; E. H. L. Aarts; J. K. Lenstra",
+    "title": "A local search template",
+    "journal": "Computers & Operations Research",
+    "volume": "25",
+    "issue": "11",
+    "pages": "969–979",
+    "year": 1998,
+    "doi": "10.1016/S0305-0548(97)00093-2",
+    "verified_url": "https://research.tue.nl/en/publications/a-local-search-template/",
+    "fulltext_url": "https://homes.di.unimi.it/cordone/courses/2026-ae/Lez13-Materiali/LocalSearchTemplate.pdf",
+    "scope_read": "paper sections 1–4; source metadata/abstract",
+    "accessed": "2026-11-22"
+  },
+  {
+    "authors": "Pierre Hansen; Nenad Mladenović",
+    "title": "Variable neighborhood search: Principles and applications",
+    "journal": "European Journal of Operational Research",
+    "volume": "130",
+    "issue": "3",
+    "pages": "449–467",
+    "year": 2001,
+    "doi": "10.1016/S0377-2217(00)00100-4",
+    "verified_url": "https://www.gerad.ca/en/papers/G-98-20",
+    "scope_read": "institutional abstract and publication metadata; not full text",
+    "accessed": "2026-11-22"
+  }
+]

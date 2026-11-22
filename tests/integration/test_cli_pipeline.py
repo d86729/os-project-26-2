@@ -17,11 +17,13 @@ def cli(*args, expected=0):
 
 
 def grading(bank, output):
+    source = output.parent / 'test_only_submission.py'
+    source.write_text('raise SystemExit(75)\n')
     return dict(schema_version=1,kind='grading',run_kind='smoke',ready=True,
         owners={'common':'김대건'}, bank=bank,
-        submission=dict(method_id='member_1',file=str(ROOT/'algorithms/member_1.py'),
+        submission=dict(method_id='member_1',file=str(source),
             uses_randomness=False,algorithm_seeds=[],
-            owner='팀원 1 (실명 미제출)',strategy_name='미구현',strategy_version='not-submitted'),
+            owner='시험 전용',strategy_name='미구현',strategy_version='not-submitted'),
         limits=dict(algorithm_seconds=300,algorithm_memory_bytes=6000000000),
         resource_policy=dict(sample_interval_ms=10),output_dir=str(output))
 
@@ -52,6 +54,40 @@ def test_main_is_not_authorized(tmp_path):
     cli('exact','--input','missing','--budget-percent','20','--method','exhaustive',
         '--run-kind','main','--output',tmp_path/'no.json',expected=2)
     assert not (tmp_path/'no.json').exists()
+
+
+def test_download_and_cli_use_node_row_numbers(tmp_path, monkeypatch):
+    pytest.importorskip('flask')
+    from protection import web
+    from protection.models import load_bundle
+
+    monkeypatch.setenv('PROTECTION_STATE_DIR', str(tmp_path))
+    # conftest initializes the numerical runtime before test collection.
+    monkeypatch.setattr(web, 'initialize_single_thread', lambda: None)
+    bundle_path = web.bank_files()[web.EXAMPLE_CASE]
+    bundle = load_bundle(bundle_path, require_reference=True)
+    client = web.create_app().test_client()
+    with client.session_transaction() as session:
+        session['owner'] = 'member1'
+
+    download = client.get(f'/bank/{web.EXAMPLE_CASE}/input')
+    assert download.status_code == 200
+    assert download.data == cli('input', '--bundle', bundle_path).stdout.encode('ascii')
+
+    header, _, *rows = download.get_data(as_text=True).splitlines()
+    node_count, edge_count, demand_count, attack_count = map(int, header.split())
+    assert len(rows) == node_count + edge_count + demand_count + attack_count
+    assert [tuple(map(float, row.split())) for row in rows[:node_count]] == [
+        (node.x, node.y) for node in bundle.scenario.nodes
+    ]
+    demand_start = node_count + edge_count
+    assert [tuple(map(int, row.split()[1:3])) for row in rows[node_count:demand_start]] == [
+        (edge.u, edge.v) for edge in bundle.scenario.edges
+    ]
+    assert [tuple(map(int, row.split()[1:3])) for row in rows[demand_start:demand_start + demand_count]] == [
+        (demand.source, demand.target) for demand in bundle.scenario.demands
+    ]
+    assert b'<code>x y</code>' in client.get('/').data
 
 
 def test_cli_pipeline(tmp_path):
@@ -102,7 +138,13 @@ raise SystemExit(main(['grade','--manifest',sys.argv[1]]))
     assert json.loads((tmp_path/'out/runs.jsonl').read_text())['status']=='not_implemented'
     # Test-only successful submission: never attributed to a team strategy.
     fixture=tmp_path/'test_only.py'
-    fixture.write_text('import sys\nassert len(sys.stdin.readlines()) > 2\nprint(0)\n')
+    fixture.write_text(
+        'node_count, _, _, _ = map(int, input().split())\n'
+        'input()\n'
+        'for _ in range(node_count):\n'
+        '    x, y = map(float, input().split())\n'
+        'print(0)\n'
+    )
     d=json.loads(gm.read_text());d['submission']['file']=str(fixture)
     d['output_dir']=str(tmp_path/'success')
     gm.write_text(json.dumps(d))

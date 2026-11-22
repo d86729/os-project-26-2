@@ -1,0 +1,124 @@
+{
+  "sample": "preparatory exact comparison; 4 graphs with paired budgets, no confirmatory significance claim",
+  "methods": {
+    "exhaustive": {
+      "completed": 8,
+      "reference_score_matches": 8,
+      "full_tiebreak_matches": 8,
+      "evaluated_combinations": 4931,
+      "evaluation_calls": 4931,
+      "upper_bound_calls": 0,
+      "fallback_solves": 0,
+      "median_search_seconds": 0.36922324300394394,
+      "total_search_seconds": 5.430953828064958,
+      "max_peak_rss_mb": 79.81056
+    },
+    "branch_bound": {
+      "completed": 8,
+      "reference_score_matches": 8,
+      "full_tiebreak_matches": 8,
+      "evaluated_combinations": 841,
+      "evaluation_calls": 841,
+      "upper_bound_calls": 4521,
+      "fallback_solves": 0,
+      "median_search_seconds": 0.34676199000386987,
+      "total_search_seconds": 6.540765596058918,
+      "max_peak_rss_mb": 81.043456
+    }
+  },
+  "pairs": [
+    {
+      "case": "n6-seed0-p20",
+      "exhaustive_evaluations": 23,
+      "branch_bound_evaluations": 11,
+      "evaluation_reduction": 0.5217391304347826,
+      "upper_bound_calls": 61,
+      "exhaustive_search_seconds": 0.14951862100861035,
+      "branch_bound_search_seconds": 0.1317967160139233,
+      "branch_bound_time_ratio": 0.8814735925522847,
+      "search_seconds_difference": -0.017721904994687065
+    },
+    {
+      "case": "n6-seed0-p40",
+      "exhaustive_evaluations": 145,
+      "branch_bound_evaluations": 56,
+      "evaluation_reduction": 0.6137931034482759,
+      "upper_bound_calls": 205,
+      "exhaustive_search_seconds": 0.36002894199918956,
+      "branch_bound_search_seconds": 0.3229977370065171,
+      "branch_bound_time_ratio": 0.8971438107529817,
+      "search_seconds_difference": -0.03703120499267243
+    },
+    {
+      "case": "n6-seed1-p20",
+      "exhaustive_evaluations": 29,
+      "branch_bound_evaluations": 9,
+      "evaluation_reduction": 0.6896551724137931,
+      "upper_bound_calls": 53,
+      "exhaustive_search_seconds": 0.09549431101186201,
+      "branch_bound_search_seconds": 0.09437721100402996,
+      "branch_bound_time_ratio": 0.9883019208579527,
+      "search_seconds_difference": -0.0011171000078320503
+    },
+    {
+      "case": "n6-seed1-p40",
+      "exhaustive_evaluations": 164,
+      "branch_bound_evaluations": 38,
+      "evaluation_reduction": 0.7682926829268293,
+      "upper_bound_calls": 124,
+      "exhaustive_search_seconds": 0.3784175440086983,
+      "branch_bound_search_seconds": 0.3705262430012226,
+      "branch_bound_time_ratio": 0.9791465772863471,
+      "search_seconds_difference": -0.007891301007475704
+    },
+    {
+      "case": "n8-seed0-p20",
+      "exhaustive_evaluations": 196,
+      "branch_bound_evaluations": 51,
+      "evaluation_reduction": 0.7397959183673469,
+      "upper_bound_calls": 290,
+      "exhaustive_search_seconds": 0.19823082300717942,
+      "branch_bound_search_seconds": 0.26918643098906614,
+      "branch_bound_time_ratio": 1.3579443746713238,
+      "search_seconds_difference": 0.07095560798188671
+    },
+    {
+      "case": "n8-seed0-p40",
+      "exhaustive_evaluations": 2077,
+      "branch_bound_evaluations": 307,
+      "evaluation_reduction": 0.8521906596051998,
+      "upper_bound_calls": 1733,
+      "exhaustive_search_seconds": 1.5511134749976918,
+      "branch_bound_search_seconds": 1.9704697340202983,
+      "branch_bound_time_ratio": 1.2703582076889832,
+      "search_seconds_difference": 0.41935625902260654
+    },
+    {
+      "case": "n8-seed1-p20",
+      "exhaustive_evaluations": 157,
+      "branch_bound_evaluations": 95,
+      "evaluation_reduction": 0.39490445859872614,
+      "upper_bound_calls": 519,
+      "exhaustive_search_seconds": 0.41495727401343174,
+      "branch_bound_search_seconds": 0.6502342160092667,
+      "branch_bound_time_ratio": 1.5669907644231806,
+      "search_seconds_difference": 0.23527694199583493
+    },
+    {
+      "case": "n8-seed1-p40",
+      "exhaustive_evaluations": 2140,
+      "branch_bound_evaluations": 274,
+      "evaluation_reduction": 0.8719626168224299,
+      "upper_bound_calls": 1536,
+      "exhaustive_search_seconds": 2.2831928380182944,
+      "branch_bound_search_seconds": 2.731177308014594,
+      "branch_bound_time_ratio": 1.196209651036366,
+      "search_seconds_difference": 0.4479844699962996
+    }
+  ],
+  "branch_bound_faster_cases": 4,
+  "median_paired_time_ratio": 1.0922557859471593,
+  "aggregate_evaluation_reduction": 0.8294463597647536,
+  "timing_note": "search time excludes worker startup and shutdown; web timing is different; one run per method/case",
+  "policy_note": "exhaustive requires rational certificate; branch_bound permits evaluation-v2 fallback; actual fallback counts reported"
+}

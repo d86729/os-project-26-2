@@ -1,0 +1,123 @@
+{
+  "registered_at": "2026-11-22T11:10:49.574755+00:00",
+  "purpose": "AI-assisted preparatory study, not completed individual coursework or full main experiment",
+  "development_cases": [
+    "n6-seed0-p20",
+    "n6-seed0-p40",
+    "n6-seed1-p20",
+    "n6-seed1-p40",
+    "n8-seed0-p20",
+    "n8-seed0-p40",
+    "n8-seed1-p20",
+    "n8-seed1-p40",
+    "n10-seed0-p20",
+    "n10-seed0-p40",
+    "n10-seed1-p20",
+    "n10-seed1-p40",
+    "n12-seed0-p20",
+    "n12-seed0-p40",
+    "n12-seed1-p20",
+    "n12-seed1-p40",
+    "n14-seed0-p20",
+    "n14-seed0-p40",
+    "n14-seed1-p20",
+    "n14-seed1-p40"
+  ],
+  "confirmation_cases": [
+    "n6-seed2-p20",
+    "n6-seed2-p40",
+    "n6-seed3-p20",
+    "n6-seed3-p40",
+    "n6-seed4-p20",
+    "n6-seed4-p40",
+    "n6-seed5-p20",
+    "n6-seed5-p40",
+    "n8-seed2-p20",
+    "n8-seed2-p40",
+    "n8-seed3-p20",
+    "n8-seed3-p40",
+    "n8-seed4-p20",
+    "n8-seed4-p40",
+    "n8-seed5-p20",
+    "n8-seed5-p40",
+    "n10-seed2-p20",
+    "n10-seed2-p40",
+    "n10-seed3-p20",
+    "n10-seed3-p40",
+    "n10-seed4-p20",
+    "n10-seed4-p40",
+    "n10-seed5-p20",
+    "n10-seed5-p40",
+    "n12-seed2-p20",
+    "n12-seed2-p40",
+    "n12-seed3-p20",
+    "n12-seed3-p40",
+    "n12-seed4-p20",
+    "n12-seed4-p40",
+    "n12-seed5-p20",
+    "n12-seed5-p40"
+  ],
+  "freeze": "Freeze final program SHA256 before confirmation; no tuning after confirmation results. Record any correction and invalidate affected confirmatory interpretation.",
+  "limits": {
+    "seconds_per_case": 10,
+    "memory_mb_decimal": 512,
+    "deterministic_repeats": 1,
+    "random_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "planned_contrasts": [
+    "agent1_betweenness vs agent1_degree baseline",
+    "agent2_demand_attack vs agent1_degree baseline",
+    "agent3_local_search vs agent3_greedy ablation"
+  ],
+  "primary_outcomes": [
+    "lexicographic wins/ties/losses using integer connected-pair count then delivery_units",
+    "connected_ratio difference paired by case",
+    "delivery_ratio difference conditional on equal connected pairs",
+    "optimal score match; cost/edge tie-breaking reported separately",
+    "runtime and failure states"
+  ],
+  "uncertainty": {
+    "method": "stratified graph-cluster percentile bootstrap",
+    "resamples": 10000,
+    "seed": 20261122,
+    "level": 0.95,
+    "cluster": "same n and generation seed, retaining both budget conditions",
+    "strata": "n6,n8,n10,n12; resample four graph clusters with replacement within each stratum",
+    "scope": "descriptive intervals only; no significance threshold or unplanned best-method claim"
+  },
+  "missing_policy": "Keep failures in success counts; no zero substitution. Pairwise score statistics use jointly successful rows and show denominators.",
+  "exact_study": {
+    "sizes": [
+      6,
+      8
+    ],
+    "generation_seeds": [
+      0,
+      1
+    ],
+    "budget_percents": [
+      20,
+      40
+    ],
+    "methods": [
+      "exhaustive",
+      "branch_bound"
+    ],
+    "seconds_per_method_case": 60,
+    "note": "Separate exact-search measurements; do not equate timing boundaries with web submissions."
+  },
+  "limitations": [
+    "n14 has only seeds0,1, so n14 is exploratory only",
+    "Synthetic fixed bank conditioned on exhaustive-reference feasibility",
+    "Small confirmation sample:16 graphs,32 dependent budget cases",
+    "Publication of bank references means held-out-by-workflow, not hidden evaluator test data",
+    "Agents must not read confirmation input/results until source freeze",
+    "AI-generated materials need human understanding, revision and execution per coursework rules"
+  ]
+}

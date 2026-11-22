@@ -26,8 +26,7 @@ from protection.program import (MAX_MEMORY_BYTES, MAX_SECONDS, MAX_SOURCE_BYTES,
 from protection.models import load_bundle
 from protection.reporting import _row
 
-BANK = Path(__file__).resolve().parent.parent / 'scenarios/three-hour-bank-v1/bundles'
-EXPANDED_BANK = BANK.parent.parent / 'expanded-certified-bank'
+BANK = Path(__file__).resolve().parent.parent / 'scenarios/problem-bank'
 EXAMPLE_CASE = 'n6-seed0-p20'
 ACCOUNTS = ('member1', 'member2', 'member3')
 PRACTICE_SEEDS = (0, 1, 2, 3, 4)
@@ -79,15 +78,14 @@ def setup():
 
 
 def bank_files():
-    """기존 파일과 새 인덱스에 등록된 예산 쌍을 합쳐 선택 목록을 만든다."""
-    files = {path.stem: path for path in BANK.glob('*.json')}
-    try:
-        index = json.loads((EXPANDED_BANK / 'bank.json').read_text(encoding='utf-8'))
-    except FileNotFoundError:
-        return dict(sorted(files.items()))
+    """공개 인덱스에 있는 사례를 기존 사례 이름으로 제공한다."""
+    index = json.loads((BANK / 'bank.json').read_text(encoding='utf-8'))
+    files = {}
     for entry in index['bank']:
-        path = EXPANDED_BANK / 'bundles' / Path(entry['path']).name
-        files.setdefault(path.stem, path)
+        path = Path(entry['path'])
+        if path.parent != Path('bundles') or path.suffix != '.json' or path.stem in files:
+            raise ValueError(f'invalid problem bank path: {path}')
+        files[path.stem] = BANK / path
     return dict(sorted(files.items()))
 
 

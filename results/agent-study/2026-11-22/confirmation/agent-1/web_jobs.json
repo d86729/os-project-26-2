@@ -1,0 +1,29 @@
+{
+  "account": "member1",
+  "url": "https://algorithm.586729.xyz",
+  "jobs": [
+    {
+      "method": "degree",
+      "job_id": 8,
+      "job_url": "https://algorithm.586729.xyz/jobs/8",
+      "source_sha256": "615d147292e12056c35bfa66cbf3b0a50bce8863c0beb4fe803901f10d670fb9",
+      "state": "채점 종료",
+      "result_rows": 32,
+      "status_counts": {
+        "completed": 32
+      }
+    },
+    {
+      "method": "betweenness",
+      "job_id": 10,
+      "job_url": "https://algorithm.586729.xyz/jobs/10",
+      "source_sha256": "c6bfe7ff8b87327108e237d9150b1cc009461b2642997238014f90cb4cbbdaca",
+      "state": "채점 종료",
+      "result_rows": 32,
+      "status_counts": {
+        "completed": 32
+      }
+    }
+  ],
+  "input_match_count": 32
+}

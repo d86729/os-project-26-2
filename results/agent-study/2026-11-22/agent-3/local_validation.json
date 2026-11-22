@@ -1,0 +1,608 @@
+[
+  {
+    "variant": "greedy",
+    "case": "n6-seed0-p20",
+    "chosen_edges": [
+      4,
+      6
+    ],
+    "cost": 11,
+    "budget": 11,
+    "seconds": 0.07092351900064386
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed0-p40",
+    "chosen_edges": [
+      2,
+      3,
+      4,
+      7
+    ],
+    "cost": 22,
+    "budget": 22,
+    "seconds": 0.0322189089783933
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed1-p20",
+    "chosen_edges": [
+      1,
+      3
+    ],
+    "cost": 10,
+    "budget": 10,
+    "seconds": 0.03232330898754299
+  },
+  {
+    "variant": "greedy",
+    "case": "n6-seed1-p40",
+    "chosen_edges": [
+      1,
+      3,
+      5,
+      6
+    ],
+    "cost": 19,
+    "budget": 21,
+    "seconds": 0.03342830901965499
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed0-p20",
+    "chosen_edges": [
+      0,
+      1,
+      4,
+      11
+    ],
+    "cost": 15,
+    "budget": 15,
+    "seconds": 0.03301130898762494
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed0-p40",
+    "chosen_edges": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      11
+    ],
+    "cost": 30,
+    "budget": 30,
+    "seconds": 0.03249760900507681
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed1-p20",
+    "chosen_edges": [
+      1,
+      8,
+      11
+    ],
+    "cost": 15,
+    "budget": 16,
+    "seconds": 0.032501409004908055
+  },
+  {
+    "variant": "greedy",
+    "case": "n8-seed1-p40",
+    "chosen_edges": [
+      1,
+      5,
+      8,
+      9,
+      11
+    ],
+    "cost": 31,
+    "budget": 33,
+    "seconds": 0.03313000898924656
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed0-p20",
+    "chosen_edges": [
+      1,
+      11,
+      12,
+      13,
+      15
+    ],
+    "cost": 17,
+    "budget": 18,
+    "seconds": 0.03585650899913162
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed0-p40",
+    "chosen_edges": [
+      1,
+      6,
+      11,
+      12,
+      13,
+      15,
+      16
+    ],
+    "cost": 34,
+    "budget": 36,
+    "seconds": 0.035137309023411945
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed1-p20",
+    "chosen_edges": [
+      2,
+      11,
+      13,
+      14,
+      15
+    ],
+    "cost": 20,
+    "budget": 20,
+    "seconds": 0.03363560899742879
+  },
+  {
+    "variant": "greedy",
+    "case": "n10-seed1-p40",
+    "chosen_edges": [
+      0,
+      1,
+      2,
+      8,
+      13,
+      14,
+      15
+    ],
+    "cost": 40,
+    "budget": 40,
+    "seconds": 0.03468141000485048
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed0-p20",
+    "chosen_edges": [
+      1,
+      2,
+      6,
+      14,
+      16,
+      17,
+      18,
+      20
+    ],
+    "cost": 23,
+    "budget": 23,
+    "seconds": 0.036690710025141016
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed0-p40",
+    "chosen_edges": [
+      1,
+      2,
+      5,
+      6,
+      8,
+      11,
+      14,
+      15,
+      16,
+      17,
+      20
+    ],
+    "cost": 46,
+    "budget": 46,
+    "seconds": 0.038049410009989515
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed1-p20",
+    "chosen_edges": [
+      0,
+      7,
+      11,
+      17
+    ],
+    "cost": 24,
+    "budget": 24,
+    "seconds": 0.03345060901483521
+  },
+  {
+    "variant": "greedy",
+    "case": "n12-seed1-p40",
+    "chosen_edges": [
+      0,
+      4,
+      6,
+      7,
+      10,
+      11,
+      15,
+      16,
+      17,
+      18
+    ],
+    "cost": 47,
+    "budget": 48,
+    "seconds": 0.03838721101055853
+  },
+  {
+    "variant": "greedy",
+    "case": "n14-seed0-p20",
+    "chosen_edges": [
+      0,
+      1,
+      14,
+      15,
+      17,
+      21
+    ],
+    "cost": 29,
+    "budget": 29,
+    "seconds": 0.038126609986647964
+  },
+  {
+    "variant": "greedy",
+    "case": "n14-seed0-p40",
+    "chosen_edges": [
+      0,
+      1,
+      4,
+      8,
+      14,
+      15,
+      17,
+      18,
+      21,
+      22,
+      24
+    ],
+    "cost": 59,
+    "budget": 59,
+    "seconds": 0.04047891098889522
+  },
+  {
+    "variant": "greedy",
+    "case": "n14-seed1-p20",
+    "chosen_edges": [
+      2,
+      7,
+      10,
+      17,
+      18,
+      24
+    ],
+    "cost": 32,
+    "budget": 32,
+    "seconds": 0.03723700999398716
+  },
+  {
+    "variant": "greedy",
+    "case": "n14-seed1-p40",
+    "chosen_edges": [
+      2,
+      6,
+      7,
+      10,
+      14,
+      17,
+      18,
+      19,
+      20,
+      22,
+      24
+    ],
+    "cost": 63,
+    "budget": 64,
+    "seconds": 0.042379012011224404
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed0-p20",
+    "chosen_edges": [
+      4,
+      6
+    ],
+    "cost": 11,
+    "budget": 11,
+    "seconds": 0.03192970898817293
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed0-p40",
+    "chosen_edges": [
+      2,
+      3,
+      4,
+      7
+    ],
+    "cost": 22,
+    "budget": 22,
+    "seconds": 0.032257508020848036
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed1-p20",
+    "chosen_edges": [
+      1,
+      3
+    ],
+    "cost": 10,
+    "budget": 10,
+    "seconds": 0.031710108974948525
+  },
+  {
+    "variant": "local_search",
+    "case": "n6-seed1-p40",
+    "chosen_edges": [
+      1,
+      3,
+      5,
+      6
+    ],
+    "cost": 19,
+    "budget": 21,
+    "seconds": 0.032818709005368873
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed0-p20",
+    "chosen_edges": [
+      5,
+      6,
+      8,
+      11
+    ],
+    "cost": 14,
+    "budget": 15,
+    "seconds": 0.03290680900681764
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed0-p40",
+    "chosen_edges": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      11
+    ],
+    "cost": 29,
+    "budget": 30,
+    "seconds": 0.03376720900996588
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed1-p20",
+    "chosen_edges": [
+      1,
+      8,
+      11
+    ],
+    "cost": 15,
+    "budget": 16,
+    "seconds": 0.03541551000671461
+  },
+  {
+    "variant": "local_search",
+    "case": "n8-seed1-p40",
+    "chosen_edges": [
+      4,
+      5,
+      8,
+      9,
+      11
+    ],
+    "cost": 33,
+    "budget": 33,
+    "seconds": 0.03342830899055116
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed0-p20",
+    "chosen_edges": [
+      1,
+      11,
+      12,
+      13,
+      15
+    ],
+    "cost": 17,
+    "budget": 18,
+    "seconds": 0.03602061001583934
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed0-p40",
+    "chosen_edges": [
+      1,
+      6,
+      11,
+      12,
+      13,
+      15,
+      16
+    ],
+    "cost": 34,
+    "budget": 36,
+    "seconds": 0.03702781000174582
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed1-p20",
+    "chosen_edges": [
+      2,
+      8,
+      11,
+      14,
+      15
+    ],
+    "cost": 20,
+    "budget": 20,
+    "seconds": 0.03370410899515264
+  },
+  {
+    "variant": "local_search",
+    "case": "n10-seed1-p40",
+    "chosen_edges": [
+      0,
+      1,
+      2,
+      8,
+      13,
+      14,
+      15
+    ],
+    "cost": 40,
+    "budget": 40,
+    "seconds": 0.035672810015967116
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed0-p20",
+    "chosen_edges": [
+      1,
+      2,
+      6,
+      14,
+      16,
+      17,
+      18,
+      20
+    ],
+    "cost": 23,
+    "budget": 23,
+    "seconds": 0.03686921001644805
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed0-p40",
+    "chosen_edges": [
+      1,
+      2,
+      5,
+      6,
+      8,
+      11,
+      14,
+      15,
+      16,
+      17,
+      20
+    ],
+    "cost": 46,
+    "budget": 46,
+    "seconds": 0.03896750998683274
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed1-p20",
+    "chosen_edges": [
+      0,
+      7,
+      11,
+      17
+    ],
+    "cost": 24,
+    "budget": 24,
+    "seconds": 0.03565101002459414
+  },
+  {
+    "variant": "local_search",
+    "case": "n12-seed1-p40",
+    "chosen_edges": [
+      0,
+      5,
+      6,
+      7,
+      10,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "cost": 48,
+    "budget": 48,
+    "seconds": 0.03926281101303175
+  },
+  {
+    "variant": "local_search",
+    "case": "n14-seed0-p20",
+    "chosen_edges": [
+      0,
+      1,
+      4,
+      8,
+      14,
+      15,
+      21,
+      23
+    ],
+    "cost": 28,
+    "budget": 29,
+    "seconds": 0.04284051101421937
+  },
+  {
+    "variant": "local_search",
+    "case": "n14-seed0-p40",
+    "chosen_edges": [
+      0,
+      4,
+      8,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      22,
+      24
+    ],
+    "cost": 59,
+    "budget": 59,
+    "seconds": 0.04601741299848072
+  },
+  {
+    "variant": "local_search",
+    "case": "n14-seed1-p20",
+    "chosen_edges": [
+      3,
+      6,
+      7,
+      10,
+      17,
+      18,
+      24
+    ],
+    "cost": 32,
+    "budget": 32,
+    "seconds": 0.04289381200214848
+  },
+  {
+    "variant": "local_search",
+    "case": "n14-seed1-p40",
+    "chosen_edges": [
+      1,
+      3,
+      6,
+      7,
+      10,
+      14,
+      17,
+      18,
+      19,
+      20,
+      22,
+      24
+    ],
+    "cost": 63,
+    "budget": 64,
+    "seconds": 0.05001081299269572
+  }
+]

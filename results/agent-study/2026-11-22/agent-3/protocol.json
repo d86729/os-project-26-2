@@ -1,0 +1,37 @@
+{
+  "agent": 3,
+  "provenance": "AI research assistance; human contribution not asserted",
+  "cases": [
+    "n6-seed0-p20",
+    "n6-seed0-p40",
+    "n6-seed1-p20",
+    "n6-seed1-p40",
+    "n8-seed0-p20",
+    "n8-seed0-p40",
+    "n8-seed1-p20",
+    "n8-seed1-p40",
+    "n10-seed0-p20",
+    "n10-seed0-p40",
+    "n10-seed1-p20",
+    "n10-seed1-p40",
+    "n12-seed0-p20",
+    "n12-seed0-p40",
+    "n12-seed1-p20",
+    "n12-seed1-p40",
+    "n14-seed0-p20",
+    "n14-seed0-p40",
+    "n14-seed1-p20",
+    "n14-seed1-p40"
+  ],
+  "seconds_limit": 10,
+  "memory_limit_mb": 512,
+  "deterministic": true,
+  "variants": [
+    "greedy",
+    "local_search"
+  ],
+  "improvement_rounds": 3,
+  "surrogate": "sorted connectivity profile over distinct attack damage masks; then surviving capacity sum; then lower cost and lexicographic IDs",
+  "neighborhood": "one addition or one removal plus one addition",
+  "result_selection": "all 20 predefined cases; preserve failures"
+}

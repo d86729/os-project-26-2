@@ -1,0 +1,23 @@
+[
+  {
+    "author": "Linton C. Freeman",
+    "year": 1977,
+    "title": "A Set of Measures of Centrality Based on Betweenness",
+    "venue": "Sociometry 40(1), 35–41",
+    "doi": "10.2307/3033543",
+    "url": "https://ucilnica.fri.uni-lj.si/pluginfile.php/1147/course/section/1510/Freeman%20-%20A%20set%20of%20measures%20of%20centrality%20based%20on%20betweenness%2C%201977.pdf",
+    "accessed": "2026-11-22",
+    "relation": "Shortest-path mediation motivates structural importance. Original vertex centrality is not a robust edge-protection objective; this study adapts the idea to edge priorities."
+  },
+  {
+    "author": "Ulrik Brandes",
+    "year": 2001,
+    "title": "A Faster Algorithm for Betweenness Centrality",
+    "venue": "Journal of Mathematical Sociology 25(2), 163–177",
+    "doi": "10.1080/0022250X.2001.9990249",
+    "url": "https://pdodds.w3.uvm.edu/research/papers/others/2001/brandes2001a.pdf",
+    "author_publication_list": "https://www.inf.uni-konstanz.de/exalgo/members/brandes/publications/",
+    "accessed": "2026-11-22",
+    "relation": "Dependency accumulation computes unweighted centrality in O(VE) arithmetic operations; here it supplies a cost-normalized heuristic, not an exact robust-flow solver."
+  }
+]

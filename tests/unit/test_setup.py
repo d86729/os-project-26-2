@@ -8,7 +8,7 @@ def test_immutable_hand_fixture_and_test_submission(hand_example, submission_fil
     assert hand_example.expected_delivered == 20
     with pytest.raises(FrozenInstanceError):
         hand_example.expected_delivered = 0
-    assert 'class TestOnlySubmission' in submission_file.read_text()
+    assert submission_file.read_text() == 'print(0)\n'
 
 
 def test_smoke_is_not_main():

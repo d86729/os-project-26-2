@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "kernel": "protection-study",
-  "python": "/root/my-project/.venv/bin/python",
+  "python": "/home/user/os-project-26-2/.venv/bin/python",
   "notebook": "notebooks/submission.ipynb",
   "executed_notebook": "results/validation/submission-executed.ipynb",
   "code_cells": 5,

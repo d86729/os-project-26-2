@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-22T11:10:18Z",
+  "base_url": "https://algorithm.586729.xyz",
+  "account": "member2",
+  "cases": [
+    "n6-seed0-p20",
+    "n6-seed0-p40",
+    "n6-seed1-p20",
+    "n6-seed1-p40",
+    "n8-seed0-p20",
+    "n8-seed0-p40",
+    "n8-seed1-p20",
+    "n8-seed1-p40",
+    "n10-seed0-p20",
+    "n10-seed0-p40",
+    "n10-seed1-p20",
+    "n10-seed1-p40",
+    "n12-seed0-p20",
+    "n12-seed0-p40",
+    "n12-seed1-p20",
+    "n12-seed1-p40",
+    "n14-seed0-p20",
+    "n14-seed0-p40",
+    "n14-seed1-p20",
+    "n14-seed1-p40"
+  ],
+  "seconds_limit": 10,
+  "memory_limit_mb": 512,
+  "deterministic": true,
+  "runs": [
+    {
+      "source": "ablation_single.py",
+      "sha256": "fd6527b36c7b5009ccdbada76e004ce272152eeabb67c32f04bbea7e09aef722",
+      "job_id": 2,
+      "job_url": "https://algorithm.586729.xyz/jobs/2",
+      "job_state": "\ucc44\uc810 \uc885\ub8cc",
+      "row_count": 20,
+      "completed_count": 20
+    },
+    {
+      "source": "submission.py",
+      "sha256": "3e58b54da8a975fc5cda770a1c7bdc656d7fa96133a7ca14058a31b6595d3fe5",
+      "job_id": 4,
+      "job_url": "https://algorithm.586729.xyz/jobs/4",
+      "job_state": "\ucc44\uc810 \uc885\ub8cc",
+      "row_count": 20,
+      "completed_count": 20
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "development_complete",
+  "google_doc": "https://docs.google.com/document/d/1lgkmRDWnelZKPoafi13kMOw45Eg0H5YtNM4BQdg7xzk/edit?tab=t.ot24e2q62178",
+  "algorithm": "deterministic demand-path repair bundle greedy",
+  "baseline": "same surrogate, singleton candidates only",
+  "source_frozen_before_web_results": true,
+  "held_out_cases_read": false,
+  "development_case_comparison": {
+    "wins": 1,
+    "ties": 19,
+    "losses": 0
+  },
+  "web_jobs": [
+    2,
+    4
+  ],
+  "human_review_pending": [
+    "Wood 1993 full paper access and detailed reading",
+    "explain and modify source personally",
+    "execute personally and record contribution",
+    "held-out confirmation coordinated by main agent"
+  ],
+  "ai_provenance": "All new artifacts in this agent-2 folder were prepared by AI agent 2; not evidence of a named student personally implementing the method."
+}

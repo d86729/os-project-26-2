@@ -1,7 +1,3 @@
-"""Common synthetic-network evaluation; member strategies are external.
-
-The CLI entry point is reserved for task T049; this package does not import
-scientific libraries implicitly. Initialize the numerical environment first.
-"""
+"""Common network generation, evaluation, exact search and web grading."""
 
 __version__ = "0.1.0"

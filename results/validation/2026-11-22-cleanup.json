@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-22",
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--tb=short"
+  ],
+  "execution": "temporary user systemd oneshot; Delegate=yes; DelegateSubgroup=supervisor; isolated PROTECTION_STATE_DIR",
+  "passed": 262,
+  "warnings": 40,
+  "seconds": 37.1,
+  "log": "2026-11-22-pytest.txt",
+  "removed_runtime": [
+    "algorithms/",
+    "protection/context.py",
+    "protection/submission.py",
+    "protection.runner.run_submission"
+  ],
+  "preserved": [
+    "exact reference search",
+    "shared evaluation and numeric certificates",
+    "historical RunRecord/manifest reading",
+    "144 original bank bundles and case IDs"
+  ],
+  "deployment": {
+    "services": [
+      "protection-judge-web.service",
+      "protection-judge-worker.service"
+    ],
+    "state": "active after restart",
+    "active_jobs_before_restart": 0
+  }
+}

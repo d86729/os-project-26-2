@@ -1,0 +1,334 @@
+{
+  "protocol": "protocol.json",
+  "source_freeze": "source-freeze.json",
+  "notes": [
+    "No composite weighted score",
+    "Graph clusters retain both budgets",
+    "Conditional delivery analysis is not an overall delivery claim",
+    "All intervals descriptive; four contrasts, no corrected significance tests",
+    "Runtime includes cold process start; one run per deterministic case",
+    "Confirmation sizes6,8,10,12 only; n14 exploratory only"
+  ],
+  "stages": {
+    "development": {
+      "methods": {
+        "betweenness": {
+          "runs": 20,
+          "graphs": 10,
+          "completed": 20,
+          "failed": 0,
+          "optimal_score_matches": 1,
+          "canonical_optimum_matches": 1,
+          "optimal_connectivity_matches": 5,
+          "mean_connected_ratio": 0.6902952602952603,
+          "median_seconds": 0.08520792500348762,
+          "max_seconds": 0.13947764100157656,
+          "max_peak_mb": 6.64
+        },
+        "connectivity_greedy": {
+          "runs": 20,
+          "graphs": 10,
+          "completed": 20,
+          "failed": 0,
+          "optimal_score_matches": 1,
+          "canonical_optimum_matches": 1,
+          "optimal_connectivity_matches": 16,
+          "mean_connected_ratio": 0.8527813852813853,
+          "median_seconds": 0.07873602000472602,
+          "max_seconds": 0.11825383099494502,
+          "max_peak_mb": 6.11
+        },
+        "degree": {
+          "runs": 20,
+          "graphs": 10,
+          "completed": 20,
+          "failed": 0,
+          "optimal_score_matches": 0,
+          "canonical_optimum_matches": 0,
+          "optimal_connectivity_matches": 3,
+          "mean_connected_ratio": 0.6832439782439782,
+          "median_seconds": 0.0850896745105274,
+          "max_seconds": 0.10846233100164682,
+          "max_peak_mb": 6.62
+        },
+        "demand_bundle": {
+          "runs": 20,
+          "graphs": 10,
+          "completed": 20,
+          "failed": 0,
+          "optimal_score_matches": 3,
+          "canonical_optimum_matches": 1,
+          "optimal_connectivity_matches": 17,
+          "mean_connected_ratio": 0.8486147186147186,
+          "median_seconds": 0.16704179548833054,
+          "max_seconds": 0.46533583200653084,
+          "max_peak_mb": 6.1
+        },
+        "demand_single": {
+          "runs": 20,
+          "graphs": 10,
+          "completed": 20,
+          "failed": 0,
+          "optimal_score_matches": 2,
+          "canonical_optimum_matches": 2,
+          "optimal_connectivity_matches": 16,
+          "mean_connected_ratio": 0.8408369408369408,
+          "median_seconds": 0.13809455899172463,
+          "max_seconds": 0.31166407599812374,
+          "max_peak_mb": 6.35
+        },
+        "local_search": {
+          "runs": 20,
+          "graphs": 10,
+          "completed": 20,
+          "failed": 0,
+          "optimal_score_matches": 5,
+          "canonical_optimum_matches": 2,
+          "optimal_connectivity_matches": 18,
+          "mean_connected_ratio": 0.8617099567099566,
+          "median_seconds": 0.0833056244882755,
+          "max_seconds": 0.11198613297892734,
+          "max_peak_mb": 6.1
+        }
+      },
+      "contrasts": {
+        "betweenness vs degree": {
+          "paired_cases": 20,
+          "graphs": 10,
+          "jointly_successful": 20,
+          "wins": 8,
+          "ties": 9,
+          "losses": 3,
+          "mean_connected_pp_difference": 0.705128205128206,
+          "equal_connectivity_cases": 12,
+          "mean_delivery_pp_difference_if_equal": 1.6706083333333333,
+          "mean_seconds_difference": 0.004120731756847818,
+          "net_win_fraction": 0.25
+        },
+        "demand_bundle vs degree": {
+          "paired_cases": 20,
+          "graphs": 10,
+          "jointly_successful": 20,
+          "wins": 16,
+          "ties": 3,
+          "losses": 1,
+          "mean_connected_pp_difference": 16.53707403707404,
+          "equal_connectivity_cases": 4,
+          "mean_delivery_pp_difference_if_equal": 2.63975,
+          "mean_seconds_difference": 0.1256251427475945,
+          "net_win_fraction": 0.75
+        },
+        "local_search vs connectivity_greedy": {
+          "paired_cases": 20,
+          "graphs": 10,
+          "jointly_successful": 20,
+          "wins": 5,
+          "ties": 14,
+          "losses": 1,
+          "mean_connected_pp_difference": 0.892857142857143,
+          "equal_connectivity_cases": 18,
+          "mean_delivery_pp_difference_if_equal": 1.1714166666666666,
+          "mean_seconds_difference": 0.006622725643683225,
+          "net_win_fraction": 0.2
+        },
+        "demand_bundle vs demand_single": {
+          "paired_cases": 20,
+          "graphs": 10,
+          "jointly_successful": 20,
+          "wins": 1,
+          "ties": 19,
+          "losses": 0,
+          "mean_connected_pp_difference": 0.7777777777777778,
+          "equal_connectivity_cases": 19,
+          "mean_delivery_pp_difference_if_equal": 0.0,
+          "mean_seconds_difference": 0.053090788544795944,
+          "net_win_fraction": 0.05
+        }
+      }
+    },
+    "confirmation": {
+      "methods": {
+        "betweenness": {
+          "runs": 32,
+          "graphs": 16,
+          "completed": 32,
+          "failed": 0,
+          "optimal_score_matches": 5,
+          "canonical_optimum_matches": 2,
+          "optimal_connectivity_matches": 12,
+          "mean_connected_ratio": 0.7228219696969697,
+          "median_seconds": 0.0894805864954833,
+          "max_seconds": 0.12608735100366175,
+          "max_peak_mb": 6.63
+        },
+        "connectivity_greedy": {
+          "runs": 32,
+          "graphs": 16,
+          "completed": 32,
+          "failed": 0,
+          "optimal_score_matches": 4,
+          "canonical_optimum_matches": 1,
+          "optimal_connectivity_matches": 26,
+          "mean_connected_ratio": 0.8360164141414141,
+          "median_seconds": 0.08078849400044419,
+          "max_seconds": 0.13679133498226292,
+          "max_peak_mb": 6.1
+        },
+        "degree": {
+          "runs": 32,
+          "graphs": 16,
+          "completed": 32,
+          "failed": 0,
+          "optimal_score_matches": 4,
+          "canonical_optimum_matches": 2,
+          "optimal_connectivity_matches": 12,
+          "mean_connected_ratio": 0.721904310966811,
+          "median_seconds": 0.08551794050436001,
+          "max_seconds": 0.10807125098654069,
+          "max_peak_mb": 6.89
+        },
+        "demand_bundle": {
+          "runs": 32,
+          "graphs": 16,
+          "completed": 32,
+          "failed": 0,
+          "optimal_score_matches": 9,
+          "canonical_optimum_matches": 5,
+          "optimal_connectivity_matches": 30,
+          "mean_connected_ratio": 0.8589285714285715,
+          "median_seconds": 0.14068429349572398,
+          "max_seconds": 0.2952264809864573,
+          "max_peak_mb": 6.36
+        },
+        "demand_single": {
+          "runs": 32,
+          "graphs": 16,
+          "completed": 32,
+          "failed": 0,
+          "optimal_score_matches": 7,
+          "canonical_optimum_matches": 4,
+          "optimal_connectivity_matches": 30,
+          "mean_connected_ratio": 0.8589285714285715,
+          "median_seconds": 0.1279554094944615,
+          "max_seconds": 0.21039979698252864,
+          "max_peak_mb": 6.37
+        },
+        "local_search": {
+          "runs": 32,
+          "graphs": 16,
+          "completed": 32,
+          "failed": 0,
+          "optimal_score_matches": 4,
+          "canonical_optimum_matches": 1,
+          "optimal_connectivity_matches": 27,
+          "mean_connected_ratio": 0.8407512626262627,
+          "median_seconds": 0.08233682099671569,
+          "max_seconds": 0.10438691001036204,
+          "max_peak_mb": 6.1
+        }
+      },
+      "contrasts": {
+        "betweenness vs degree": {
+          "paired_cases": 32,
+          "graphs": 16,
+          "jointly_successful": 32,
+          "wins": 9,
+          "ties": 18,
+          "losses": 5,
+          "mean_connected_pp_difference": 0.09176587301587313,
+          "equal_connectivity_cases": 23,
+          "mean_delivery_pp_difference_if_equal": 0.8610304347826088,
+          "mean_seconds_difference": 0.005256692998955259,
+          "net_win_fraction": 0.125,
+          "connected_pp_95pct_cluster_interval": [
+            -5.0644841269841265,
+            5.178571428571429
+          ],
+          "conditional_delivery_pp_95pct_cluster_interval": [
+            -1.6700391304347826,
+            3.477266104118987
+          ],
+          "net_win_95pct_cluster_interval": [
+            -0.125,
+            0.375
+          ]
+        },
+        "demand_bundle vs degree": {
+          "paired_cases": 32,
+          "graphs": 16,
+          "jointly_successful": 32,
+          "wins": 26,
+          "ties": 6,
+          "losses": 0,
+          "mean_connected_pp_difference": 13.702426046176047,
+          "equal_connectivity_cases": 14,
+          "mean_delivery_pp_difference_if_equal": 10.992671428571429,
+          "mean_seconds_difference": 0.0710368043382914,
+          "net_win_fraction": 0.8125,
+          "connected_pp_95pct_cluster_interval": [
+            9.8360220508658,
+            17.680938852813853
+          ],
+          "conditional_delivery_pp_95pct_cluster_interval": [
+            4.520610454545454,
+            17.367692954545454
+          ],
+          "net_win_95pct_cluster_interval": [
+            0.6875,
+            0.9375
+          ]
+        },
+        "local_search vs connectivity_greedy": {
+          "paired_cases": 32,
+          "graphs": 16,
+          "jointly_successful": 32,
+          "wins": 4,
+          "ties": 26,
+          "losses": 2,
+          "mean_connected_pp_difference": 0.47348484848484873,
+          "equal_connectivity_cases": 31,
+          "mean_delivery_pp_difference_if_equal": 1.381767741935484,
+          "mean_seconds_difference": -0.0012075020977135864,
+          "net_win_fraction": 0.0625,
+          "connected_pp_95pct_cluster_interval": [
+            0.0,
+            1.4204545454545463
+          ],
+          "conditional_delivery_pp_95pct_cluster_interval": [
+            -0.05899666666666667,
+            3.2572724137931033
+          ],
+          "net_win_95pct_cluster_interval": [
+            -0.03125,
+            0.15625
+          ]
+        },
+        "demand_bundle vs demand_single": {
+          "paired_cases": 32,
+          "graphs": 16,
+          "jointly_successful": 32,
+          "wins": 4,
+          "ties": 26,
+          "losses": 2,
+          "mean_connected_pp_difference": 0.0,
+          "equal_connectivity_cases": 32,
+          "mean_delivery_pp_difference_if_equal": 0.23888125,
+          "mean_seconds_difference": 0.024898326246329816,
+          "net_win_fraction": 0.0625,
+          "connected_pp_95pct_cluster_interval": [
+            0.0,
+            0.0
+          ],
+          "conditional_delivery_pp_95pct_cluster_interval": [
+            -2.4097093750000003,
+            2.62874375
+          ],
+          "net_win_95pct_cluster_interval": [
+            -0.125,
+            0.25
+          ]
+        }
+      }
+    }
+  }
+}

@@ -35,11 +35,15 @@ def _build_locked(manifest, data, output):
     from protection.runner import collect_environment
 
     frozen = output / 'manifest.json'
+    snapshot = {**data, 'output_dir': '.'}
     if frozen.exists():
-        if read_json(frozen) != data:
+        saved = read_json(frozen)
+        if {**saved, 'output_dir': '.'} != snapshot:
             raise ValueError('manifest differs from the frozen bank manifest')
+        if saved != snapshot:
+            atomic_json(frozen, snapshot, overwrite=True)
     else:
-        atomic_json(frozen, data)
+        atomic_json(frozen, snapshot)
     if not (output / 'environment.json').exists():
         atomic_json(output / 'environment.json', collect_environment())
 
@@ -64,6 +68,10 @@ def _build_locked(manifest, data, output):
         'schema_version': 1, 'status': 'building', 'bank': [], 'accepted_graphs': [],
         'excluded_graphs': [], 'accepted_sizes': [], 'excluded_sizes': [], 'not_started_sizes': [],
     }
+    for entry in bank['bank']:
+        path = Path(entry['path'])
+        if path.is_absolute():
+            entry['path'] = (Path('bundles') / path.name).as_posix()
     bank['status'] = 'building'
 
     def persist():
@@ -119,7 +127,7 @@ def _build_locked(manifest, data, output):
                         save_bundle(bundle, path)
                     if load_bundle(path, require_reference=True) != bundle:
                         raise ValueError(f'{case}: bundle readback mismatch')
-                    entries.append({'path': str(path), 'case_id': bundle.case_id})
+                    entries.append({'path': relative.as_posix(), 'case_id': bundle.case_id})
                 if name not in bank['accepted_graphs']:
                     bank['bank'].extend(entries)
                     bank['accepted_graphs'].append(name)

@@ -57,7 +57,7 @@
     <ol>
       <li><strong>첫째 줄</strong> <code>N M D A</code>. <code>N</code>은 노드 수, <code>M</code>은 간선 수, <code>D</code>는 방향별 통신 수요의 수, <code>A</code>는 공격 후보 위치의 수입니다. 이후 각 구역에서 읽어야 할 줄 수입니다.</li>
       <li><strong>둘째 줄</strong> <code>B Q S R</code>. <code>B</code>는 방호 비용 합계의 상한, <code>Q</code>는 전체 간선 비용 대비 예산 비율(%), <code>S</code>는 시나리오를 만든 난수 시드, <code>R</code>은 이번 실행의 전략용 난수 시드입니다. 결정적 실행에서는 <code>R</code>이 <code>-1</code>입니다. 방호안의 비용은 입력에 주어진 <code>B</code>와 비교합니다.</li>
-      <li><strong>그다음 <code>N</code>줄</strong> <code>node_id x y</code>. 한 줄에 노드 하나가 주어집니다. <code>node_id</code>는 노드 번호이고 <code>x</code>와 <code>y</code>는 해당 노드의 좌표입니다.</li>
+      <li><strong>그다음 <code>N</code>줄</strong> <code>x y</code>. 한 줄에 노드 하나의 좌표가 주어집니다. 첫 좌표 줄이 노드 0이고, 이후 좌표 줄의 순서대로 번호를 매깁니다.</li>
       <li><strong>그다음 <code>M</code>줄</strong> <code>edge_id u v capacity_mbps cost</code>. <code>edge_id</code>는 간선 번호, <code>u</code>와 <code>v</code>는 두 끝점의 노드 번호, <code>capacity_mbps</code>는 방향당 전송 용량(Mbps), <code>cost</code>는 이 간선 하나를 방호하는 비용입니다. <code>u → v</code>와 <code>v → u</code>는 각각 해당 용량까지 동시에 사용할 수 있습니다.</li>
       <li><strong>그다음 <code>D</code>줄</strong> <code>demand_id source target amount_mbps</code>. <code>demand_id</code>는 수요 번호, <code>source</code>는 보내는 노드 번호, <code>target</code>은 받는 노드 번호, <code>amount_mbps</code>는 요청량(Mbps)입니다.</li>
       <li><strong>마지막 <code>A</code>줄</strong> <code>attack_id x y K edge_id_1 … edge_id_K</code>. <code>attack_id</code>는 공격 후보 번호, <code>x</code>와 <code>y</code>는 공격 중심 좌표입니다. <code>K</code>는 이 공격에 맞는 간선 수이며, 바로 뒤의 <code>K</code>개 값은 그 간선들의 번호입니다. 방호한 간선은 목록에 있더라도 유지됩니다. <code>K</code>가 <code>0</code>이면 <code>0</code> 뒤에 간선 번호가 없습니다.</li>

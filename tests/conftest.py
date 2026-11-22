@@ -26,7 +26,7 @@ def hand_example():
 @pytest.fixture
 def submission_file(tmp_path):
     path = tmp_path / 'test_only_submission.py'
-    path.write_text('class TestOnlySubmission:\n    def solve(self, scenario, budget, context):\n        return []\n')
+    path.write_text('print(0)\n')
     return path
 
 

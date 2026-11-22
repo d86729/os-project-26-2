@@ -1,0 +1,22 @@
+[
+  {
+    "authors": "A. H. Land; A. G. Doig",
+    "year": 1960,
+    "title": "An Automatic Method of Solving Discrete Programming Problems",
+    "venue": "Econometrica 28(3):497–520",
+    "doi": "10.2307/1910129",
+    "source": "https://jmvidal.cse.sc.edu/library/land60a.pdf",
+    "verification": "University-hosted original paper PDF downloaded; bibliographic page and sections 1–3 inspected. Entire proof and both examples have not been fully checked.",
+    "relation": "Discrete decisions and valid bounds motivate exact-reference methods; our implementation uses binary edge inclusion and a connectivity upper bound, not the paper’s original LP-variable branching procedure."
+  },
+  {
+    "authors": "E. L. Lawler; D. E. Wood",
+    "year": 1966,
+    "title": "Branch-and-Bound Methods: A Survey",
+    "venue": "Operations Research 14(4):699–719",
+    "doi": "10.1287/opre.14.4.699",
+    "source": "https://pubsonline.informs.org/doi/abs/10.1287/opre.14.4.699",
+    "verification": "Publisher bibliographic record and abstract inspected; full paper was not accessible through the PDF link.",
+    "relation": "Survey discusses constrained-optimization branch-and-bound and computational/storage tradeoffs. Our experiment measures search evaluations, bound calls, time and RSS; it is not a reproduction of the survey’s examples."
+  }
+]

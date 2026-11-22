@@ -1,0 +1,24 @@
+[
+  {
+    "authors": "R. Kevin Wood",
+    "year": 1993,
+    "title": "Deterministic Network Interdiction",
+    "venue": "Mathematical and Computer Modelling 17(2):1–18",
+    "doi": "10.1016/0895-7177(93)90236-R",
+    "url": "https://calhoun.nps.edu/bitstream/handle/10945/36730/WoodDetNetInt93.pdf?sequence=3",
+    "access_date": "2026-11-22",
+    "verified_scope": "Institutional primary-source indexed title, first-page abstract. Direct PDF request returned HTML; full text not reviewed.",
+    "relation": "Budgeted adversarial flow disruption; current heuristic uses supplied geometric attack candidates and a demand-reachability surrogate instead of solving this interdiction formulation."
+  },
+  {
+    "authors": "Gerald Brown; Matthew Carlyle; Javier Salmerón; Kevin Wood",
+    "year": 2006,
+    "title": "Defending Critical Infrastructure",
+    "venue": "Interfaces 36(6):530–544",
+    "doi": "10.1287/inte.1060.0252",
+    "url": "https://faculty.nps.edu/mcarlyle/docs/defending_critical_infrastructure.pdf",
+    "access_date": "2026-11-22",
+    "verified_scope": "Author-hosted primary PDF, abstract and pp.531–533; indexed text through lines185.",
+    "relation": "Sequential defense, attack and operation; a simple individual asset ranking need not describe the best protected set. Motivates testing complementary repair bundles without claiming optimality or reproducing the original models."
+  }
+]

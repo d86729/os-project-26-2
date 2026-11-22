@@ -1,0 +1,139 @@
+{
+  "date": "2026-11-22",
+  "author": "AI agent 1; human review pending",
+  "question": "Does cost-normalized edge betweenness outperform endpoint degree under identical selection?",
+  "cases": [
+    "n6-seed0-p20",
+    "n6-seed0-p40",
+    "n6-seed1-p20",
+    "n6-seed1-p40",
+    "n8-seed0-p20",
+    "n8-seed0-p40",
+    "n8-seed1-p20",
+    "n8-seed1-p40",
+    "n10-seed0-p20",
+    "n10-seed0-p40",
+    "n10-seed1-p20",
+    "n10-seed1-p40",
+    "n12-seed0-p20",
+    "n12-seed0-p40",
+    "n12-seed1-p20",
+    "n12-seed1-p40",
+    "n14-seed0-p20",
+    "n14-seed0-p40",
+    "n14-seed1-p20",
+    "n14-seed1-p40"
+  ],
+  "seconds": 10,
+  "memory_mb": 512,
+  "randomized": false,
+  "tie_break": [
+    "cost ascending",
+    "edge ID ascending"
+  ],
+  "baseline": "endpoint degree sum divided by protection cost",
+  "proposed": "unweighted edge betweenness divided by protection cost",
+  "frozen_before_web_results": true,
+  "inputs": [
+    {
+      "name": "n6-seed0-p20",
+      "case_id": "f4cba3df80746adb545b1cd8897fdaf5ad4dc31c7e0846353eff91d3e9298704",
+      "sha256": "78eb9b8b736323208f4b8c29e2244b3f3f10d09422c87c912ca17716b6564a5b"
+    },
+    {
+      "name": "n6-seed0-p40",
+      "case_id": "005e377cb7b23c1e700cf5ff540b7ad73f078e790d4f3e136d7c017994090a71",
+      "sha256": "1545e2834d64432b7205d03c3329cea50b7f841bd3d821015310ef39ac280213"
+    },
+    {
+      "name": "n6-seed1-p20",
+      "case_id": "7a54fb3a3257021fc66d84cc519ab1517d99fb7f79f38bd3b5832c1adadc1f1e",
+      "sha256": "dc36f0685b9af46aa4cf8d23d99efba3a076292cd0e5c4267957c7874c2fcfd0"
+    },
+    {
+      "name": "n6-seed1-p40",
+      "case_id": "93be5ddae4d146fcf298148206b8d767a444cf587523396621d603c2526cb709",
+      "sha256": "040bc06b3bce6eee72b804f94c98e5d89e51c183ef1b792c302a037f8e0f1c42"
+    },
+    {
+      "name": "n8-seed0-p20",
+      "case_id": "36a8d31fbf763d6ad6c7f21537a803f8ee12040bae7bc7d9090ccae98cdbafc7",
+      "sha256": "90dfed3a861fdd77c859241a4f6e30edeb168b2e050ac6e2323d1cf010bccfe7"
+    },
+    {
+      "name": "n8-seed0-p40",
+      "case_id": "9b60bb96b131ae1a17d1607e5862b13af6cb03099a6e623b869e969c6566a3b1",
+      "sha256": "ccbb18399938101b1ff52a9a6313aed0b2bae5b5fd40897f59884794d0c77cf7"
+    },
+    {
+      "name": "n8-seed1-p20",
+      "case_id": "8b81c4acbef25c7fdac8a951c5771a37fdd61bd013989a426b4caa42169a5d90",
+      "sha256": "1decebd81cd75a76c227d86d84721f0512165bf46417c9046ff6ebeac926abcb"
+    },
+    {
+      "name": "n8-seed1-p40",
+      "case_id": "63e8f7a2b30b50dc40b7294e4ba770f4685ce8c952841e6bc9793efc812620be",
+      "sha256": "cab668a70b0f4655d14704ec6e28471cc263ea758aa2a043ae6e4667c7aa70c1"
+    },
+    {
+      "name": "n10-seed0-p20",
+      "case_id": "c555fa1e36eaea15954960954205ce8058e51f72bf0130335ffc29013756d1b4",
+      "sha256": "46e11203d3d7b0ea7a8579d87d2e560b87cb2b70d29a363e13b7b070d5de077f"
+    },
+    {
+      "name": "n10-seed0-p40",
+      "case_id": "a7b00833258b5107090fd23e1d3f59e29200eb2ebeb7b5f30792777187586858",
+      "sha256": "741a6dc8a17a06addb7ca085e2f9527219b02c8d6cde379985504d85e8ca8760"
+    },
+    {
+      "name": "n10-seed1-p20",
+      "case_id": "db8e1ae8859770ebed66d19e1f1efb689f66f955aba8bc60c2f39fbc77214d26",
+      "sha256": "44ab19a6391229b443d98124780bab0bc4552d6d45df99f1ea85ddc0b61c0338"
+    },
+    {
+      "name": "n10-seed1-p40",
+      "case_id": "17591e396f6766022c31b39b18cf51f809b6e576b022207ef724197598d191fe",
+      "sha256": "68b67dd6736692829dc44cc35d4a4508f15925fc14ee4b8980e46cd2c4a5f4e8"
+    },
+    {
+      "name": "n12-seed0-p20",
+      "case_id": "e039e202e9208c7a81e1c29010c56d25b36944445af70c09fcd4c1a590cbc6ac",
+      "sha256": "2d1215777c6cefb724e29d0e6a520e75e5ac78d967fb58c388eb464985a9ad6e"
+    },
+    {
+      "name": "n12-seed0-p40",
+      "case_id": "7c46a6e425ae3aac03bc53e27145eea77d4418912a4c2a8319645d23b2e81d89",
+      "sha256": "344d1ee236e108d73c5a61325e1135bcdc1d43f585f4d223c8a2d36f70737c04"
+    },
+    {
+      "name": "n12-seed1-p20",
+      "case_id": "b1e6ad261ed4c0979ed038910291373cc82e869663a253509e69be6d6b2180ba",
+      "sha256": "6dda2085c16f4c5e0fed0fec7d54582ecf3c0bb623a964de11047dd9e08ea647"
+    },
+    {
+      "name": "n12-seed1-p40",
+      "case_id": "98049894709b3f482b100c43533fac09b78a78532dcec8f51cebaaafa0dddc37",
+      "sha256": "070d55db1f95eea017e0f1514f285882b12903ee531e8af8d7df012178b8944a"
+    },
+    {
+      "name": "n14-seed0-p20",
+      "case_id": "d44d6e108359eed775748022db5ed063d8ee86070722eb729c6420d70bb4af80",
+      "sha256": "05e517829adc6479e1946171f0015cbbdd13c9c45e55bb08c5f804bc6a59a542"
+    },
+    {
+      "name": "n14-seed0-p40",
+      "case_id": "8b4fcbc3b3520cce5c594d855fb4e8d75a2be4b95833741f53e6623106941091",
+      "sha256": "fd7823fa2420d2b86c94dd98d4e70965462e18c0df206653b5ca57db4cb8ab31"
+    },
+    {
+      "name": "n14-seed1-p20",
+      "case_id": "1367ae5f24009200e4fe44a25dab8d91e5cfe607971df2e92953d267b033fbed",
+      "sha256": "96fa86470a182e982958b57a2c1f59dcb86c07751a4bfff2f8680b84d68ce8dd"
+    },
+    {
+      "name": "n14-seed1-p40",
+      "case_id": "118e222d502f26acbc0124877115fa17aef985664d3748385d43913c7e84d1e7",
+      "sha256": "573f6b7525cef621b897c7068f73f90bb94760fd7ee912f992ca34e0ee79cef2"
+    }
+  ]
+}
