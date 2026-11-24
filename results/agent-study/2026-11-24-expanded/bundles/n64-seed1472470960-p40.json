@@ -1,0 +1,1646 @@
+{
+  "scenario": {
+    "nodes": [
+      {
+        "id": 0,
+        "x": 0.1705305368295087,
+        "y": 0.9502625731040194
+      },
+      {
+        "id": 1,
+        "x": 0.11255501020159986,
+        "y": 0.8931158479539971
+      },
+      {
+        "id": 2,
+        "x": 0.16679776245174482,
+        "y": 0.7770048577149483
+      },
+      {
+        "id": 3,
+        "x": 0.7545339707630394,
+        "y": 0.5142666926639115
+      },
+      {
+        "id": 4,
+        "x": 0.664793757332307,
+        "y": 0.48689957156167474
+      },
+      {
+        "id": 5,
+        "x": 0.042924430214819176,
+        "y": 0.37042200654903457
+      },
+      {
+        "id": 6,
+        "x": 0.09629710751659559,
+        "y": 0.003916377235911539
+      },
+      {
+        "id": 7,
+        "x": 0.4070238597023288,
+        "y": 0.366267340602073
+      },
+      {
+        "id": 8,
+        "x": 0.018479321860755737,
+        "y": 0.8109226203853107
+      },
+      {
+        "id": 9,
+        "x": 0.2811748768531932,
+        "y": 0.7263326492839479
+      },
+      {
+        "id": 10,
+        "x": 0.7386485200795482,
+        "y": 0.1742766728194074
+      },
+      {
+        "id": 11,
+        "x": 0.6810012374657597,
+        "y": 0.1658660440808658
+      },
+      {
+        "id": 12,
+        "x": 0.5443969991134593,
+        "y": 0.3626760387940293
+      },
+      {
+        "id": 13,
+        "x": 0.7991143721834855,
+        "y": 0.21154286954790136
+      },
+      {
+        "id": 14,
+        "x": 0.08725888508522261,
+        "y": 0.4469338695358316
+      },
+      {
+        "id": 15,
+        "x": 0.40910898847457033,
+        "y": 0.9745565017676379
+      },
+      {
+        "id": 16,
+        "x": 0.9940899337944625,
+        "y": 0.07025906506502655
+      },
+      {
+        "id": 17,
+        "x": 0.25484365475429194,
+        "y": 0.6228264199573142
+      },
+      {
+        "id": 18,
+        "x": 0.2760389590706245,
+        "y": 0.07641624008269465
+      },
+      {
+        "id": 19,
+        "x": 0.4305590699374018,
+        "y": 0.4413145948018752
+      },
+      {
+        "id": 20,
+        "x": 0.691569770083932,
+        "y": 0.23755797601422535
+      },
+      {
+        "id": 21,
+        "x": 0.05413454639448401,
+        "y": 0.536107893333662
+      },
+      {
+        "id": 22,
+        "x": 0.6528532180222562,
+        "y": 0.4947961169821342
+      },
+      {
+        "id": 23,
+        "x": 0.47256853530694065,
+        "y": 0.11797226244990977
+      },
+      {
+        "id": 24,
+        "x": 0.5884069999460884,
+        "y": 0.25741911347873714
+      },
+      {
+        "id": 25,
+        "x": 0.08758426990951185,
+        "y": 0.3985776949978368
+      },
+      {
+        "id": 26,
+        "x": 0.63288271823837,
+        "y": 0.8058825439487406
+      },
+      {
+        "id": 27,
+        "x": 0.21552976551169856,
+        "y": 0.05942356858642528
+      },
+      {
+        "id": 28,
+        "x": 0.6806987879345942,
+        "y": 0.9383350858773815
+      },
+      {
+        "id": 29,
+        "x": 0.9451416900475171,
+        "y": 0.8125922684183269
+      },
+      {
+        "id": 30,
+        "x": 0.11454757392678738,
+        "y": 0.04635359581842802
+      },
+      {
+        "id": 31,
+        "x": 0.9609595223950324,
+        "y": 0.37626374460925005
+      },
+      {
+        "id": 32,
+        "x": 0.06029774363824303,
+        "y": 0.22969355618075127
+      },
+      {
+        "id": 33,
+        "x": 0.6798840045634365,
+        "y": 0.011227942552789028
+      },
+      {
+        "id": 34,
+        "x": 0.7366833408755173,
+        "y": 0.021680337527538507
+      },
+      {
+        "id": 35,
+        "x": 0.06415687749051235,
+        "y": 0.4989164113939729
+      },
+      {
+        "id": 36,
+        "x": 0.9724844881007183,
+        "y": 0.5139187595606278
+      },
+      {
+        "id": 37,
+        "x": 0.24887211085512084,
+        "y": 0.915436815668958
+      },
+      {
+        "id": 38,
+        "x": 0.05152578709350886,
+        "y": 0.5366967747903507
+      },
+      {
+        "id": 39,
+        "x": 0.17066498905887761,
+        "y": 0.6743244440551923
+      },
+      {
+        "id": 40,
+        "x": 0.20322248296550172,
+        "y": 0.6086601876417884
+      },
+      {
+        "id": 41,
+        "x": 0.7184054402409119,
+        "y": 0.1561650961497978
+      },
+      {
+        "id": 42,
+        "x": 0.8313593748649712,
+        "y": 0.9819263800736816
+      },
+      {
+        "id": 43,
+        "x": 0.3543094307615836,
+        "y": 0.4921772318089306
+      },
+      {
+        "id": 44,
+        "x": 0.9375663721392521,
+        "y": 0.2626611727970892
+      },
+      {
+        "id": 45,
+        "x": 0.18895714689640974,
+        "y": 0.8486357569246085
+      },
+      {
+        "id": 46,
+        "x": 0.16750313951383922,
+        "y": 0.3046313680291106
+      },
+      {
+        "id": 47,
+        "x": 0.6331336310028608,
+        "y": 0.4137141165061071
+      },
+      {
+        "id": 48,
+        "x": 0.6251287689709808,
+        "y": 0.6192804658827366
+      },
+      {
+        "id": 49,
+        "x": 0.8360773583718044,
+        "y": 0.8489437725391884
+      },
+      {
+        "id": 50,
+        "x": 0.604828225039981,
+        "y": 0.8589476413536983
+      },
+      {
+        "id": 51,
+        "x": 0.3152344845813261,
+        "y": 0.31152224428907216
+      },
+      {
+        "id": 52,
+        "x": 0.37392362873926543,
+        "y": 0.20828126922627666
+      },
+      {
+        "id": 53,
+        "x": 0.8315286699038971,
+        "y": 0.8285252003789351
+      },
+      {
+        "id": 54,
+        "x": 0.7784028697659598,
+        "y": 0.31765876456969055
+      },
+      {
+        "id": 55,
+        "x": 0.06275578917595381,
+        "y": 0.5256867134081299
+      },
+      {
+        "id": 56,
+        "x": 0.31071714918404725,
+        "y": 0.5712140681160901
+      },
+      {
+        "id": 57,
+        "x": 0.7258593115797328,
+        "y": 0.7237108189852536
+      },
+      {
+        "id": 58,
+        "x": 0.5670415698705339,
+        "y": 0.5054013367780824
+      },
+      {
+        "id": 59,
+        "x": 0.908184928562858,
+        "y": 0.48085974940657006
+      },
+      {
+        "id": 60,
+        "x": 0.5539872831229123,
+        "y": 0.18797794388384548
+      },
+      {
+        "id": 61,
+        "x": 0.911161463441577,
+        "y": 0.3242758339770778
+      },
+      {
+        "id": 62,
+        "x": 0.2766723058885746,
+        "y": 0.30687345956468703
+      },
+      {
+        "id": 63,
+        "x": 0.8354585198418214,
+        "y": 0.5772308758007584
+      }
+    ],
+    "edges": [
+      {
+        "id": 0,
+        "u": 0,
+        "v": 1,
+        "capacity_mbps": 27,
+        "cost": 6
+      },
+      {
+        "id": 1,
+        "u": 0,
+        "v": 2,
+        "capacity_mbps": 24,
+        "cost": 10
+      },
+      {
+        "id": 2,
+        "u": 0,
+        "v": 3,
+        "capacity_mbps": 26,
+        "cost": 2
+      },
+      {
+        "id": 3,
+        "u": 0,
+        "v": 5,
+        "capacity_mbps": 17,
+        "cost": 2
+      },
+      {
+        "id": 4,
+        "u": 0,
+        "v": 15,
+        "capacity_mbps": 28,
+        "cost": 8
+      },
+      {
+        "id": 5,
+        "u": 0,
+        "v": 26,
+        "capacity_mbps": 19,
+        "cost": 1
+      },
+      {
+        "id": 6,
+        "u": 1,
+        "v": 2,
+        "capacity_mbps": 27,
+        "cost": 3
+      },
+      {
+        "id": 7,
+        "u": 1,
+        "v": 5,
+        "capacity_mbps": 29,
+        "cost": 8
+      },
+      {
+        "id": 8,
+        "u": 1,
+        "v": 8,
+        "capacity_mbps": 23,
+        "cost": 3
+      },
+      {
+        "id": 9,
+        "u": 1,
+        "v": 9,
+        "capacity_mbps": 19,
+        "cost": 5
+      },
+      {
+        "id": 10,
+        "u": 1,
+        "v": 15,
+        "capacity_mbps": 21,
+        "cost": 7
+      },
+      {
+        "id": 11,
+        "u": 1,
+        "v": 17,
+        "capacity_mbps": 28,
+        "cost": 5
+      },
+      {
+        "id": 12,
+        "u": 1,
+        "v": 50,
+        "capacity_mbps": 23,
+        "cost": 4
+      },
+      {
+        "id": 13,
+        "u": 2,
+        "v": 3,
+        "capacity_mbps": 28,
+        "cost": 10
+      },
+      {
+        "id": 14,
+        "u": 2,
+        "v": 4,
+        "capacity_mbps": 25,
+        "cost": 8
+      },
+      {
+        "id": 15,
+        "u": 2,
+        "v": 6,
+        "capacity_mbps": 13,
+        "cost": 9
+      },
+      {
+        "id": 16,
+        "u": 2,
+        "v": 8,
+        "capacity_mbps": 13,
+        "cost": 3
+      },
+      {
+        "id": 17,
+        "u": 2,
+        "v": 9,
+        "capacity_mbps": 27,
+        "cost": 7
+      },
+      {
+        "id": 18,
+        "u": 2,
+        "v": 17,
+        "capacity_mbps": 24,
+        "cost": 6
+      },
+      {
+        "id": 19,
+        "u": 2,
+        "v": 19,
+        "capacity_mbps": 19,
+        "cost": 3
+      },
+      {
+        "id": 20,
+        "u": 2,
+        "v": 28,
+        "capacity_mbps": 25,
+        "cost": 8
+      },
+      {
+        "id": 21,
+        "u": 2,
+        "v": 37,
+        "capacity_mbps": 19,
+        "cost": 4
+      },
+      {
+        "id": 22,
+        "u": 2,
+        "v": 39,
+        "capacity_mbps": 28,
+        "cost": 7
+      },
+      {
+        "id": 23,
+        "u": 2,
+        "v": 45,
+        "capacity_mbps": 26,
+        "cost": 9
+      },
+      {
+        "id": 24,
+        "u": 3,
+        "v": 4,
+        "capacity_mbps": 25,
+        "cost": 10
+      },
+      {
+        "id": 25,
+        "u": 3,
+        "v": 7,
+        "capacity_mbps": 30,
+        "cost": 6
+      },
+      {
+        "id": 26,
+        "u": 3,
+        "v": 11,
+        "capacity_mbps": 19,
+        "cost": 1
+      },
+      {
+        "id": 27,
+        "u": 3,
+        "v": 13,
+        "capacity_mbps": 17,
+        "cost": 2
+      },
+      {
+        "id": 28,
+        "u": 3,
+        "v": 18,
+        "capacity_mbps": 23,
+        "cost": 9
+      },
+      {
+        "id": 29,
+        "u": 3,
+        "v": 26,
+        "capacity_mbps": 28,
+        "cost": 1
+      },
+      {
+        "id": 30,
+        "u": 3,
+        "v": 29,
+        "capacity_mbps": 30,
+        "cost": 2
+      },
+      {
+        "id": 31,
+        "u": 3,
+        "v": 31,
+        "capacity_mbps": 18,
+        "cost": 9
+      },
+      {
+        "id": 32,
+        "u": 3,
+        "v": 42,
+        "capacity_mbps": 25,
+        "cost": 5
+      },
+      {
+        "id": 33,
+        "u": 3,
+        "v": 48,
+        "capacity_mbps": 19,
+        "cost": 1
+      },
+      {
+        "id": 34,
+        "u": 3,
+        "v": 59,
+        "capacity_mbps": 18,
+        "cost": 5
+      },
+      {
+        "id": 35,
+        "u": 3,
+        "v": 63,
+        "capacity_mbps": 12,
+        "cost": 5
+      },
+      {
+        "id": 36,
+        "u": 4,
+        "v": 12,
+        "capacity_mbps": 19,
+        "cost": 2
+      },
+      {
+        "id": 37,
+        "u": 4,
+        "v": 22,
+        "capacity_mbps": 25,
+        "cost": 4
+      },
+      {
+        "id": 38,
+        "u": 4,
+        "v": 47,
+        "capacity_mbps": 15,
+        "cost": 2
+      },
+      {
+        "id": 39,
+        "u": 5,
+        "v": 6,
+        "capacity_mbps": 18,
+        "cost": 4
+      },
+      {
+        "id": 40,
+        "u": 5,
+        "v": 7,
+        "capacity_mbps": 12,
+        "cost": 7
+      },
+      {
+        "id": 41,
+        "u": 5,
+        "v": 10,
+        "capacity_mbps": 10,
+        "cost": 7
+      },
+      {
+        "id": 42,
+        "u": 5,
+        "v": 14,
+        "capacity_mbps": 19,
+        "cost": 7
+      },
+      {
+        "id": 43,
+        "u": 5,
+        "v": 21,
+        "capacity_mbps": 30,
+        "cost": 7
+      },
+      {
+        "id": 44,
+        "u": 5,
+        "v": 25,
+        "capacity_mbps": 12,
+        "cost": 1
+      },
+      {
+        "id": 45,
+        "u": 5,
+        "v": 32,
+        "capacity_mbps": 23,
+        "cost": 3
+      },
+      {
+        "id": 46,
+        "u": 5,
+        "v": 37,
+        "capacity_mbps": 21,
+        "cost": 7
+      },
+      {
+        "id": 47,
+        "u": 5,
+        "v": 62,
+        "capacity_mbps": 18,
+        "cost": 1
+      },
+      {
+        "id": 48,
+        "u": 6,
+        "v": 27,
+        "capacity_mbps": 14,
+        "cost": 5
+      },
+      {
+        "id": 49,
+        "u": 6,
+        "v": 30,
+        "capacity_mbps": 19,
+        "cost": 8
+      },
+      {
+        "id": 50,
+        "u": 7,
+        "v": 10,
+        "capacity_mbps": 29,
+        "cost": 10
+      },
+      {
+        "id": 51,
+        "u": 7,
+        "v": 12,
+        "capacity_mbps": 23,
+        "cost": 7
+      },
+      {
+        "id": 52,
+        "u": 7,
+        "v": 18,
+        "capacity_mbps": 20,
+        "cost": 4
+      },
+      {
+        "id": 53,
+        "u": 7,
+        "v": 19,
+        "capacity_mbps": 22,
+        "cost": 4
+      },
+      {
+        "id": 54,
+        "u": 7,
+        "v": 36,
+        "capacity_mbps": 20,
+        "cost": 3
+      },
+      {
+        "id": 55,
+        "u": 7,
+        "v": 40,
+        "capacity_mbps": 19,
+        "cost": 4
+      },
+      {
+        "id": 56,
+        "u": 7,
+        "v": 43,
+        "capacity_mbps": 10,
+        "cost": 9
+      },
+      {
+        "id": 57,
+        "u": 7,
+        "v": 58,
+        "capacity_mbps": 21,
+        "cost": 5
+      },
+      {
+        "id": 58,
+        "u": 9,
+        "v": 39,
+        "capacity_mbps": 26,
+        "cost": 7
+      },
+      {
+        "id": 59,
+        "u": 10,
+        "v": 11,
+        "capacity_mbps": 24,
+        "cost": 10
+      },
+      {
+        "id": 60,
+        "u": 10,
+        "v": 13,
+        "capacity_mbps": 25,
+        "cost": 3
+      },
+      {
+        "id": 61,
+        "u": 10,
+        "v": 20,
+        "capacity_mbps": 12,
+        "cost": 9
+      },
+      {
+        "id": 62,
+        "u": 10,
+        "v": 23,
+        "capacity_mbps": 24,
+        "cost": 9
+      },
+      {
+        "id": 63,
+        "u": 10,
+        "v": 33,
+        "capacity_mbps": 18,
+        "cost": 3
+      },
+      {
+        "id": 64,
+        "u": 11,
+        "v": 14,
+        "capacity_mbps": 17,
+        "cost": 4
+      },
+      {
+        "id": 65,
+        "u": 11,
+        "v": 16,
+        "capacity_mbps": 20,
+        "cost": 10
+      },
+      {
+        "id": 66,
+        "u": 11,
+        "v": 20,
+        "capacity_mbps": 10,
+        "cost": 5
+      },
+      {
+        "id": 67,
+        "u": 11,
+        "v": 23,
+        "capacity_mbps": 25,
+        "cost": 9
+      },
+      {
+        "id": 68,
+        "u": 11,
+        "v": 52,
+        "capacity_mbps": 17,
+        "cost": 5
+      },
+      {
+        "id": 69,
+        "u": 12,
+        "v": 22,
+        "capacity_mbps": 27,
+        "cost": 6
+      },
+      {
+        "id": 70,
+        "u": 12,
+        "v": 24,
+        "capacity_mbps": 12,
+        "cost": 9
+      },
+      {
+        "id": 71,
+        "u": 12,
+        "v": 33,
+        "capacity_mbps": 26,
+        "cost": 3
+      },
+      {
+        "id": 72,
+        "u": 12,
+        "v": 52,
+        "capacity_mbps": 21,
+        "cost": 4
+      },
+      {
+        "id": 73,
+        "u": 12,
+        "v": 60,
+        "capacity_mbps": 27,
+        "cost": 2
+      },
+      {
+        "id": 74,
+        "u": 13,
+        "v": 16,
+        "capacity_mbps": 28,
+        "cost": 3
+      },
+      {
+        "id": 75,
+        "u": 13,
+        "v": 41,
+        "capacity_mbps": 23,
+        "cost": 6
+      },
+      {
+        "id": 76,
+        "u": 13,
+        "v": 44,
+        "capacity_mbps": 23,
+        "cost": 4
+      },
+      {
+        "id": 77,
+        "u": 13,
+        "v": 49,
+        "capacity_mbps": 15,
+        "cost": 2
+      },
+      {
+        "id": 78,
+        "u": 13,
+        "v": 54,
+        "capacity_mbps": 29,
+        "cost": 5
+      },
+      {
+        "id": 79,
+        "u": 14,
+        "v": 21,
+        "capacity_mbps": 18,
+        "cost": 6
+      },
+      {
+        "id": 80,
+        "u": 14,
+        "v": 25,
+        "capacity_mbps": 21,
+        "cost": 7
+      },
+      {
+        "id": 81,
+        "u": 14,
+        "v": 32,
+        "capacity_mbps": 23,
+        "cost": 4
+      },
+      {
+        "id": 82,
+        "u": 14,
+        "v": 35,
+        "capacity_mbps": 21,
+        "cost": 8
+      },
+      {
+        "id": 83,
+        "u": 14,
+        "v": 40,
+        "capacity_mbps": 12,
+        "cost": 5
+      },
+      {
+        "id": 84,
+        "u": 15,
+        "v": 28,
+        "capacity_mbps": 16,
+        "cost": 10
+      },
+      {
+        "id": 85,
+        "u": 17,
+        "v": 51,
+        "capacity_mbps": 30,
+        "cost": 6
+      },
+      {
+        "id": 86,
+        "u": 17,
+        "v": 56,
+        "capacity_mbps": 17,
+        "cost": 3
+      },
+      {
+        "id": 87,
+        "u": 18,
+        "v": 27,
+        "capacity_mbps": 30,
+        "cost": 7
+      },
+      {
+        "id": 88,
+        "u": 19,
+        "v": 51,
+        "capacity_mbps": 17,
+        "cost": 5
+      },
+      {
+        "id": 89,
+        "u": 20,
+        "v": 24,
+        "capacity_mbps": 30,
+        "cost": 1
+      },
+      {
+        "id": 90,
+        "u": 20,
+        "v": 41,
+        "capacity_mbps": 20,
+        "cost": 3
+      },
+      {
+        "id": 91,
+        "u": 20,
+        "v": 54,
+        "capacity_mbps": 13,
+        "cost": 10
+      },
+      {
+        "id": 92,
+        "u": 21,
+        "v": 35,
+        "capacity_mbps": 18,
+        "cost": 10
+      },
+      {
+        "id": 93,
+        "u": 21,
+        "v": 38,
+        "capacity_mbps": 29,
+        "cost": 1
+      },
+      {
+        "id": 94,
+        "u": 21,
+        "v": 45,
+        "capacity_mbps": 20,
+        "cost": 7
+      },
+      {
+        "id": 95,
+        "u": 21,
+        "v": 55,
+        "capacity_mbps": 27,
+        "cost": 1
+      },
+      {
+        "id": 96,
+        "u": 22,
+        "v": 47,
+        "capacity_mbps": 13,
+        "cost": 7
+      },
+      {
+        "id": 97,
+        "u": 22,
+        "v": 48,
+        "capacity_mbps": 27,
+        "cost": 2
+      },
+      {
+        "id": 98,
+        "u": 22,
+        "v": 61,
+        "capacity_mbps": 18,
+        "cost": 8
+      },
+      {
+        "id": 99,
+        "u": 23,
+        "v": 60,
+        "capacity_mbps": 16,
+        "cost": 2
+      },
+      {
+        "id": 100,
+        "u": 24,
+        "v": 34,
+        "capacity_mbps": 26,
+        "cost": 4
+      },
+      {
+        "id": 101,
+        "u": 25,
+        "v": 46,
+        "capacity_mbps": 27,
+        "cost": 2
+      },
+      {
+        "id": 102,
+        "u": 26,
+        "v": 29,
+        "capacity_mbps": 21,
+        "cost": 6
+      },
+      {
+        "id": 103,
+        "u": 26,
+        "v": 31,
+        "capacity_mbps": 28,
+        "cost": 5
+      },
+      {
+        "id": 104,
+        "u": 26,
+        "v": 50,
+        "capacity_mbps": 28,
+        "cost": 2
+      },
+      {
+        "id": 105,
+        "u": 26,
+        "v": 57,
+        "capacity_mbps": 13,
+        "cost": 8
+      },
+      {
+        "id": 106,
+        "u": 27,
+        "v": 30,
+        "capacity_mbps": 24,
+        "cost": 9
+      },
+      {
+        "id": 107,
+        "u": 28,
+        "v": 42,
+        "capacity_mbps": 21,
+        "cost": 10
+      },
+      {
+        "id": 108,
+        "u": 28,
+        "v": 49,
+        "capacity_mbps": 23,
+        "cost": 2
+      },
+      {
+        "id": 109,
+        "u": 29,
+        "v": 43,
+        "capacity_mbps": 14,
+        "cost": 4
+      },
+      {
+        "id": 110,
+        "u": 29,
+        "v": 57,
+        "capacity_mbps": 27,
+        "cost": 2
+      },
+      {
+        "id": 111,
+        "u": 31,
+        "v": 36,
+        "capacity_mbps": 11,
+        "cost": 4
+      },
+      {
+        "id": 112,
+        "u": 31,
+        "v": 44,
+        "capacity_mbps": 28,
+        "cost": 8
+      },
+      {
+        "id": 113,
+        "u": 31,
+        "v": 59,
+        "capacity_mbps": 30,
+        "cost": 10
+      },
+      {
+        "id": 114,
+        "u": 32,
+        "v": 46,
+        "capacity_mbps": 25,
+        "cost": 2
+      },
+      {
+        "id": 115,
+        "u": 33,
+        "v": 34,
+        "capacity_mbps": 24,
+        "cost": 8
+      },
+      {
+        "id": 116,
+        "u": 35,
+        "v": 38,
+        "capacity_mbps": 10,
+        "cost": 1
+      },
+      {
+        "id": 117,
+        "u": 35,
+        "v": 56,
+        "capacity_mbps": 21,
+        "cost": 7
+      },
+      {
+        "id": 118,
+        "u": 38,
+        "v": 55,
+        "capacity_mbps": 24,
+        "cost": 2
+      },
+      {
+        "id": 119,
+        "u": 42,
+        "v": 53,
+        "capacity_mbps": 19,
+        "cost": 1
+      },
+      {
+        "id": 120,
+        "u": 43,
+        "v": 58,
+        "capacity_mbps": 21,
+        "cost": 5
+      },
+      {
+        "id": 121,
+        "u": 44,
+        "v": 61,
+        "capacity_mbps": 25,
+        "cost": 6
+      },
+      {
+        "id": 122,
+        "u": 49,
+        "v": 53,
+        "capacity_mbps": 21,
+        "cost": 6
+      },
+      {
+        "id": 123,
+        "u": 51,
+        "v": 62,
+        "capacity_mbps": 23,
+        "cost": 5
+      },
+      {
+        "id": 124,
+        "u": 59,
+        "v": 63,
+        "capacity_mbps": 17,
+        "cost": 2
+      }
+    ],
+    "demands": [
+      {
+        "id": 0,
+        "source": 1,
+        "target": 37,
+        "amount_mbps": 18
+      },
+      {
+        "id": 1,
+        "source": 42,
+        "target": 40,
+        "amount_mbps": 17
+      },
+      {
+        "id": 2,
+        "source": 21,
+        "target": 3,
+        "amount_mbps": 13
+      },
+      {
+        "id": 3,
+        "source": 27,
+        "target": 59,
+        "amount_mbps": 19
+      },
+      {
+        "id": 4,
+        "source": 29,
+        "target": 17,
+        "amount_mbps": 16
+      },
+      {
+        "id": 5,
+        "source": 49,
+        "target": 19,
+        "amount_mbps": 16
+      },
+      {
+        "id": 6,
+        "source": 35,
+        "target": 51,
+        "amount_mbps": 15
+      },
+      {
+        "id": 7,
+        "source": 37,
+        "target": 24,
+        "amount_mbps": 15
+      },
+      {
+        "id": 8,
+        "source": 45,
+        "target": 49,
+        "amount_mbps": 9
+      },
+      {
+        "id": 9,
+        "source": 4,
+        "target": 30,
+        "amount_mbps": 13
+      },
+      {
+        "id": 10,
+        "source": 29,
+        "target": 40,
+        "amount_mbps": 17
+      },
+      {
+        "id": 11,
+        "source": 38,
+        "target": 52,
+        "amount_mbps": 8
+      },
+      {
+        "id": 12,
+        "source": 30,
+        "target": 63,
+        "amount_mbps": 18
+      },
+      {
+        "id": 13,
+        "source": 2,
+        "target": 17,
+        "amount_mbps": 11
+      },
+      {
+        "id": 14,
+        "source": 59,
+        "target": 31,
+        "amount_mbps": 20
+      },
+      {
+        "id": 15,
+        "source": 55,
+        "target": 51,
+        "amount_mbps": 17
+      },
+      {
+        "id": 16,
+        "source": 59,
+        "target": 41,
+        "amount_mbps": 7
+      },
+      {
+        "id": 17,
+        "source": 63,
+        "target": 11,
+        "amount_mbps": 14
+      },
+      {
+        "id": 18,
+        "source": 54,
+        "target": 42,
+        "amount_mbps": 7
+      },
+      {
+        "id": 19,
+        "source": 20,
+        "target": 36,
+        "amount_mbps": 7
+      },
+      {
+        "id": 20,
+        "source": 50,
+        "target": 19,
+        "amount_mbps": 20
+      },
+      {
+        "id": 21,
+        "source": 3,
+        "target": 47,
+        "amount_mbps": 7
+      },
+      {
+        "id": 22,
+        "source": 9,
+        "target": 6,
+        "amount_mbps": 15
+      },
+      {
+        "id": 23,
+        "source": 13,
+        "target": 48,
+        "amount_mbps": 17
+      },
+      {
+        "id": 24,
+        "source": 61,
+        "target": 25,
+        "amount_mbps": 9
+      },
+      {
+        "id": 25,
+        "source": 8,
+        "target": 0,
+        "amount_mbps": 16
+      },
+      {
+        "id": 26,
+        "source": 54,
+        "target": 4,
+        "amount_mbps": 16
+      },
+      {
+        "id": 27,
+        "source": 12,
+        "target": 25,
+        "amount_mbps": 19
+      },
+      {
+        "id": 28,
+        "source": 49,
+        "target": 62,
+        "amount_mbps": 13
+      },
+      {
+        "id": 29,
+        "source": 28,
+        "target": 21,
+        "amount_mbps": 14
+      },
+      {
+        "id": 30,
+        "source": 35,
+        "target": 13,
+        "amount_mbps": 11
+      },
+      {
+        "id": 31,
+        "source": 61,
+        "target": 49,
+        "amount_mbps": 5
+      },
+      {
+        "id": 32,
+        "source": 16,
+        "target": 15,
+        "amount_mbps": 14
+      },
+      {
+        "id": 33,
+        "source": 18,
+        "target": 11,
+        "amount_mbps": 18
+      },
+      {
+        "id": 34,
+        "source": 31,
+        "target": 61,
+        "amount_mbps": 6
+      },
+      {
+        "id": 35,
+        "source": 11,
+        "target": 24,
+        "amount_mbps": 13
+      },
+      {
+        "id": 36,
+        "source": 15,
+        "target": 30,
+        "amount_mbps": 8
+      },
+      {
+        "id": 37,
+        "source": 40,
+        "target": 26,
+        "amount_mbps": 17
+      },
+      {
+        "id": 38,
+        "source": 49,
+        "target": 50,
+        "amount_mbps": 11
+      },
+      {
+        "id": 39,
+        "source": 2,
+        "target": 15,
+        "amount_mbps": 5
+      },
+      {
+        "id": 40,
+        "source": 59,
+        "target": 54,
+        "amount_mbps": 9
+      },
+      {
+        "id": 41,
+        "source": 15,
+        "target": 25,
+        "amount_mbps": 11
+      },
+      {
+        "id": 42,
+        "source": 31,
+        "target": 20,
+        "amount_mbps": 17
+      },
+      {
+        "id": 43,
+        "source": 7,
+        "target": 61,
+        "amount_mbps": 5
+      },
+      {
+        "id": 44,
+        "source": 5,
+        "target": 41,
+        "amount_mbps": 18
+      },
+      {
+        "id": 45,
+        "source": 57,
+        "target": 36,
+        "amount_mbps": 8
+      },
+      {
+        "id": 46,
+        "source": 12,
+        "target": 29,
+        "amount_mbps": 5
+      },
+      {
+        "id": 47,
+        "source": 22,
+        "target": 32,
+        "amount_mbps": 16
+      },
+      {
+        "id": 48,
+        "source": 22,
+        "target": 6,
+        "amount_mbps": 8
+      },
+      {
+        "id": 49,
+        "source": 29,
+        "target": 62,
+        "amount_mbps": 7
+      },
+      {
+        "id": 50,
+        "source": 43,
+        "target": 0,
+        "amount_mbps": 7
+      },
+      {
+        "id": 51,
+        "source": 34,
+        "target": 36,
+        "amount_mbps": 15
+      },
+      {
+        "id": 52,
+        "source": 28,
+        "target": 5,
+        "amount_mbps": 6
+      },
+      {
+        "id": 53,
+        "source": 57,
+        "target": 8,
+        "amount_mbps": 19
+      },
+      {
+        "id": 54,
+        "source": 46,
+        "target": 43,
+        "amount_mbps": 15
+      },
+      {
+        "id": 55,
+        "source": 55,
+        "target": 38,
+        "amount_mbps": 17
+      },
+      {
+        "id": 56,
+        "source": 22,
+        "target": 0,
+        "amount_mbps": 12
+      },
+      {
+        "id": 57,
+        "source": 3,
+        "target": 60,
+        "amount_mbps": 12
+      },
+      {
+        "id": 58,
+        "source": 52,
+        "target": 33,
+        "amount_mbps": 12
+      },
+      {
+        "id": 59,
+        "source": 25,
+        "target": 2,
+        "amount_mbps": 10
+      },
+      {
+        "id": 60,
+        "source": 32,
+        "target": 36,
+        "amount_mbps": 10
+      },
+      {
+        "id": 61,
+        "source": 36,
+        "target": 23,
+        "amount_mbps": 20
+      },
+      {
+        "id": 62,
+        "source": 21,
+        "target": 32,
+        "amount_mbps": 18
+      },
+      {
+        "id": 63,
+        "source": 7,
+        "target": 60,
+        "amount_mbps": 13
+      }
+    ],
+    "seed": 1472470960,
+    "schema_version": 1,
+    "scenario_id": "8ab743f9e320adc470764b20d7867f90e296e189a9cd72844e3cbe3d948bb87a",
+    "generation": {
+      "version": "generation-v1",
+      "alpha": 1,
+      "beta": 3,
+      "m0": 2,
+      "rho": 1,
+      "min_distance": 1e-09
+    },
+    "attack_settings": {
+      "version": "attack-v1",
+      "count": 1,
+      "radius": 0.15,
+      "distance_tolerance": 1e-09,
+      "grid_denominator": 5,
+      "coordinate_digits": 9,
+      "candidate_sources": [
+        "nodes",
+        "midpoints",
+        "grid"
+      ]
+    },
+    "evaluation_policy": {
+      "version": "evaluation-v2",
+      "rounding": "ROUND_HALF_EVEN",
+      "decimal_precision": 50,
+      "delivery_digits": 6,
+      "residual_relative_tolerance": 1e-07,
+      "primal_tolerance": 1e-09,
+      "dual_tolerance": 1e-09,
+      "ipm_tolerance": 1e-10,
+      "certificate_denominator_limit": 1000000000,
+      "max_solver_attempts": 2,
+      "threads": 1,
+      "certification": "rational_primal_dual_or_highs_residual_1e-7"
+    },
+    "environment": [
+      [
+        "numpy",
+        "2.5.5"
+      ],
+      [
+        "bit_generator",
+        "PCG64"
+      ],
+      [
+        "generation_version",
+        "generation-v1"
+      ]
+    ]
+  },
+  "budget_percent": 40,
+  "budget": 262,
+  "case_id": "2609a3d053f690b5aeccbea41139401f4f9b339ffbd10caef4f90470c5bbd0a7",
+  "schema_version": 1,
+  "artifact_kind": "scenario_bundle"
+}

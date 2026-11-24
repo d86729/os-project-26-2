@@ -1,0 +1,252 @@
+{
+  "graphs": 10,
+  "cases": 20,
+  "runs": 40,
+  "status_counts": {
+    "completed": 40
+  },
+  "reference_cases": 0,
+  "submission_seconds": {
+    "64": {
+      "degree": {
+        "median": 0.04197670551366173,
+        "max": 0.04411615297431126
+      },
+      "betweenness": {
+        "median": 0.07140662302845158,
+        "max": 0.07221572200069204
+      }
+    },
+    "128": {
+      "degree": {
+        "median": 0.042916453967336565,
+        "max": 0.04585754999425262
+      },
+      "betweenness": {
+        "median": 0.16349792352411896,
+        "max": 0.16792011901270598
+      }
+    },
+    "256": {
+      "degree": {
+        "median": 0.04602074497961439,
+        "max": 0.04681414901278913
+      },
+      "betweenness": {
+        "median": 0.5394219890004024,
+        "max": 0.5565646000322886
+      }
+    },
+    "512": {
+      "degree": {
+        "median": 0.05266739448416047,
+        "max": 0.054422234010417014
+      },
+      "betweenness": {
+        "median": 2.1364265140146017,
+        "max": 2.170757721993141
+      }
+    },
+    "1024": {
+      "degree": {
+        "median": 0.07136404249467887,
+        "max": 0.07316304603591561
+      },
+      "betweenness": {
+        "median": 8.653735340514686,
+        "max": 8.731545669957995
+      }
+    }
+  },
+  "generation_and_first_input_seconds": [
+    {
+      "n": 64,
+      "seed": 1472470960,
+      "generation_seconds": 0.015314922959078103,
+      "first_input_preparation_seconds": 0.025790637999307364,
+      "total_wall_seconds": 0.6149093160056509
+    },
+    {
+      "n": 64,
+      "seed": 570779234,
+      "generation_seconds": 0.01492792199132964,
+      "first_input_preparation_seconds": 0.02617293898947537,
+      "total_wall_seconds": 0.5970293889986351
+    },
+    {
+      "n": 128,
+      "seed": 430846084,
+      "generation_seconds": 0.03107834601541981,
+      "first_input_preparation_seconds": 0.08911983296275139,
+      "total_wall_seconds": 0.677538710006047
+    },
+    {
+      "n": 128,
+      "seed": 494206499,
+      "generation_seconds": 0.02925794298062101,
+      "first_input_preparation_seconds": 0.0883574319886975,
+      "total_wall_seconds": 0.6730683029745705
+    },
+    {
+      "n": 256,
+      "seed": 827104239,
+      "generation_seconds": 0.07512681203661487,
+      "first_input_preparation_seconds": 0.3274580879951827,
+      "total_wall_seconds": 1.0131066100439057
+    },
+    {
+      "n": 256,
+      "seed": 1074182429,
+      "generation_seconds": 0.0711649059667252,
+      "first_input_preparation_seconds": 0.32878228998743,
+      "total_wall_seconds": 1.013011210015975
+    },
+    {
+      "n": 512,
+      "seed": 1686386331,
+      "generation_seconds": 0.22015912795905024,
+      "first_input_preparation_seconds": 1.2737176190130413,
+      "total_wall_seconds": 2.3914685259805992
+    },
+    {
+      "n": 512,
+      "seed": 813408860,
+      "generation_seconds": 0.21092228300403804,
+      "first_input_preparation_seconds": 1.274108815996442,
+      "total_wall_seconds": 2.3723200110252947
+    },
+    {
+      "n": 1024,
+      "seed": 366273168,
+      "generation_seconds": 0.6723038220079616,
+      "first_input_preparation_seconds": 5.064271144045051,
+      "total_wall_seconds": 7.8476628009811975
+    },
+    {
+      "n": 1024,
+      "seed": 1339164381,
+      "generation_seconds": 0.6201856600237079,
+      "first_input_preparation_seconds": 5.059438822965603,
+      "total_wall_seconds": 7.82485763594741
+    }
+  ],
+  "exact_20_second_pilots": [
+    {
+      "n": 16,
+      "seed": 762393594,
+      "budget_percent": 20,
+      "status": "timeout",
+      "feasible_sets": "868060",
+      "evaluated_sets": 5061,
+      "search_seconds": 20.00034962897189,
+      "cache_hits": 12422
+    },
+    {
+      "n": 16,
+      "seed": 762393594,
+      "budget_percent": 40,
+      "status": "timeout",
+      "feasible_sets": "92876202",
+      "evaluated_sets": 9858,
+      "search_seconds": 20.000284470035695,
+      "cache_hits": 28876
+    },
+    {
+      "n": 16,
+      "seed": 916452843,
+      "budget_percent": 20,
+      "status": "timeout",
+      "feasible_sets": "760203",
+      "evaluated_sets": 21944,
+      "search_seconds": 20.000094779010396,
+      "cache_hits": 34186
+    },
+    {
+      "n": 16,
+      "seed": 916452843,
+      "budget_percent": 40,
+      "status": "timeout",
+      "feasible_sets": "91018335",
+      "evaluated_sets": 43074,
+      "search_seconds": 20.000769930018578,
+      "cache_hits": 89421
+    }
+  ],
+  "scoring_20_second_pilots": [
+    {
+      "case": "n64-seed1472470960-p20",
+      "n": 64,
+      "seed": 1472470960,
+      "case_id": "fac8b616a1142881b77af6e1a929d532193add4900f4c2ba06d7e17863a16a43",
+      "method": "degree",
+      "diagnostic_timeout_seconds": 20,
+      "protocol_sha256": "5aa52683f20e3030b21bde0493ff1f9c6c644e870886e1992e578dfbf4ec1846",
+      "status": "completed",
+      "score": {
+        "connected_pairs": 1654,
+        "delivery_units": 767357,
+        "cost": 130,
+        "evaluation_seconds": 0.757006497005932
+      },
+      "wall_seconds_including_lock_wait": 1.3200899389921688
+    },
+    {
+      "case": "n128-seed430846084-p20",
+      "n": 128,
+      "seed": 430846084,
+      "case_id": "2253570d6466c414022c36c2dba9effc7f6c092a06f251693f2f94a1ca57a65e",
+      "method": "degree",
+      "diagnostic_timeout_seconds": 20,
+      "protocol_sha256": "5aa52683f20e3030b21bde0493ff1f9c6c644e870886e1992e578dfbf4ec1846",
+      "status": "completed",
+      "score": {
+        "connected_pairs": 6791,
+        "delivery_units": 772271,
+        "cost": 278,
+        "evaluation_seconds": 12.639263333985582
+      },
+      "wall_seconds_including_lock_wait": 13.239081616979092
+    },
+    {
+      "case": "n256-seed827104239-p20",
+      "n": 256,
+      "seed": 827104239,
+      "case_id": "8ce08f6f8ef00aa4c211c2121a4e6868d71232d88f16f2fbc97bc711828d37f7",
+      "method": "degree",
+      "diagnostic_timeout_seconds": 20,
+      "protocol_sha256": "5aa52683f20e3030b21bde0493ff1f9c6c644e870886e1992e578dfbf4ec1846",
+      "status": "timeout",
+      "wall_seconds_including_lock_wait": 20.048825450008735
+    },
+    {
+      "case": "n512-seed1686386331-p20",
+      "n": 512,
+      "seed": 1686386331,
+      "case_id": "9cb43df16b5b31917ee974adcff897f6aa351caf128be6b38a608a132e0df749",
+      "method": "degree",
+      "diagnostic_timeout_seconds": 20,
+      "protocol_sha256": "5aa52683f20e3030b21bde0493ff1f9c6c644e870886e1992e578dfbf4ec1846",
+      "status": "not_run",
+      "reason": "earlier scoring diagnostic failed or timed out"
+    },
+    {
+      "case": "n1024-seed366273168-p20",
+      "n": 1024,
+      "seed": 366273168,
+      "case_id": "a26680a701d2bd3b1183536e244c42398cb5cb9b90aae22947c4ac1abdf9f75a",
+      "method": "degree",
+      "diagnostic_timeout_seconds": 20,
+      "protocol_sha256": "5aa52683f20e3030b21bde0493ff1f9c6c644e870886e1992e578dfbf4ec1846",
+      "status": "not_run",
+      "reason": "earlier scoring diagnostic failed or timed out"
+    }
+  ],
+  "published_to_web_bank": false,
+  "limits": "300s submission / 6GB per-process RLIMIT_AS / 1 CPU, local; not web cgroup",
+  "notes": [
+    "Runtime probes validate output only; official scoring was attempted separately on representative cases.",
+    "Pilot timeouts do not prove infeasibility in three hours; throughput and cache warmth can vary.",
+    "All generation uses generation-v1; 20 cases represent 10 graph clusters.",
+    "An initial pilot launch failed because scientific imports preceded thread initialization; the script was corrected before any pilot record was written."
+  ]
+}
