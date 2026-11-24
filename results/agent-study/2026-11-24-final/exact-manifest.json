@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "kind": "preparation",
+  "run_kind": "scale_probe",
+  "ready": true,
+  "owners": {
+    "common": "김대건"
+  },
+  "output_dir": "staging-bank",
+  "sizes": [
+    14,
+    15
+  ],
+  "size_groups": {
+    "14": "probe",
+    "15": "probe"
+  },
+  "seeds_by_size": {
+    "14": [
+      1284121877,
+      583423369
+    ],
+    "15": [
+      1227514652,
+      1851654530
+    ]
+  },
+  "budget_percents": [
+    20,
+    40
+  ],
+  "exact_methods": [
+    "exhaustive",
+    "branch_bound"
+  ],
+  "limits": {
+    "small_exact_seconds": 600,
+    "large_exact_seconds": 10800
+  }
+}

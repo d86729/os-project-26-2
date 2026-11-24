@@ -1,0 +1,305 @@
+{
+  "registered_at_utc": "2026-11-24T11:31:29.625072+00:00",
+  "purpose": "오늘 안에 1~3번의 여섯 전략을 동일 인증 20사례에 비교",
+  "selection": {
+    "generator": "numpy.default_rng(202611242028)",
+    "seed_ranges": {
+      "6": 31,
+      "8": 21,
+      "10": 11,
+      "12": 7
+    },
+    "seeds_by_size": {
+      "6": [
+        27,
+        1
+      ],
+      "8": [
+        9,
+        0
+      ],
+      "10": [
+        10,
+        4
+      ],
+      "12": [
+        3,
+        4
+      ],
+      "14": [
+        0,
+        1
+      ]
+    },
+    "n14": "기존 인증 시드 0·1 전부",
+    "note": "공개·이전 사용 가능 사례이므로 블라인드 확인 표본 아님"
+  },
+  "cases": [
+    {
+      "name": "n6-seed27-p20",
+      "n": 6,
+      "seed": 27,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed27-p20.json",
+      "case_id": "4335a693019031d6b801a8c148ae0a6fa61772a93bcdf93dd8b0987ea3a3967b",
+      "stdin_sha256": "650cd5b32b972ff3f7b09b3db9d52424149b215a5d59dfc8352baff387daaac8"
+    },
+    {
+      "name": "n6-seed27-p40",
+      "n": 6,
+      "seed": 27,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed27-p40.json",
+      "case_id": "05c0135450d5965825dd00eead0e3e512b6ef8b75130c102dd9b9b93159b6938",
+      "stdin_sha256": "bc405d4f6bed128a2639c43423af1d890d7f253a29a156c3d23944873c88d049"
+    },
+    {
+      "name": "n6-seed1-p20",
+      "n": 6,
+      "seed": 1,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed1-p20.json",
+      "case_id": "7a54fb3a3257021fc66d84cc519ab1517d99fb7f79f38bd3b5832c1adadc1f1e",
+      "stdin_sha256": "dc36f0685b9af46aa4cf8d23d99efba3a076292cd0e5c4267957c7874c2fcfd0"
+    },
+    {
+      "name": "n6-seed1-p40",
+      "n": 6,
+      "seed": 1,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed1-p40.json",
+      "case_id": "93be5ddae4d146fcf298148206b8d767a444cf587523396621d603c2526cb709",
+      "stdin_sha256": "040bc06b3bce6eee72b804f94c98e5d89e51c183ef1b792c302a037f8e0f1c42"
+    },
+    {
+      "name": "n8-seed9-p20",
+      "n": 8,
+      "seed": 9,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed9-p20.json",
+      "case_id": "1e87ded1dc8d20671392a14a2517b656020b793c76fb8ae52adfec77c71f5859",
+      "stdin_sha256": "79989d6598959f658c4c040a07f882d95a567c9d23344550c5663c40b2b223c2"
+    },
+    {
+      "name": "n8-seed9-p40",
+      "n": 8,
+      "seed": 9,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed9-p40.json",
+      "case_id": "d1fa40435243cec12eef7f70d89a3f15cf7feab2a4ef3b24a8de4fefb4f8ffe1",
+      "stdin_sha256": "8ebe95b92d9bda1fad664c4c71d5f4fe3f1ea59dad774bd1d90cca10b64c7298"
+    },
+    {
+      "name": "n8-seed0-p20",
+      "n": 8,
+      "seed": 0,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed0-p20.json",
+      "case_id": "36a8d31fbf763d6ad6c7f21537a803f8ee12040bae7bc7d9090ccae98cdbafc7",
+      "stdin_sha256": "90dfed3a861fdd77c859241a4f6e30edeb168b2e050ac6e2323d1cf010bccfe7"
+    },
+    {
+      "name": "n8-seed0-p40",
+      "n": 8,
+      "seed": 0,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed0-p40.json",
+      "case_id": "9b60bb96b131ae1a17d1607e5862b13af6cb03099a6e623b869e969c6566a3b1",
+      "stdin_sha256": "ccbb18399938101b1ff52a9a6313aed0b2bae5b5fd40897f59884794d0c77cf7"
+    },
+    {
+      "name": "n10-seed10-p20",
+      "n": 10,
+      "seed": 10,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n10-seed10-p20.json",
+      "case_id": "63f6620c8d2b370444c3c6d41e20974c01e2be805244b61d56fd982e1b5060f4",
+      "stdin_sha256": "3b80391baf258661a89242792cbbf6b309eadc3cbb7910bb9d3f6f60eb6c8fff"
+    },
+    {
+      "name": "n10-seed10-p40",
+      "n": 10,
+      "seed": 10,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n10-seed10-p40.json",
+      "case_id": "66c9fb2776ef200e20566c5ec8c03dd69be95c78694bbb414f9a96b7e05873fa",
+      "stdin_sha256": "bf63a59d241abe1b128ce4751c4fdb46c5cd1e355758d37fbbe6b5d24144fd3d"
+    },
+    {
+      "name": "n10-seed4-p20",
+      "n": 10,
+      "seed": 4,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n10-seed4-p20.json",
+      "case_id": "dc7c5fa310f7d6f04c06b3262f86c5919cf26569867f840ff47c019c2a64b6a8",
+      "stdin_sha256": "448a19d359df8a541a9666112d66a2a80a4e347d96b3d8c718b118b6a87cd55d"
+    },
+    {
+      "name": "n10-seed4-p40",
+      "n": 10,
+      "seed": 4,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n10-seed4-p40.json",
+      "case_id": "18157c3a2b25bef4efa872463b36c161ce38efc16cf0708773d2cf934d8bba5b",
+      "stdin_sha256": "5baa4c5d864d0100eec1cc563aaaddd3cb167a5ca63f6782247c5628203fe1d6"
+    },
+    {
+      "name": "n12-seed3-p20",
+      "n": 12,
+      "seed": 3,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n12-seed3-p20.json",
+      "case_id": "828cf2d9400caa2b85ae8df493d1d89ec2f19baa7a493aef9f82a989097c89ec",
+      "stdin_sha256": "d3d417d57ceb84946dff61104810ae915007df7f5b6f98154844a96358453143"
+    },
+    {
+      "name": "n12-seed3-p40",
+      "n": 12,
+      "seed": 3,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n12-seed3-p40.json",
+      "case_id": "51cc52b5cde62db8e64ce1a86ba6145efd9c406c25e50be441da643ee5b73021",
+      "stdin_sha256": "21cf8bcda903f2409161f1f6e9e9d268ae88312339a95679b372e3e38128e909"
+    },
+    {
+      "name": "n12-seed4-p20",
+      "n": 12,
+      "seed": 4,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n12-seed4-p20.json",
+      "case_id": "c0745cf85e6a844222b3d044b6c5692bfbf8af97830b191b41aede1bae74aa1b",
+      "stdin_sha256": "ea62f1f3cef86cf1978b55cdee93e93027dafc28cf37c1a757706ce23ca97889"
+    },
+    {
+      "name": "n12-seed4-p40",
+      "n": 12,
+      "seed": 4,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n12-seed4-p40.json",
+      "case_id": "d2c747c7676c7eea6b0c15d758425833c17c30937689d45cf0e6ca5921caf675",
+      "stdin_sha256": "495a13e2ca3fa238048fd55bae49f5aba2e2d8b2cfe8c86f7a2a6f62af0c220f"
+    },
+    {
+      "name": "n14-seed0-p20",
+      "n": 14,
+      "seed": 0,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n14-seed0-p20.json",
+      "case_id": "d44d6e108359eed775748022db5ed063d8ee86070722eb729c6420d70bb4af80",
+      "stdin_sha256": "05e517829adc6479e1946171f0015cbbdd13c9c45e55bb08c5f804bc6a59a542"
+    },
+    {
+      "name": "n14-seed0-p40",
+      "n": 14,
+      "seed": 0,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n14-seed0-p40.json",
+      "case_id": "8b4fcbc3b3520cce5c594d855fb4e8d75a2be4b95833741f53e6623106941091",
+      "stdin_sha256": "fd7823fa2420d2b86c94dd98d4e70965462e18c0df206653b5ca57db4cb8ab31"
+    },
+    {
+      "name": "n14-seed1-p20",
+      "n": 14,
+      "seed": 1,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n14-seed1-p20.json",
+      "case_id": "1367ae5f24009200e4fe44a25dab8d91e5cfe607971df2e92953d267b033fbed",
+      "stdin_sha256": "96fa86470a182e982958b57a2c1f59dcb86c07751a4bfff2f8680b84d68ce8dd"
+    },
+    {
+      "name": "n14-seed1-p40",
+      "n": 14,
+      "seed": 1,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n14-seed1-p40.json",
+      "case_id": "118e222d502f26acbc0124877115fa17aef985664d3748385d43913c7e84d1e7",
+      "stdin_sha256": "573f6b7525cef621b897c7068f73f90bb94760fd7ee912f992ca34e0ee79cef2"
+    }
+  ],
+  "methods": [
+    {
+      "method": "degree",
+      "path": "results/agent-study/2026-11-22/agent-1/degree.py",
+      "sha256": "615d147292e12056c35bfa66cbf3b0a50bce8863c0beb4fe803901f10d670fb9"
+    },
+    {
+      "method": "betweenness",
+      "path": "results/agent-study/2026-11-22/agent-1/betweenness.py",
+      "sha256": "c6bfe7ff8b87327108e237d9150b1cc009461b2642997238014f90cb4cbbdaca"
+    },
+    {
+      "method": "demand_single",
+      "path": "results/agent-study/2026-11-22/agent-2/ablation_single.py",
+      "sha256": "fd6527b36c7b5009ccdbada76e004ce272152eeabb67c32f04bbea7e09aef722"
+    },
+    {
+      "method": "demand_bundle",
+      "path": "results/agent-study/2026-11-22/agent-2/submission.py",
+      "sha256": "3e58b54da8a975fc5cda770a1c7bdc656d7fa96133a7ca14058a31b6595d3fe5"
+    },
+    {
+      "method": "connectivity_greedy",
+      "path": "results/agent-study/2026-11-22/agent-3/greedy.py",
+      "sha256": "b55bfd051b8857d1c3b28c8cba2e228e92b3af9e45030150df242bc1c4383f8a"
+    },
+    {
+      "method": "local_search",
+      "path": "results/agent-study/2026-11-22/agent-3/local_search.py",
+      "sha256": "87f09ef22e2795ba7a109654fd20720a256731e019faf1c6702307d54bf38f3a"
+    }
+  ],
+  "execution": {
+    "wall_seconds_per_run": 300,
+    "memory_bytes_per_process": 6000000000,
+    "cpu_cores": 1,
+    "randomness": "결정적 방법 각 1회",
+    "implementation": "local subprocess and RLIMIT_AS, not web cgroup",
+    "score_after_submission": true,
+    "hard_stop_kst": "2026-11-24T23:35:00+09:00"
+  },
+  "predefined_contrasts": [
+    [
+      "betweenness",
+      "degree"
+    ],
+    [
+      "demand_bundle",
+      "demand_single"
+    ],
+    [
+      "local_search",
+      "connectivity_greedy"
+    ],
+    [
+      "demand_bundle",
+      "degree"
+    ]
+  ],
+  "graph_cluster": "동일 그래프의 두 예산을 묶어 해석",
+  "candidate_graphs": {
+    "14": [
+      1284121877,
+      583423369
+    ],
+    "15": [
+      1227514652,
+      1851654530
+    ]
+  },
+  "candidate_generator": "numpy.default_rng(202611241927)",
+  "candidate_budget_percents": [
+    20,
+    40
+  ],
+  "candidate_pilot_limit_seconds": 5,
+  "candidate_operational_caps_seconds": {
+    "14": {
+      "20": 180,
+      "40": 1800
+    },
+    "15": {
+      "20": 300,
+      "40": 2400
+    }
+  }
+}

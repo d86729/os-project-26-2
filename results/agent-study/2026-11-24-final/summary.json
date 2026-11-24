@@ -1,0 +1,619 @@
+{
+  "cases": 20,
+  "graphs": 10,
+  "attempts": 120,
+  "status_counts": {
+    "completed": 120
+  },
+  "all_completed_scores_independently_recomputed": true,
+  "methods": {
+    "degree": {
+      "statuses": {
+        "completed": 20
+      },
+      "optimal_score_matches": 3,
+      "mean_connected_ratio": 0.7822410922410923,
+      "mean_delivery_ratio": 0.5843300990439683,
+      "median_submission_seconds": 0.04850267054280266,
+      "max_submission_seconds": 0.05126107396790758,
+      "median_evaluation_seconds": 0.05298087649862282,
+      "max_evaluation_seconds": 0.2235580409760587
+    },
+    "betweenness": {
+      "statuses": {
+        "completed": 20
+      },
+      "optimal_score_matches": 4,
+      "mean_connected_ratio": 0.7770701520701521,
+      "mean_delivery_ratio": 0.5921966468845626,
+      "median_submission_seconds": 0.0493987709924113,
+      "max_submission_seconds": 0.05530957999872044,
+      "median_evaluation_seconds": 0.03735045503708534,
+      "max_evaluation_seconds": 0.30496394098736346
+    },
+    "demand_single": {
+      "statuses": {
+        "completed": 20
+      },
+      "optimal_score_matches": 2,
+      "mean_connected_ratio": 0.8456349206349206,
+      "mean_delivery_ratio": 0.593203063878556,
+      "median_submission_seconds": 0.10560890100896358,
+      "max_submission_seconds": 0.28473001695238054,
+      "median_evaluation_seconds": 0.07826896250480786,
+      "max_evaluation_seconds": 0.9202595059759915
+    },
+    "demand_bundle": {
+      "statuses": {
+        "completed": 20
+      },
+      "optimal_score_matches": 3,
+      "mean_connected_ratio": 0.8556349206349206,
+      "mean_delivery_ratio": 0.5767251986780632,
+      "median_submission_seconds": 0.12768053347826935,
+      "max_submission_seconds": 0.41731661098310724,
+      "median_evaluation_seconds": 0.12170797551516443,
+      "max_evaluation_seconds": 0.9196193050011061
+    },
+    "connectivity_greedy": {
+      "statuses": {
+        "completed": 20
+      },
+      "optimal_score_matches": 2,
+      "mean_connected_ratio": 0.8225793650793651,
+      "mean_delivery_ratio": 0.5226146881753662,
+      "median_submission_seconds": 0.048737019998952746,
+      "max_submission_seconds": 0.05415597994579002,
+      "median_evaluation_seconds": 0.07263730451813899,
+      "max_evaluation_seconds": 0.9306565230363049
+    },
+    "local_search": {
+      "statuses": {
+        "completed": 20
+      },
+      "optimal_score_matches": 5,
+      "mean_connected_ratio": 0.8440079365079365,
+      "mean_delivery_ratio": 0.5703441653470999,
+      "median_submission_seconds": 0.04922317049931735,
+      "max_submission_seconds": 0.06515709904488176,
+      "median_evaluation_seconds": 0.09313898446271196,
+      "max_evaluation_seconds": 0.7476348420022987
+    }
+  },
+  "comparisons": [
+    {
+      "first": "betweenness",
+      "second": "degree",
+      "outcomes": {
+        "tie": 9,
+        "loss": 4,
+        "win": 7
+      },
+      "by_size": {
+        "6": {
+          "tie": 3,
+          "loss": 1
+        },
+        "8": {
+          "tie": 3,
+          "loss": 1
+        },
+        "10": {
+          "win": 2,
+          "loss": 1,
+          "tie": 1
+        },
+        "12": {
+          "tie": 2,
+          "win": 2
+        },
+        "14": {
+          "win": 3,
+          "loss": 1
+        }
+      },
+      "pairs": [
+        {
+          "case": "n6-seed27-p20",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed27-p40",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed1-p20",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed1-p40",
+          "n": 6,
+          "outcome": "loss"
+        },
+        {
+          "case": "n8-seed9-p20",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed9-p40",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed0-p20",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed0-p40",
+          "n": 8,
+          "outcome": "loss"
+        },
+        {
+          "case": "n10-seed10-p20",
+          "n": 10,
+          "outcome": "win"
+        },
+        {
+          "case": "n10-seed10-p40",
+          "n": 10,
+          "outcome": "loss"
+        },
+        {
+          "case": "n10-seed4-p20",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed4-p40",
+          "n": 10,
+          "outcome": "win"
+        },
+        {
+          "case": "n12-seed3-p20",
+          "n": 12,
+          "outcome": "tie"
+        },
+        {
+          "case": "n12-seed3-p40",
+          "n": 12,
+          "outcome": "win"
+        },
+        {
+          "case": "n12-seed4-p20",
+          "n": 12,
+          "outcome": "win"
+        },
+        {
+          "case": "n12-seed4-p40",
+          "n": 12,
+          "outcome": "tie"
+        },
+        {
+          "case": "n14-seed0-p20",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed0-p40",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed1-p20",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed1-p40",
+          "n": 14,
+          "outcome": "loss"
+        }
+      ]
+    },
+    {
+      "first": "demand_bundle",
+      "second": "demand_single",
+      "outcomes": {
+        "tie": 16,
+        "win": 2,
+        "loss": 2
+      },
+      "by_size": {
+        "6": {
+          "tie": 4
+        },
+        "8": {
+          "tie": 4
+        },
+        "10": {
+          "win": 2,
+          "tie": 2
+        },
+        "12": {
+          "tie": 2,
+          "loss": 2
+        },
+        "14": {
+          "tie": 4
+        }
+      },
+      "pairs": [
+        {
+          "case": "n6-seed27-p20",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed27-p40",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed1-p20",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed1-p40",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed9-p20",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed9-p40",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed0-p20",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed0-p40",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed10-p20",
+          "n": 10,
+          "outcome": "win"
+        },
+        {
+          "case": "n10-seed10-p40",
+          "n": 10,
+          "outcome": "win"
+        },
+        {
+          "case": "n10-seed4-p20",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed4-p40",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n12-seed3-p20",
+          "n": 12,
+          "outcome": "tie"
+        },
+        {
+          "case": "n12-seed3-p40",
+          "n": 12,
+          "outcome": "tie"
+        },
+        {
+          "case": "n12-seed4-p20",
+          "n": 12,
+          "outcome": "loss"
+        },
+        {
+          "case": "n12-seed4-p40",
+          "n": 12,
+          "outcome": "loss"
+        },
+        {
+          "case": "n14-seed0-p20",
+          "n": 14,
+          "outcome": "tie"
+        },
+        {
+          "case": "n14-seed0-p40",
+          "n": 14,
+          "outcome": "tie"
+        },
+        {
+          "case": "n14-seed1-p20",
+          "n": 14,
+          "outcome": "tie"
+        },
+        {
+          "case": "n14-seed1-p40",
+          "n": 14,
+          "outcome": "tie"
+        }
+      ]
+    },
+    {
+      "first": "local_search",
+      "second": "connectivity_greedy",
+      "outcomes": {
+        "tie": 14,
+        "win": 5,
+        "loss": 1
+      },
+      "by_size": {
+        "6": {
+          "tie": 4
+        },
+        "8": {
+          "win": 2,
+          "tie": 2
+        },
+        "10": {
+          "tie": 4
+        },
+        "12": {
+          "tie": 2,
+          "loss": 1,
+          "win": 1
+        },
+        "14": {
+          "win": 2,
+          "tie": 2
+        }
+      },
+      "pairs": [
+        {
+          "case": "n6-seed27-p20",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed27-p40",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed1-p20",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed1-p40",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed9-p20",
+          "n": 8,
+          "outcome": "win"
+        },
+        {
+          "case": "n8-seed9-p40",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed0-p20",
+          "n": 8,
+          "outcome": "win"
+        },
+        {
+          "case": "n8-seed0-p40",
+          "n": 8,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed10-p20",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed10-p40",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed4-p20",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed4-p40",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n12-seed3-p20",
+          "n": 12,
+          "outcome": "tie"
+        },
+        {
+          "case": "n12-seed3-p40",
+          "n": 12,
+          "outcome": "tie"
+        },
+        {
+          "case": "n12-seed4-p20",
+          "n": 12,
+          "outcome": "loss"
+        },
+        {
+          "case": "n12-seed4-p40",
+          "n": 12,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed0-p20",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed0-p40",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed1-p20",
+          "n": 14,
+          "outcome": "tie"
+        },
+        {
+          "case": "n14-seed1-p40",
+          "n": 14,
+          "outcome": "tie"
+        }
+      ]
+    },
+    {
+      "first": "demand_bundle",
+      "second": "degree",
+      "outcomes": {
+        "win": 13,
+        "loss": 4,
+        "tie": 3
+      },
+      "by_size": {
+        "6": {
+          "win": 1,
+          "loss": 1,
+          "tie": 2
+        },
+        "8": {
+          "loss": 3,
+          "win": 1
+        },
+        "10": {
+          "win": 3,
+          "tie": 1
+        },
+        "12": {
+          "win": 4
+        },
+        "14": {
+          "win": 4
+        }
+      },
+      "pairs": [
+        {
+          "case": "n6-seed27-p20",
+          "n": 6,
+          "outcome": "win"
+        },
+        {
+          "case": "n6-seed27-p40",
+          "n": 6,
+          "outcome": "loss"
+        },
+        {
+          "case": "n6-seed1-p20",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n6-seed1-p40",
+          "n": 6,
+          "outcome": "tie"
+        },
+        {
+          "case": "n8-seed9-p20",
+          "n": 8,
+          "outcome": "loss"
+        },
+        {
+          "case": "n8-seed9-p40",
+          "n": 8,
+          "outcome": "loss"
+        },
+        {
+          "case": "n8-seed0-p20",
+          "n": 8,
+          "outcome": "loss"
+        },
+        {
+          "case": "n8-seed0-p40",
+          "n": 8,
+          "outcome": "win"
+        },
+        {
+          "case": "n10-seed10-p20",
+          "n": 10,
+          "outcome": "win"
+        },
+        {
+          "case": "n10-seed10-p40",
+          "n": 10,
+          "outcome": "win"
+        },
+        {
+          "case": "n10-seed4-p20",
+          "n": 10,
+          "outcome": "tie"
+        },
+        {
+          "case": "n10-seed4-p40",
+          "n": 10,
+          "outcome": "win"
+        },
+        {
+          "case": "n12-seed3-p20",
+          "n": 12,
+          "outcome": "win"
+        },
+        {
+          "case": "n12-seed3-p40",
+          "n": 12,
+          "outcome": "win"
+        },
+        {
+          "case": "n12-seed4-p20",
+          "n": 12,
+          "outcome": "win"
+        },
+        {
+          "case": "n12-seed4-p40",
+          "n": 12,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed0-p20",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed0-p40",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed1-p20",
+          "n": 14,
+          "outcome": "win"
+        },
+        {
+          "case": "n14-seed1-p40",
+          "n": 14,
+          "outcome": "win"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "10 graphs; two budgets per graph are not independent",
+    "public bank cases may have been used earlier; not blind",
+    "single generation-v1 synthetic graph family",
+    "local per-process RLIMIT_AS rather than web cgroup"
+  ]
+}
