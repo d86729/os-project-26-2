@@ -1,0 +1,11 @@
+{
+  "purpose": "당일 인증·공개 가능성이 높은 n=12의 무작위 시드 다양성 확대",
+  "seed_selection": "numpy.default_rng(202611242044), 비복원 두 정수",
+  "candidate_graphs": {"12": [377415534, 1938855539]},
+  "candidate_budget_percents": [20, 40],
+  "candidate_pilot_limit_seconds": 5,
+  "candidate_operational_caps_seconds": {"12": {"20": 180, "40": 900}},
+  "execution": {"hard_stop_kst": "2026-11-24T23:35:00+09:00"},
+  "reference_policy": "두 예산 모두 완전탐색과 유리수 인증·재채점 후 공개",
+  "context": "n=15 원실행은 우선순위 조정으로 수동 중단하고 부분 기록을 보존했다."
+}
