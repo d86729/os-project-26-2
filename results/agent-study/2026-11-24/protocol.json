@@ -1,0 +1,836 @@
+{
+  "registered_at_utc": "2026-11-24T00:09:41.320880+00:00",
+  "purpose": "2026-11-24 사용자 요청에 따른 추가 고정 사례 비교와 과제 준비",
+  "scope": "기존 공개 참조 사례, 2026-11-22 개발·확인 표본과 구분. AI 전략의 사후 확대 확인 실험.",
+  "previous_protocol": "results/agent-study/2026-11-22/protocol.json",
+  "cases": [
+    {
+      "name": "n6-seed6-p20",
+      "n": 6,
+      "seed": 6,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed6-p20.json",
+      "case_id": "1dace74c06e6b9743274a57f82277b95eae51094335ca5532c98c5812dc1b3d1"
+    },
+    {
+      "name": "n6-seed6-p40",
+      "n": 6,
+      "seed": 6,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed6-p40.json",
+      "case_id": "4680df34aa22e87688ab1e025ac28f3b526a8155f4f5780d5f5cd18ca16c0352"
+    },
+    {
+      "name": "n6-seed7-p20",
+      "n": 6,
+      "seed": 7,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed7-p20.json",
+      "case_id": "a8f33d1bf1216f360c90754263ef42c00a92831eaeaa8c02b4c20c420ce4b7a8"
+    },
+    {
+      "name": "n6-seed7-p40",
+      "n": 6,
+      "seed": 7,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed7-p40.json",
+      "case_id": "1e92b5be9682653360aaa3ab11e34c47fb84c8639f7c923caa7d1b1c0ef88388"
+    },
+    {
+      "name": "n6-seed8-p20",
+      "n": 6,
+      "seed": 8,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed8-p20.json",
+      "case_id": "6291ae3b7b7845843f97fdd18c47033946d28c4c936941192ad8688ea54f09d3"
+    },
+    {
+      "name": "n6-seed8-p40",
+      "n": 6,
+      "seed": 8,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed8-p40.json",
+      "case_id": "1ec73f9b29784f31184466af73dc9f06daf2fc67254cf348c64f282a81392670"
+    },
+    {
+      "name": "n6-seed9-p20",
+      "n": 6,
+      "seed": 9,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed9-p20.json",
+      "case_id": "6de467e3f7aa22a6d6f5a3ffe6b201a5757847d255463a4c8ea0330acb0921ef"
+    },
+    {
+      "name": "n6-seed9-p40",
+      "n": 6,
+      "seed": 9,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed9-p40.json",
+      "case_id": "e8a2d9aaa5831294ecc928756e209ccf4dc22c73a62584bc9619d87807c4b85a"
+    },
+    {
+      "name": "n6-seed10-p20",
+      "n": 6,
+      "seed": 10,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed10-p20.json",
+      "case_id": "beea1f96a33663d1a7cb3019b01d36df0d9d391c0381e4e9fa28f2f871f4b410"
+    },
+    {
+      "name": "n6-seed10-p40",
+      "n": 6,
+      "seed": 10,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed10-p40.json",
+      "case_id": "fc0a722f83980b442e21e4269087e20a73c43351555c4999d55bc363c308c740"
+    },
+    {
+      "name": "n6-seed11-p20",
+      "n": 6,
+      "seed": 11,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed11-p20.json",
+      "case_id": "2c0bbfcd9b780a0f7059ed70e39444dd4b939b76fe471ac554c419650f5f5670"
+    },
+    {
+      "name": "n6-seed11-p40",
+      "n": 6,
+      "seed": 11,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed11-p40.json",
+      "case_id": "604d2b7ed8b44c4bba43ab733333b51aea17a77cef7dcd87a83346f0e4987dff"
+    },
+    {
+      "name": "n6-seed12-p20",
+      "n": 6,
+      "seed": 12,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed12-p20.json",
+      "case_id": "3a5a5aea6935d7cd6349dc7baa4d6c7a744e0d90296421d6983db193c43dbe02"
+    },
+    {
+      "name": "n6-seed12-p40",
+      "n": 6,
+      "seed": 12,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed12-p40.json",
+      "case_id": "62d2564ed6957df1fe3be11635541afdc965fe8952b706395fcf298693007dc5"
+    },
+    {
+      "name": "n6-seed13-p20",
+      "n": 6,
+      "seed": 13,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed13-p20.json",
+      "case_id": "01d6c47f6828850452c994c841d3ace03d0bc3ce737daefd666476fbc97a69cb"
+    },
+    {
+      "name": "n6-seed13-p40",
+      "n": 6,
+      "seed": 13,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed13-p40.json",
+      "case_id": "a13921a7d611bdaf6dc2d4f69f2bcfa26a0ae636c063bf279cc66c133e3cbac3"
+    },
+    {
+      "name": "n6-seed14-p20",
+      "n": 6,
+      "seed": 14,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed14-p20.json",
+      "case_id": "865590ee53ecb667348756e3100d701995667c0a1dbd8c6cc7811083fbdf3785"
+    },
+    {
+      "name": "n6-seed14-p40",
+      "n": 6,
+      "seed": 14,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed14-p40.json",
+      "case_id": "38da8c97788f822f791556f1699eff94b41154bd07f1fc9822699ac16cfea994"
+    },
+    {
+      "name": "n6-seed15-p20",
+      "n": 6,
+      "seed": 15,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed15-p20.json",
+      "case_id": "ffffb0ef7760318f4fb1dca3b065f1c62fd73cfc10018b24950551495dcc8b99"
+    },
+    {
+      "name": "n6-seed15-p40",
+      "n": 6,
+      "seed": 15,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed15-p40.json",
+      "case_id": "c8380cfffb6f5aa0c533f95a6334689719f9e8e7b599520566cd01c270994285"
+    },
+    {
+      "name": "n6-seed16-p20",
+      "n": 6,
+      "seed": 16,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed16-p20.json",
+      "case_id": "ac2bd89c1b7a413af086603e51a04f5d6791e3307bca8b4151ace8959c328604"
+    },
+    {
+      "name": "n6-seed16-p40",
+      "n": 6,
+      "seed": 16,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed16-p40.json",
+      "case_id": "cd320f0bd745cda0960aabbcd70f571df36f4cd535a86a5d646a3a4a39a4c365"
+    },
+    {
+      "name": "n6-seed17-p20",
+      "n": 6,
+      "seed": 17,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed17-p20.json",
+      "case_id": "86ae93df36a9a316451b258b75742ff3ceaa3acf053f4af12e2cd75e3c573f72"
+    },
+    {
+      "name": "n6-seed17-p40",
+      "n": 6,
+      "seed": 17,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed17-p40.json",
+      "case_id": "a349187d3225bd7c53d1c02d90f03fb7a1b1df54c1d97f76dc1735944bae0ad4"
+    },
+    {
+      "name": "n6-seed18-p20",
+      "n": 6,
+      "seed": 18,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed18-p20.json",
+      "case_id": "3466674c8a08284f2bc685f79eebe1fa3a19fc1b1a7fef6ee06395aa5e855174"
+    },
+    {
+      "name": "n6-seed18-p40",
+      "n": 6,
+      "seed": 18,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed18-p40.json",
+      "case_id": "6a3f74746d28682f609cf9fdfb8cb778e6f8e96bc1a0b1940a3e0cf27e43eec5"
+    },
+    {
+      "name": "n6-seed19-p20",
+      "n": 6,
+      "seed": 19,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed19-p20.json",
+      "case_id": "ea8959df4bf0e08626d33c2e252c04f83abf8996309e3f04a08c628d34c70712"
+    },
+    {
+      "name": "n6-seed19-p40",
+      "n": 6,
+      "seed": 19,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed19-p40.json",
+      "case_id": "abdaca4b8f18e436677241f61dc550ed44de70b12268f983b336d9af9678446c"
+    },
+    {
+      "name": "n6-seed20-p20",
+      "n": 6,
+      "seed": 20,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed20-p20.json",
+      "case_id": "b3d42d5652633bb610d9dd243f12e6d9f7be1ff92acaf449e36d6e66297ca9fe"
+    },
+    {
+      "name": "n6-seed20-p40",
+      "n": 6,
+      "seed": 20,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed20-p40.json",
+      "case_id": "e5e7d43d051b260bef806579e6fb4c14ae73dff3beb51fcf985258d2280322eb"
+    },
+    {
+      "name": "n6-seed21-p20",
+      "n": 6,
+      "seed": 21,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed21-p20.json",
+      "case_id": "4f93a4b5ab3c05bda0b215ce945873faedbab3c68560c97b423c4f3c7957ed47"
+    },
+    {
+      "name": "n6-seed21-p40",
+      "n": 6,
+      "seed": 21,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed21-p40.json",
+      "case_id": "4c8529a3bf6b4c4677088c8c415badfb55f5f7fdac2e3a01ed42e833679df6ba"
+    },
+    {
+      "name": "n6-seed22-p20",
+      "n": 6,
+      "seed": 22,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed22-p20.json",
+      "case_id": "454915d3375e0d91b905eaf59d94927ebf5fcd3d7aaf8fb9a069739b6f16f756"
+    },
+    {
+      "name": "n6-seed22-p40",
+      "n": 6,
+      "seed": 22,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed22-p40.json",
+      "case_id": "fa41c2ce5722fd8d3f14fe9eb255668d236a974887a7591ee29cb4f1c8e1dc41"
+    },
+    {
+      "name": "n6-seed23-p20",
+      "n": 6,
+      "seed": 23,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed23-p20.json",
+      "case_id": "5a41e92a6a2db866aea5628fc91c0917abb0fe38c92a5fc56da8c5cbd6eea52d"
+    },
+    {
+      "name": "n6-seed23-p40",
+      "n": 6,
+      "seed": 23,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed23-p40.json",
+      "case_id": "409cb63baacce44eae46b127320aaa7df0982c7d7363bee0b6cc8d04dcdead7d"
+    },
+    {
+      "name": "n6-seed24-p20",
+      "n": 6,
+      "seed": 24,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed24-p20.json",
+      "case_id": "55e576abbd75b544ba007226be843d6c4ecdacbaf846e2eeec49e3bafe8305b2"
+    },
+    {
+      "name": "n6-seed24-p40",
+      "n": 6,
+      "seed": 24,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed24-p40.json",
+      "case_id": "6cd99aad0a538e7ee4acc21f4740375f9d1027acef7f43136cf29b3bafdc0825"
+    },
+    {
+      "name": "n6-seed25-p20",
+      "n": 6,
+      "seed": 25,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed25-p20.json",
+      "case_id": "5b5b8ac6a634f7f3b6e2eaeacda2bedc83d1d72e6c18986fd646ba9502a4e3b5"
+    },
+    {
+      "name": "n6-seed25-p40",
+      "n": 6,
+      "seed": 25,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed25-p40.json",
+      "case_id": "731ce46f09c0bb5ccf567bfff46beddf7fcc0e859c6bb1cef716f8d7b01a3021"
+    },
+    {
+      "name": "n6-seed26-p20",
+      "n": 6,
+      "seed": 26,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed26-p20.json",
+      "case_id": "8e7056be2471c685a98997466e3a90fcd6668d68303195540fe327696985b731"
+    },
+    {
+      "name": "n6-seed26-p40",
+      "n": 6,
+      "seed": 26,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed26-p40.json",
+      "case_id": "6f3b7c6ff178232c5f630006797598a106d286edec1f4da6385bd71714eb14a1"
+    },
+    {
+      "name": "n6-seed27-p20",
+      "n": 6,
+      "seed": 27,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed27-p20.json",
+      "case_id": "4335a693019031d6b801a8c148ae0a6fa61772a93bcdf93dd8b0987ea3a3967b"
+    },
+    {
+      "name": "n6-seed27-p40",
+      "n": 6,
+      "seed": 27,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed27-p40.json",
+      "case_id": "05c0135450d5965825dd00eead0e3e512b6ef8b75130c102dd9b9b93159b6938"
+    },
+    {
+      "name": "n6-seed28-p20",
+      "n": 6,
+      "seed": 28,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed28-p20.json",
+      "case_id": "29fa1edc14a8e5b5a917f730c0c5e0df2675a82e85e52f9cc3e802ea29312a57"
+    },
+    {
+      "name": "n6-seed28-p40",
+      "n": 6,
+      "seed": 28,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed28-p40.json",
+      "case_id": "59f82b96062f95fb8e2e93247751e55655cbce8013a1bda99eb510faa33ad055"
+    },
+    {
+      "name": "n6-seed29-p20",
+      "n": 6,
+      "seed": 29,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed29-p20.json",
+      "case_id": "5e4b35694e90855d1ebed179180c547bce42b8ebee7a4cb69fc02c0fd776c92e"
+    },
+    {
+      "name": "n6-seed29-p40",
+      "n": 6,
+      "seed": 29,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed29-p40.json",
+      "case_id": "f672b6392cde17a10f4a5d80eadbf8943ca6bca9a29420023a5fa820ed6181ff"
+    },
+    {
+      "name": "n6-seed30-p20",
+      "n": 6,
+      "seed": 30,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n6-seed30-p20.json",
+      "case_id": "4c99e5624ac358c32de2fdef4ff53942c16337486ec546cd3398d0e78465fe88"
+    },
+    {
+      "name": "n6-seed30-p40",
+      "n": 6,
+      "seed": 30,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n6-seed30-p40.json",
+      "case_id": "fb234c7d7a56e64093d28655b321d8ef3c850fc21b32b3fb60e7d066fb9094d9"
+    },
+    {
+      "name": "n8-seed6-p20",
+      "n": 8,
+      "seed": 6,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed6-p20.json",
+      "case_id": "0e0c652ea0507a8af1cbeaa287b5afe3a9861bc7b2c8959e63e81702975d49b0"
+    },
+    {
+      "name": "n8-seed6-p40",
+      "n": 8,
+      "seed": 6,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed6-p40.json",
+      "case_id": "4391732d4070f828bc4f82144b6c6a3787475122325930ff25d938d28782c1d2"
+    },
+    {
+      "name": "n8-seed7-p20",
+      "n": 8,
+      "seed": 7,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed7-p20.json",
+      "case_id": "9fd8add465453010da4e6b1da12d4b15455b6e30c1886eb79c4646431882de83"
+    },
+    {
+      "name": "n8-seed7-p40",
+      "n": 8,
+      "seed": 7,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed7-p40.json",
+      "case_id": "e74ad33416a72c1c65093073de952fdf2ab992731ee008858c575c9218588473"
+    },
+    {
+      "name": "n8-seed8-p20",
+      "n": 8,
+      "seed": 8,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed8-p20.json",
+      "case_id": "0201c9da41ee3465237b94cd34b0c178dd0815a39625141f5dda9fb5a7e0c0ae"
+    },
+    {
+      "name": "n8-seed8-p40",
+      "n": 8,
+      "seed": 8,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed8-p40.json",
+      "case_id": "cfc0ba3f5177f9fcf4781a780fe96712ab42ef093902c9fa00bb6b1d5397bdad"
+    },
+    {
+      "name": "n8-seed9-p20",
+      "n": 8,
+      "seed": 9,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed9-p20.json",
+      "case_id": "1e87ded1dc8d20671392a14a2517b656020b793c76fb8ae52adfec77c71f5859"
+    },
+    {
+      "name": "n8-seed9-p40",
+      "n": 8,
+      "seed": 9,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed9-p40.json",
+      "case_id": "d1fa40435243cec12eef7f70d89a3f15cf7feab2a4ef3b24a8de4fefb4f8ffe1"
+    },
+    {
+      "name": "n8-seed10-p20",
+      "n": 8,
+      "seed": 10,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed10-p20.json",
+      "case_id": "83c874801081d63acd7be3527cb5cfa3f9cf9d60cd169beab90b06e09c43f751"
+    },
+    {
+      "name": "n8-seed10-p40",
+      "n": 8,
+      "seed": 10,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed10-p40.json",
+      "case_id": "1f83824c20505c984b35df662e82695d4293d9919aa63a496e4368317b6d5886"
+    },
+    {
+      "name": "n8-seed11-p20",
+      "n": 8,
+      "seed": 11,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed11-p20.json",
+      "case_id": "67161bab5d01bc69484b78695601f86786dbfd6e308d11dd17be0cc3e2f89ae4"
+    },
+    {
+      "name": "n8-seed11-p40",
+      "n": 8,
+      "seed": 11,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed11-p40.json",
+      "case_id": "33e124be649a73ece97943a132de466df9e8482a7846162cd129ccc9ffa70215"
+    },
+    {
+      "name": "n8-seed12-p20",
+      "n": 8,
+      "seed": 12,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed12-p20.json",
+      "case_id": "e5baa186df019ff96a972857e6d05a03e2bbf42e4dbb9352ea9c7a8f35c1e64d"
+    },
+    {
+      "name": "n8-seed12-p40",
+      "n": 8,
+      "seed": 12,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed12-p40.json",
+      "case_id": "4ed3ec2c002d975a50f220b2db98ebb101c024bd0d94312611c10868c968e93a"
+    },
+    {
+      "name": "n8-seed13-p20",
+      "n": 8,
+      "seed": 13,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed13-p20.json",
+      "case_id": "bd46ca35b3fff2852f1bdf75bf4216f98d175dcbd48f0f7c5a035b02f5bbfac3"
+    },
+    {
+      "name": "n8-seed13-p40",
+      "n": 8,
+      "seed": 13,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed13-p40.json",
+      "case_id": "efc03f27c8fad0f595741e0166846aca62ef020d1f68a2997ff84f2285a16782"
+    },
+    {
+      "name": "n8-seed14-p20",
+      "n": 8,
+      "seed": 14,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed14-p20.json",
+      "case_id": "950828f2f48c656f58561ebc7e6b0df1d7d32bf48d83dd87f9714258308516f4"
+    },
+    {
+      "name": "n8-seed14-p40",
+      "n": 8,
+      "seed": 14,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed14-p40.json",
+      "case_id": "a378ebe27347d0ad821ec6aae0e3df853af0fac990e20d12f802b70b188f7d1a"
+    },
+    {
+      "name": "n8-seed15-p20",
+      "n": 8,
+      "seed": 15,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed15-p20.json",
+      "case_id": "08a5876a09284d97ae9f725991ed619cc64244e44d79dcb4e96d70e9e1820303"
+    },
+    {
+      "name": "n8-seed15-p40",
+      "n": 8,
+      "seed": 15,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed15-p40.json",
+      "case_id": "a919ef6f86dc1d2499c18570b52f5a7410fb75ab4c967bd1ccabf32ba677cf8f"
+    },
+    {
+      "name": "n8-seed16-p20",
+      "n": 8,
+      "seed": 16,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed16-p20.json",
+      "case_id": "7dd9612a4a9b26692016079406a56597b795e389d53430f7c3f85f9fa0d9476b"
+    },
+    {
+      "name": "n8-seed16-p40",
+      "n": 8,
+      "seed": 16,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed16-p40.json",
+      "case_id": "9496f313c740e732e01cc0b08fb011362527f93cc5111bb5f30fa6971cbd2358"
+    },
+    {
+      "name": "n8-seed17-p20",
+      "n": 8,
+      "seed": 17,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed17-p20.json",
+      "case_id": "8269ea2dff1df374568d30f33577cc6beba0d7486d15b786bad5b08acccff7f4"
+    },
+    {
+      "name": "n8-seed17-p40",
+      "n": 8,
+      "seed": 17,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed17-p40.json",
+      "case_id": "10f7702187f62f462ef35cc5a567223ff9301875f9d807c66b7a7c2bbed7de8c"
+    },
+    {
+      "name": "n8-seed18-p20",
+      "n": 8,
+      "seed": 18,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed18-p20.json",
+      "case_id": "5e5dc48c3567c898acbb521b589b65dc744459a130070af6041c7dea465dcc66"
+    },
+    {
+      "name": "n8-seed18-p40",
+      "n": 8,
+      "seed": 18,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed18-p40.json",
+      "case_id": "20938f66d87f1e15ff51ec57f297d151abbfb094bd27a67a3d96d0f8ea8b9d0d"
+    },
+    {
+      "name": "n8-seed19-p20",
+      "n": 8,
+      "seed": 19,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed19-p20.json",
+      "case_id": "4323d6c59b1a259daac1e3de5243bff676dd2d02922eee4e88db18e635b54774"
+    },
+    {
+      "name": "n8-seed19-p40",
+      "n": 8,
+      "seed": 19,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed19-p40.json",
+      "case_id": "98ab2090ebefbae4ec3492c03d1155877e779d1fe80e741f960f70b240e1e25f"
+    },
+    {
+      "name": "n8-seed20-p20",
+      "n": 8,
+      "seed": 20,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n8-seed20-p20.json",
+      "case_id": "95a4a8711dc76e261586db5c8a15117fd9d292d71c0ce62dd939e9bd12d386ea"
+    },
+    {
+      "name": "n8-seed20-p40",
+      "n": 8,
+      "seed": 20,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n8-seed20-p40.json",
+      "case_id": "cd907a3bb863818ee58454fb491b699b515ae5059dc8010d9d47588785a27c90"
+    },
+    {
+      "name": "n10-seed6-p20",
+      "n": 10,
+      "seed": 6,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n10-seed6-p20.json",
+      "case_id": "98f3271d49b4980cd020dd9fac0a9ecf7da9794ba71bf22a5f7769f963447939"
+    },
+    {
+      "name": "n10-seed6-p40",
+      "n": 10,
+      "seed": 6,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n10-seed6-p40.json",
+      "case_id": "3d0c5498deff14bef40ab09bccc7b1047ef95e6aade8286d57f648d2cca923fa"
+    },
+    {
+      "name": "n10-seed7-p20",
+      "n": 10,
+      "seed": 7,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n10-seed7-p20.json",
+      "case_id": "837119911347abccd68196d80b3707e245fa3c501134be2bc2f08fe29d7a2389"
+    },
+    {
+      "name": "n10-seed7-p40",
+      "n": 10,
+      "seed": 7,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n10-seed7-p40.json",
+      "case_id": "5fd7155127881584d609974fe507ad19e684f62ec39689b12a6f7122ffceb9a2"
+    },
+    {
+      "name": "n10-seed8-p20",
+      "n": 10,
+      "seed": 8,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n10-seed8-p20.json",
+      "case_id": "9dca44fdddcc37be032e9d31cadb1609069ac57857491e7466e210c6ce424304"
+    },
+    {
+      "name": "n10-seed8-p40",
+      "n": 10,
+      "seed": 8,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n10-seed8-p40.json",
+      "case_id": "395f5e5e523b23ade42325d1c7f05ac33db22f53030da4b2511186fa8491e0af"
+    },
+    {
+      "name": "n10-seed9-p20",
+      "n": 10,
+      "seed": 9,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n10-seed9-p20.json",
+      "case_id": "2407366f2fb9dc73d0276c651d59b7ea582b1e42b4e2d4bbde395339e6a6c1c9"
+    },
+    {
+      "name": "n10-seed9-p40",
+      "n": 10,
+      "seed": 9,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n10-seed9-p40.json",
+      "case_id": "3432f4c4b6f94d6b169c44fc836e5217b795f6485ee1f5051fbf7f3dbad25d1c"
+    },
+    {
+      "name": "n10-seed10-p20",
+      "n": 10,
+      "seed": 10,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n10-seed10-p20.json",
+      "case_id": "63f6620c8d2b370444c3c6d41e20974c01e2be805244b61d56fd982e1b5060f4"
+    },
+    {
+      "name": "n10-seed10-p40",
+      "n": 10,
+      "seed": 10,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n10-seed10-p40.json",
+      "case_id": "66c9fb2776ef200e20566c5ec8c03dd69be95c78694bbb414f9a96b7e05873fa"
+    },
+    {
+      "name": "n12-seed6-p20",
+      "n": 12,
+      "seed": 6,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n12-seed6-p20.json",
+      "case_id": "a2aec8bcbe725ec4d9ba5c013622de5c093a7953f9361f86a059b7c386ee70a6"
+    },
+    {
+      "name": "n12-seed6-p40",
+      "n": 12,
+      "seed": 6,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n12-seed6-p40.json",
+      "case_id": "04a1f056da8732311ac2f785f47de55024f3d5732842c4a12d8c8747b58788da"
+    }
+  ],
+  "methods": [
+    {
+      "method": "degree",
+      "path": "results/agent-study/2026-11-22/agent-1/degree.py",
+      "sha256": "615d147292e12056c35bfa66cbf3b0a50bce8863c0beb4fe803901f10d670fb9"
+    },
+    {
+      "method": "betweenness",
+      "path": "results/agent-study/2026-11-22/agent-1/betweenness.py",
+      "sha256": "c6bfe7ff8b87327108e237d9150b1cc009461b2642997238014f90cb4cbbdaca"
+    },
+    {
+      "method": "demand_single",
+      "path": "results/agent-study/2026-11-22/agent-2/ablation_single.py",
+      "sha256": "fd6527b36c7b5009ccdbada76e004ce272152eeabb67c32f04bbea7e09aef722"
+    },
+    {
+      "method": "demand_bundle",
+      "path": "results/agent-study/2026-11-22/agent-2/submission.py",
+      "sha256": "3e58b54da8a975fc5cda770a1c7bdc656d7fa96133a7ca14058a31b6595d3fe5"
+    },
+    {
+      "method": "connectivity_greedy",
+      "path": "results/agent-study/2026-11-22/agent-3/greedy.py",
+      "sha256": "b55bfd051b8857d1c3b28c8cba2e228e92b3af9e45030150df242bc1c4383f8a"
+    },
+    {
+      "method": "local_search",
+      "path": "results/agent-study/2026-11-22/agent-3/local_search.py",
+      "sha256": "87f09ef22e2795ba7a109654fd20720a256731e019faf1c6702307d54bf38f3a"
+    }
+  ],
+  "execution": {
+    "runs_per_case": 1,
+    "algorithm_seed": null,
+    "wall_seconds": 10,
+    "address_space_bytes_per_process": 512000000,
+    "cpu_affinity_count": 1,
+    "cpu_threads": 1,
+    "input": "standard input without reference",
+    "note": "local subprocess and RLIMIT_AS, different from web cgroup RSS and isolation"
+  },
+  "predefined_contrasts": [
+    [
+      "betweenness",
+      "degree"
+    ],
+    [
+      "demand_bundle",
+      "degree"
+    ],
+    [
+      "local_search",
+      "connectivity_greedy"
+    ],
+    [
+      "demand_bundle",
+      "demand_single"
+    ]
+  ],
+  "outcomes": [
+    "completed/failure",
+    "lexicographic wins/ties/losses",
+    "connected pairs",
+    "delivery units when connected pairs equal",
+    "optimal score match",
+    "canonical optimum match",
+    "submission wall time",
+    "official evaluation time"
+  ],
+  "analysis": {
+    "primary_sizes": [
+      6,
+      8,
+      10
+    ],
+    "exploratory_sizes": [
+      12
+    ],
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20261124,
+    "resampling_unit": "graph with both budgets",
+    "strata": "node count",
+    "interval": "descriptive percentile 95%, no adjusted significance test",
+    "missing": "all attempted rows preserved, comparisons use jointly completed pairs"
+  },
+  "restrictions": [
+    "synthetic bank filtered for certified completeness",
+    "reference is public, not a blinded benchmark",
+    "fixed AI-generated strategies are not evidence of individual coursework contribution",
+    "web resource metrics are not directly comparable to local process measurements"
+  ]
+}

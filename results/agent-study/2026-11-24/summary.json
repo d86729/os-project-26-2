@@ -1,0 +1,206 @@
+{
+  "primary": {
+    "n6_graphs": 25,
+    "n8_graphs": 15,
+    "n10_graphs": 5,
+    "graphs": 45,
+    "cases": 90,
+    "methods": {
+      "degree": {
+        "attempted": 90,
+        "completed": 90,
+        "failed": 0,
+        "matched_reference_score": 14,
+        "matched_reference_edges": 13,
+        "matched_reference_connectivity": 39,
+        "mean_connected_ratio": 0.672389770723104,
+        "median_submission_seconds": 0.04097820897004567,
+        "median_evaluation_seconds": 0.020238304015947506
+      },
+      "betweenness": {
+        "attempted": 90,
+        "completed": 90,
+        "failed": 0,
+        "matched_reference_score": 19,
+        "matched_reference_edges": 14,
+        "matched_reference_connectivity": 48,
+        "mean_connected_ratio": 0.7055202821869488,
+        "median_submission_seconds": 0.041834937495877966,
+        "median_evaluation_seconds": 0.021103655482875183
+      },
+      "demand_single": {
+        "attempted": 90,
+        "completed": 90,
+        "failed": 0,
+        "matched_reference_score": 39,
+        "matched_reference_edges": 33,
+        "matched_reference_connectivity": 76,
+        "mean_connected_ratio": 0.792037037037037,
+        "median_submission_seconds": 0.05206106146215461,
+        "median_evaluation_seconds": 0.04710531546152197
+      },
+      "demand_bundle": {
+        "attempted": 90,
+        "completed": 90,
+        "failed": 0,
+        "matched_reference_score": 39,
+        "matched_reference_edges": 33,
+        "matched_reference_connectivity": 77,
+        "mean_connected_ratio": 0.7942592592592592,
+        "median_submission_seconds": 0.05823360849171877,
+        "median_evaluation_seconds": 0.04638766552670859
+      },
+      "connectivity_greedy": {
+        "attempted": 90,
+        "completed": 90,
+        "failed": 0,
+        "matched_reference_score": 21,
+        "matched_reference_edges": 8,
+        "matched_reference_connectivity": 51,
+        "mean_connected_ratio": 0.7163139329805996,
+        "median_submission_seconds": 0.03929643947049044,
+        "median_evaluation_seconds": 0.022320904477965087
+      },
+      "local_search": {
+        "attempted": 90,
+        "completed": 90,
+        "failed": 0,
+        "matched_reference_score": 31,
+        "matched_reference_edges": 16,
+        "matched_reference_connectivity": 66,
+        "mean_connected_ratio": 0.7614991181657849,
+        "median_submission_seconds": 0.0392927854845766,
+        "median_evaluation_seconds": 0.03457010799320415
+      }
+    },
+    "contrasts": [
+      {
+        "left": "betweenness",
+        "right": "degree",
+        "n": null,
+        "budget_percent": null,
+        "paired_cases": 90,
+        "jointly_completed": 90,
+        "wins": 29,
+        "ties": 48,
+        "losses": 13,
+        "mean_connected_pp": 3.31305114638448,
+        "equal_connected_pairs": 62,
+        "mean_delivery_pp_if_equal": 1.4050967741935485,
+        "mean_time_diff_seconds": 0.0009135080488502152,
+        "net_win_fraction": 0.17777777777777778,
+        "win_95pct_cluster_interval": [
+          0.044444444444444446,
+          0.3111111111111111
+        ],
+        "connected_pp_95pct_cluster_interval": [
+          0.7300485008818344,
+          6.031040564373896
+        ],
+        "delivery_pp_95pct_cluster_interval": [
+          -0.44064041666666665,
+          3.355292770161289
+        ]
+      },
+      {
+        "left": "demand_bundle",
+        "right": "degree",
+        "n": null,
+        "budget_percent": null,
+        "paired_cases": 90,
+        "jointly_completed": 90,
+        "wins": 59,
+        "ties": 21,
+        "losses": 10,
+        "mean_connected_pp": 12.18694885361552,
+        "equal_connected_pairs": 43,
+        "mean_delivery_pp_if_equal": 8.417176744186046,
+        "mean_time_diff_seconds": 0.027810084122595273,
+        "net_win_fraction": 0.5444444444444444,
+        "win_95pct_cluster_interval": [
+          0.4,
+          0.6777777777777778
+        ],
+        "connected_pp_95pct_cluster_interval": [
+          9.24861111111111,
+          14.977976190476191
+        ],
+        "delivery_pp_95pct_cluster_interval": [
+          3.181017375,
+          14.055415866368284
+        ]
+      },
+      {
+        "left": "local_search",
+        "right": "connectivity_greedy",
+        "n": null,
+        "budget_percent": null,
+        "paired_cases": 90,
+        "jointly_completed": 90,
+        "wins": 25,
+        "ties": 59,
+        "losses": 6,
+        "mean_connected_pp": 4.518518518518518,
+        "equal_connected_pairs": 75,
+        "mean_delivery_pp_if_equal": 1.6498373333333334,
+        "mean_time_diff_seconds": 0.00019887707765317626,
+        "net_win_fraction": 0.2111111111111111,
+        "win_95pct_cluster_interval": [
+          0.1,
+          0.32222222222222224
+        ],
+        "connected_pp_95pct_cluster_interval": [
+          2.5925925925925926,
+          6.611111111111111
+        ],
+        "delivery_pp_95pct_cluster_interval": [
+          -0.1891936677631579,
+          3.8594548164383555
+        ]
+      },
+      {
+        "left": "demand_bundle",
+        "right": "demand_single",
+        "n": null,
+        "budget_percent": null,
+        "paired_cases": 90,
+        "jointly_completed": 90,
+        "wins": 4,
+        "ties": 85,
+        "losses": 1,
+        "mean_connected_pp": 0.22222222222222218,
+        "equal_connected_pairs": 89,
+        "mean_delivery_pp_if_equal": 0.34416404494382025,
+        "mean_time_diff_seconds": 0.011024217696265421,
+        "net_win_fraction": 0.03333333333333333,
+        "win_95pct_cluster_interval": [
+          0.0,
+          0.07777777777777778
+        ],
+        "connected_pp_95pct_cluster_interval": [
+          0.0,
+          0.6666666666666665
+        ],
+        "delivery_pp_95pct_cluster_interval": [
+          0.0,
+          0.8554735632183907
+        ]
+      }
+    ]
+  },
+  "exploratory_n12": {
+    "graphs": 1,
+    "cases": 2,
+    "note": "한 그래프만 있어 별도 기술"
+  },
+  "notes": [
+    "synthetic bank filtered for certified completeness",
+    "reference is public, not a blinded benchmark",
+    "fixed AI-generated strategies are not evidence of individual coursework contribution",
+    "web resource metrics are not directly comparable to local process measurements",
+    "Graph-cluster 95% intervals are descriptive and preserve both budgets.",
+    "Delivery pp differences are conditional on equal connected pairs.",
+    "No adjusted hypothesis testing or ranking by unplanned comparisons.",
+    "Local process time differs from cgroup web timing."
+  ]
+}
