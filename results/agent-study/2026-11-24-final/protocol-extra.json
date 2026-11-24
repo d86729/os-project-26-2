@@ -1,0 +1,103 @@
+{
+  "registered_at_utc": "2026-11-24T11:54:54.413274+00:00",
+  "purpose": "새로 인증한 네 사례의 별도 추가 확인; 기존 20사례 본 분석에 합산하지 않음",
+  "cases": [
+    {
+      "name": "n12-seed377415534-p20",
+      "n": 12,
+      "seed": 377415534,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n12-seed377415534-p20.json",
+      "case_id": "13efb1d8045d28e7560926135e408ed1a510c9369c785c99c0988853785e06e5",
+      "stdin_sha256": "fdc5a911fed3e83078c98626b77b87af05bb56765acad42de8d2c4a8f14b6cdf"
+    },
+    {
+      "name": "n12-seed377415534-p40",
+      "n": 12,
+      "seed": 377415534,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n12-seed377415534-p40.json",
+      "case_id": "19c25496a0c32129a25b0130cdb5820d7200ff5bf8d0d59530c5bf96299e8927",
+      "stdin_sha256": "e08caf9d9e5f63f314d59dafb10403e2a2372b41824694a580bfb03b452a329a"
+    },
+    {
+      "name": "n12-seed1938855539-p20",
+      "n": 12,
+      "seed": 1938855539,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n12-seed1938855539-p20.json",
+      "case_id": "ddb4841355b929c9ddfa80367fa40185f277b107b3d835cdbaa412b6193a8e03",
+      "stdin_sha256": "5ca95ed3bc683e95643a7f5ae0cf68109bfc971d9b25b939f9d38e5c3aa0f02f"
+    },
+    {
+      "name": "n12-seed1938855539-p40",
+      "n": 12,
+      "seed": 1938855539,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n12-seed1938855539-p40.json",
+      "case_id": "10218efc26b7756b7076b78d3c233eb6b7ec7cfe32f3eb28a179b5de1c54cf96",
+      "stdin_sha256": "a4516c8aa3d87ce507285d6211a07f3e53cd0d8009f51bcaa26e11ab0715ada1"
+    }
+  ],
+  "methods": [
+    {
+      "method": "degree",
+      "path": "results/agent-study/2026-11-22/agent-1/degree.py",
+      "sha256": "615d147292e12056c35bfa66cbf3b0a50bce8863c0beb4fe803901f10d670fb9"
+    },
+    {
+      "method": "betweenness",
+      "path": "results/agent-study/2026-11-22/agent-1/betweenness.py",
+      "sha256": "c6bfe7ff8b87327108e237d9150b1cc009461b2642997238014f90cb4cbbdaca"
+    },
+    {
+      "method": "demand_single",
+      "path": "results/agent-study/2026-11-22/agent-2/ablation_single.py",
+      "sha256": "fd6527b36c7b5009ccdbada76e004ce272152eeabb67c32f04bbea7e09aef722"
+    },
+    {
+      "method": "demand_bundle",
+      "path": "results/agent-study/2026-11-22/agent-2/submission.py",
+      "sha256": "3e58b54da8a975fc5cda770a1c7bdc656d7fa96133a7ca14058a31b6595d3fe5"
+    },
+    {
+      "method": "connectivity_greedy",
+      "path": "results/agent-study/2026-11-22/agent-3/greedy.py",
+      "sha256": "b55bfd051b8857d1c3b28c8cba2e228e92b3af9e45030150df242bc1c4383f8a"
+    },
+    {
+      "method": "local_search",
+      "path": "results/agent-study/2026-11-22/agent-3/local_search.py",
+      "sha256": "87f09ef22e2795ba7a109654fd20720a256731e019faf1c6702307d54bf38f3a"
+    }
+  ],
+  "execution": {
+    "wall_seconds_per_run": 300,
+    "memory_bytes_per_process": 6000000000,
+    "cpu_cores": 1,
+    "randomness": "결정적 방법 각 1회",
+    "implementation": "local subprocess and RLIMIT_AS, not web cgroup",
+    "score_after_submission": true,
+    "hard_stop_kst": "2026-11-24T23:35:00+09:00"
+  },
+  "predefined_contrasts": [
+    [
+      "betweenness",
+      "degree"
+    ],
+    [
+      "demand_bundle",
+      "demand_single"
+    ],
+    [
+      "local_search",
+      "connectivity_greedy"
+    ],
+    [
+      "demand_bundle",
+      "degree"
+    ]
+  ],
+  "selection": "사전 고정 시드 2개에 대한 인증 성공 여부만으로 선택; 성적 무관",
+  "graph_cluster": "동일 그래프의 두 예산을 묶어 해석"
+}
