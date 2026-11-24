@@ -49,18 +49,18 @@ def grading_lock():
         yield
 
 
-def scenario_input(bundle, seed=None):
+def scenario_input(bundle):
     """문제 본문의 줄 순서로 입력을 만든다. 최적해와 실행 환경 기록은 전달하지 않는다."""
     scenario = bundle.scenario
     attacks = prepare_attacks(scenario).candidates
     rows = [
         (len(scenario.nodes), len(scenario.edges), len(scenario.demands), len(attacks)),
-        (bundle.budget, bundle.budget_percent, scenario.seed, -1 if seed is None else seed),
+        (bundle.budget,),
     ]
     rows.extend((node.x, node.y) for node in scenario.nodes)
-    rows.extend((e.id, e.u, e.v, e.capacity_mbps, e.cost) for e in scenario.edges)
-    rows.extend((d.id, d.source, d.target, d.amount_mbps) for d in scenario.demands)
-    rows.extend((a.id, a.x, a.y, len(a.damaged_edge_ids), *a.damaged_edge_ids) for a in attacks)
+    rows.extend((e.u, e.v, e.capacity_mbps, e.cost) for e in scenario.edges)
+    rows.extend((d.source, d.target, d.amount_mbps) for d in scenario.demands)
+    rows.extend((a.x, a.y, len(a.damaged_edge_ids), *a.damaged_edge_ids) for a in attacks)
     return ('\n'.join(' '.join(map(str, row)) for row in rows) + '\n').encode('ascii')
 
 
@@ -145,7 +145,7 @@ def capture(process, deadline, cancelled, kill):
     return 'exit', bytes(stdout), bytes(stderr)
 
 
-def execute_program(bundle, source, seconds, memory_bytes, seed, cancelled):
+def execute_program(bundle, source, seconds, memory_bytes, cancelled):
     root = scope_root()
     group = root / ('submission-' + uuid.uuid4().hex)
     group.mkdir()
@@ -164,7 +164,7 @@ def execute_program(bundle, source, seconds, memory_bytes, seed, cancelled):
             source_path = Path(temporary, 'submission.py')
             source_path.write_bytes(source)
             with tempfile.TemporaryFile() as input_file:
-                input_file.write(scenario_input(bundle, seed))
+                input_file.write(scenario_input(bundle))
                 input_file.seek(0)
                 started = time.monotonic()
                 process = subprocess.Popen(
@@ -203,7 +203,7 @@ def execute_program(bundle, source, seconds, memory_bytes, seed, cancelled):
 
 
 def grade_program(bundle, source, *, seconds=MAX_SECONDS, memory_bytes=MAX_MEMORY_BYTES,
-                  seed=None, repeat_index=0, repeat_count=1, method='member_1', run_kind='smoke',
+                  method='member_1', run_kind='smoke',
                   cancelled=lambda: False):
     """제출 실행과 공식 점수 계산을 분리해 성공한 출력에만 점수를 부여한다."""
     if not 1 <= seconds <= MAX_SECONDS or not MIN_MEMORY_MB * 1_000_000 <= memory_bytes <= MAX_MEMORY_BYTES:
@@ -213,8 +213,7 @@ def grade_program(bundle, source, *, seconds=MAX_SECONDS, memory_bytes=MAX_MEMOR
     condition = ExperimentCondition(bundle.scenario.scenario_id, bundle.budget_percent,
                                     bundle.budget, method, seconds, memory_bytes)
     base = dict(run_id=uuid.uuid4().hex, condition=condition, case_id=bundle.case_id,
-                algorithm_memory_limit_bytes=memory_bytes, algorithm_seed=seed,
-                repeat_index=repeat_index, repeat_count=repeat_count, run_kind=run_kind,
+                algorithm_memory_limit_bytes=memory_bytes, run_kind=run_kind,
                 policy_version=bundle.scenario.evaluation_policy.version,
                 submission_sha256=hashlib.sha256(source).hexdigest(),
                 environment=tuple((key, json.dumps(value, sort_keys=True))
@@ -224,7 +223,7 @@ def grade_program(bundle, source, *, seconds=MAX_SECONDS, memory_bytes=MAX_MEMOR
     try:
         if cancelled():
             return RunRecord(**base, status='failed', termination_reason='cancelled')
-        reason, output, elapsed, peak, diagnostics = execute_program(bundle, source, seconds, memory_bytes, seed, cancelled)
+        reason, output, elapsed, peak, diagnostics = execute_program(bundle, source, seconds, memory_bytes, cancelled)
     except (OSError, RuntimeError, subprocess.SubprocessError) as error:
         return RunRecord(**base, status='failed', termination_reason='environment_blocked',
                          error_type=type(error).__name__, error_message=str(error))

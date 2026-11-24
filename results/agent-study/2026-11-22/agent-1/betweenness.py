@@ -1,68 +1,59 @@
-"""AI research draft, agent 1: exact unweighted edge-betweenness per cost.
-
-Brandes (2001), Journal of Mathematical Sociology 25(2):163-177,
-doi:10.1080/0022250X.2001.9990249 motivates dependency accumulation.
-Independently written edge accumulation, with Fraction to make ties exact.
-This ranks a protection heuristic; it does not solve robust flow optimization.
-Deliberately ignore demands and attacks to isolate structural centrality.
-"""
-from collections import deque
+"""간선 매개중심성/비용 기준선. AI 보조 초안이다."""
 from fractions import Fraction
 import sys
 
 
-def read_problem(stream):
-    n, m, d, a = map(int, stream.readline().split())
-    budget = int(stream.readline().split()[0])
+def solve():
+    n, m, demand_count, attack_count = map(int, sys.stdin.readline().split())
+    budget = int(sys.stdin.readline().split()[0])
     for _ in range(n):
-        x, y = map(float, stream.readline().split())
-    edges = [tuple(map(int, stream.readline().split())) for _ in range(m)]
-    for _ in range(d + a):
-        stream.readline()
-    return n, edges, budget
+        sys.stdin.readline()
+    edges = []
+    for edge_id in range(m):
+        start, end, capacity, cost = map(int, sys.stdin.readline().split())
+        edges.append((edge_id, start, end, capacity, cost))
+    for _ in range(demand_count + attack_count):
+        sys.stdin.readline()
 
-
-def centrality(n, edges):
     adjacent = [[] for _ in range(n)]
-    result = {e[0]: Fraction(0) for e in edges}
-    for eid, u, v, capacity, cost in edges:
-        adjacent[u].append((v, eid))
-        adjacent[v].append((u, eid))
+    importance = [Fraction(0) for _ in edges]
+    for edge_id, start, end, capacity, cost in edges:
+        adjacent[start].append((end, edge_id))
+        adjacent[end].append((start, edge_id))
+
+    # 각 기지에서 최단 경로를 찾고, 경로 기여도를 역순으로 더한다.
     for source in range(n):
-        predecessors = [[] for _ in range(n)]
+        previous = [[] for _ in range(n)]
         distance, paths = [-1] * n, [0] * n
         distance[source], paths[source] = 0, 1
-        queue, order = deque([source]), []
-        while queue:
-            u = queue.popleft()
-            order.append(u)
-            for v, eid in adjacent[u]:
-                if distance[v] == -1:
-                    distance[v] = distance[u] + 1
-                    queue.append(v)
-                if distance[v] == distance[u] + 1:
-                    paths[v] += paths[u]
-                    predecessors[v].append((u, eid))
+        queue = [source]
+        for node in queue:
+            for neighbor, edge_id in adjacent[node]:
+                if distance[neighbor] == -1:
+                    distance[neighbor] = distance[node] + 1
+                    queue.append(neighbor)
+                if distance[neighbor] == distance[node] + 1:
+                    paths[neighbor] += paths[node]
+                    previous[neighbor].append((node, edge_id))
         dependency = [Fraction(0) for _ in range(n)]
-        for v in reversed(order):
-            for u, eid in predecessors[v]:
-                contribution = Fraction(paths[u], paths[v]) * (1 + dependency[v])
-                result[eid] += contribution
-                dependency[u] += contribution
-    return {eid: value / 2 for eid, value in result.items()}
+        for node in reversed(queue):
+            for parent, edge_id in previous[node]:
+                part = Fraction(paths[parent], paths[node]) * (1 + dependency[node])
+                importance[edge_id] += part
+                dependency[parent] += part
 
+    def priority(edge):
+        edge_id, start, end, capacity, cost = edge
+        return (-importance[edge_id] / cost, cost, edge_id)
 
-def select(n, edges, budget):
-    values = centrality(n, edges)
-    order = sorted(edges, key=lambda e: (-values[e[0]] / e[4], e[4], e[0]))
-    chosen = []
-    for eid, u, v, capacity, cost in order:
+    selected = []
+    for edge_id, start, end, capacity, cost in sorted(edges, key=priority):
         if cost <= budget:
-            chosen.append(eid)
+            selected.append(edge_id)
             budget -= cost
-    return sorted(chosen)
+    return sorted(selected)
 
 
 if __name__ == '__main__':
-    answer = select(*read_problem(sys.stdin))
+    answer = solve()
     print(len(answer), *answer)

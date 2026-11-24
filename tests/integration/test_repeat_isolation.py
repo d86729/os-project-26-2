@@ -1,50 +1,36 @@
-from protection.models import ScenarioBundle, save_bundle, ExperimentManifest
+"""같은 문제를 재제출해도 매번 새로운 실행이 된다."""
+from protection.models import ExperimentManifest, ScenarioBundle, save_bundle
 from protection.runner import grade_manifest
 
 
-def manifest(tmp_path,path_scenario,random=True):
-    bundle=ScenarioBundle(path_scenario,40,4)
-    save_bundle(bundle,tmp_path/'case.json')
-    file=tmp_path/'one.py'
-    file.write_text(
-        'from pathlib import Path\nimport sys\n'
-        'sys.stdin.readline()\n'
-        'seed = int(sys.stdin.readline().split()[-1])\n'
-        'assert seed in (-1, 11, 22, 33, 44, 55)\n'
+def manifest(tmp_path, scenario):
+    bundle = ScenarioBundle(scenario, 40, 4)
+    save_bundle(bundle, tmp_path / 'case.json')
+    (tmp_path / 'one.py').write_text(
+        'from pathlib import Path\n'
         'with Path("/tmp/repeat-marker").open("x"): pass\n'
         'print(0)\n'
     )
-    d=dict(schema_version=1,kind='grading',run_kind='smoke',owners={'common':'test'},output_dir='out',
-        bank=[dict(path='case.json',case_id=bundle.case_id)],
-        submission=dict(method_id='member_1',file='one.py',uses_randomness=random,
-            algorithm_seeds=[11,22,33,44,55] if random else [],owner='test',strategy_name='test',strategy_version='0'),
-        limits=dict(algorithm_seconds=300,algorithm_memory_bytes=6000000000),resource_policy=dict(sample_interval_ms=10))
-    return ExperimentManifest.parse(d,tmp_path/'manifest.json')
+    data = dict(
+        schema_version=1, kind='grading', run_kind='smoke', owners={'common': 'test'},
+        output_dir='out', bank=[dict(path='case.json', case_id=bundle.case_id)],
+        submission=dict(method_id='member_1', file='one.py', owner='test',
+                        strategy_name='test', strategy_version='0'),
+        limits=dict(algorithm_seconds=300, algorithm_memory_bytes=6000000000),
+        resource_policy=dict(sample_interval_ms=10))
+    return ExperimentManifest.parse(data, tmp_path / 'manifest.json')
 
 
-def test_five_fresh_runs(path_scenario,tmp_path,monkeypatch):
-    m=manifest(tmp_path,path_scenario)
+def test_repeated_submissions_use_fresh_processes(path_scenario, tmp_path, monkeypatch):
+    plan = manifest(tmp_path, path_scenario)
     import protection.generation as generation
-    def forbidden(*a,**k): raise AssertionError('must not generate')
-    monkeypatch.setattr(generation,'generate_scenario',forbidden)
-    records=grade_manifest(m)
-    assert len(records)==5
-    assert [r.algorithm_seed for r in records]==[11,22,33,44,55]
-    assert all(r.status=='completed' for r in records)
-    assert len({r.run_id for r in records})==5
-    assert all(r.algorithm_vcpu_limit == 1 for r in records)
-
-
-def test_deterministic_and_continue(path_scenario,tmp_path):
-    m=manifest(tmp_path,path_scenario,False)
-    records=grade_manifest(m)
-    assert len(records)==1 and records[0].algorithm_seed is None
-    assert records[0].status=='completed'
-    d=m.to_dict();d['submission']['uses_randomness']=True;d['submission']['algorithm_seeds']=[11,22,33,44,55]
-    (tmp_path/'one.py').write_text(
-        'import sys\nsys.stdin.readline()\n'
-        'if int(sys.stdin.readline().split()[-1]) == 22: sys.exit(2)\n'
-        'print(0)\n'
-    )
-    records=grade_manifest(ExperimentManifest.parse(d,tmp_path/'manifest.json'))
-    assert [r.status for r in records]==['completed','failed','completed','completed','completed']
+    def forbidden(*args, **kwargs):
+        raise AssertionError('저장된 문제를 다시 생성하면 안 됩니다')
+    monkeypatch.setattr(generation, 'generate_scenario', forbidden)
+    first = grade_manifest(plan)
+    second = grade_manifest(plan)
+    assert len(first) == len(second) == 1
+    assert first[0].status == second[0].status == 'completed'
+    assert first[0].run_id != second[0].run_id
+    assert first[0].case_id == second[0].case_id
+    assert first[0].algorithm_vcpu_limit == second[0].algorithm_vcpu_limit == 1

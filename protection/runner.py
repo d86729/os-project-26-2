@@ -77,7 +77,7 @@ def validate_environment(output: str) -> dict:
 
 
 def grade_manifest(manifest):
-    """저장된 사례와 반복 시드로 웹과 같은 채점기를 로컬에서 실행한다."""
+    """저장된 각 사례를 한 번씩 웹과 같은 채점기로 실행한다."""
     from protection.program import grade_program, grading_lock
 
     if not isinstance(manifest, ExperimentManifest):
@@ -95,12 +95,10 @@ def grade_manifest(manifest):
         bundle = load_bundle(entry['path'], require_reference=data['run_kind'] == 'main')
         require(bundle.case_id == entry['case_id'], 'bank case_id mismatch')
         bank.append(bundle)
-    seeds = submission['algorithm_seeds'] if submission['uses_randomness'] else [None]
     with grading_lock():
-        return [grade_program(bundle, source, seed=seed, repeat_index=index,
-                              repeat_count=len(seeds), method=submission['method_id'],
+        return [grade_program(bundle, source, method=submission['method_id'],
                               run_kind=data['run_kind'])
-                for bundle in bank for index, seed in enumerate(seeds)]
+                for bundle in bank]
 
 
 

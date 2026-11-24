@@ -3,21 +3,32 @@
   "kind": "grading",
   "run_kind": "smoke",
   "ready": false,
-  "owners": {"common": "김대건"},
+  "owners": {
+    "common": "김대건"
+  },
   "bank": [
-    {"path": "../scenarios/problem-bank/bundles/n6-seed0-p20.json", "case_id": "f4cba3df80746adb545b1cd8897fdaf5ad4dc31c7e0846353eff91d3e9298704"},
-    {"path": "../scenarios/problem-bank/bundles/n6-seed0-p40.json", "case_id": "005e377cb7b23c1e700cf5ff540b7ad73f078e790d4f3e136d7c017994090a71"}
+    {
+      "path": "../scenarios/problem-bank/bundles/n6-seed0-p20.json",
+      "case_id": "f4cba3df80746adb545b1cd8897fdaf5ad4dc31c7e0846353eff91d3e9298704"
+    },
+    {
+      "path": "../scenarios/problem-bank/bundles/n6-seed0-p40.json",
+      "case_id": "005e377cb7b23c1e700cf5ff540b7ad73f078e790d4f3e136d7c017994090a71"
+    }
   ],
   "submission": {
     "method_id": "member_1",
     "file": "../submission.py",
-    "uses_randomness": false,
-    "algorithm_seeds": [],
     "owner": "팀원 1 (실명 미제출)",
     "strategy_name": "미구현",
     "strategy_version": "not-submitted"
   },
-  "limits": {"algorithm_seconds": 300, "algorithm_memory_bytes": 6000000000},
-  "resource_policy": {"sample_interval_ms": 10},
+  "limits": {
+    "algorithm_seconds": 300,
+    "algorithm_memory_bytes": 6000000000
+  },
+  "resource_policy": {
+    "sample_interval_ms": 10
+  },
   "output_dir": "../results/smoke/member_1"
 }

@@ -1,13 +1,4 @@
-"""AI research draft, agent 2, 2026-11-22. Demand-path repair bundles.
-
-stdin/stdout contract: protection web judge, nodes have x y only.
-No precomputed instance answers or optimal-reference data are used.
-The surrogate uses reachability, NOT capacity-constrained delivery.
-At each iteration choose repair bundle with largest lexicographic gain/cost:
-(worst connected pairs, worst reachable demand, mean reachable demand).
-Compare ablation_single.py to isolate the candidate-bundle mechanism.
-"""
-import heapq
+"""수요 경로 기반 방호 전략. AI 보조 초안이다."""
 import sys
 
 USE_PATH_BUNDLES = True
@@ -15,23 +6,22 @@ USE_PATH_BUNDLES = True
 
 def read_problem(stream):
     n, m, d, a = map(int, stream.readline().split())
-    budget, percent, problem_seed, algorithm_seed = map(int, stream.readline().split())
+    budget = int(stream.readline())
     for _ in range(n):
         x, y = map(float, stream.readline().split())
     edges = []
     for _ in range(m):
-        eid, u, v, capacity, cost = map(int, stream.readline().split())
-        assert eid == len(edges)
+        u, v, capacity, cost = map(int, stream.readline().split())
         edges.append((u, v, capacity, cost))
     demands = []
     for _ in range(d):
-        did, source, target, amount = map(int, stream.readline().split())
+        source, target, amount = map(int, stream.readline().split())
         demands.append((source, target, amount))
     attacks = []
     for _ in range(a):
         tokens = stream.readline().split()
-        count = int(tokens[3])
-        ids = frozenset(map(int, tokens[4:]))
+        count = int(tokens[2])
+        ids = set(map(int, tokens[3:]))
         assert len(ids) == count
         attacks.append(ids)
     return n, edges, demands, attacks, budget
@@ -56,16 +46,17 @@ def surrogate(n, edges, demands, attacks, chosen):
                 size[ru] += size[rv]
         pairs.append(sum(size[i] * (size[i] - 1) // 2 for i in range(n) if find(i) == i))
         reachable.append(sum(amount for s, t, amount in demands if find(s) == find(t)))
-    # Sum in the third component is proportional to mean for fixed attacks.
+    # 공격 수가 같으므로 합계와 평균은 같은 순서가 된다.
     return min(pairs), min(reachable), sum(reachable)
 
 
 def repair_paths(n, edges, demands, attacks, chosen, remaining):
-    """Cheapest additional protection path for each (attack, demand source)."""
+    """각 공격과 출발 기지에서 추가 방호 비용이 적은 경로를 찾는다."""
     adjacency = [[] for _ in range(n)]
     for eid, (u, v, _, cost) in enumerate(edges):
         adjacency[u].append((v, eid, cost))
         adjacency[v].append((u, eid, cost))
+    repairs = []
     sources = sorted({s for s, _, _ in demands})
     targets = {s: sorted({t for u, t, _ in demands if u == s}) for s in sources}
     for damaged in attacks:
@@ -75,7 +66,8 @@ def repair_paths(n, edges, demands, attacks, chosen, remaining):
             previous = [None] * n
             queue = [(0, 0, source)]
             while queue:
-                cost, hops, u = heapq.heappop(queue)
+                cost, hops, u = min(queue)
+                queue.remove((cost, hops, u))
                 if (cost, hops) != best[u]:
                     continue
                 for v, eid, price in adjacency[u]:
@@ -83,7 +75,7 @@ def repair_paths(n, edges, demands, attacks, chosen, remaining):
                     if candidate < best[v] and candidate[0] <= remaining:
                         best[v] = candidate
                         previous[v] = (u, eid)
-                        heapq.heappush(queue, (*candidate, v))
+                        queue.append((candidate[0], candidate[1], v))
             for target in targets[source]:
                 if best[target][0] > remaining:
                     continue
@@ -95,23 +87,25 @@ def repair_paths(n, edges, demands, attacks, chosen, remaining):
                         extra.add(eid)
                     v = u
                 if extra:
-                    yield frozenset(extra)
+                    repairs.append(tuple(sorted(extra)))
+
+    return repairs
 
 
 def solve(problem):
     n, edges, demands, attacks, budget = problem
-    chosen = frozenset()
+    chosen = set()
     remaining = budget
     current = surrogate(n, edges, demands, attacks, chosen)
     while True:
-        candidates = {frozenset([eid]) for eid, edge in enumerate(edges)
+        candidates = {(eid,) for eid, edge in enumerate(edges)
                       if eid not in chosen and edge[3] <= remaining}
         if USE_PATH_BUNDLES:
             candidates.update(repair_paths(n, edges, demands, attacks, chosen, remaining))
         best_key, best_candidate, best_value = None, None, None
-        for addition in sorted(candidates, key=lambda ids: tuple(sorted(ids))):
+        for addition in sorted(candidates):
             cost = sum(edges[eid][3] for eid in addition)
-            value = surrogate(n, edges, demands, attacks, chosen | addition)
+            value = surrogate(n, edges, demands, attacks, chosen | set(addition))
             if value <= current:
                 continue
             gain_per_cost = tuple((v - old) / cost for v, old in zip(value, current))
@@ -120,7 +114,7 @@ def solve(problem):
                 best_key, best_candidate, best_value = key, addition, value
         if best_candidate is None:
             break
-        chosen |= best_candidate
+        chosen.update(best_candidate)
         remaining -= sum(edges[eid][3] for eid in best_candidate)
         current = best_value
     return sorted(chosen)

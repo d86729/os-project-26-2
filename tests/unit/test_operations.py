@@ -60,7 +60,7 @@ def grading(tmp_path):
     return dict(schema_version=1,kind='grading',run_kind='main',owners={'common':'김대건'},
         bank=[{'path':'case.json','case_id':'a'*64}],output_dir=str(tmp_path/'out'),
         submission=dict(method_id='member_1',file='test_only.py',class_name='TestOnly',
-            uses_randomness=True,algorithm_seeds=[0,1,2,3,4],owner='Test Person',
+            owner='Test Person',
             strategy_name='test only',strategy_version='test'),
         limits=dict(algorithm_seconds=300,algorithm_memory_bytes=4000000000),
         resource_policy=dict(sample_interval_ms=10))
@@ -68,9 +68,7 @@ def grading(tmp_path):
 
 @pytest.mark.parametrize('mutation',[
     lambda d: d['bank'].append(dict(d['bank'][0])),
-    lambda d: d['submission'].update(algorithm_seeds=[0,1,2,3]),
-    lambda d: d['submission'].update(algorithm_seeds=[0,1,2,3,3]),
-    lambda d: d['submission'].update(algorithm_seeds=[0,1,2,3,True]),
+    lambda d: d['submission'].update(algorithm_seeds=[0]),
     lambda d: d['submission'].update(owner='팀원 1'),
 ])
 def test_main_grading_guard(tmp_path,mutation):

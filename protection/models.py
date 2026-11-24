@@ -613,14 +613,13 @@ class ExperimentManifest:
                 case_ids.add(entry['case_id'])
                 entry['path'] = path(entry['path'])
             s = d['submission']
-            keys(s, {'method_id', 'file', 'uses_randomness', 'algorithm_seeds', 'owner', 'strategy_name', 'strategy_version'}, {'class_name'})
+            keys(s, {'method_id', 'file', 'owner', 'strategy_name', 'strategy_version'},
+                 {'class_name'})
             for k in ('method_id', 'owner', 'strategy_name', 'strategy_version'):
                 require(type(s[k]) is str and bool(s[k].strip()), f'invalid {k}')
             require(s['method_id'] in ('member_1', 'member_2', 'member_3'), 'unknown member method')
             if 'class_name' in s:
                 require(type(s['class_name']) is str and s['class_name'].isidentifier(), 'invalid legacy class name')
-            require(type(s['uses_randomness']) is bool, 'randomness must be bool')
-            seeds(s['algorithm_seeds'], 5 if s['uses_randomness'] else 0)
             s['file'] = path(s['file'])
             keys(d['limits'], {'algorithm_seconds', 'algorithm_memory_bytes'})
             finite(d['limits']['algorithm_seconds'], 'algorithm seconds', 1)

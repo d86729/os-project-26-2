@@ -1,115 +1,105 @@
-"""AI research prototype: connectivity-profile greedy plus bounded exchanges.
-
-Reads only the published stdin; does not import the judge or use references.
-Maximize the sorted (ascending) connected-pair counts for distinct damage sets.
-Use sum of surviving capacities only as a tie breaker, not an LP flow estimate.
-Then prefer lower protection cost and lexicographically smaller edge IDs.
-Up to three best-improvement rounds examine add and one-out/one-in neighbors.
-This is a surrogate heuristic; official secondary delivery score may decrease.
-Inspired by deterministic iterative improvement in Vaessens, Aarts & Lenstra
-(1998), A local search template, DOI:10.1016/S0305-0548(97)00093-2.
-No optimality or approximation-ratio claim. Source written by Codex agent 3.
-"""
+"""공격 후 연결을 비교하는 탐욕·교환 전략. AI 보조 초안이다."""
 import sys
 
 IMPROVEMENT_ROUNDS = 0
 
 
-def solve(text):
-    rows = iter(text.splitlines())
-    n, m, d, a = map(int, next(rows).split())
-    budget = int(next(rows).split()[0])
+def solve():
+    n, m, demand_count, attack_count = map(int, sys.stdin.readline().split())
+    budget = int(sys.stdin.readline().split()[0])
     for _ in range(n):
-        next(rows)  # coordinates; the input already contains attack damage sets
-    edges = [tuple(map(int, next(rows).split())) for _ in range(m)]
-    for _ in range(d):
-        next(rows)  # demand amounts deliberately absent from this surrogate
-    damage = set()
-    for _ in range(a):
-        tokens = next(rows).split()
-        damage.add(sum(1 << int(e) for e in tokens[4:]))
-    damage = sorted(damage)
-    full = (1 << m) - 1
-    costs = [edge[4] for edge in edges]
+        sys.stdin.readline()
+    edges = []
+    for edge_id in range(m):
+        start, end, capacity, cost = map(int, sys.stdin.readline().split())
+        edges.append((edge_id, start, end, capacity, cost))
+    for _ in range(demand_count):
+        sys.stdin.readline()
+    attacks = []
+    for _ in range(attack_count):
+        line = sys.stdin.readline().split()
+        damaged = tuple(sorted(map(int, line[3:])))
+        if damaged not in attacks:
+            attacks.append(damaged)
+
     graph_cache = {}
     score_cache = {}
 
-    def graph_value(mask):
-        if mask in graph_cache:
-            return graph_cache[mask]
-        parent = list(range(n))
-        size = [1] * n
-        pairs = capacity = 0
+    def graph_value(remaining):
+        if remaining in graph_cache:
+            return graph_cache[remaining]
+        adjacent = [[] for _ in range(n)]
+        capacity = 0
+        for edge_id in remaining:
+            _, start, end, edge_capacity, _ = edges[edge_id]
+            adjacent[start].append(end)
+            adjacent[end].append(start)
+            capacity += edge_capacity
+        visited = [False] * n
+        pairs = 0
+        for start in range(n):
+            if visited[start]:
+                continue
+            visited[start] = True
+            stack = [start]
+            size = 0
+            while stack:
+                node = stack.pop()
+                size += 1
+                for neighbor in adjacent[node]:
+                    if not visited[neighbor]:
+                        visited[neighbor] = True
+                        stack.append(neighbor)
+            pairs += size * (size - 1) // 2
+        graph_cache[remaining] = (pairs, capacity)
+        return pairs, capacity
 
-        def find(x):
-            while parent[x] != x:
-                parent[x] = parent[parent[x]]
-                x = parent[x]
-            return x
+    def score(selected):
+        key = tuple(selected)
+        if key not in score_cache:
+            results = []
+            for damaged in attacks:
+                remaining = tuple(i for i in range(m) if i not in damaged or i in selected)
+                results.append(graph_value(remaining))
+            profile = tuple(sorted(pairs for pairs, capacity in results))
+            capacity_sum = sum(capacity for pairs, capacity in results)
+            cost = sum(edges[i][4] for i in selected)
+            score_cache[key] = (profile, capacity_sum, -cost)
+        return score_cache[key]
 
-        for eid, u, v, cap, _ in edges:
-            if mask & (1 << eid):
-                capacity += cap
-                u, v = find(u), find(v)
-                if u != v:
-                    if size[u] < size[v]:
-                        u, v = v, u
-                    pairs += size[u] * size[v]
-                    parent[v] = u
-                    size[u] += size[v]
-        result = pairs, capacity
-        graph_cache[mask] = result
-        return result
+    def better(candidate, current):
+        a, b = score(candidate), score(current)
+        return a > b or (a == b and tuple(candidate) < tuple(current))
 
-    def ids(mask):
-        return tuple(e for e in range(m) if mask & (1 << e))
-
-    def score(mask):
-        if mask not in score_cache:
-            values = [graph_value(full & ~(hit & ~mask)) for hit in damage]
-            chosen = ids(mask)
-            score_cache[mask] = (
-                tuple(sorted(pairs for pairs, _ in values)),
-                sum(cap for _, cap in values),
-                -sum(costs[e] for e in chosen),
-            )
-        return score_cache[mask]
-
-    def better(left, right):
-        return score(left) > score(right) or (score(left) == score(right) and ids(left) < ids(right))
-
-    selected = used = 0
-    # Greedy construction considers every affordable addition at each step.
+    selected = []
     while True:
         best = selected
-        for e in range(m):
-            if not selected & (1 << e) and used + costs[e] <= budget:
-                candidate = selected | (1 << e)
-                if better(candidate, best):
-                    best = candidate
+        for edge_id in range(m):
+            if edge_id in selected:
+                continue
+            candidate = sorted(selected + [edge_id])
+            if sum(edges[i][4] for i in candidate) <= budget and better(candidate, best):
+                best = candidate
         if best == selected:
             break
         selected = best
-        used = sum(costs[e] for e in ids(selected))
 
     for _ in range(IMPROVEMENT_ROUNDS):
         best = selected
-        for outgoing in (-1, *ids(selected)):
-            reduced = selected if outgoing == -1 else selected & ~(1 << outgoing)
-            reduced_cost = used if outgoing == -1 else used - costs[outgoing]
+        for outgoing in [None] + selected:
+            reduced = [i for i in selected if i != outgoing]
             for incoming in range(m):
-                if reduced & (1 << incoming) or reduced_cost + costs[incoming] > budget:
+                if incoming in reduced:
                     continue
-                candidate = reduced | (1 << incoming)
-                if better(candidate, best):
+                candidate = sorted(reduced + [incoming])
+                if sum(edges[i][4] for i in candidate) <= budget and better(candidate, best):
                     best = candidate
         if best == selected:
             break
         selected = best
-        used = sum(costs[e] for e in ids(selected))
-    return ids(selected)
+    return selected
 
 
 if __name__ == '__main__':
-    chosen = solve(sys.stdin.read())
-    print(len(chosen), *chosen)
+    answer = solve()
+    print(len(answer), *answer)

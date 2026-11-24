@@ -29,13 +29,12 @@ from protection.reporting import _row
 BANK = Path(__file__).resolve().parent.parent / 'scenarios/problem-bank'
 EXAMPLE_CASE = 'n6-seed0-p20'
 ACCOUNTS = ('member1', 'member2', 'member3')
-PRACTICE_SEEDS = (0, 1, 2, 3, 4)
 LABELS = {'queued': '대기', 'running': '채점 중', 'finished': '채점 종료',
           'cancelled': '취소', 'failed': '중단'}
 RESULT_LABELS = {'completed': '채점 완료', 'timeout': '시간 초과',
                  'memory_limit': '메모리 초과', 'not_implemented': '미구현', 'failed': '채점 실패'}
 FIELDS = ('scenario', 'case_id', 'status', 'termination_reason', 'seconds_limit',
-          'memory_limit_mb', 'vcpu_limit', 'algorithm_seed', 'search_seconds', 'worker_peak_mb',
+          'memory_limit_mb', 'vcpu_limit', 'search_seconds', 'worker_peak_mb',
           'connected_ratio', 'delivery_ratio', 'gap_connected_pairs', 'gap_delivery_units',
           'chosen_edges', 'error_message')
 SCHEMA = '''
@@ -45,7 +44,7 @@ CREATE TABLE IF NOT EXISTS login_attempts (account TEXT PRIMARY KEY, count INTEG
 CREATE TABLE IF NOT EXISTS jobs (
     id INTEGER PRIMARY KEY AUTOINCREMENT, owner TEXT NOT NULL, source BLOB NOT NULL,
     cases TEXT NOT NULL, seconds INTEGER NOT NULL, memory_mb INTEGER NOT NULL,
-    random_strategy INTEGER NOT NULL, state TEXT NOT NULL DEFAULT 'queued',
+    state TEXT NOT NULL DEFAULT 'queued',
     cancel INTEGER NOT NULL DEFAULT 0, created REAL NOT NULL
 );
 CREATE TABLE IF NOT EXISTS results (
@@ -73,6 +72,9 @@ def setup():
     with database() as conn:
         conn.execute('PRAGMA journal_mode=WAL')
         conn.executescript(SCHEMA)
+        columns = {row['name'] for row in conn.execute('PRAGMA table_info(jobs)')}
+        if 'random_strategy' in columns:
+            conn.execute('ALTER TABLE jobs DROP COLUMN random_strategy')
         conn.execute('INSERT OR IGNORE INTO settings VALUES (?, ?)', ('session_key', secrets.token_hex(32)))
         return conn.execute('SELECT value FROM settings WHERE name=?', ('session_key',)).fetchone()[0]
 
@@ -250,9 +252,8 @@ def create_app():
             # 동일 계정의 동시 요청도 활성 제출 한 건 제한을 우회할 수 없다.
             if conn.execute("SELECT 1 FROM jobs WHERE owner=? AND state IN ('queued','running')", (g.owner,)).fetchone():
                 abort(409, '대기 또는 실행 중인 제출을 완료하거나 취소한 뒤 제출하세요.')
-            job = conn.execute('INSERT INTO jobs (owner, source, cases, seconds, memory_mb, random_strategy, created) VALUES (?, ?, ?, ?, ?, ?, ?)',
-                               (g.owner, source, json.dumps(cases), seconds, memory,
-                                form.get('random_strategy') == 'yes', time.time()))
+            job = conn.execute('INSERT INTO jobs (owner, source, cases, seconds, memory_mb, created) VALUES (?, ?, ?, ?, ?, ?)',
+                               (g.owner, source, json.dumps(cases), seconds, memory, time.time()))
             job_id = job.lastrowid
         return redirect(url_for('job_detail', job_id=job_id))
 
@@ -278,7 +279,7 @@ def create_app():
         with database() as conn:
             _, rows = get_owned(conn, job_id, g.owner)
         output = io.StringIO()
-        writer = csv.DictWriter(output, fieldnames=FIELDS)
+        writer = csv.DictWriter(output, fieldnames=FIELDS, extrasaction='ignore')
         writer.writeheader()
         for row in rows:
             message = row.get('error_message')
@@ -310,24 +311,19 @@ def is_cancelled(job_id):
 
 
 def grade_job(job, bank):
-    """제출 시 확정된 시나리오와 반복 시드를 사용하고, 실행별 결과를 즉시 저장한다."""
+    """제출 시 확정된 각 시나리오를 한 번씩 실행하고 결과를 즉시 저장한다."""
     def cancelled():
         return is_cancelled(job['id'])
 
-    seeds = PRACTICE_SEEDS if job['random_strategy'] else (None,)
-    position = 0
-    for name in json.loads(job['cases']):
+    for position, name in enumerate(json.loads(job['cases'])):
         bundle = bank[name]
-        for index, seed in enumerate(seeds):
-            record = grade_program(bundle, job['source'], seconds=job['seconds'],
-                                   memory_bytes=job['memory_mb'] * 1_000_000,
-                                   seed=seed, repeat_index=index, repeat_count=len(seeds),
-                                   method='member_' + job['owner'][-1],
-                                   cancelled=cancelled)
-            row = result_row(name, job, record, bundle)
-            with database() as conn:
-                conn.execute('INSERT INTO results VALUES (?, ?, ?)', (job['id'], position, json.dumps(row)))
-            position += 1
+        record = grade_program(bundle, job['source'], seconds=job['seconds'],
+                               memory_bytes=job['memory_mb'] * 1_000_000,
+                               method='member_' + job['owner'][-1],
+                               cancelled=cancelled)
+        row = result_row(name, job, record, bundle)
+        with database() as conn:
+            conn.execute('INSERT INTO results VALUES (?, ?, ?)', (job['id'], position, json.dumps(row)))
 
 
 def run_worker():

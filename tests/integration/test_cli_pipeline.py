@@ -22,7 +22,6 @@ def grading(bank, output):
     return dict(schema_version=1,kind='grading',run_kind='smoke',ready=True,
         owners={'common':'김대건'}, bank=bank,
         submission=dict(method_id='member_1',file=str(source),
-            uses_randomness=False,algorithm_seeds=[],
             owner='시험 전용',strategy_name='미구현',strategy_version='not-submitted'),
         limits=dict(algorithm_seconds=300,algorithm_memory_bytes=6000000000),
         resource_policy=dict(sample_interval_ms=10),output_dir=str(output))
@@ -81,10 +80,10 @@ def test_download_and_cli_use_node_row_numbers(tmp_path, monkeypatch):
         (node.x, node.y) for node in bundle.scenario.nodes
     ]
     demand_start = node_count + edge_count
-    assert [tuple(map(int, row.split()[1:3])) for row in rows[node_count:demand_start]] == [
+    assert [tuple(map(int, row.split()[:2])) for row in rows[node_count:demand_start]] == [
         (edge.u, edge.v) for edge in bundle.scenario.edges
     ]
-    assert [tuple(map(int, row.split()[1:3])) for row in rows[demand_start:demand_start + demand_count]] == [
+    assert [tuple(map(int, row.split()[:2])) for row in rows[demand_start:demand_start + demand_count]] == [
         (demand.source, demand.target) for demand in bundle.scenario.demands
     ]
     assert b'<code>x y</code>' in client.get('/').data
