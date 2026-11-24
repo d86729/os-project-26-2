@@ -1,0 +1,138 @@
+{
+  "run_id": "b9f25dc3a6ba4eab8260def72aa0b548",
+  "condition": {
+    "scenario_id": "713f14841a07137f9f0f9d4a91757d1bd6a4c09be85d549d1101320eb0f964b1",
+    "budget_percent": 40,
+    "budget": 45,
+    "method": "exhaustive",
+    "limit_seconds": 10800,
+    "algorithm_memory_limit_bytes": null
+  },
+  "case_id": "04f4a97173fc2ae7bf6b043fd10434aee2f33e51b92d1e69e18fb574c64eefc4",
+  "schema_version": 1,
+  "status": "completed",
+  "termination_reason": "completed",
+  "started_at": "2026-11-24T13:40:24.039564+00:00",
+  "environment": [
+    [
+      "cpu",
+      "\"Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz\""
+    ],
+    [
+      "logical_cpu_count",
+      "6"
+    ],
+    [
+      "machine",
+      "\"x86_64\""
+    ],
+    [
+      "os",
+      "\"Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41\""
+    ],
+    [
+      "packages",
+      "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+    ],
+    [
+      "python",
+      "\"3.13.5\""
+    ],
+    [
+      "python_executable",
+      "\"/home/user/os-project-26-2/.venv/bin/python\""
+    ],
+    [
+      "ram_bytes",
+      "8298541056"
+    ],
+    [
+      "thread_environment",
+      "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+    ]
+  ],
+  "submitted_protected_ids": null,
+  "submitted_evaluation": null,
+  "recovered_protected_ids": null,
+  "recovered_evaluation": null,
+  "best_protected_ids": [
+    0,
+    2,
+    4,
+    6,
+    7,
+    8,
+    13,
+    14,
+    17,
+    20,
+    22
+  ],
+  "best_evaluation": {
+    "protected_ids": [
+      0,
+      2,
+      4,
+      6,
+      7,
+      8,
+      13,
+      14,
+      17,
+      20,
+      22
+    ],
+    "cost": 40,
+    "connected_pairs": 78,
+    "connected_ratio": 1.0,
+    "delivered_mbps": 148.0,
+    "delivery_ratio": 0.8604651162790697,
+    "delivery_units": 860465,
+    "worst_attack": [
+      0.2,
+      0.8
+    ]
+  },
+  "upper_bound": {
+    "connected_pairs": 78,
+    "delivery_units": 860465,
+    "source": "optimistic_remaining",
+    "certified": true
+  },
+  "optimality_proven": true,
+  "evaluated_combinations": 1714122,
+  "evaluation_calls": 1714122,
+  "cache_hits": 5243549,
+  "search_seconds": 1126.8101957599865,
+  "preparation_seconds": 0.4878755520330742,
+  "final_scoring_seconds": null,
+  "shutdown_seconds": 0.09492141904775053,
+  "exact_peak_rss_bytes": 150114304,
+  "algorithm_peak_rss_bytes": null,
+  "evaluation_peak_rss_bytes": null,
+  "algorithm_memory_limit_bytes": null,
+  "memory_measurement_method": "/proc VmRSS/VmHWM",
+  "algorithm_peak_memory_bytes": null,
+  "algorithm_vcpu_limit": null,
+  "checkpoint_received_elapsed": null,
+  "error_type": null,
+  "error_message": null,
+  "solver_diagnostics": null,
+  "algorithm_seed": null,
+  "repeat_index": 0,
+  "repeat_count": 1,
+  "run_kind": "scale_probe",
+  "policy_version": "evaluation-v2",
+  "submission_sha256": null,
+  "t0_monotonic_ns": null,
+  "final_received_monotonic_ns": null,
+  "deadline_monotonic_ns": null,
+  "memory_sample_interval_ms": 10,
+  "observed_max_sample_gap_ms": null,
+  "resource_monitor_supported": false,
+  "events": [
+    "upper_bound_calls=0",
+    "highs_residual_fallback_solves=0"
+  ],
+  "launch_status": "started"
+}
