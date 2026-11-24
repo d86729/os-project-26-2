@@ -1,0 +1,27 @@
+{
+  "purpose": "2026-11-25 13:00 KST까지 n=14 단일 완전탐색 재인증과 공개 문제은행 준비",
+  "candidate_graphs": {"14": [1284121877, 583423369]},
+  "budgets_percent": [20, 40],
+  "first_graph": {
+    "seed": 1284121877,
+    "reuse_completed_20_percent": true,
+    "previous_record": "results/agent-study/2026-11-24-final/staging-bank/retry/records/n14-seed1284121877-p20.json",
+    "previous_bundle": "results/agent-study/2026-11-24-final/staging-bank/retry/bundles/n14-seed1284121877-p20.json",
+    "rerun_40_from_start": true,
+    "previous_partial_count_not_reused": 4008722,
+    "operational_cap_seconds": 10800
+  },
+  "second_graph": {
+    "seed": 583423369,
+    "rerun_both_from_start": true,
+    "operational_caps_seconds": {"20": 1200, "40": 10800}
+  },
+  "smoke_check": {"n": 6, "seed": 0, "budget_percent": 20, "limit_seconds": 10},
+  "hard_stop_kst": "2026-11-25T12:45:00+09:00",
+  "delivery_deadline_kst": "2026-11-25T13:00:00+09:00",
+  "cpu_cores": 1,
+  "lock": "웹 채점과 동일한 grading.lock; 팀원 대기 시 현재 실행 안전 중단",
+  "preemption": "각 시도는 분리 기록하며 대기 해소 후 재시작하면 처음부터 평가한다",
+  "publication": "단일 완료 기록 두 예산의 전 조합 수·유리수 인증·재채점·3시간 미만을 확인한 경우만 공개",
+  "limitations": "기존 20사례 본 분석과 별도; 부분 기록 합산 금지"
+}

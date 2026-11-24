@@ -1,0 +1,9 @@
+{
+  "case_id": "9f4d1661102d116cf0fa7cf3b4fc0f3a90adff346b4c7cea9d0fa824abd822f2",
+  "seed": 1284121877,
+  "record_sha256": "3117c6113551fb1577e0dd8d4b61d77d49ad86ecde270361dfdd971ee083fcf3",
+  "bundle_sha256": "6366da6fbe7c22748d403fcac168903bc7a1342a0f0c51b67a96684d668b9504",
+  "evaluated_combinations": 119515,
+  "search_seconds": 278.08008289698046,
+  "verification": "single completed exhaustive record, independent re-score and DP count"
+}
