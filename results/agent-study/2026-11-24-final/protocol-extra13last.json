@@ -1,0 +1,85 @@
+{
+  "registered_at_utc": "2026-11-24T13:54:41.488769+00:00",
+  "purpose": "마지막 n=13 두 사례의 별도 추가 확인; 기존 20사례 본 분석에 합산하지 않음",
+  "cases": [
+    {
+      "name": "n13-seed909463661-p20",
+      "n": 13,
+      "seed": 909463661,
+      "budget_percent": 20,
+      "path": "scenarios/problem-bank/bundles/n13-seed909463661-p20.json",
+      "case_id": "f5c482420d1004ec890fcb673b944558d38bff590f90df1db4ccf15a169f86d6",
+      "stdin_sha256": "ad1f3cb4e08aff2e6250b2ad4e2838ef073b1042e1430129987da47ffbab8ad7"
+    },
+    {
+      "name": "n13-seed909463661-p40",
+      "n": 13,
+      "seed": 909463661,
+      "budget_percent": 40,
+      "path": "scenarios/problem-bank/bundles/n13-seed909463661-p40.json",
+      "case_id": "b5c0c3fd29386fc53d9dc6b7d70277a23dfdc87b705f86c9c38151db6ddfecaa",
+      "stdin_sha256": "903bb2a2188b4ebed04c90bb2a183a37359e05350a1474bb83937a9d644047d3"
+    }
+  ],
+  "methods": [
+    {
+      "method": "degree",
+      "path": "results/agent-study/2026-11-22/agent-1/degree.py",
+      "sha256": "615d147292e12056c35bfa66cbf3b0a50bce8863c0beb4fe803901f10d670fb9"
+    },
+    {
+      "method": "betweenness",
+      "path": "results/agent-study/2026-11-22/agent-1/betweenness.py",
+      "sha256": "c6bfe7ff8b87327108e237d9150b1cc009461b2642997238014f90cb4cbbdaca"
+    },
+    {
+      "method": "demand_single",
+      "path": "results/agent-study/2026-11-22/agent-2/ablation_single.py",
+      "sha256": "fd6527b36c7b5009ccdbada76e004ce272152eeabb67c32f04bbea7e09aef722"
+    },
+    {
+      "method": "demand_bundle",
+      "path": "results/agent-study/2026-11-22/agent-2/submission.py",
+      "sha256": "3e58b54da8a975fc5cda770a1c7bdc656d7fa96133a7ca14058a31b6595d3fe5"
+    },
+    {
+      "method": "connectivity_greedy",
+      "path": "results/agent-study/2026-11-22/agent-3/greedy.py",
+      "sha256": "b55bfd051b8857d1c3b28c8cba2e228e92b3af9e45030150df242bc1c4383f8a"
+    },
+    {
+      "method": "local_search",
+      "path": "results/agent-study/2026-11-22/agent-3/local_search.py",
+      "sha256": "87f09ef22e2795ba7a109654fd20720a256731e019faf1c6702307d54bf38f3a"
+    }
+  ],
+  "execution": {
+    "wall_seconds_per_run": 300,
+    "memory_bytes_per_process": 6000000000,
+    "cpu_cores": 1,
+    "randomness": "결정적 방법 각 1회",
+    "implementation": "local subprocess and RLIMIT_AS, not web cgroup",
+    "score_after_submission": true,
+    "hard_stop_kst": "2026-11-24T23:35:00+09:00"
+  },
+  "predefined_contrasts": [
+    [
+      "betweenness",
+      "degree"
+    ],
+    [
+      "demand_bundle",
+      "demand_single"
+    ],
+    [
+      "local_search",
+      "connectivity_greedy"
+    ],
+    [
+      "demand_bundle",
+      "degree"
+    ]
+  ],
+  "selection": "사전 고정한 마지막 시드의 인증 성공 여부만으로 선택; 성적 무관",
+  "graph_cluster": "동일 그래프의 두 예산을 묶어 해석"
+}
