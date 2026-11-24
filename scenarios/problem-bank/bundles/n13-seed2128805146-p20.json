@@ -1,0 +1,448 @@
+{
+  "scenario": {
+    "nodes": [
+      {
+        "id": 0,
+        "x": 0.32088213596474546,
+        "y": 0.5030169108316671
+      },
+      {
+        "id": 1,
+        "x": 0.34610924542100097,
+        "y": 0.8977103919660523
+      },
+      {
+        "id": 2,
+        "x": 0.04413176381845907,
+        "y": 0.4169119127203398
+      },
+      {
+        "id": 3,
+        "x": 0.17209060294329792,
+        "y": 0.8814581185168074
+      },
+      {
+        "id": 4,
+        "x": 0.992692512072438,
+        "y": 0.7966612376833547
+      },
+      {
+        "id": 5,
+        "x": 0.44424661824847866,
+        "y": 0.8760010715566718
+      },
+      {
+        "id": 6,
+        "x": 0.030217416696472155,
+        "y": 0.30730243032251636
+      },
+      {
+        "id": 7,
+        "x": 0.44488806313852525,
+        "y": 0.9129503277074691
+      },
+      {
+        "id": 8,
+        "x": 0.5225648226116424,
+        "y": 0.24231935113076042
+      },
+      {
+        "id": 9,
+        "x": 0.32072483201786994,
+        "y": 0.5619693573507974
+      },
+      {
+        "id": 10,
+        "x": 0.08860514451800172,
+        "y": 0.6266156383622702
+      },
+      {
+        "id": 11,
+        "x": 0.05499943499946092,
+        "y": 0.4124768921014432
+      },
+      {
+        "id": 12,
+        "x": 0.43793839464084183,
+        "y": 0.4366944239029664
+      }
+    ],
+    "edges": [
+      {
+        "id": 0,
+        "u": 0,
+        "v": 1,
+        "capacity_mbps": 23,
+        "cost": 3
+      },
+      {
+        "id": 1,
+        "u": 0,
+        "v": 2,
+        "capacity_mbps": 18,
+        "cost": 3
+      },
+      {
+        "id": 2,
+        "u": 0,
+        "v": 3,
+        "capacity_mbps": 22,
+        "cost": 9
+      },
+      {
+        "id": 3,
+        "u": 0,
+        "v": 8,
+        "capacity_mbps": 10,
+        "cost": 7
+      },
+      {
+        "id": 4,
+        "u": 0,
+        "v": 9,
+        "capacity_mbps": 20,
+        "cost": 1
+      },
+      {
+        "id": 5,
+        "u": 0,
+        "v": 10,
+        "capacity_mbps": 20,
+        "cost": 3
+      },
+      {
+        "id": 6,
+        "u": 0,
+        "v": 12,
+        "capacity_mbps": 16,
+        "cost": 7
+      },
+      {
+        "id": 7,
+        "u": 1,
+        "v": 2,
+        "capacity_mbps": 19,
+        "cost": 1
+      },
+      {
+        "id": 8,
+        "u": 1,
+        "v": 3,
+        "capacity_mbps": 24,
+        "cost": 1
+      },
+      {
+        "id": 9,
+        "u": 1,
+        "v": 4,
+        "capacity_mbps": 28,
+        "cost": 8
+      },
+      {
+        "id": 10,
+        "u": 1,
+        "v": 5,
+        "capacity_mbps": 24,
+        "cost": 5
+      },
+      {
+        "id": 11,
+        "u": 1,
+        "v": 6,
+        "capacity_mbps": 24,
+        "cost": 7
+      },
+      {
+        "id": 12,
+        "u": 1,
+        "v": 7,
+        "capacity_mbps": 27,
+        "cost": 5
+      },
+      {
+        "id": 13,
+        "u": 1,
+        "v": 9,
+        "capacity_mbps": 27,
+        "cost": 8
+      },
+      {
+        "id": 14,
+        "u": 2,
+        "v": 6,
+        "capacity_mbps": 22,
+        "cost": 7
+      },
+      {
+        "id": 15,
+        "u": 2,
+        "v": 10,
+        "capacity_mbps": 10,
+        "cost": 1
+      },
+      {
+        "id": 16,
+        "u": 2,
+        "v": 11,
+        "capacity_mbps": 22,
+        "cost": 4
+      },
+      {
+        "id": 17,
+        "u": 3,
+        "v": 4,
+        "capacity_mbps": 21,
+        "cost": 4
+      },
+      {
+        "id": 18,
+        "u": 3,
+        "v": 5,
+        "capacity_mbps": 23,
+        "cost": 7
+      },
+      {
+        "id": 19,
+        "u": 5,
+        "v": 7,
+        "capacity_mbps": 14,
+        "cost": 6
+      },
+      {
+        "id": 20,
+        "u": 6,
+        "v": 8,
+        "capacity_mbps": 11,
+        "cost": 9
+      },
+      {
+        "id": 21,
+        "u": 6,
+        "v": 11,
+        "capacity_mbps": 24,
+        "cost": 1
+      },
+      {
+        "id": 22,
+        "u": 8,
+        "v": 12,
+        "capacity_mbps": 25,
+        "cost": 2
+      }
+    ],
+    "demands": [
+      {
+        "id": 0,
+        "source": 2,
+        "target": 4,
+        "amount_mbps": 11
+      },
+      {
+        "id": 1,
+        "source": 3,
+        "target": 5,
+        "amount_mbps": 16
+      },
+      {
+        "id": 2,
+        "source": 5,
+        "target": 4,
+        "amount_mbps": 14
+      },
+      {
+        "id": 3,
+        "source": 12,
+        "target": 0,
+        "amount_mbps": 20
+      },
+      {
+        "id": 4,
+        "source": 12,
+        "target": 2,
+        "amount_mbps": 14
+      },
+      {
+        "id": 5,
+        "source": 7,
+        "target": 11,
+        "amount_mbps": 5
+      },
+      {
+        "id": 6,
+        "source": 9,
+        "target": 2,
+        "amount_mbps": 14
+      },
+      {
+        "id": 7,
+        "source": 12,
+        "target": 4,
+        "amount_mbps": 6
+      },
+      {
+        "id": 8,
+        "source": 12,
+        "target": 8,
+        "amount_mbps": 9
+      },
+      {
+        "id": 9,
+        "source": 10,
+        "target": 9,
+        "amount_mbps": 5
+      },
+      {
+        "id": 10,
+        "source": 4,
+        "target": 12,
+        "amount_mbps": 18
+      },
+      {
+        "id": 11,
+        "source": 8,
+        "target": 0,
+        "amount_mbps": 11
+      },
+      {
+        "id": 12,
+        "source": 11,
+        "target": 12,
+        "amount_mbps": 9
+      }
+    ],
+    "seed": 2128805146,
+    "schema_version": 1,
+    "scenario_id": "cffc362d9907544e3e79904895062aaade5325d0d44a77c3fe51ed83877ce7fe",
+    "generation": {
+      "version": "generation-v1",
+      "alpha": 1,
+      "beta": 3,
+      "m0": 2,
+      "rho": 1,
+      "min_distance": 1e-09
+    },
+    "attack_settings": {
+      "version": "attack-v1",
+      "count": 1,
+      "radius": 0.15,
+      "distance_tolerance": 1e-09,
+      "grid_denominator": 5,
+      "coordinate_digits": 9,
+      "candidate_sources": [
+        "nodes",
+        "midpoints",
+        "grid"
+      ]
+    },
+    "evaluation_policy": {
+      "version": "evaluation-v2",
+      "rounding": "ROUND_HALF_EVEN",
+      "decimal_precision": 50,
+      "delivery_digits": 6,
+      "residual_relative_tolerance": 1e-07,
+      "primal_tolerance": 1e-09,
+      "dual_tolerance": 1e-09,
+      "ipm_tolerance": 1e-10,
+      "certificate_denominator_limit": 1000000000,
+      "max_solver_attempts": 2,
+      "threads": 1,
+      "certification": "rational_primal_dual_or_highs_residual_1e-7"
+    },
+    "environment": [
+      [
+        "numpy",
+        "2.5.5"
+      ],
+      [
+        "bit_generator",
+        "PCG64"
+      ],
+      [
+        "generation_version",
+        "generation-v1"
+      ]
+    ]
+  },
+  "budget_percent": 20,
+  "budget": 21,
+  "case_id": "bc62a28496a4a6d4dcd953a9c383655328f91fe7781acff7fc39da62c39f07c5",
+  "optimal_reference": {
+    "protected_ids": [
+      3,
+      4,
+      7,
+      8,
+      10,
+      17,
+      21
+    ],
+    "cost": 20,
+    "evaluation": {
+      "protected_ids": [
+        3,
+        4,
+        7,
+        8,
+        10,
+        17,
+        21
+      ],
+      "cost": 20,
+      "connected_pairs": 56,
+      "connected_ratio": 0.717948717948718,
+      "delivered_mbps": 113.0,
+      "delivery_ratio": 0.743421052631579,
+      "delivery_units": 743421,
+      "worst_attack": [
+        0.0,
+        0.4
+      ]
+    },
+    "exact_run_id": "2db74209f8024fca80b1d48ddd79de23",
+    "environment": [
+      [
+        "cpu",
+        "\"Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz\""
+      ],
+      [
+        "logical_cpu_count",
+        "6"
+      ],
+      [
+        "machine",
+        "\"x86_64\""
+      ],
+      [
+        "os",
+        "\"Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/home/user/os-project-26-2/.venv/bin/python\""
+      ],
+      [
+        "ram_bytes",
+        "8298541056"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "limit_seconds": 10800,
+    "search_seconds": 28.30502913298551,
+    "method": "exhaustive",
+    "status": "completed",
+    "optimality_proven": true
+  },
+  "schema_version": 1,
+  "artifact_kind": "scenario_bundle"
+}

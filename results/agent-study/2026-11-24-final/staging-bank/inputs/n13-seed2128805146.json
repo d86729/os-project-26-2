@@ -1,0 +1,368 @@
+{
+  "artifact_kind": "scenario_input",
+  "scenario": {
+    "attack_settings": {
+      "candidate_sources": [
+        "nodes",
+        "midpoints",
+        "grid"
+      ],
+      "coordinate_digits": 9,
+      "count": 1,
+      "distance_tolerance": 1e-09,
+      "grid_denominator": 5,
+      "radius": 0.15,
+      "version": "attack-v1"
+    },
+    "demands": [
+      {
+        "amount_mbps": 11,
+        "id": 0,
+        "source": 2,
+        "target": 4
+      },
+      {
+        "amount_mbps": 16,
+        "id": 1,
+        "source": 3,
+        "target": 5
+      },
+      {
+        "amount_mbps": 14,
+        "id": 2,
+        "source": 5,
+        "target": 4
+      },
+      {
+        "amount_mbps": 20,
+        "id": 3,
+        "source": 12,
+        "target": 0
+      },
+      {
+        "amount_mbps": 14,
+        "id": 4,
+        "source": 12,
+        "target": 2
+      },
+      {
+        "amount_mbps": 5,
+        "id": 5,
+        "source": 7,
+        "target": 11
+      },
+      {
+        "amount_mbps": 14,
+        "id": 6,
+        "source": 9,
+        "target": 2
+      },
+      {
+        "amount_mbps": 6,
+        "id": 7,
+        "source": 12,
+        "target": 4
+      },
+      {
+        "amount_mbps": 9,
+        "id": 8,
+        "source": 12,
+        "target": 8
+      },
+      {
+        "amount_mbps": 5,
+        "id": 9,
+        "source": 10,
+        "target": 9
+      },
+      {
+        "amount_mbps": 18,
+        "id": 10,
+        "source": 4,
+        "target": 12
+      },
+      {
+        "amount_mbps": 11,
+        "id": 11,
+        "source": 8,
+        "target": 0
+      },
+      {
+        "amount_mbps": 9,
+        "id": 12,
+        "source": 11,
+        "target": 12
+      }
+    ],
+    "edges": [
+      {
+        "capacity_mbps": 23,
+        "cost": 3,
+        "id": 0,
+        "u": 0,
+        "v": 1
+      },
+      {
+        "capacity_mbps": 18,
+        "cost": 3,
+        "id": 1,
+        "u": 0,
+        "v": 2
+      },
+      {
+        "capacity_mbps": 22,
+        "cost": 9,
+        "id": 2,
+        "u": 0,
+        "v": 3
+      },
+      {
+        "capacity_mbps": 10,
+        "cost": 7,
+        "id": 3,
+        "u": 0,
+        "v": 8
+      },
+      {
+        "capacity_mbps": 20,
+        "cost": 1,
+        "id": 4,
+        "u": 0,
+        "v": 9
+      },
+      {
+        "capacity_mbps": 20,
+        "cost": 3,
+        "id": 5,
+        "u": 0,
+        "v": 10
+      },
+      {
+        "capacity_mbps": 16,
+        "cost": 7,
+        "id": 6,
+        "u": 0,
+        "v": 12
+      },
+      {
+        "capacity_mbps": 19,
+        "cost": 1,
+        "id": 7,
+        "u": 1,
+        "v": 2
+      },
+      {
+        "capacity_mbps": 24,
+        "cost": 1,
+        "id": 8,
+        "u": 1,
+        "v": 3
+      },
+      {
+        "capacity_mbps": 28,
+        "cost": 8,
+        "id": 9,
+        "u": 1,
+        "v": 4
+      },
+      {
+        "capacity_mbps": 24,
+        "cost": 5,
+        "id": 10,
+        "u": 1,
+        "v": 5
+      },
+      {
+        "capacity_mbps": 24,
+        "cost": 7,
+        "id": 11,
+        "u": 1,
+        "v": 6
+      },
+      {
+        "capacity_mbps": 27,
+        "cost": 5,
+        "id": 12,
+        "u": 1,
+        "v": 7
+      },
+      {
+        "capacity_mbps": 27,
+        "cost": 8,
+        "id": 13,
+        "u": 1,
+        "v": 9
+      },
+      {
+        "capacity_mbps": 22,
+        "cost": 7,
+        "id": 14,
+        "u": 2,
+        "v": 6
+      },
+      {
+        "capacity_mbps": 10,
+        "cost": 1,
+        "id": 15,
+        "u": 2,
+        "v": 10
+      },
+      {
+        "capacity_mbps": 22,
+        "cost": 4,
+        "id": 16,
+        "u": 2,
+        "v": 11
+      },
+      {
+        "capacity_mbps": 21,
+        "cost": 4,
+        "id": 17,
+        "u": 3,
+        "v": 4
+      },
+      {
+        "capacity_mbps": 23,
+        "cost": 7,
+        "id": 18,
+        "u": 3,
+        "v": 5
+      },
+      {
+        "capacity_mbps": 14,
+        "cost": 6,
+        "id": 19,
+        "u": 5,
+        "v": 7
+      },
+      {
+        "capacity_mbps": 11,
+        "cost": 9,
+        "id": 20,
+        "u": 6,
+        "v": 8
+      },
+      {
+        "capacity_mbps": 24,
+        "cost": 1,
+        "id": 21,
+        "u": 6,
+        "v": 11
+      },
+      {
+        "capacity_mbps": 25,
+        "cost": 2,
+        "id": 22,
+        "u": 8,
+        "v": 12
+      }
+    ],
+    "environment": [
+      [
+        "numpy",
+        "2.5.5"
+      ],
+      [
+        "bit_generator",
+        "PCG64"
+      ],
+      [
+        "generation_version",
+        "generation-v1"
+      ]
+    ],
+    "evaluation_policy": {
+      "certificate_denominator_limit": 1000000000,
+      "certification": "rational_primal_dual_or_highs_residual_1e-7",
+      "decimal_precision": 50,
+      "delivery_digits": 6,
+      "dual_tolerance": 1e-09,
+      "ipm_tolerance": 1e-10,
+      "max_solver_attempts": 2,
+      "primal_tolerance": 1e-09,
+      "residual_relative_tolerance": 1e-07,
+      "rounding": "ROUND_HALF_EVEN",
+      "threads": 1,
+      "version": "evaluation-v2"
+    },
+    "generation": {
+      "alpha": 1,
+      "beta": 3,
+      "m0": 2,
+      "min_distance": 1e-09,
+      "rho": 1,
+      "version": "generation-v1"
+    },
+    "nodes": [
+      {
+        "id": 0,
+        "x": 0.32088213596474546,
+        "y": 0.5030169108316671
+      },
+      {
+        "id": 1,
+        "x": 0.34610924542100097,
+        "y": 0.8977103919660523
+      },
+      {
+        "id": 2,
+        "x": 0.04413176381845907,
+        "y": 0.4169119127203398
+      },
+      {
+        "id": 3,
+        "x": 0.17209060294329792,
+        "y": 0.8814581185168074
+      },
+      {
+        "id": 4,
+        "x": 0.992692512072438,
+        "y": 0.7966612376833547
+      },
+      {
+        "id": 5,
+        "x": 0.44424661824847866,
+        "y": 0.8760010715566718
+      },
+      {
+        "id": 6,
+        "x": 0.030217416696472155,
+        "y": 0.30730243032251636
+      },
+      {
+        "id": 7,
+        "x": 0.44488806313852525,
+        "y": 0.9129503277074691
+      },
+      {
+        "id": 8,
+        "x": 0.5225648226116424,
+        "y": 0.24231935113076042
+      },
+      {
+        "id": 9,
+        "x": 0.32072483201786994,
+        "y": 0.5619693573507974
+      },
+      {
+        "id": 10,
+        "x": 0.08860514451800172,
+        "y": 0.6266156383622702
+      },
+      {
+        "id": 11,
+        "x": 0.05499943499946092,
+        "y": 0.4124768921014432
+      },
+      {
+        "id": 12,
+        "x": 0.43793839464084183,
+        "y": 0.4366944239029664
+      }
+    ],
+    "scenario_id": "cffc362d9907544e3e79904895062aaade5325d0d44a77c3fe51ed83877ce7fe",
+    "schema_version": 1,
+    "seed": 2128805146
+  },
+  "schema_version": 1
+}
