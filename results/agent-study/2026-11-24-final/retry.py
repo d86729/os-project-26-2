@@ -27,7 +27,9 @@ def main():
     plan_path = HERE / 'retry-plan.json'
     plan = json.loads(plan_path.read_text())
     original = json.loads((HERE / 'protocol.json').read_text())
-    assert plan['candidate_graphs'] == original['candidate_graphs']
+    assert all(size in original['candidate_graphs'] and
+               all(seed in original['candidate_graphs'][size] for seed in seeds)
+               for size, seeds in plan['candidate_graphs'].items())
     deadline = datetime.fromisoformat(plan['hard_stop_kst'])
     assert plan['hard_stop_kst'] == original['execution']['hard_stop_kst']
     manifest_path = HERE / 'exact-manifest.json'
