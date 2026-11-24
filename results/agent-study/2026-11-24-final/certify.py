@@ -58,9 +58,10 @@ def main():
     from protection.models import (ExperimentManifest, bundle_from_record, feasible_protection_count,
                                    load_bundle, load_scenario, save_scenario, to_data)
     os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
-    if len(sys.argv) != 2 or sys.argv[1] not in ('pilot', 'full', 'pilot12', 'full12', 'pilot13', 'full13'):
-        raise ValueError('usage: certify.py pilot|full|pilot12|full12|pilot13|full13')
-    suffix = '12' if sys.argv[1].endswith('12') else '13' if sys.argv[1].endswith('13') else ''
+    if len(sys.argv) != 2 or sys.argv[1] not in ('pilot', 'full', 'pilot12', 'full12', 'pilot13', 'full13', 'pilot13last', 'full13last'):
+        raise ValueError('usage: certify.py pilot|full with optional 12, 13, or 13last suffix')
+    suffix = ('13last' if sys.argv[1].endswith('13last') else '12' if sys.argv[1].endswith('12')
+              else '13' if sys.argv[1].endswith('13') else '')
     mode = sys.argv[1].removesuffix(suffix) if suffix else sys.argv[1]
     protocol_path = HERE / f'protocol{suffix}.json'
     protocol = json.loads(protocol_path.read_text())

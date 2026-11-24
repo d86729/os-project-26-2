@@ -61,7 +61,7 @@ def main():
     graph = sys.argv[1]
     protocol = json.loads((HERE / 'protocol.json').read_text())
     allowed = {f'n{n}-seed{seed}' for n, seeds in protocol['candidate_graphs'].items() for seed in seeds}
-    for suffix in ('12', '13'):
+    for suffix in ('12', '13', '13last'):
         protocol_path = HERE / f'protocol{suffix}.json'
         if protocol_path.exists():
             extra_protocol = json.loads(protocol_path.read_text())
