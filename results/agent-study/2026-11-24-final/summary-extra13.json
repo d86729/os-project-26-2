@@ -1,0 +1,233 @@
+{
+  "cases": 4,
+  "graphs": 2,
+  "attempts": 24,
+  "status_counts": {
+    "completed": 24
+  },
+  "all_completed_scores_independently_recomputed": true,
+  "methods": {
+    "degree": {
+      "statuses": {
+        "completed": 4
+      },
+      "optimal_score_matches": 0,
+      "mean_connected_ratio": 0.7019230769230769,
+      "mean_delivery_ratio": 0.6119186046511628,
+      "median_submission_seconds": 0.04784166000899859,
+      "max_submission_seconds": 0.0481841120054014,
+      "median_evaluation_seconds": 0.05554471199866384,
+      "max_evaluation_seconds": 0.08282101800432429
+    },
+    "betweenness": {
+      "statuses": {
+        "completed": 4
+      },
+      "optimal_score_matches": 0,
+      "mean_connected_ratio": 0.6987179487179487,
+      "mean_delivery_ratio": 0.6333766829865362,
+      "median_submission_seconds": 0.05031921199406497,
+      "max_submission_seconds": 0.05150371103081852,
+      "median_evaluation_seconds": 0.0525490119762253,
+      "max_evaluation_seconds": 0.18611244100611657
+    },
+    "demand_single": {
+      "statuses": {
+        "completed": 4
+      },
+      "optimal_score_matches": 1,
+      "mean_connected_ratio": 0.891025641025641,
+      "mean_delivery_ratio": 0.5743956548347613,
+      "median_submission_seconds": 0.20591334698838182,
+      "max_submission_seconds": 0.23904215299990028,
+      "median_evaluation_seconds": 0.3767815830069594,
+      "max_evaluation_seconds": 0.6788923490094021
+    },
+    "demand_bundle": {
+      "statuses": {
+        "completed": 4
+      },
+      "optimal_score_matches": 1,
+      "mean_connected_ratio": 0.891025641025641,
+      "mean_delivery_ratio": 0.5743956548347613,
+      "median_submission_seconds": 0.28389136199257337,
+      "max_submission_seconds": 0.3707910809898749,
+      "median_evaluation_seconds": 0.38597728448803537,
+      "max_evaluation_seconds": 0.6923213509726338
+    },
+    "connectivity_greedy": {
+      "statuses": {
+        "completed": 4
+      },
+      "optimal_score_matches": 0,
+      "mean_connected_ratio": 0.782051282051282,
+      "mean_delivery_ratio": 0.6075581395348837,
+      "median_submission_seconds": 0.05194996151840314,
+      "max_submission_seconds": 0.05569611198734492,
+      "median_evaluation_seconds": 0.03778480848995969,
+      "max_evaluation_seconds": 0.6876181489787996
+    },
+    "local_search": {
+      "statuses": {
+        "completed": 4
+      },
+      "optimal_score_matches": 0,
+      "mean_connected_ratio": 0.8557692307692307,
+      "mean_delivery_ratio": 0.652578029375765,
+      "median_submission_seconds": 0.058463762514293194,
+      "max_submission_seconds": 0.06168411299586296,
+      "median_evaluation_seconds": 0.4534229499986395,
+      "max_evaluation_seconds": 0.6951553510152735
+    }
+  },
+  "comparisons": [
+    {
+      "first": "betweenness",
+      "second": "degree",
+      "outcomes": {
+        "tie": 2,
+        "win": 1,
+        "loss": 1
+      },
+      "by_size": {
+        "13": {
+          "tie": 2,
+          "win": 1,
+          "loss": 1
+        }
+      },
+      "pairs": [
+        {
+          "case": "n13-seed2128805146-p20",
+          "n": 13,
+          "outcome": "tie"
+        },
+        {
+          "case": "n13-seed2128805146-p40",
+          "n": 13,
+          "outcome": "win"
+        },
+        {
+          "case": "n13-seed824558948-p20",
+          "n": 13,
+          "outcome": "tie"
+        },
+        {
+          "case": "n13-seed824558948-p40",
+          "n": 13,
+          "outcome": "loss"
+        }
+      ]
+    },
+    {
+      "first": "demand_bundle",
+      "second": "demand_single",
+      "outcomes": {
+        "tie": 4
+      },
+      "by_size": {
+        "13": {
+          "tie": 4
+        }
+      },
+      "pairs": [
+        {
+          "case": "n13-seed2128805146-p20",
+          "n": 13,
+          "outcome": "tie"
+        },
+        {
+          "case": "n13-seed2128805146-p40",
+          "n": 13,
+          "outcome": "tie"
+        },
+        {
+          "case": "n13-seed824558948-p20",
+          "n": 13,
+          "outcome": "tie"
+        },
+        {
+          "case": "n13-seed824558948-p40",
+          "n": 13,
+          "outcome": "tie"
+        }
+      ]
+    },
+    {
+      "first": "local_search",
+      "second": "connectivity_greedy",
+      "outcomes": {
+        "tie": 1,
+        "win": 3
+      },
+      "by_size": {
+        "13": {
+          "tie": 1,
+          "win": 3
+        }
+      },
+      "pairs": [
+        {
+          "case": "n13-seed2128805146-p20",
+          "n": 13,
+          "outcome": "tie"
+        },
+        {
+          "case": "n13-seed2128805146-p40",
+          "n": 13,
+          "outcome": "win"
+        },
+        {
+          "case": "n13-seed824558948-p20",
+          "n": 13,
+          "outcome": "win"
+        },
+        {
+          "case": "n13-seed824558948-p40",
+          "n": 13,
+          "outcome": "win"
+        }
+      ]
+    },
+    {
+      "first": "demand_bundle",
+      "second": "degree",
+      "outcomes": {
+        "win": 4
+      },
+      "by_size": {
+        "13": {
+          "win": 4
+        }
+      },
+      "pairs": [
+        {
+          "case": "n13-seed2128805146-p20",
+          "n": 13,
+          "outcome": "win"
+        },
+        {
+          "case": "n13-seed2128805146-p40",
+          "n": 13,
+          "outcome": "win"
+        },
+        {
+          "case": "n13-seed824558948-p20",
+          "n": 13,
+          "outcome": "win"
+        },
+        {
+          "case": "n13-seed824558948-p40",
+          "n": 13,
+          "outcome": "win"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "2 newly generated graphs; two budgets per graph are not independent",
+    "only two graphs; cases and strategies are public",
+    "single generation-v1 synthetic graph family",
+    "local per-process RLIMIT_AS rather than web cgroup"
+  ]
+}
