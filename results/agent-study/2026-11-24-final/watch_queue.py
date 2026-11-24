@@ -17,7 +17,8 @@ def alive_and_expected(pid):
         command = Path(f'/proc/{pid}/cmdline').read_bytes().split(b'\0')
     except FileNotFoundError:
         return False
-    return any(x.endswith(b'results/agent-study/2026-11-24-final/retry.py') for x in command)
+    return any(x.endswith((b'results/agent-study/2026-11-24-final/retry.py',
+                           b'results/agent-study/2026-11-24-final/certify.py')) for x in command)
 
 
 def holds_lock(pid):
@@ -31,12 +32,15 @@ def holds_lock(pid):
 
 
 def main():
-    if len(sys.argv) != 2:
-        raise ValueError('usage: watch_queue.py RETRY_PID')
+    if len(sys.argv) not in (2, 3):
+        raise ValueError('usage: watch_queue.py EXACT_PID [SUFFIX]')
     pid = int(sys.argv[1])
     plan = json.loads((HERE / 'retry-plan.json').read_text())
     deadline = datetime.fromisoformat(plan['hard_stop_kst'])
-    log = HERE / 'queue-monitor.jsonl'
+    suffix = sys.argv[2] if len(sys.argv) == 3 else ''
+    if suffix and not suffix.isdigit():
+        raise ValueError('suffix must be digits')
+    log = HERE / f'queue-monitor{suffix}.jsonl'
     if log.exists():
         raise RuntimeError('monitor record exists')
     with log.open('x', encoding='utf-8') as out:

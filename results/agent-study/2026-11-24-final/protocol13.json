@@ -1,0 +1,12 @@
+{
+  "purpose": "기존 크기 사이인 n=13 신규 무작위 그래프의 당일 단일 실행 완전탐색 인증",
+  "seed_selection": "numpy.default_rng(202611242215), 비복원 두 정수",
+  "candidate_graphs": {"13": [2128805146, 824558948]},
+  "candidate_budget_percents": [20, 40],
+  "candidate_pilot_limit_seconds": 5,
+  "candidate_operational_caps_seconds": {"13": {"20": 300, "40": 1800}},
+  "execution": {"hard_stop_kst": "2026-11-24T23:35:00+09:00"},
+  "reference_policy": "각 예산의 단일 실행 완전탐색과 유리수 인증·재채점 후 두 사례를 함께 공개",
+  "priority": "공용 잠금을 사용하고 웹 채점이 대기하면 탐색을 안전 중단한다",
+  "scope": "기존 20사례 본 분석과 합산하지 않는다"
+}
