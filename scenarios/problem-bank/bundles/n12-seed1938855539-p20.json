@@ -1,0 +1,421 @@
+{
+  "scenario": {
+    "nodes": [
+      {
+        "id": 0,
+        "x": 0.4618085097618916,
+        "y": 0.19919975167951964
+      },
+      {
+        "id": 1,
+        "x": 0.24832472433235597,
+        "y": 0.5370871984379784
+      },
+      {
+        "id": 2,
+        "x": 0.5542901336551512,
+        "y": 0.23999847154896503
+      },
+      {
+        "id": 3,
+        "x": 0.9890157564882452,
+        "y": 0.7338841796241535
+      },
+      {
+        "id": 4,
+        "x": 0.5128289054072366,
+        "y": 0.9939560826142618
+      },
+      {
+        "id": 5,
+        "x": 0.29619868671642413,
+        "y": 0.4906391376965531
+      },
+      {
+        "id": 6,
+        "x": 0.3724925521147029,
+        "y": 0.08484000124111457
+      },
+      {
+        "id": 7,
+        "x": 0.9052926803010704,
+        "y": 0.409120935059081
+      },
+      {
+        "id": 8,
+        "x": 0.14235255967705063,
+        "y": 0.8580133586724208
+      },
+      {
+        "id": 9,
+        "x": 0.48166610534517007,
+        "y": 0.49447791914606676
+      },
+      {
+        "id": 10,
+        "x": 0.7074873629412206,
+        "y": 0.8954953566979351
+      },
+      {
+        "id": 11,
+        "x": 0.8132948461776749,
+        "y": 0.45944124128049535
+      }
+    ],
+    "edges": [
+      {
+        "id": 0,
+        "u": 0,
+        "v": 1,
+        "capacity_mbps": 30,
+        "cost": 1
+      },
+      {
+        "id": 1,
+        "u": 0,
+        "v": 2,
+        "capacity_mbps": 11,
+        "cost": 2
+      },
+      {
+        "id": 2,
+        "u": 0,
+        "v": 3,
+        "capacity_mbps": 25,
+        "cost": 9
+      },
+      {
+        "id": 3,
+        "u": 0,
+        "v": 6,
+        "capacity_mbps": 22,
+        "cost": 9
+      },
+      {
+        "id": 4,
+        "u": 1,
+        "v": 2,
+        "capacity_mbps": 30,
+        "cost": 8
+      },
+      {
+        "id": 5,
+        "u": 1,
+        "v": 4,
+        "capacity_mbps": 28,
+        "cost": 4
+      },
+      {
+        "id": 6,
+        "u": 1,
+        "v": 5,
+        "capacity_mbps": 10,
+        "cost": 5
+      },
+      {
+        "id": 7,
+        "u": 1,
+        "v": 8,
+        "capacity_mbps": 16,
+        "cost": 4
+      },
+      {
+        "id": 8,
+        "u": 2,
+        "v": 3,
+        "capacity_mbps": 13,
+        "cost": 5
+      },
+      {
+        "id": 9,
+        "u": 2,
+        "v": 4,
+        "capacity_mbps": 16,
+        "cost": 8
+      },
+      {
+        "id": 10,
+        "u": 2,
+        "v": 5,
+        "capacity_mbps": 26,
+        "cost": 4
+      },
+      {
+        "id": 11,
+        "u": 2,
+        "v": 6,
+        "capacity_mbps": 16,
+        "cost": 3
+      },
+      {
+        "id": 12,
+        "u": 2,
+        "v": 7,
+        "capacity_mbps": 20,
+        "cost": 1
+      },
+      {
+        "id": 13,
+        "u": 2,
+        "v": 9,
+        "capacity_mbps": 30,
+        "cost": 7
+      },
+      {
+        "id": 14,
+        "u": 3,
+        "v": 7,
+        "capacity_mbps": 10,
+        "cost": 4
+      },
+      {
+        "id": 15,
+        "u": 3,
+        "v": 10,
+        "capacity_mbps": 10,
+        "cost": 6
+      },
+      {
+        "id": 16,
+        "u": 4,
+        "v": 10,
+        "capacity_mbps": 25,
+        "cost": 10
+      },
+      {
+        "id": 17,
+        "u": 5,
+        "v": 8,
+        "capacity_mbps": 26,
+        "cost": 6
+      },
+      {
+        "id": 18,
+        "u": 5,
+        "v": 9,
+        "capacity_mbps": 30,
+        "cost": 6
+      },
+      {
+        "id": 19,
+        "u": 7,
+        "v": 11,
+        "capacity_mbps": 20,
+        "cost": 1
+      },
+      {
+        "id": 20,
+        "u": 10,
+        "v": 11,
+        "capacity_mbps": 17,
+        "cost": 4
+      }
+    ],
+    "demands": [
+      {
+        "id": 0,
+        "source": 0,
+        "target": 1,
+        "amount_mbps": 18
+      },
+      {
+        "id": 1,
+        "source": 6,
+        "target": 0,
+        "amount_mbps": 5
+      },
+      {
+        "id": 2,
+        "source": 1,
+        "target": 11,
+        "amount_mbps": 15
+      },
+      {
+        "id": 3,
+        "source": 1,
+        "target": 0,
+        "amount_mbps": 14
+      },
+      {
+        "id": 4,
+        "source": 9,
+        "target": 3,
+        "amount_mbps": 15
+      },
+      {
+        "id": 5,
+        "source": 1,
+        "target": 8,
+        "amount_mbps": 5
+      },
+      {
+        "id": 6,
+        "source": 3,
+        "target": 9,
+        "amount_mbps": 10
+      },
+      {
+        "id": 7,
+        "source": 6,
+        "target": 8,
+        "amount_mbps": 8
+      },
+      {
+        "id": 8,
+        "source": 0,
+        "target": 2,
+        "amount_mbps": 13
+      },
+      {
+        "id": 9,
+        "source": 8,
+        "target": 10,
+        "amount_mbps": 11
+      },
+      {
+        "id": 10,
+        "source": 2,
+        "target": 5,
+        "amount_mbps": 13
+      },
+      {
+        "id": 11,
+        "source": 10,
+        "target": 11,
+        "amount_mbps": 8
+      }
+    ],
+    "seed": 1938855539,
+    "schema_version": 1,
+    "scenario_id": "38ed48a9987a0a21acc06078f9a197b8567fb0a5580601c5de8e877258180601",
+    "generation": {
+      "version": "generation-v1",
+      "alpha": 1,
+      "beta": 3,
+      "m0": 2,
+      "rho": 1,
+      "min_distance": 1e-09
+    },
+    "attack_settings": {
+      "version": "attack-v1",
+      "count": 1,
+      "radius": 0.15,
+      "distance_tolerance": 1e-09,
+      "grid_denominator": 5,
+      "coordinate_digits": 9,
+      "candidate_sources": [
+        "nodes",
+        "midpoints",
+        "grid"
+      ]
+    },
+    "evaluation_policy": {
+      "version": "evaluation-v2",
+      "rounding": "ROUND_HALF_EVEN",
+      "decimal_precision": 50,
+      "delivery_digits": 6,
+      "residual_relative_tolerance": 1e-07,
+      "primal_tolerance": 1e-09,
+      "dual_tolerance": 1e-09,
+      "ipm_tolerance": 1e-10,
+      "certificate_denominator_limit": 1000000000,
+      "max_solver_attempts": 2,
+      "threads": 1,
+      "certification": "rational_primal_dual_or_highs_residual_1e-7"
+    },
+    "environment": [
+      [
+        "numpy",
+        "2.5.5"
+      ],
+      [
+        "bit_generator",
+        "PCG64"
+      ],
+      [
+        "generation_version",
+        "generation-v1"
+      ]
+    ]
+  },
+  "budget_percent": 20,
+  "budget": 21,
+  "case_id": "ddb4841355b929c9ddfa80367fa40185f277b107b3d835cdbaa412b6193a8e03",
+  "optimal_reference": {
+    "protected_ids": [
+      0,
+      7,
+      12,
+      13,
+      15,
+      19
+    ],
+    "cost": 20,
+    "evaluation": {
+      "protected_ids": [
+        0,
+        7,
+        12,
+        13,
+        15,
+        19
+      ],
+      "cost": 20,
+      "connected_pairs": 55,
+      "connected_ratio": 0.8333333333333334,
+      "delivered_mbps": 112.0,
+      "delivery_ratio": 0.8296296296296296,
+      "delivery_units": 829630,
+      "worst_attack": [
+        0.2,
+        0.4
+      ]
+    },
+    "exact_run_id": "ea8a7af3cd7b4ae1ac0e29b8eafc0743",
+    "environment": [
+      [
+        "cpu",
+        "\"Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz\""
+      ],
+      [
+        "logical_cpu_count",
+        "6"
+      ],
+      [
+        "machine",
+        "\"x86_64\""
+      ],
+      [
+        "os",
+        "\"Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.41\""
+      ],
+      [
+        "packages",
+        "{\"ipykernel\": \"7.4.0\", \"nbclient\": \"0.11.0\", \"nbformat\": \"5.11.1\", \"networkx\": \"3.7\", \"numpy\": \"2.5.5\", \"pytest\": \"9.2.0\", \"scipy\": \"1.18.1\"}"
+      ],
+      [
+        "python",
+        "\"3.13.5\""
+      ],
+      [
+        "python_executable",
+        "\"/home/user/os-project-26-2/.venv/bin/python\""
+      ],
+      [
+        "ram_bytes",
+        "8298541056"
+      ],
+      [
+        "thread_environment",
+        "{\"MKL_NUM_THREADS\": \"1\", \"OMP_NUM_THREADS\": \"1\", \"OPENBLAS_NUM_THREADS\": \"1\"}"
+      ]
+    ],
+    "limit_seconds": 10800,
+    "search_seconds": 9.194570044986904,
+    "method": "exhaustive",
+    "status": "completed",
+    "optimality_proven": true
+  },
+  "schema_version": 1,
+  "artifact_kind": "scenario_bundle"
+}
