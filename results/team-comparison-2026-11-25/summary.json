@@ -1,0 +1,450 @@
+{
+  "cases": 156,
+  "graphs": 78,
+  "status": "completed",
+  "methods": {
+    "1": {
+      "overall": {
+        "n": 156,
+        "exact": 18,
+        "equal_pairs": 54,
+        "connectivity_mean_percent": 68.417,
+        "delivery_mean_percent": 56.375,
+        "time_median_s": 0.07795,
+        "time_max_s": 0.15525,
+        "memory_median_mb": 5.57,
+        "memory_max_mb": 5.85
+      },
+      "by_size": {
+        "6": {
+          "n": 62,
+          "exact": 13,
+          "equal_pairs": 33,
+          "connectivity_mean_percent": 64.301,
+          "delivery_mean_percent": 54.045,
+          "time_median_s": 0.07936,
+          "time_max_s": 0.15525,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.84
+        },
+        "8": {
+          "n": 42,
+          "exact": 4,
+          "equal_pairs": 14,
+          "connectivity_mean_percent": 69.898,
+          "delivery_mean_percent": 57.592,
+          "time_median_s": 0.07637,
+          "time_max_s": 0.13338,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.84
+        },
+        "10": {
+          "n": 22,
+          "exact": 1,
+          "equal_pairs": 4,
+          "connectivity_mean_percent": 71.616,
+          "delivery_mean_percent": 59.643,
+          "time_median_s": 0.07625,
+          "time_max_s": 0.09535,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.85
+        },
+        "12": {
+          "n": 18,
+          "exact": 0,
+          "equal_pairs": 3,
+          "connectivity_mean_percent": 73.822,
+          "delivery_mean_percent": 57.3,
+          "time_median_s": 0.08973,
+          "time_max_s": 0.11327,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.57
+        },
+        "13": {
+          "n": 6,
+          "exact": 0,
+          "equal_pairs": 0,
+          "connectivity_mean_percent": 68.162,
+          "delivery_mean_percent": 52.644,
+          "time_median_s": 0.07081,
+          "time_max_s": 0.09621,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.85
+        },
+        "14": {
+          "n": 6,
+          "exact": 0,
+          "equal_pairs": 0,
+          "connectivity_mean_percent": 72.894,
+          "delivery_mean_percent": 60.899,
+          "time_median_s": 0.07572,
+          "time_max_s": 0.12044,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.84
+        }
+      },
+      "by_budget": {
+        "20": {
+          "n": 78,
+          "exact": 15,
+          "equal_pairs": 35,
+          "connectivity_mean_percent": 60.136,
+          "delivery_mean_percent": 48.137,
+          "time_median_s": 0.07758,
+          "time_max_s": 0.112,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.85
+        },
+        "40": {
+          "n": 78,
+          "exact": 3,
+          "equal_pairs": 19,
+          "connectivity_mean_percent": 76.698,
+          "delivery_mean_percent": 64.612,
+          "time_median_s": 0.07798,
+          "time_max_s": 0.15525,
+          "memory_median_mb": 5.57,
+          "memory_max_mb": 5.84
+        }
+      }
+    },
+    "2": {
+      "overall": {
+        "n": 156,
+        "exact": 53,
+        "equal_pairs": 136,
+        "connectivity_mean_percent": 82.239,
+        "delivery_mean_percent": 61.767,
+        "time_median_s": 0.10583,
+        "time_max_s": 0.33055,
+        "memory_median_mb": 5.83,
+        "memory_max_mb": 6.37
+      },
+      "by_size": {
+        "6": {
+          "n": 62,
+          "exact": 36,
+          "equal_pairs": 56,
+          "connectivity_mean_percent": 76.452,
+          "delivery_mean_percent": 61.429,
+          "time_median_s": 0.08658,
+          "time_max_s": 0.13247,
+          "memory_median_mb": 5.83,
+          "memory_max_mb": 6.36
+        },
+        "8": {
+          "n": 42,
+          "exact": 9,
+          "equal_pairs": 33,
+          "connectivity_mean_percent": 82.568,
+          "delivery_mean_percent": 62.161,
+          "time_median_s": 0.10608,
+          "time_max_s": 0.12653,
+          "memory_median_mb": 5.83,
+          "memory_max_mb": 6.36
+        },
+        "10": {
+          "n": 22,
+          "exact": 6,
+          "equal_pairs": 21,
+          "connectivity_mean_percent": 88.485,
+          "delivery_mean_percent": 61.753,
+          "time_median_s": 0.12907,
+          "time_max_s": 0.18335,
+          "memory_median_mb": 5.83,
+          "memory_max_mb": 6.1
+        },
+        "12": {
+          "n": 18,
+          "exact": 1,
+          "equal_pairs": 16,
+          "connectivity_mean_percent": 89.899,
+          "delivery_mean_percent": 64.288,
+          "time_median_s": 0.18767,
+          "time_max_s": 0.24047,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.37
+        },
+        "13": {
+          "n": 6,
+          "exact": 1,
+          "equal_pairs": 5,
+          "connectivity_mean_percent": 87.821,
+          "delivery_mean_percent": 57.272,
+          "time_median_s": 0.2307,
+          "time_max_s": 0.27835,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 5.84
+        },
+        "14": {
+          "n": 6,
+          "exact": 0,
+          "equal_pairs": 5,
+          "connectivity_mean_percent": 88.278,
+          "delivery_mean_percent": 59.475,
+          "time_median_s": 0.28275,
+          "time_max_s": 0.33055,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 5.84
+        }
+      },
+      "by_budget": {
+        "20": {
+          "n": 78,
+          "exact": 39,
+          "equal_pairs": 65,
+          "connectivity_mean_percent": 69.362,
+          "delivery_mean_percent": 57.5,
+          "time_median_s": 0.09574,
+          "time_max_s": 0.27266,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.36
+        },
+        "40": {
+          "n": 78,
+          "exact": 14,
+          "equal_pairs": 71,
+          "connectivity_mean_percent": 95.116,
+          "delivery_mean_percent": 66.033,
+          "time_median_s": 0.10931,
+          "time_max_s": 0.33055,
+          "memory_median_mb": 5.83,
+          "memory_max_mb": 6.37
+        }
+      }
+    },
+    "3": {
+      "overall": {
+        "n": 156,
+        "exact": 40,
+        "equal_pairs": 119,
+        "connectivity_mean_percent": 79.761,
+        "delivery_mean_percent": 59.262,
+        "time_median_s": 0.08009,
+        "time_max_s": 0.13032,
+        "memory_median_mb": 5.84,
+        "memory_max_mb": 6.38
+      },
+      "by_size": {
+        "6": {
+          "n": 62,
+          "exact": 26,
+          "equal_pairs": 49,
+          "connectivity_mean_percent": 73.118,
+          "delivery_mean_percent": 55.355,
+          "time_median_s": 0.08198,
+          "time_max_s": 0.11002,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.38
+        },
+        "8": {
+          "n": 42,
+          "exact": 10,
+          "equal_pairs": 32,
+          "connectivity_mean_percent": 81.973,
+          "delivery_mean_percent": 61.61,
+          "time_median_s": 0.07756,
+          "time_max_s": 0.12708,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.37
+        },
+        "10": {
+          "n": 22,
+          "exact": 2,
+          "equal_pairs": 17,
+          "connectivity_mean_percent": 84.848,
+          "delivery_mean_percent": 57.783,
+          "time_median_s": 0.07731,
+          "time_max_s": 0.11698,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.36
+        },
+        "12": {
+          "n": 18,
+          "exact": 1,
+          "equal_pairs": 13,
+          "connectivity_mean_percent": 87.374,
+          "delivery_mean_percent": 67.937,
+          "time_median_s": 0.08082,
+          "time_max_s": 0.13032,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.36
+        },
+        "13": {
+          "n": 6,
+          "exact": 0,
+          "equal_pairs": 3,
+          "connectivity_mean_percent": 82.906,
+          "delivery_mean_percent": 60.365,
+          "time_median_s": 0.08556,
+          "time_max_s": 0.11757,
+          "memory_median_mb": 6.09,
+          "memory_max_mb": 6.1
+        },
+        "14": {
+          "n": 6,
+          "exact": 1,
+          "equal_pairs": 5,
+          "connectivity_mean_percent": 88.278,
+          "delivery_mean_percent": 61.484,
+          "time_median_s": 0.09445,
+          "time_max_s": 0.1202,
+          "memory_median_mb": 6.1,
+          "memory_max_mb": 6.37
+        }
+      },
+      "by_budget": {
+        "20": {
+          "n": 78,
+          "exact": 24,
+          "equal_pairs": 56,
+          "connectivity_mean_percent": 66.975,
+          "delivery_mean_percent": 49.961,
+          "time_median_s": 0.07885,
+          "time_max_s": 0.1202,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.37
+        },
+        "40": {
+          "n": 78,
+          "exact": 16,
+          "equal_pairs": 63,
+          "connectivity_mean_percent": 92.547,
+          "delivery_mean_percent": 68.563,
+          "time_median_s": 0.08395,
+          "time_max_s": 0.13032,
+          "memory_median_mb": 5.84,
+          "memory_max_mb": 6.38
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "2 vs 1": {
+      "overall": {
+        "win": 115,
+        "tie": 30,
+        "loss": 11
+      },
+      "by_size": {
+        "6": {
+          "win": 37,
+          "tie": 21,
+          "loss": 4
+        },
+        "8": {
+          "loss": 7,
+          "win": 29,
+          "tie": 6
+        },
+        "10": {
+          "win": 19,
+          "tie": 3
+        },
+        "12": {
+          "win": 18
+        },
+        "13": {
+          "win": 6
+        },
+        "14": {
+          "win": 6
+        }
+      }
+    },
+    "3 vs 1": {
+      "overall": {
+        "win": 114,
+        "tie": 17,
+        "loss": 25
+      },
+      "by_size": {
+        "6": {
+          "win": 37,
+          "tie": 10,
+          "loss": 15
+        },
+        "8": {
+          "win": 32,
+          "tie": 5,
+          "loss": 5
+        },
+        "10": {
+          "win": 18,
+          "tie": 1,
+          "loss": 3
+        },
+        "12": {
+          "win": 15,
+          "loss": 2,
+          "tie": 1
+        },
+        "13": {
+          "win": 6
+        },
+        "14": {
+          "win": 6
+        }
+      }
+    },
+    "2 vs 3": {
+      "overall": {
+        "win": 65,
+        "loss": 58,
+        "tie": 33
+      },
+      "by_size": {
+        "6": {
+          "win": 28,
+          "loss": 15,
+          "tie": 19
+        },
+        "8": {
+          "loss": 21,
+          "win": 15,
+          "tie": 6
+        },
+        "10": {
+          "loss": 7,
+          "tie": 6,
+          "win": 9
+        },
+        "12": {
+          "win": 7,
+          "loss": 10,
+          "tie": 1
+        },
+        "13": {
+          "win": 4,
+          "loss": 2
+        },
+        "14": {
+          "loss": 3,
+          "win": 2,
+          "tie": 1
+        }
+      }
+    }
+  },
+  "metadata": {
+    "date_kst": "2026-11-25",
+    "submitted_at_kst": {
+      "1": "10:43:10",
+      "2": "11:18:03",
+      "3": "11:21:02"
+    },
+    "case_count": 156,
+    "graph_count": 78,
+    "seconds_limit": 300,
+    "memory_limit_mb": 6000,
+    "vcpu": 1,
+    "measurement": "제출 프로그램 실행 시간; 제출 이후 공통 평가 시간 제외",
+    "environment": "Linux, Intel Core i5-8500, 운영 채점 큐",
+    "source_sha256": {
+      "1": "f746eba0ccac486b207d81d0d409910c6ab478ab7619da16d2052a776a283087",
+      "2": "d1e19e58365dd99e363528570b7065a418791b6471b2180f286025b920ab2ebc",
+      "3": "50d82bdad7d21ec5a9c2881b25be9dfe6d56c15614096f45912e38ecad20dd0e"
+    },
+    "scope": "합성 그래프 78개; 그래프별 두 예산 사례, 크기별 표본 불균등"
+  }
+}
